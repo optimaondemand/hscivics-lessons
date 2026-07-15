@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Rousseau and the General Will</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-4-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">On the Social Contract</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 4.2</div><div class="title">Rousseau and the General Will</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Jean-Jacques Rousseau agrees with Locke and Montesquieu that legitimate government rests on the consent of the governed, and then answers the question of what that consent actually consists of in a way neither of them would fully recognize. For Rousseau, freedom is not a private possession you bring into society and ask government to protect. It is something you can only fully realize by joining your will to the community's.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Define the <em>general will</em> and explain how Rousseau's account of freedom as "obedience to law we have prescribed to ourselves" differs from Locke's account of pre-existing individual rights.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Contrast Rousseau's theory of legitimacy explicitly with both Locke's (Week 3) and Montesquieu's (this week).</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Explain, honestly and specifically, why the American founders drew far more from Locke and Montesquieu than from Rousseau.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Every Enlightenment social-contract theorist you have studied so far starts from roughly the same move: imagine people before government, ask what they are like and what they are owed, and then ask what kind of government those people could legitimately agree to. Hobbes's answer was a war of every man against every man, ended by surrendering nearly everything to an absolute sovereign. Locke's answer was a state of nature already governed by natural law, in which people already possess rights to life, liberty, and property, and government exists only as a limited trust to protect what people already had. Montesquieu mostly sets the state-of-nature question aside and asks instead how power should be structurally arranged once a government exists, so that it cannot be turned against the people it serves.</p>
+
+      <p>Jean-Jacques Rousseau, writing his <em>Discourse on the Origin of Inequality</em> in 1755 and <em>On the Social Contract</em> in 1762, takes the state-of-nature starting point from Hobbes and Locke and pushes it somewhere neither of them goes. His famous opening line to the <em>Social Contract</em> sets the whole problem in a single sentence: <strong>"Man is born free, and everywhere he is in chains."</strong> People are naturally free, Rousseau agrees, but the societies they have actually built have mostly enslaved them, often while pretending to protect their liberty. The question that drives the entire book, in his own words, is to "find a form of association" that protects each person and their property "while still enabling each of them to obey no one but himself, and to remain as free as before." That last clause is the puzzle: how can you be bound by laws and commands, and still be, in some meaningful sense, obeying no one but yourself?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The General Will: Freedom as Self-Legislation</h2>
+      <p>Rousseau's answer is the <em class="term">general will</em>; a term that has confused and fascinated readers for more than 250 years, so it is worth being precise about what it does and does not mean. The general will is not simply what most people happen to want at a given moment; Rousseau is careful to distinguish it from the mere sum of private wishes, which he calls the "will of all." The general will is instead what the political community, considered as a whole, wills for its own common good, when each citizen sets aside narrow private interest and asks what serves everyone together. When a citizen participates in making the law as part of the sovereign people, and that law is genuinely aimed at the common good rather than at favoring one faction, Rousseau holds that obeying the resulting law is not obedience to someone else's will at all; it is obedience to a law the citizen himself had a hand in making, as a member of the body that made it. This is what he means by his claim that true freedom is <em>obedience to a law we have prescribed to ourselves</em>: not the absence of laws, but participation, as co-author, in the laws that bind you.</p>
+
+      <p>This is a genuinely different theory of legitimacy from Locke's, and the difference is not a minor variation on a shared theme. For Locke, individual rights exist prior to and independent of the political community; government is legitimate to the degree that it protects those pre-existing rights, and a person retains rights against the community even when the community disagrees. For Rousseau, the political community itself, acting through the general will, is close to the ultimate source of what counts as rightful and free action for its members; there is much less room in his theory for an individual to stand on a private right against what the general will has determined, because true freedom, on his account, is found precisely in alignment with that will, not in independence from it. Locke asks: what pre-existing rights must government respect? Rousseau asks: what would the community, willing rightly, choose for itself? Those are different questions, and they can produce different answers to the same practical dispute.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Third Position, Next to Locke and Montesquieu</h2>
+      <p>Set the three theories side by side, because the comparison is the point of this week. Locke locates legitimacy in the protection of rights that exist before and outside of government; a limited trust that can be broken and reclaimed, as you studied last week. Montesquieu mostly brackets the question of ultimate legitimacy and asks instead how power must be structurally divided so that whatever government exists cannot become arbitrary; a question about architecture, not origins. Rousseau locates legitimacy in the collective self-legislation of the political community itself, where genuine freedom is not a private possession protected from the group, but a good realized only through the group, when the group wills rightly.</p>
+
+      <p>Here the lesson owes you an honest accounting, because this is a point where the historical record is unambiguous: <strong>the American founders drew far more from Locke and Montesquieu than from Rousseau.</strong> The Declaration of Independence's language of unalienable rights that exist prior to government is recognizably Lockean, not Rousseauian. The Constitution's structure of divided and checked powers is recognizably Montesquieuan. Rousseau's direct textual fingerprint on the American founding is comparatively faint.</p>
+
+      <p>Why? Because the very feature that makes the general will theoretically powerful (its claim to represent the true, rightly-willing community rather than merely a headcount of private opinions) is also what worried the founders most. If the "general will" is not simply whatever the majority happens to vote for, then someone has to decide what the community's true common good actually is, and separate it from a passing majority's mistaken or selfish preferences. Rousseau himself insisted the general will is not the same as the will of all, precisely because majorities can get it wrong. But once you grant that a government or a movement can claim to speak for the true general will against an actual, counted majority (or, just as dangerously, once an actual majority convinces itself that its own preference simply is the general will, with no room left for dissent) you have built a theory that can justify overriding individual rights and minority dissent in the name of the "real" community good, every bit as easily as it can justify freedom. A concept built to guarantee liberty can, without much twisting, be made to license its opposite.</p>
+
+      <p>This is not a modern objection read backward into the eighteenth century. It is a worry James Madison develops at length in Federalist No. 10, which you will read in Week 7, when he writes about the danger of an unchecked majority faction imposing its will on the rest of the community in the name of the common good. Madison's solution (a large, diverse republic with representative institutions, checks, and balances, rather than a compact community bound by a single general will) is, in its own way, a direct answer to the risk Rousseau's theory carries, even though Madison is not writing about Rousseau by name. Hold that thread. You will pick it back up in Week 7.</p>
+
+      <div class="oa-callout-help">
+        <div class="oa-kicker" style="color:#1B6A94;">&#128161; Reading Rousseau Fairly</div>
+        <p>It would be a mistake to conclude from this that Rousseau was simply wrong, or that his theory is nothing but a blueprint for tyranny. Rousseau is wrestling honestly with a real problem: how can law bind us and we still be free? His answer (that freedom means participating in self-government aimed at a genuine common good, not just being left alone) has influenced democratic theory, civic republicanism, and ideas of popular sovereignty ever since, including strands of American political thought. The point of this lesson is not to dismiss him, but to see clearly where his answer to the question of legitimacy differs from Locke's and Montesquieu's, and why the founders, weighing the risks, built their government mostly on the other two.</p>
+      </div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (Rousseau, <em>On the Social Contract</em>) and Primary Source Report 4.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.2 &middot; Rousseau and the General Will</div></div>
+</div>
+</div>
+</body>
+</html>

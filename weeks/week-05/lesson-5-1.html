@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; From Protest to Separation</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-5-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 5.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Declaration of Independence</div><div class="subvalue">Thomas Jefferson, 1776</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 5.1</div><div class="title">From Protest to Separation</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p style="font-style:italic; margin-bottom:2px;">Declaration of Independence</p>
+      <p style="color:#555; margin-bottom:8px;">Thomas Jefferson, principally, with the Committee of Five &middot; adopted July 4, 1776</p>
+      <p><strong>Reading:</strong> How a decade of protest over taxes and representation became, in the space of about eighteen months, a case for permanent separation, and the deliberate three-part argument Jefferson built to make that case, grounded in a theory of government you have already met once this semester.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Trace the escalating crisis of 1774&ndash;76, from the First Continental Congress through the Second, and explain what specifically changed between them.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain the rhetorical work Thomas Paine's <em>Common Sense</em> did in January 1776 to make independence, rather than mere redress of grievances, a thinkable position.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Identify the Declaration's three-part structure (preamble, indictment, formal declaration), and trace the specific Lockean lineage of its opening theory of government.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>In the autumn of 1774, delegates from twelve colonies sat down together in Philadelphia for the first time in the colonies' history and did something that would have been unthinkable a decade earlier: they acted, however cautiously, as one body. The occasion was the Coercive Acts, four punitive measures Parliament had passed that spring to answer the Boston Tea Party; among them the closing of Boston's port until the ruined tea was paid for, and the effective suspension of Massachusetts's own elected government. The <em class="term">First Continental Congress</em> that met in response did not ask for independence. It petitioned the king, organized a boycott of British goods, and affirmed (more than once) that the colonies wanted reconciliation, not rupture. That petition was refused. The boycott provoked no concession. And in April 1775, colonial militia and British regulars exchanged fire at Lexington and Concord, and the argument over words became a war.</p>
+
+      <p>The <em class="term">Second Continental Congress</em>, convening within weeks of that first bloodshed, inherited an odd, unstable position: it was now managing an actual war (raising a Continental Army, naming George Washington its commander), while still, on paper, professing loyalty to the Crown and hoping for peace. In July 1775 it sent the king one more petition, the Olive Branch Petition, asking him to intervene with Parliament on the colonies' behalf. George III refused even to read it, and in late 1775 declared the colonies in open rebellion. By the winter of 1775&ndash;76, the colonies were fighting a war in the name of a king who had disowned them and a Parliament whose authority they had never fully accepted. This was, as a matter of plain political logic, an untenable position. Armed resistance without a stated aim beyond "stop mistreating us" could not sustain itself, could not attract foreign allies, and could not answer the basic question every rebellion must eventually answer: <em>rebellion against what, and toward what?</em></p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What <em>Common Sense</em> Did</h2>
+      <p>Into this uncertainty, in January 1776, dropped a fifty-page pamphlet with no author's name on it, written by a recent immigrant to Pennsylvania named Thomas Paine. <em class="term">Common Sense</em> did not argue, primarily, that Parliament had overstepped its authority on this tax or that regulation; the argument the colonies had been having, in various forms, since the Stamp Act of 1765. Paine's target was bigger and stranger: he set out to make monarchy itself, and hereditary succession in particular, look absurd. "One of the strongest natural proofs of the folly of hereditary right in Kings," he wrote, "is that nature disapproves it, otherwise she would not so frequently turn it into ridicule, by giving mankind an <em>Ass for a Lion</em>." He walked through the Old Testament's own account of Israel's demand for a king (a demand the prophet Samuel and, in Paine's reading, God himself treated as a sin), and used it to argue that no serious biblical or rational case for kingship existed at all. He mocked the English constitution's celebrated "balance" of King, Lords, and Commons as a structure that "first excludes a man from the means of information, yet empowers him to act in cases where the highest judgment is required."</p>
+
+      <p>Why does this matter for the colonies' specific quarrel with George III? Because until someone made this case, the colonists' options looked like exactly two: stay loyal subjects of the Crown, or become outlaws and traitors with no legitimate standing at all. Paine opened a third position that had barely existed in colonial political imagination before January 1776: that the colonies could become a legitimate, self-governing people in their own right, answerable to no monarch, and that doing so was not treason against a rightful order but simply the correction of a very old mistake; the mistake of monarchy itself. "Everything that is right or reasonable pleads for separation," Paine wrote. "The blood of the slain, the weeping voice of nature cries, 'TIS TIME TO PART." The pamphlet sold, by most estimates, more than 100,000 copies in its first few months; in a population of roughly two and a half million free colonists. It did not win the argument by itself. But it moved independence from an unspeakable idea to a widely discussed, and increasingly popular, one, in a matter of weeks. By the time Richard Henry Lee rose in Congress on June 7, 1776, to propose the resolution that the colonies "are, and of right ought to be, free and independent States," the ground Paine had cleared made that motion possible in a way it would not have been a year, or even six months, before.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Committee, and the Document's Deliberate Architecture</h2>
+      <p>Congress did not wait for Lee's resolution to pass before preparing its justification. On June 11, 1776, it named a Committee of Five to draft a declaration: <strong>Thomas Jefferson</strong> of Virginia, <strong>John Adams</strong> of Massachusetts, <strong>Benjamin Franklin</strong> of Pennsylvania, Roger Sherman of Connecticut, and Robert R. Livingston of New York. Adams later gave a vivid, if self-serving, account of urging Jefferson to write the draft himself: "You can write ten times better than I can," he claimed to have told him. Jefferson's own account, written decades later, insists the committee simply and unanimously pressed the task on him alone, and that Franklin and Adams made only "two or three" small verbal corrections before it went to Congress. Whichever account is more exact in its particulars, the substance is not in dispute: Jefferson held the pen, and the document that emerged from that pen is built with real deliberateness around three distinct parts, each doing separate work.</p>
+
+      <p>The <strong>first part</strong> (the famous opening) states a general theory of legitimate government, not tied to any particular grievance at all. This was necessary for a reason you should recognize from Week 3's lesson on Locke: a list of grievances, however long, cannot by itself justify overthrowing "established and long recognized political authority," to use the historian Carl Becker's phrase. George III made no claim to rule by divine right; that doctrine was never a traditional or medieval one to begin with, but a novel Early Modern theory that had enjoyed its real popularity in the 1600s and carried little live force in Britain's constitutional monarchy by Jefferson's day. Still, the basic presumption of that constitutional order was that an established government deserved a strong presumption of continued obedience, and grievances alone, however numerous, could not overturn that presumption by themselves. What the colonies needed, before a single grievance was named, was an affirmative theory of government general enough to make revolution <em>respectable</em> under the right conditions, and only then could they show that those conditions applied to them.</p>
+
+      <p>That theory is drawn directly, specifically, and traceably from John Locke's <em>Second Treatise of Government</em>, the same text you studied in Week 3 on the dissolution of government. Locke's argument runs in a precise sequence: all men are born free and equal, possessing certain rights by nature (among them life, liberty, and property) that no government grants and no government may justly take away. Governments are instituted by the consent of the people specifically <em>to secure</em> those pre-existing rights; that is the whole purpose for which political power exists. And because government's authority is delegated by the people for that limited purpose, a government that persistently and deliberately betrays it (that becomes, in Locke's word, "destructive" of the very ends it was created to secure) forfeits its claim on the people's obedience. At that point, Locke argues, sovereignty reverts to the people, who retain the right to "alter or abolish" the government and construct a new one. This is not incidental borrowing. Jefferson himself, decades later, denied consulting Locke's book directly while drafting, but he readily admitted the debt in substance, writing that the Declaration was meant to rest "on the harmonizing sentiments of the day... as Aristotle, Cicero, Locke, Sidney, etc." Compare Jefferson's language to Locke's directly and the lineage is unmistakable, down to the sequence of the argument itself:</p>
+
+      <div class="oa-source-block" style="margin-top:8px;">
+        <p><strong>Locke, <em>Second Treatise</em>:</strong> "governments are instituted among men, deriving their just powers from the consent of the governed"&hellip; when government becomes destructive of the people's "life, health, liberty, or possessions," the people retain "a right to. . . throw off" that government and provide new guards for their future security.</p>
+        <p><strong>Jefferson, Declaration, second paragraph:</strong> "governments are instituted among men, deriving their just powers from the consent of the governed, that whenever any form of government becomes destructive of these ends, it is the right of the people to alter or to abolish it, and to institute new government."</p>
+      </div>
+
+      <p>The historian Carl Becker, who spent a full book tracing this lineage sentence by sentence, put the point plainly: "The lineage is direct: Jefferson copied Locke, and Locke quoted Hooker." This philosophy was not exotic or foreign to the colonists; it was, by 1776, close to a commonplace among educated Americans, absorbed through decades of reading Locke directly and through sermons, pamphlets, and the political culture of English Whig thought stretching back to the Glorious Revolution of 1688. John Adams, mildly irritated by all the praise Jefferson received for the Declaration, later grumbled that "there is not an idea in it but what had been hackneyed in Congress for two years before"; a complaint Jefferson accepted as essentially true and beside the point. The Declaration's power was never that it said something no one had thought before. Its power was that it said, with unmatched clarity and "felicity of expression," what a great many Americans by 1776 already believed.</p>
+
+      <p>The <strong>second part</strong> is the long catalogue of specific charges against George III; more than two dozen of them, running from his refusal to assent to needed laws, through his dissolving of colonial legislatures, to keeping standing armies among the colonists without their consent. Structurally, this section reads like a legal indictment: fact after fact, each introduced with the same accusing formula, "He has&hellip;", piled up without commentary, building toward one conclusion the reader is meant to reach independently; that this is not a series of unrelated missteps but "a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute tyranny over these states." Notice what this section is doing in relation to the first: it is not, by itself, the justification for rebellion. It is evidence that the conditions Locke's theory requires (a "long train of abuses," pursued deliberately, aimed at "reduc[ing] them under absolute despotism") have in fact been met. Theory supplies the standard; the indictment supplies the proof that the standard has been satisfied.</p>
+
+      <p>The <strong>third part</strong>, only a single paragraph, is the declaration proper: the actual, formal announcement that the united colonies "are, and of right ought to be, free and independent States." Everything before it is argument; this is the act itself, and it borrows its precise legal language from the resolution Congress had already passed on July 2. It is worth noticing how short this part is, and how little rhetorical weight it carries compared to the sixty-some lines of theory and evidence that precede it. By the time a reader reaches it, the actual declaration of independence feels almost like a formality; which is exactly the effect Jefferson was building toward. The document's whole architecture is designed to make the concluding act seem, by the time you arrive at it, not a leap but an obvious and overdue conclusion.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 5.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 5.1 &middot; From Protest to Separation</div></div>
+</div>
+</div>
+</body>
+</html>

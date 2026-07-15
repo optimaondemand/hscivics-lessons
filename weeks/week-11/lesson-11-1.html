@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; One Supreme Court and Whatever Congress Builds Beneath It</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-11-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">Rights, Structure, and the Constitution in Practice</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 11.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Constitution, Article III</div><div class="subvalue">Ratified 1788</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.3.7, 3.8</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 11.1</div><div class="title">One Supreme Court and Whatever Congress Builds Beneath It</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p style="font-style:italic; margin-bottom:2px;">Constitution of the United States, Article III</p>
+      <p style="color:#555; margin-bottom:8px;">Ratified 1788</p>
+      <p><strong>Reading:</strong> The shortest of the three articles that build the federal government, and, in some ways, the most unfinished on purpose. Article III sketches a judiciary and leaves Congress to build most of it.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain why the Constitution names only one Supreme Court directly, while leaving every court beneath it to Congress's discretion, and identify the Judiciary Act of 1789 as the law that first exercised that discretion.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>State the two structural protections Article III gives federal judges, and connect them to the case for judicial independence you studied in Week 8's reading of Federalist No. 78.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Distinguish original jurisdiction from appellate jurisdiction with a concrete example of each, and list at least three categories of case Article III places within federal judicial power.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Article I took seven sections to build Congress. Article II took three to build the presidency. Article III builds the entire federal judiciary in three short sections, and the first sentence of the first section tells you why it could afford to be so brief: "The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish." The Constitution itself creates exactly one federal court. Everything else in the federal court system (district courts, circuit courts of appeals, the entire architecture most people picture when they picture "the federal courts") exists only because Congress chose to create it, and could in theory be reorganized by Congress again.</p>
+
+      <p>This was a deliberate design choice, not an oversight. The framers could not know in 1787 how much federal litigation the new government would generate, what regions would need courts, or how many judges any of it would require. Rather than guess and lock a specific court structure into the Constitution's text, they gave Congress the ongoing power to <em class="term">ordain and establish</em> whatever "inferior" courts (meaning simply lower courts, ranked beneath the Supreme Court in the judicial hierarchy, not courts of lesser dignity) the nation's business required. Congress used that power almost immediately: the <em class="term">Judiciary Act of 1789</em>, one of the first laws the new Congress passed, created the federal district and circuit courts, set the size of the Supreme Court at six justices, and built the basic three-tiered structure that, much amended and expanded since, still organizes the federal judiciary today. Article III supplied the constitutional permission; the Judiciary Act supplied the actual courthouse.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Protections You Have Already Met</h2>
+      <p>Section 1 also states the two protections for federal judges that Week 8 examined in detail through Hamilton's Federalist No. 78: judges "shall hold their offices during good Behaviour," and shall receive a salary "which shall not be diminished during their Continuance in Office." <em class="term">Good behaviour</em> tenure means a federal judge, once confirmed, effectively serves for life; removable only through impeachment and conviction for genuine misconduct, not at the pleasure of whoever appointed them or whoever currently controls Congress. The salary protection means Congress cannot punish a judge for an unpopular ruling by cutting his pay. Recall Hamilton's argument: the judiciary, having "neither Force nor Will, but merely judgment," is naturally the weakest of the three branches, and needs the strongest institutional shelter to stay independent of the other two. Article III's text is where that argument became binding law. What Federalist No. 78 defended in theory in 1788, Article III had already written into the Constitution's actual text the year before.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Original Jurisdiction and Appellate Jurisdiction</h2>
+      <p>Section 2 draws a distinction worth holding onto for the rest of the course: the difference between <em class="term">original jurisdiction</em>, the authority to hear a case first, as a trial court, and <em class="term">appellate jurisdiction</em>, the authority to review a decision a lower court has already made. The Constitution gives the Supreme Court original jurisdiction only in a narrow set of cases; those "affecting Ambassadors, other public Ministers and Consuls," and those in which a state itself is a party. A concrete example: if one state sues another state directly over a water-rights dispute along a shared river, that case can go straight to the Supreme Court as a trial, with no lower court involved at all, because Article III places state-versus-state disputes within the Court's original jurisdiction.</p>
+
+      <p>Every other category of case Article III lists reaches the Supreme Court, if it reaches the Court at all, through appellate jurisdiction; meaning a lower court decides the case first, and the losing party may ask the Supreme Court to review that decision, subject to whatever exceptions and regulations Congress imposes. A concrete example: a federal district court convicts a defendant of a federal crime; the defendant appeals to a circuit court of appeals; if the circuit court affirms the conviction, the defendant may ask the Supreme Court to review the case on appeal. The Court is not retrying the facts from scratch in this posture; it is reviewing whether the law was applied correctly below. The overwhelming majority of the Supreme Court's business, then and now, is appellate rather than original.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What Article III Places Within Federal Judicial Power</h2>
+      <p>Section 2 also lists the categories of dispute the federal judicial power reaches: cases "arising under this Constitution, the Laws of the United States, and Treaties," cases affecting ambassadors and foreign ministers, admiralty and maritime cases, controversies between two or more states, controversies between a state and citizens of another state, and controversies between citizens of different states, among others. Two further guarantees deserve particular attention. Section 2 requires that "the Trial of all Crimes, except in Cases of Impeachment, shall be by Jury": the Constitution's original jury-trial guarantee for criminal cases, later joined and strengthened by the Sixth Amendment. Section 3 defines <em class="term">treason</em> against the United States narrowly and precisely, as "levying War" against the United States, or "adhering to their Enemies, giving them Aid and Comfort," and requires either the testimony of two witnesses to the same overt act or a confession in open court before anyone may be convicted of it. The framers had lived through the English Crown's habit of stretching treason accusations to silence political opponents; Article III's narrow, evidence-heavy definition was a deliberate guard against that same danger recurring under the new government.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 11.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 11.1 &middot; One Supreme Court and Whatever Congress Builds Beneath It</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Speech Clause and the Case for Free Expression</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-13-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">Landmark Civil Liberties</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 13.1</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.11</div><div class="subvalue">SS.912.CG.3.2</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">The First Amendment</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 13.1</div><div class="title">The Speech Clause and the Case for Free Expression</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> The First Amendment's guarantee of free speech; where the words come from, why classical liberal theory defends protecting speech that a majority finds wrong or offensive, and where that protection reaches its outer edge.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Quote and explain the speech clause of the First Amendment.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain the classical liberal argument for protecting speech the majority dislikes, including the idea that truth emerges from open contest and that self-government requires citizens free to criticize their government.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Identify, in general terms, that speech protection is not absolute; some narrow categories of speech fall outside full protection.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>The First Amendment to the United States Constitution is forty-five words long. Read slowly, it does more constitutional work per word than almost any other sentence the founding generation wrote: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances." This week and next, this course takes that sentence apart clause by clause. We begin with six words: "or abridging the freedom of speech."</p>
+
+      <p>Notice what the clause does not say. It does not say Congress may restrict speech it considers false, dangerous, or in bad taste, while protecting speech it approves of. It simply forbids Congress from abridging (that is, cutting down or curtailing) the freedom of speech, full stop. That is a strange thing for a government to write into its own founding law. Every government, including a democratic one, is tempted to silence its critics. The Sedition Act of 1798, passed by the very generation that ratified the First Amendment, shows how quickly that temptation returns even among the founders themselves. The First Amendment exists because enough of the founding generation thought that temptation needed to be foreclosed in advance, by a rule that binds the government even when a current majority would rather not be bound.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why Protect Speech You Think Is Wrong?</h2>
+      <p>The philosophical case for this rule is one this course has already met in outline, in the Enlightenment thinkers studied earlier this semester. It runs in two parts.</p>
+
+      <p>The first part is an argument about how a society finds out what is true. No individual, and no government, is a reliable judge of truth in the moment a controversial idea is first spoken. Ideas that look dangerous or false when first proposed sometimes turn out, on reflection and argument, to be right; ideas that look safe and obviously true sometimes turn out, under scrutiny, to be wrong. The classical liberal answer is that a society is more likely to arrive at truth, and to correct its own errors, through open contest among competing ideas than through a government office empowered to decide in advance which ideas may be spoken. Silencing a speaker does not just harm that speaker; it deprives everyone else of the chance to test the idea, refute it if it is wrong, or discover that it was right after all. On this view, censorship is not a neutral act of tidiness. It is a bet that the censor is smarter than the process of argument itself; a bet the classical liberal tradition thinks government is rarely in a position to make well.</p>
+
+      <p>The second part of the argument is about self-government specifically. A republic asks its citizens to judge their rulers; to decide, at the ballot box and in public debate, whether the government is governing well. A citizen who can be punished for criticizing an officeholder is not really a citizen in the full sense; he is a subject who happens to have a vote. Free speech, on this reasoning, is not an optional luxury attached to democracy after the fact. It is a structural requirement of self-government, because a people cannot judge a government it is forbidden to criticize. This is the same thread this course has followed since Solon and the Athenian jury right, and since Locke's argument that legitimate government rests on the continuing judgment of the governed: a citizen without the freedom to speak against his government has lost one of the levers that makes him a citizen rather than a subject.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Not Quite Absolute</h2>
+      <p>None of this means speech protection has no edges. American law has long recognized a small number of narrow categories that fall outside full First Amendment protection; among them <em class="term">true threats</em> (statements genuinely meant to place a specific person in fear of violence) and <em class="term">incitement to imminent lawless action</em> (speech deliberately intended, and likely, to produce lawless conduct right away, as opposed to advocacy of an idea in the abstract). The reasoning behind these narrow exceptions is consistent with, rather than opposed to, the theory above: a true threat does not contribute an idea to the marketplace for testing, and speech engineered to trigger immediate violence functions as action rather than argument. The exact boundaries of these categories, and the specific Supreme Court cases that drew them, belong to a later, more advanced study of constitutional law. For now, hold the shape of the rule: speech protection in America is very broad, covers a great deal of speech most people find wrong, ugly, or dangerous, and still is not infinite.</p>
+
+      <p>Keep that "very broad but not infinite" shape in mind as you turn to the second half of this week. The Amendment's other clauses (the two concerning religion) will show you the same pattern: a strong constitutional commitment, worked out in practice through cases where reasonable people, and reasonable justices, have disagreed about exactly where the line falls.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 13.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 13.1 &middot; The Speech Clause and the Case for Free Expression</div></div>
+</div>
+</div>
+</body>
+</html>

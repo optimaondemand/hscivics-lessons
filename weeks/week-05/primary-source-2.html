@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Paine, Common Sense</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="ps2-w5">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Week</div><div class="value">Week 5, Thursday</div></div>
+    <div class="cell"><div class="label">Source</div><div class="value" style="font-style:italic;">Common Sense (selections)</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Primary Source 2</div><div class="title">Paine, <em>Common Sense</em></div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; Context Before You Read</div>
+      <p>Published anonymously in January 1776 and read, by contemporary estimate, by a substantial share of the free colonial population within months, <em>Common Sense</em> did not argue over specific taxes. It argued that hereditary monarchy itself was an absurd and indefensible way to organize government, and that separation from Britain was therefore not treason against a rightful order but a correction of an old and avoidable mistake. One clarification matters here, since you have just read Montesquieu's admiring description of England as a mixed constitution (king, Lords, and Commons checking one another): Paine is not disputing that description as a plain matter of fact, and he is not claiming England was a simple, unchecked monarchy. His target is narrower and, in a way, more radical. He argues that hereditary kingship is illegitimate on its own terms, regardless of what other bodies share power alongside it, and he goes on to argue that the celebrated "balance" itself is something of an illusion, since the crown's own negative (its veto) sits over the whole arrangement and is not, in his view, genuinely checked by the other two. Read for both moves: the attack on kingship as an institution, and the direct case for independence.</p>
+    </div>
+
+    <div class="oa-source-block">
+      <p>"Mankind being originally equals in the order of creation&hellip; there is another and greater distinction for which no truly natural or religious reason can be assigned, and that is the distinction of men into KINGS and SUBJECTS. Male and female are the distinctions of nature, good and bad the distinctions of Heaven; but how a race of men came into the world so exalted above the rest, and distinguished like some new species, is worth inquiring into&hellip;</p>
+      <p>One of the strongest natural proofs of the folly of hereditary right in Kings, is that nature disapproves it, otherwise she would not so frequently turn it into ridicule, by giving mankind an Ass for a Lion&hellip;</p>
+      <p>England since the conquest hath known some few good monarchs, but groaned beneath a much larger number of bad ones&hellip; A French bastard landing with an armed Banditti and establishing himself king of England against the consent of the natives, is in plain terms a very paltry rascally original. It certainly hath no divinity in it."</p>
+      <p>On separation itself: "Every thing that is right or reasonable pleads for separation. The blood of the slain, the weeping voice of nature cries, 'TIS TIME TO PART&hellip; The Sun never shined on a cause of greater worth. 'Tis not the affair of a City, a County, a Province, or a Kingdom; but of a Continent&hellip; We have it in our power to begin the world over again."</p>
+      <div class="oa-source-cite">Thomas Paine, <em>Common Sense</em> (Philadelphia: R. Bell, 1776), from "Of Monarchy and Hereditary Succession" and "Thoughts on the Present State of American Affairs." Public domain.</div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source Report 5.1, below.</p>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

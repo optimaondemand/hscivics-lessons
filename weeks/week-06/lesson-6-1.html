@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Philadelphia, 1787: Madison's Convention</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-6-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 6.1</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.1.4, 1.5, 3.12</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 6.1</div><div class="title">Philadelphia, 1787: Madison's Convention</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Why fifty-five delegates traveled to Philadelphia in the summer of 1787 under instructions to patch up the Articles of Confederation, and why, within weeks, they were writing an entirely new constitution instead. You will meet the man who arrived more prepared than anyone else in the room, and the two rival plans whose collision nearly wrecked the Convention before it produced anything at all.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain why the Annapolis Convention and Shays' Rebellion pushed the states toward Philadelphia, and why the delegates' formal charge was revision, not replacement.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Describe James Madison's preparation before the Convention and explain how it shaped the framework he brought to Philadelphia.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Contrast the Virginia Plan and the New Jersey Plan, and explain precisely what each proposed and whom each favored.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Last week you read about a Massachusetts farmer named Daniel Shays, who in the winter of 1786 led an armed uprising of debt-ridden veterans against courts that were seizing their farms. Shays' Rebellion was put down without much bloodshed, but it did something no pamphlet or committee report had managed: it convinced a critical mass of American statesmen, including men who had spent the Revolution distrusting centralized power, that the government created by the Articles of Confederation could not keep the peace, let alone govern a nation. A confederation that could not raise an army to answer a rebellion, and could not compel the states to pay for one, was a confederation in name only.</p>
+
+      <p>The rebellion did not come out of nowhere in the world of high politics, either. A year earlier, in September 1786, delegates from five states had gathered at Annapolis, Maryland, hoping to fix the young republic's tangled mess of state tariffs and currencies, each state having gone its own way on trade since independence. So few states sent delegates that the men at Annapolis gave up on their narrow assignment and did something bolder: they wrote to Congress and to every state legislature, calling for a broader convention the following May in Philadelphia, with a mandate to consider <em class="term">whatever changes to the federal system the states thought necessary</em>. The Annapolis Convention had failed at its stated task and succeeded, almost by accident, at a much larger one; it opened the door Shays' Rebellion would later kick through.</p>
+
+      <p>When the Constitutional Convention opened in Philadelphia in May 1787, the twelve states that eventually sent delegates (Rhode Island alone stayed home, wary of any stronger central government) had given those delegates one official job: to revise the Articles of Confederation so that the existing government of the United States could function. Nothing in their instructions authorized the delegates to scrap the Articles and start over. That the Convention did exactly that, and that the country, in the end, accepted the result; is one of the more audacious moments in the Western constitutional tradition. It is worth sitting with the audacity before moving to the mechanics: a group of appointed representatives, without any legal authority to do so, decided the existing constitution was unfit to survive and replaced it, then persuaded the country to ratify what they had done. Understanding why they got away with it will occupy you for the rest of this module.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Best-Prepared Man in the Room</h2>
+      <p>Among the delegates from Virginia was a small, quiet, thirty-six-year-old planter named James Madison, who had spent the months before the Convention doing something almost no other delegate had thought to do: homework. Madison had been anxious about the confederation's weaknesses for years, and rather than simply show up in Philadelphia with opinions, he spent the winter of 1786&ndash;87 in his study at Montpelier working through every confederacy he could find a record of, ancient and modern; the Amphictyonic League and the Achaean League of ancient Greece, the Swiss Confederation, the Dutch Republic, the Holy Roman Empire; asking of each one the same question: why did it hold together, or why did it fall apart? He organized his findings into a working notebook he titled <em class="term">"Notes on Ancient and Modern Confederacies,"</em> distilling a pattern he thought explained the failure of every loose league of independent states he had studied: without some way to act directly on individual citizens, rather than merely requesting cooperation from state governments, a confederacy has no real government at all, only a standing invitation for its members to ignore it.</p>
+
+      <p>Madison did not stop with historical research. He also drafted, before the Convention opened, a memorandum on the specific "Vices of the Political System of the United States"; a diagnosis of exactly what was going wrong under the Articles: states ignoring federal requisitions, states passing conflicting trade laws against each other, states even violating treaties Congress had signed with foreign powers, all because the Articles gave Congress no power to compel obedience from a state that decided not to comply. By the time Madison stepped off his horse in Philadelphia, he had done more preparation than any other delegate at the Convention, and it showed almost immediately: it was Madison's outline, not any other delegate's, that became the starting proposal for the entire Convention's work. Historians would later call Madison the <em class="term">"Father of the Constitution,"</em> not because he wrote every clause; he did not, and he lost several arguments over the summer, but because his framework set the terms of the debate from the opening days onward, and because no one in the room had thought as systematically, or for as long, about what a durable government actually required.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Plans, One Deadlock</h2>
+      <p>On May 29, 1787, barely a week into the Convention, Edmund Randolph of Virginia rose and presented what became known as the <em class="term">Virginia Plan</em>; fifteen resolutions drafted mainly by Madison, though Randolph delivered them. The Virginia Plan proposed scrapping the Articles' single-chamber Congress, where each state had one equal vote, and replacing it with an entirely new national government built on three branches; legislative, executive, and judicial; answerable not to the states as states, but to the people. Its legislature would have two houses, and in both houses, representation would be apportioned according to each state's population or wealth. For Virginia, then the largest and most populous state, this was a plan built to give large states influence in proportion to their size. Delegates from Pennsylvania and Massachusetts, the other populous states, liked the Virginia Plan for the same reason Virginia did.</p>
+
+      <p>Small-state delegates saw the same proposal and did the arithmetic differently. Under a legislature apportioned strictly by population, Delaware or New Jersey would be permanently outvoted by Virginia and Pennsylvania on every question where big-state and small-state interests diverged. On June 15, William Paterson of New Jersey presented a counter-proposal, the <em class="term">New Jersey Plan</em>, which kept the Articles' basic structure; a single-chamber Congress with each state casting one equal vote, regardless of population, while adding some new federal powers, including the power to tax and to regulate commerce, that the Articles Congress had always lacked. The New Jersey Plan solved the government's practical weaknesses without touching the one thing the small states cared most about protecting: their equal standing as states, independent of population.</p>
+
+      <p>By late June, the Convention was stuck. Large states wanted representation by population; small states wanted equal representation by state; and the two positions were, on their face, irreconcilable; you cannot count votes by population and count votes by state at the same time in the same chamber. Delegates began openly worrying that the Convention would collapse without producing anything, that the states might go their separate ways, and that a divided confederation of small, quarreling nations, of the kind Madison had studied and dreaded in his notebook on ancient and modern confederacies, might be exactly the future waiting for America. The delegates adjourned for the July 4th holiday not celebrating, particularly, but bracing for what might be the Convention's final, failed weeks. What happened instead is the subject of Wednesday's lesson.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 6.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 6.1 &middot; Philadelphia, 1787: Madison's Convention</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Five Theories of American Foreign Policy</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-17-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The United States and the World</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 17.1</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.4.2, 4.3, 4.4</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">U.S. Foreign Policy Theories and Wars</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 17.1</div><div class="title">Five Theories of American Foreign Policy</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Before you can evaluate any specific American war, alliance, or intervention, you need a vocabulary for classifying it. This lesson gives you five analytical categories (five different answers to the question "why does a nation act abroad the way it does?"), and a founding-era or nineteenth-century example of each. You will use this vocabulary all week, and again in the two VR sessions that follow.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Define <em>isolationism</em>, <em>expansionism</em>, <em>spheres of influence</em>, <em>realism</em>, and <em>idealism</em> as distinct foreign-policy postures, each with a historical anchor example.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Classify a given historical episode of U.S. foreign policy along these five categories, and explain your reasoning.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Explain why real foreign policy is usually a blend of these categories rather than a pure instance of one.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Ask a diplomat why her country just signed a treaty, sent troops, or refused to intervene, and she will usually give you a reason that sounds like common sense: national interest, moral obligation, security, opportunity. But underneath almost any stated reason for a foreign-policy decision, there is a deeper question that rarely gets asked out loud: what is foreign policy <em>for</em>? Different American statesmen, across different eras, have answered that question differently, and their answers cluster into five recognizable patterns. Learn to see these patterns and you will be able to read almost any chapter of American diplomatic history (and most of the news, for that matter) with sharper eyes.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isolationism: Avoiding Entangling Alliances</h2>
+      <p><em class="term">Isolationism</em> is the posture that a nation's security and prosperity are best protected by staying out of the political quarrels, alliances, and wars of other nations; particularly wars that do not directly threaten one's own territory or vital interests. It is not the same as total withdrawal from the world; isolationist statesmen have generally still favored trade and diplomacy. What they resist is binding political and military commitment.</p>
+      <p>The classic American statement of this posture is George Washington's Farewell Address of 1796, in which he warned the young republic against "permanent alliances with any portion of the foreign world," urging instead "temporary alliances for extraordinary emergencies." Washington was not proposing that America ignore the world forever; he was arguing that a young, weak nation, still consolidating itself, had the most to lose and the least to gain from being dragged into the perennial power struggles of Europe. That warning became something close to scripture in American foreign policy for over a century, invoked again and again (sometimes faithfully, sometimes selectively) by statesmen arguing against involvement in foreign wars.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Expansionism: Growth as Policy</h2>
+      <p><em class="term">Expansionism</em> is the posture that a nation should grow (territorially, economically, or both) treating growth itself as a central aim of foreign and national policy. The classic nineteenth-century American example is <em class="term">Manifest Destiny</em>, the belief, widely held and loudly proclaimed by the 1840s, that the United States was destined to expand across the North American continent "from sea to sea." That belief helped justify the annexation of Texas, the war with Mexico, and the settlement of the Oregon boundary, and it treated continental expansion not as one option among several but as something closer to a national inevitability, even a national mission.</p>
+      <p>Expansionism and isolationism can coexist inside the same worldview more easily than you might expect: a nation can want no part of Europe's wars while still believing itself entitled, even obligated, to expand across its own continent. The two postures answer different questions; one about entanglement abroad, the other about growth at home and nearby.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Spheres of Influence: Claiming a Zone</h2>
+      <p>A <em class="term">sphere of influence</em> is a region a stronger power claims as its own particular zone of interest, within which it expects a decisive voice over the political and economic affairs of weaker neighboring states; without necessarily annexing or occupying them outright. The founding American example is the <em class="term">Monroe Doctrine</em>, announced by President James Monroe in 1823, which declared that the United States would regard any European attempt to colonize or interfere in the newly independent nations of the Western Hemisphere as an act hostile to the United States itself. Monroe was not proposing that the U.S. rule Latin America directly. He was claiming the entire hemisphere as an American sphere; a zone where European power was no longer welcome to operate, and where the United States reserved the right to act as the hemisphere's principal guardian.</p>
+      <p>The sphere-of-influence idea is subtle because it sits between isolationism and outright empire. It does not require distant wars or colonial administration, but it does require the willingness to treat a whole region as a zone of primary national interest and, when necessary, to act to keep other great powers out of it.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Realism: The Calculation of Interest and Power</h2>
+      <p><em class="term">Realism</em>, as a foreign-policy posture, holds that nations act (and should act) according to a sober calculation of their own security and power relative to other states; not according to moral ideals treated as ends in themselves. A realist statesman asks: what outcome best protects and strengthens my nation, given the actual distribution of power in the world, regardless of whether the methods or the partners involved are especially admirable? Realism does not claim that morality is irrelevant to statesmen as private individuals; it claims that a state's foreign policy, to survive in a world of competing powers, has to be judged chiefly by whether it works, not chiefly by whether it is virtuous.</p>
+      <p>Realist reasoning shows up whenever the United States has allied with a government it found otherwise objectionable because that alliance served a larger strategic purpose, or refrained from intervening somewhere on strictly moral grounds because the costs to American interests were judged too high. It is a posture about the <em>basis</em> for decisions, not a fixed position on any one issue.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Idealism: Spreading and Defending Values</h2>
+      <p><em class="term">Idealism</em> holds that foreign policy should be aimed, at least in significant part, at spreading or defending democratic values, human rights, and self-government abroad; that a nation's power should serve principles beyond its own narrow security or wealth. An idealist statesman asks: does this action make the world more free, more just, more self-governing? Idealism does not mean naivet&eacute; about power; it means treating moral and political principle as a governing aim of policy, not merely as decoration for policies chosen on other grounds.</p>
+      <p>You will meet a famous instance of idealist language later this week, when Harry Truman commits the United States to support "free peoples" resisting subjugation; language that frames American policy explicitly in terms of freedom and self-determination, not merely American advantage.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Framework, Not a Filing Cabinet</h2>
+      <p>Here is the honest complication: almost no real episode of American foreign policy is a pure specimen of just one of these five categories. Statesmen build coalitions of support out of mixed motives, and the same policy can be defended in realist terms to one audience and idealist terms to another. The Monroe Doctrine was a sphere-of-influence claim, but it was justified partly in the idealist language of protecting hemispheric self-government from European monarchy. Manifest Destiny was expansionist in its aims, but it drew on idealist rhetoric about spreading democratic institutions westward, and realist calculation about resources and continental security.</p>
+      <p>Treat these five categories the way a doctor treats a diagnostic checklist, not the way a librarian treats a filing system. Your job, when you study a historical episode of American foreign policy, is not to file it under exactly one label and move on. Your job is to ask which of these five logics is doing the most work in a given decision, and which others are present in a supporting role. That is exactly the exercise you will do with the Truman Doctrine and the "New World Order" address later this week; both are, on close reading, blends of realism and idealism, and naming the blend precisely is more valuable than forcing either speech into a single box.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 17.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 17.1 &middot; Five Theories of American Foreign Policy</div></div>
+</div>
+</div>
+</body>
+</html>

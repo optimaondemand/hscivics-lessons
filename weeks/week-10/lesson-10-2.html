@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; One Executive, Not Two: The Veto and the Case Against a Plural Presidency</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-10-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 10.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Federalist No. 70</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.4</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 10.2</div><div class="title">One Executive, Not Two: The Veto and the Case Against a Plural Presidency</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> This week's discussion topic; the veto power; is where lawmaking and policymaking physically meet: the one moment the Constitution lets the executive reach directly into the legislative process. Behind that single power sits a much bigger argument the framers had already settled by 1787, one this course flagged back in Week 2: should the nation's chief executive be one person, or several?</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Distinguish the regular veto, Congress's two-thirds override, and the pocket veto, and explain how each fits into the ordinary process of lawmaking.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain why the veto functions as a check-and-balance mechanism rather than a lawmaking power in its own right.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>State Hamilton's core argument in Federalist No. 70 for a single executive, and connect it to Rome's dual consulship as a deliberately rejected historical model.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>The Constitution does not give the President a vote in Congress, and it does not let the President introduce a bill. Lawmaking, as Lesson 10.1 established, belongs to Congress. But Article I, Section 7 gives the President one carefully limited tool for reaching into that process anyway: the <em class="term">veto</em>, from the Latin for "I forbid." Once both chambers of Congress pass a bill in identical form, it goes to the President, who has three options. He may sign it into law. He may return it to Congress unsigned, along with his objections; the <em class="term">regular veto</em>; in which case the bill dies unless two-thirds of both the House and the Senate vote to override the President's objection and enact it anyway. Or, if Congress adjourns within ten days of sending him the bill and he takes no action, the bill dies automatically without his signature and without a formal veto message; this quieter method is the <em class="term">pocket veto</em>, so called because the President, in effect, simply lets the bill sit unsigned "in his pocket" until Congress is no longer in session to override anything.</p>
+
+      <p>Notice what the veto is not. It is not a lawmaking power; the President cannot write a bill's language, and a vetoed bill that Congress declines to override simply fails to become law rather than being replaced with the President's preferred version. It is a check; a defensive power that lets the executive object to a specific product of the legislative process without ever letting him originate law himself. The two-thirds override threshold matters for the same reason the Senate's two-thirds treaty threshold mattered in Week 9: it sets the bar higher than an ordinary majority precisely because overriding the executive's objection is meant to require something closer to broad, cross-partisan consensus in Congress, not a bare majority scraping by.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Question the Framers Had Already Settled</h2>
+      <p>Behind the veto sits a larger design question, and the framers did not arrive at Philadelphia undecided about it. Recall Week 2's study of the Roman Republic: Rome, having expelled its kings, deliberately split its highest executive office between two <em class="term">consuls</em>, each holding an equal check on the other, precisely so that no single Roman could accumulate the unchecked power a king once held. It was a considered answer to a real problem, and it is exactly the model the American framers looked at, and rejected, for their own presidency.</p>
+
+      <p>Alexander Hamilton makes that rejection explicit in <em>Federalist No. 70</em>, writing under the pseudonym Publius as part of the essay series urging ratification of the Constitution. Hamilton opens with a direct claim: "Energy in the Executive is a leading character in the definition of good government," necessary, he argues, for the nation's defense, the steady administration of the laws, and protection against the "irregular and high-handed combinations" that threaten a republic from within. A weak, divided executive, in Hamilton's view, was not a safeguard for liberty but a liability to it.</p>
+
+      <p>Hamilton then turns directly to Rome as his historical evidence, and his reading of Roman history is more skeptical than admiring. He notes that Rome's own constitution, for all its balance between consuls, senate, and assembly, was repeatedly forced to abandon that balance in moments of genuine crisis, taking "refuge in the absolute power of a single man, under the formidable title of Dictator"; an implicit admission, Hamilton suggests, that a divided executive could not reliably act with the speed and decisiveness a republic sometimes needs. He goes further, observing that "the Roman history records many instances of mischiefs to the republic from the dissensions between the Consuls," and reaches for a still sharper example in the <em class="term">Decemvirs</em>, a ten-member commission that briefly governed Rome and, in Hamilton's account, became "more to be dreaded in their usurpation than any ONE of them would have been"; a plurality of executives, in other words, did not distribute danger safely; it multiplied it.</p>
+
+      <p>From this historical case, Hamilton draws a general argument for <em class="term">unity</em> in the executive; a single person holding the office, rather than a council or a pair. "Decision, activity, secrecy, and despatch," he argues, "will generally characterize the proceedings of one man in a much more eminent degree than the proceedings of any greater number." A plural executive invites exactly the kind of internal "dissensions" Rome's consuls suffered, and it damages accountability as much as efficiency: when something goes wrong under a divided executive, responsibility scatters across multiple officials, each able to blame the others, leaving the public unable to identify who, specifically, failed. A single executive has nowhere to hide. The veto, on this reading, is not a threat to republican government but part of what makes a single, accountable executive safe to empower in the first place: it gives that one person real energy and a real check on hasty legislation, while leaving him no power to act alone in creating law, and leaving Congress, in turn, a clear two-thirds path to overrule him when it disagrees.</p>
+
+      <p>Hold the comparison in view: Rome answered the problem of executive power by dividing it between two equals and, in its worst crises, had to suspend that very division to survive. The American framers, reading that history closely, answered the same problem differently; not by eliminating checks on the executive, but by keeping the office singular and building the checks around it instead, through the Senate's advice and consent, Congress's override, and the ordinary machinery of elections. It was a considered, historically informed choice, not an oversight.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source (Federalist No. 70) and Reading Quiz 10.2, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 10.2 &middot; One Executive, Not Two</div></div>
+</div>
+</div>
+</body>
+</html>

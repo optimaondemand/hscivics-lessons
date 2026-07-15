@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Enumerated Powers, and the Compromise Written Into the Text</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-9-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Constitution, Article I, &sect;8&ndash;9</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.3, 3.6; SS.912.AA.1.4, AA.2.4</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 9.2</div><div class="title">Enumerated Powers, and the Compromise Written Into the Text</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Article I, Section 8 lists, clause by clause, exactly what Congress may do; the concrete textual answer to a semester's worth of abstract theory about legitimate authority. And Article I contains something else: specific, negotiated textual provisions about slavery, which this lesson will not soften or skip past.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Identify at least five of the enumerated powers granted to Congress in Article I, Section 8, and explain the function of the Necessary and Proper Clause.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>State the actual constitutional text and function of the Three-Fifths Compromise and the slave-trade clause, and explain why each was a negotiated outcome of the Constitutional Convention.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Describe the Continental Congress's earlier record of action and inaction on the international slave trade, and place Article I's slavery clauses within that larger, honest history.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>You have spent nine weeks reading theory: Aristotle and Polybius on what makes a constitution durable, Locke on the origin of legitimate authority in consent, Montesquieu on why power divided is power checked, the Declaration's claim that governments derive their just powers from the governed. Article I, Section 8 is where that theory stops being abstract. It is a list; deliberately a list, not a broad grant of general authority; of exactly what the new federal Congress may do. The framers, having just escaped a king whose authority had no comparable list, wrote enumeration into the Constitution's DNA: if a power is not named here or reasonably implied by a named power, Congress does not have it.</p>
+
+      <p>The list itself is worth reading as a catalogue of what a functioning national government, as the framers understood it, actually requires. Congress may "lay and collect Taxes, Duties, Imposts and Excises" and "borrow money on the credit of the United States"; the power to fund the government and pay its debts, the exact power the government under the Articles of Confederation had lacked and that had helped bring the delegates to Philadelphia in the first place. Congress may "coin Money, regulate the Value thereof" and "regulate Commerce with foreign Nations, and among the several States"; the power to create one national economic space instead of thirteen competing currencies and trade policies. Congress may "declare War," "raise and support Armies," and "provide and maintain a Navy"; the power to defend the country, checked by the framers' choice to give the war-declaring power to the legislature rather than to the executive alone. And the list ends with the clause that has generated more constitutional litigation than almost any other: the power "to make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers." This <em class="term">Necessary and Proper Clause</em> (sometimes called the Elastic Clause) does not grant Congress new, independent powers; it grants Congress the authority to choose the means of executing the powers already listed. Whether a given law is genuinely "necessary and proper" to an enumerated power, or reaches beyond it, has been argued in Congress and in the Supreme Court since the 1790s and remains a live question in constitutional law today.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What the Text Actually Says About Slavery</h2>
+      <p>This course's stated commitment is to teach the Constitution's genuine achievements and its serious failures honestly, side by side, without minimizing either. Article I is where that commitment is tested directly, because Article I contains two specific clauses negotiated at the Convention to accommodate slavery, and the honest thing to do with a primary source is read what it actually says.</p>
+
+      <p>The first is in Article I, Section 2, Clause 3, the apportionment clause: representation and direct taxes are apportioned "by adding to the whole Number of free Persons&hellip; and excluding Indians not taxed, three fifths of all other Persons." "All other Persons" meant slaves. This is the <em class="term">Three-Fifths Compromise</em>: for the purpose of counting a state's population toward its number of seats in the House (and toward its share of any direct federal tax), three-fifths of a state's total slave population was added to its free population. Notice precisely what this clause did. It was not a statement about anyone's inherent human worth being three-fifths of another's: the clause counts "all other Persons," whole persons, at three-fifths weight, and takes no position on anyone's degree of personhood. It existed for a narrower, colder purpose: to settle how much political power slaveholding states would gain in the House from people they held in bondage and denied any vote or voice whatsoever. Southern delegates at the Convention wanted slaves counted fully for representation, which would have significantly increased their states' power in the House, while gaining no equivalent voice for the slaves themselves; many Northern delegates wanted slaves not counted at all for representation, since they had no political rights. Three-fifths was the number the Convention settled on as a compromise between those two positions, the same convention-hall bargaining that produced the Great Compromise on House and Senate representation you studied earlier this module, applied here to a far graver subject.</p>
+
+      <p>The second is in Article I, Section 9, Clause 1: "The Migration or Importation of such Persons as any of the States now existing shall think proper to admit, shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eight, but a tax or duty may be imposed on such Importation, not exceeding ten dollars for each Person." Stripped of its euphemism, this clause barred the new federal Congress from outlawing the international slave trade (the importation of slaves from abroad) for twenty years, until 1808 at the earliest, regardless of what Congress might otherwise wish to do. It was, again, a negotiated number: delegates from Georgia and South Carolina, whose economies depended heavily on continued slave importation, would not have signed a Constitution that let Congress end the trade immediately; delegates who wanted the trade ended sooner accepted a fixed date rather than lose the Union entirely. Both clauses were the price of getting Southern and Northern delegates to agree to a single Constitution at all. That is not an excuse. It is the historical mechanism, and it is worth naming plainly: the Convention's delegates, several of whom personally held slaves, chose national union over immediately confronting slavery, and wrote that choice into the nation's founding law using language that never once says the word "slave."</p>
+
+      <p>This did not happen in a vacuum, and it did not begin at Philadelphia in 1787. The Continental Congress under the Articles of Confederation had already wrestled, unevenly, with the international slave trade for years beforehand. In 1774, the Continental Association; the colonies' first coordinated boycott agreement; included a pledge to halt the slave trade as part of a broader non-importation policy aimed at Britain, though enforcement varied sharply by colony and the pledge did not survive independence intact. Individual states moved at very different speeds afterward: several Northern states restricted or banned slave importation on their own in the 1770s and 1780s, while the deep South continued and even expanded it. By the time delegates convened in Philadelphia, the Continental Congress itself had no uniform national policy on the slave trade to draw on; only a patchwork of state action, partial wartime gestures, and unresolved argument. Article I, Section 9's 1808 date is best understood against that backdrop: not as the founding generation's first encounter with the question, but as a hard deadline finally fixed in a nation that had spent over a decade failing to agree on one.</p>
+
+      <p>Congress did, in fact, act at the earliest constitutionally permitted moment: it passed a law banning the importation of slaves effective January 1, 1808, the first day the Constitution allowed it. That law stopped new arrivals from abroad; it did nothing to end slavery itself, which continued, sustained now by births within the slave population already in the country, for another fifty-seven years until the Thirteenth Amendment. Hold both facts at once: the Constitution's slave-trade clause was a serious moral failure embedded deliberately in the founding document, negotiated to secure ratification; and the date it fixed was also, eventually, honored and acted upon, in a way that mattered, even as it left the deeper injustice of slavery itself untouched for decades more. Neither fact cancels the other.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source (Article I, &sect;8&ndash;9, &sect;2) and Reading Quiz 9.2, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 9.2 &middot; Enumerated Powers, and the Compromise Written Into the Text</div></div>
+</div>
+</div>
+</body>
+</html>

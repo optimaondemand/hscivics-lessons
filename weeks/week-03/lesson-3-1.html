@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Hobbes and the War of All Against All</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-3-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 3.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Leviathan</div><div class="subvalue">Thomas Hobbes, 1651</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 3.1</div><div class="title">Hobbes and the War of All Against All</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p style="font-style:italic; margin-bottom:2px;">Leviathan</p>
+      <p style="color:#555; margin-bottom:8px;">Thomas Hobbes, 1651</p>
+      <p><strong>Reading:</strong> Hobbes's account of what human life would be like with no government at all, and the argument, built entirely from reason rather than tradition, for why people should hand over nearly all their power to a single sovereign in exchange for peace.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain why Enlightenment theorists reasoned from an imagined <em class="term">state of nature</em> rather than from custom, tradition, or religious authority, and why that choice was itself a revolution in method.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>State Hobbes's argument for why the state of nature is a state of war, and explain the roles that scarcity and mutual fear play in that argument.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Define <em>social contract</em> as Hobbes understands it, and explain why he believes the sovereign's authority, once granted, cannot be revoked.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Begin with a question that sounds almost childish until you actually try to answer it: why should anyone obey anyone else? Not "why do people in fact obey" (habit, fear, convenience explain that easily enough), but why <em>should</em> they, what makes it right rather than merely usual? For most of human history, in most places, the answer was some version of "because it has always been so." Kings ruled because their fathers had ruled, because a priesthood said the gods willed it, because the alternative was unthinkable. The answer pointed backward, to inherited custom or sacred order, not forward to an argument anyone could test.</p>
+
+      <p>In the seventeenth century, a small number of European thinkers stopped accepting that answer and tried something audacious: they attempted to reason out the legitimacy of government from scratch, the way a geometer proves a theorem from first principles, without leaning on scripture, precedent, or the divine right of any particular royal house. Their method was to imagine human beings stripped of all government, all law, all inherited social rank (a condition they called the <em class="term">state of nature</em>), and ask: what would that condition actually be like, given only what we know about human nature? And from the answer to that question, they tried to derive what kind of government, if any, people would be rational to construct, and on what terms.</p>
+
+      <p>This is worth pausing on, because it is easy to read past it as a mere device and miss that it was itself the intellectual revolution. To reason about political authority from an imagined pre-political condition, rather than from what God supposedly told a king's ancestor, or from "we have always had a monarchy," is to treat legitimacy as something that has to be earned by argument, available in principle to anyone willing to think it through; not something handed down and simply to be accepted. Notice that this is exactly the move Locke's opponent, Sir Robert Filmer, refused to make: Filmer tried to ground all royal authority in Adam's fatherhood, inherited in an unbroken line from scripture. The state-of-nature thinkers, whatever else they disagreed about, agreed that this kind of appeal to inherited authority does not settle anything, because it cannot show why the inheritance itself is legitimate. You will meet this method again and again this semester; it is the ancestor of nearly every argument in the founding generation about what government is for.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Thomas Hobbes and a World Without a Common Power</h2>
+      <p>The first thinker to take this method to its most severe conclusion was the English philosopher Thomas Hobbes, writing his masterwork <em>Leviathan</em> in 1651, in the wreckage of the English Civil War; a decade of the very real, very bloody breakdown of political order that Hobbes had watched destroy his country. That experience is not incidental to his philosophy; it is arguably the reason his state of nature turns out to be so dark.</p>
+
+      <p>Hobbes begins from a claim about human equality that sounds generous but is actually the engine of his argument: people are roughly equal in their capacities. Not identical, but close enough that no one is so strong, or so clever, that he can be safe from every combination of others who might wish him harm. Even the weakest person, Hobbes points out, can kill the strongest while he sleeps, or by joining forces with others. From this rough equality of power, and given that people want many of the same scarce things, Hobbes derives a devastating chain of reasoning. If two people want the same thing and cannot both have it, they become enemies, and each, seeking to secure that thing, will try to destroy or subdue the other before the other can do it to him. And here is the crucial step: this is rational even for someone who is naturally modest and wants only to live quietly. Because he cannot know whether his neighbor is equally modest, and because the cost of guessing wrong is potentially fatal, the safest course (for everyone, simultaneously) is to strike first, or at least to prepare constantly for war. Hobbes calls this dynamic <em class="term">diffidence</em>: not shyness in the ordinary sense, but a rational distrust that spreads by simple logic even among people who mean each other no harm at all.</p>
+
+      <p>Without a <em class="term">common power</em> (some authority above every individual, able to enforce agreements and punish aggressors) nothing restrains this dynamic. There is no one to appeal to, no umpire, no police, no court. Hobbes's own summary of the resulting condition is among the most quoted sentences in the history of political philosophy: without a common power to keep them in awe, men are in that condition "which is called war; and such a war as is of every man against every man." Notice precisely what he is claiming and what he is not. He does not claim that in the state of nature, everyone is actually fighting all the time. He claims something narrower and, in a way, more chilling: it is a state of war because the <em class="term">disposition</em> to fight is ever-present and unrestrained, whether or not actual blows are being exchanged; in the way that bad weather can be said to threaten "not in a shower or two of rain, but in an inclination thereto of many days together." The danger is constant even in the quiet moments.</p>
+
+      <p>In this condition, Hobbes argues, nothing valuable can be built. There is no secure property, because anyone strong enough can simply take what you have. There is no agriculture worth the labor, no long-distance trade, no art, no leisure to develop knowledge, because all of it requires a stability that the state of nature by definition cannot provide. In his most famous single line, Hobbes describes the life of man in this condition as "solitary, poor, nasty, brutish, and short." Every adjective in that list is doing work: solitary, because trust and cooperation collapse; poor, because nothing is safe long enough to accumulate; nasty and brutish, because force and fraud become the only currency; short, because violent death is always close at hand.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Social Contract: Trading Liberty for Peace</h2>
+      <p>If the state of nature is this bad, reason itself (Hobbes calls it "the laws of nature," discoverable by anyone who thinks carefully, not commanded by God through revelation) points toward an escape. People in the state of nature possess a natural right to everything, including the right to judge for themselves what their own safety requires and to use whatever force they think necessary to secure it. That unlimited right is precisely the problem: everyone judging their own case, everyone enforcing their own claims, is what produces the war in the first place. So reason recommends that people lay down this right, on the condition that everyone else does too, and transfer it to a single person or body; the <em class="term">sovereign</em>, which Hobbes names, after the fearsome sea-monster of the Book of Job, the <strong>Leviathan</strong>. This mutual laying-down of rights, exchanged and combined into an authority above every individual, is the <em class="term">social contract</em>: not a single historical event with a signed document, but a rational reconstruction of what any group of frightened, self-interested people would agree to if they could actually manage to agree.</p>
+
+      <p>Here is the feature of Hobbes's argument that later thinkers (and you, this week) will find most startling. For Hobbes, this contract cannot be conditional, and once made, it cannot be undone by the people who made it. His reasoning is not arbitrary cruelty; it follows with a certain grim consistency from everything before it. If the sovereign's power were conditional (if subjects retained the right to judge whether the sovereign was living up to the bargain, and to resist or depose him if they decided he was not) then every subject would once again be the judge of his own case. That is exactly the condition that produced the war of all against all to begin with. A "right of rebellion," on Hobbes's logic, does not protect people from tyranny; it recreates the very anarchy the contract was designed to end, because it hands back to disagreeing individuals the power to decide, each for himself, when obedience is no longer owed. So the sovereign's authority, for Hobbes, is total and (with a few narrow exceptions, such as a subject's right to resist someone trying to kill him personally) unconditional. Peace, Hobbes insists, is worth almost any price, including submission to a ruler who might turn out to be harsh, because the only alternative on offer is not a nicer government but no government at all.</p>
+
+      <p>Hold onto that last point, because it is the hinge this whole week turns on. Hobbes's Leviathan buys peace by making the sovereign's power effectively absolute and irreversible. On Wednesday, you will meet a very different Enlightenment thinker, writing a few decades later, who starts from many of the same tools (a state of nature, a social contract, reasoning from first principles), and arrives at an entirely different, and far more familiar, conclusion about whether a government's authority can ever run out.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 3.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 3.1 &middot; Hobbes and the War of All Against All</div></div>
+</div>
+</div>
+</body>
+</html>

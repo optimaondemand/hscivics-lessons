@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Civic Duties: Voting, Juries, and Military Service</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-16-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The Citizen and the Republic</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 16.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Pearl Harbor Address to Congress</div><div class="subvalue">Franklin D. Roosevelt</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Civic Duty in Wartime</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 16.1</div><div class="title">Civic Duties: Voting, Juries, and Military Service</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Rights are half of the citizen's relationship to the republic. The other half is <em class="term">duty</em>; what the citizen owes the commonwealth in exchange for its protection and its voice. Today's lesson examines the three duties most bound up with a citizen's standing in American public life: voting, jury service, and military service.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain why civic duties are the necessary flip side of civic rights, not a separate or optional add-on to citizenship.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Distinguish the legal status of voting, jury service, and military registration in the United States, and explain why each is enforced differently.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Connect jury service directly to the 6th and 7th Amendment trial rights studied earlier this semester.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Back in Week 1 of this course, you met the idea of <em class="term">citizencraft</em>; the claim that an American citizen is not a subject who merely receives protection from the state, but a part-owner of the commonwealth, a shareholder in a <em class="term">res publica</em>, "the public thing," with a stake in how it is run. Ownership of that kind is not free. A shareholder who only collects dividends and never shows up to a vote, never serves on the board, never does the unglamorous maintenance a shared enterprise requires, is not really exercising ownership at all; he is a passenger. The Constitution guarantees you rights: to speak, to worship, to a fair trial, to due process before the government can touch your life, liberty, or property. Those guarantees are not self-enforcing. They survive only because enough citizens, generation after generation, do the unglamorous work of keeping the republic running. That work has a name: <em class="term">civic duty</em>, the obligations a citizen owes the political community in return for the protections and voice it extends to him.</p>
+
+      <p>Three duties deserve special attention this week, because each one reveals something different about how a republic asks things of its citizens, and because all three converge, in different ways, on the same question you will spend the rest of this week's discussion wrestling with: when is a civic duty experienced as legitimate, and when does it start to feel like an imposition?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Voting: Expected, Not Compelled</h2>
+      <p>Start with the duty every American has heard about since elementary school, and the one that turns out to be the least legally binding of the three. No federal law and no state law requires an American citizen to vote. Compare that to Australia, Belgium, or Brazil, where failing to vote can bring a fine. The United States chose a different model: voting is a civic <em>expectation</em>, woven into the culture and rhetoric of American citizenship, but not a legal compulsion backed by penalty. The Constitution instead focuses on removing barriers to the ballot (the 15th Amendment barring denial of the vote on account of race, the 19th on account of sex, the 24th abolishing poll taxes, the 26th lowering the voting age to eighteen) rather than on forcing turnout once the barriers are gone.</p>
+
+      <p>That expectation still requires machinery to make it usable. In Florida, a citizen who wishes to vote must first register, a process that includes <em class="term">preregistration</em>: 16- and 17-year-olds may complete the registration paperwork before they are old enough to vote, so that their registration automatically activates on their 18th birthday. The state treats the step of registering not as a hurdle to discourage participation, but as an administrative prerequisite that a citizen serious about the duty of voting is expected to clear well before an election is on the calendar. A duty the law leaves voluntary is still a duty; it just relies on civic culture, rather than a court summons, to get citizens to show up.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Jury Service: The Duty Behind the Right</h2>
+      <p>Recall the two trial-rights amendments you studied earlier this semester. The 6th Amendment guarantees a criminal defendant "the right to a speedy and public trial, by an impartial jury"; the 7th Amendment extends a jury-trial right to most federal civil cases as well. Those rights are not abstractions written on parchment that enforce themselves. A jury trial requires an actual jury; twelve, or in many states six to twelve, ordinary citizens willing to set aside their own lives for a few days, sit in judgment on a stranger's case, and render a verdict. If citizens routinely dodge jury summonses, the 6th and 7th Amendment rights of every defendant who comes after them get thinner and slower, not because the Constitution changed, but because the pool of willing jurors did.</p>
+
+      <p>This is why every state treats jury service as a genuine legal duty, not a mere expectation like voting. A citizen who receives a jury summons and simply ignores it can be held in contempt of court, fined, or in some jurisdictions jailed. The logic is straightforward once you see it: the right to trial by jury belongs to the defendant, but the <em>duty</em> to staff that jury belongs to everyone else. A right that only one side has to honor is not really a right at all; it is a hope. Jury service is the clearest possible illustration of a civic duty as the necessary flip side of a civic right: the 6th Amendment promises you a jury of your peers, and that promise obligates you, in turn, to be somebody else's peer on their jury when your own summons arrives.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Military Service: Registration Now, Conscription in Extremity</h2>
+      <p>The third duty carries the highest possible stakes, because it can ask a citizen to risk his life for the commonwealth. In ordinary peacetime, the United States maintains an all-volunteer military; no one is compelled to serve. But federal law still requires nearly all male U.S. citizens and male immigrants, at age eighteen, to register with the <em class="term">Selective Service System</em>; a standing administrative registry that exists so that, if Congress and the President ever needed to reinstate a draft, the government would already have a list of who could be called. Registration itself is not service; it is preparedness, the legal residue of a duty the republic reserves the right to activate.</p>
+
+      <p>Historically, that reserve power has been activated more than once, and always in wartime, through <em class="term">conscription</em>; the compulsory enrollment of citizens into military service, commonly called "the draft." The United States has conscripted citizens during the Civil War, both World Wars, the Korean War, and the Vietnam War. Each time, the government asked something of its citizens that voting and jury duty never do: not an afternoon, not a few days, but years, and possibly a life. That is precisely why military conscription is the duty most likely to expose whether a republic's citizens experience an obligation as legitimate or as an imposition; which is where Wednesday's lesson picks up.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 16.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 16.1 &middot; Civic Duties: Voting, Juries, and Military Service</div></div>
+</div>
+</div>
+</body>
+</html>

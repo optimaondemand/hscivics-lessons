@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Locke and the Dissolution of Government</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-3-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 3.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Second Treatise of Government</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 3.2</div><div class="title">Locke and the Dissolution of Government</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Locke agrees with Hobbes that government arises from a social contract, and disagrees with him about almost everything that follows from it, because Locke's state of nature is not a war. That single difference produces the doctrine at the center of this week's discussion: governments can lose their right to rule, and the people can lawfully take that right back.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Contrast Locke's state of nature with Hobbes's, and explain how that contrast changes the nature of the social contract each philosopher describes.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain Locke's doctrine of the dissolution of government: what conditions release the people from their obligation of obedience, and why.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Identify the direct line connecting Locke's argument to the Declaration of Independence's justification for revolution.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Yesterday's primary source already showed you the hinge, if you were reading closely. Locke's state of nature is not Hobbes's war of every man against every man. It is, in Locke's words, "a state of perfect freedom" and "a state also of equality", but critically, it is already governed by "a law of nature," discoverable by reason, which teaches that no one ought to harm another's "life, health, liberty, or possessions." People in Locke's state of nature are not yet at each other's throats. They already possess natural rights (to life, to liberty, to property acquired by their own labor), and these rights do not wait for government to grant them. Government, on Locke's account, is not the source of rights. It is something people construct <em>afterward</em>, in order to protect rights they already had.</p>
+
+      <p>This reordering changes everything about what follows. If Hobbes's state of nature is intolerable because it is violent, Locke's is merely inconvenient; inconvenient in three specific ways that Tuesday's excerpt named directly. There is no settled, agreed-upon law to resolve disputes when people's honest judgments differ about what the law of nature requires in a particular case. There is no impartial judge, since in the state of nature every person is judge in his own cause, and people are notoriously bad at judging fairly when their own interests are at stake. And there is no reliable power to enforce a correct judgment once one is reached, even when people agree what justice requires. None of these three defects is violence itself; all three are failures of impartial <em class="term">administration</em>. Government, for Locke, exists to supply exactly these three missing pieces: a known law, a known judge, and a power to enforce judgments; nothing more, and crucially, nothing less.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Trust, Not a Surrender</h2>
+      <p>Because government exists only to better secure rights people already possessed, Locke describes the agreement that creates it not as an irrevocable surrender, the way Hobbes does, but as a <em class="term">trust</em>. A trust is a conditional grant of power: I give you authority to act on my behalf, for a specified purpose, and my continuing to be bound by your decisions depends on your continuing to act toward that purpose. This is the single word that separates Locke's whole political philosophy from Hobbes's. Because the legislative power is a "fiduciary power" (Locke's own term, from the Latin for trust) it "can never be supposed to extend farther than the common good." The people who create a government retain, in Locke's phrase, "a supreme power to remove or alter the legislative, when they find the legislative act contrary to the trust reposed in them."</p>
+
+      <p>This is Locke's doctrine of the <strong>dissolution of government</strong>, and it is worth being precise about what triggers it, because Locke is not describing a hair-trigger right to rebel over any grievance whatsoever. Locke identifies the breach specifically: when a ruler governs by "extemporary arbitrary decrees" instead of settled, known, standing law; or when the government attempts to seize the people's property without their consent (Locke is emphatic that "the supreme power cannot take from any man any part of his property without his own consent"); or when the ruler places the community under the arbitrary power of another, whether a foreign power or the ruler's own unchecked will. When any of these things happens, the trust has been broken. And when a trust is broken, Locke argues, the power that was only ever lent reverts to the people who lent it. They are "thereupon absolved from any farther obedience," restored to the choice they had at the beginning: to reconstitute their government, alter its form, or place their trust in new hands.</p>
+
+      <p>It is worth flagging Locke's own carefulness here, because the doctrine is powerful and easy to misuse. He anticipates the objection that this theory is "a ferment for frequent rebellion" and answers it by pointing to ordinary human sluggishness: people do not rise up over "great mistakes," "wrong and inconvenient laws," or the ordinary "slips of human frailty." Locke's own words are that people will bear all of this "without mutiny or murmur." What finally moves a people to resist, he argues, is not a single injury but "a long train of abuses, prevarications, and artifices, all tending the same way," so visible and so sustained that ordinary people can no longer avoid seeing where the pattern leads. Dissolution, in other words, is Locke's answer to a genuine emergency, not a permanent standing invitation to disobey whatever law one dislikes.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Where This Argument Is Going</h2>
+      <p>Hold onto this lesson, because you are going to meet it again, in almost identical language, in Week 5. When Thomas Jefferson sat down to write the Declaration of Independence's case against George III, he was not inventing a new theory of when a people may throw off their government. He was applying Locke's: a list of specific abuses, "a long train" of them, offered as evidence of "a design to reduce them under absolute despotism," followed by the conclusion that when that pattern is established, the people have not merely a permission but a duty to alter or abolish the government that has broken its trust. The Declaration's argument is Lockean dissolution of government, restated for an American audience and an American grievance. Keep that thread in your hand; you will pick it back up in five weeks.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (Hobbes, <em>Leviathan</em>) and Primary Source Report 3.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 3.2 &middot; Locke and the Dissolution of Government</div></div>
+</div>
+</div>
+</body>
+</html>

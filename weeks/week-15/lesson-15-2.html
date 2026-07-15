@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Brown v. Board of Education (1954)</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-15-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 15.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Brown v. Board of Education</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 15.2</div><div class="title"><em>Brown v. Board of Education</em> (1954)</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Fifty-eight years after <em>Plessy</em>, a unanimous Supreme Court reversed course and struck down "separate but equal" as applied to public schools; the product of a decades-long, carefully built legal strategy, and this week's discussion topic.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain the NAACP's long-term litigation strategy and how the consolidated <em>Brown</em> cases reached the Supreme Court.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>State the Court's unanimous holding precisely, including its explicit rejection of <em>Plessy</em>'s doctrine as applied to public education and its reasoning about the psychological and social harms of segregation.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Describe, briefly, what followed <em>Brown</em> (massive resistance, the slow pace of actual desegregation, and <em>Brown II</em>'s "all deliberate speed" standard), and explain why this pairing of cases functions as a case study in constitutional repair.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p><em>Plessy v. Ferguson</em> did not go unchallenged for fifty-eight years because no one objected to it. It went unchallenged, in the sense of being overturned, because reversing a Supreme Court precedent that had authorized an entire regional legal order required an extraordinarily patient, deliberate campaign, and the organization that built that campaign was the <em class="term">NAACP</em> (National Association for the Advancement of Colored People), through its Legal Defense Fund, led for much of this period by the attorney <strong>Thurgood Marshall</strong>, who would later become the first Black justice on the Supreme Court.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Strategy Built Case by Case</h2>
+      <p>Rather than challenge segregation everywhere at once, the NAACP's lawyers spent nearly two decades building precedent gradually, targeting graduate and professional schools first; cases where the claim that facilities were truly "equal" was hardest for states to defend, because most Southern states had never built separate law schools or graduate programs for Black students at all. Cases like <em>Missouri ex rel. Gaines v. Canada</em> (1938) and <em>Sweatt v. Painter</em> (1950) chipped away at <em>Plessy</em> without confronting it directly, forcing courts again and again to ask whether a given "separate" facility was actually equal in fact, not just in name. By the early 1950s, the NAACP judged the legal and political ground ready to challenge segregation's constitutionality head-on, in the setting where it touched the most children directly: public elementary and secondary schools.</p>
+
+      <p>The case that reached the Supreme Court in 1954 was in fact five consolidated cases from four states and the District of Columbia, addressing the same basic question. The named case, <em>Brown v. Board of Education of Topeka</em>, arose when Oliver Brown, a Black father in Topeka, Kansas, sued after his daughter Linda Brown was denied enrollment in the white elementary school nearest her home and required instead to travel further to a segregated Black school. The Supreme Court combined Brown's case with the others under one decision, recognizing that all of them turned on the same constitutional question: does racial segregation in public schools, even where the physical facilities are comparable, violate the Equal Protection Clause of the Fourteenth Amendment?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Unanimous Answer</h2>
+      <p>Chief Justice <strong>Earl Warren</strong>, newly appointed and determined to bring the Court to a single, unanimous voice on a question this consequential, wrote the opinion for a Court that ruled 9&ndash;0. The holding was direct and, unlike much constitutional law, stated in language meant to be widely understood: "We conclude that in the field of public education the doctrine of 'separate but equal' has no place. Separate educational facilities are inherently unequal." This sentence explicitly rejected <em>Plessy</em>'s framework, at least as applied to public schooling; the Court did not merely find that the schools in these particular cases happened to be unequal in fact; it held that separation itself, in public education, could never satisfy the Constitution's guarantee of equal protection, regardless of how comparable the buildings, teachers, or budgets might be made.</p>
+
+      <p>Warren's reasoning rested heavily on the specific harm of segregating <em>children</em>, in a setting where the state itself compels attendance and shapes a child's earliest sense of her own standing in the community. The opinion argued that separating children "from others of similar age and qualifications solely because of their race generates a feeling of inferiority as to their status in the community that may affect their hearts and minds in a way unlikely ever to be undone." In a passage that has since become one of the most discussed footnotes in constitutional law, the Court cited contemporary social science research, including psychological studies on the effects of segregation on Black children's self-perception, as evidence supporting this conclusion. The Court concluded that in public education, segregation by law is inherently a statement of inferiority imposed by the state on some of its own citizens, and for that reason alone, without any need to examine whether a particular school's facilities happened to be shabbier or better-funded, segregation in public education violates the Equal Protection Clause.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What Came After, Briefly</h2>
+      <p><em>Brown</em> declared segregated public schools unconstitutional; it did not, by itself, desegregate a single classroom. The Court issued a second decision the following year, sometimes called <em class="term">Brown II</em> (1955), which addressed the question of remedy; how quickly, and by what process, desegregation should actually occur. Rather than set a firm deadline, the Court ordered that desegregation proceed "with all deliberate speed," a phrase that gave lower federal courts and local school boards considerable discretion over the pace of compliance. In practice, that discretion was used, across large parts of the South, to delay rather than deliberately proceed: some school districts closed rather than integrate, some states organized "massive resistance" campaigns coordinated by segregationist officials, and the most visible confrontations (Little Rock, Arkansas, in 1957 chief among them) required federal troops to enforce a Black student's right to attend a public school a Supreme Court decision had already guaranteed her. A full account of that resistance, and of the broader civil rights movement it provoked, is a story for a later course; the relevant fact here is narrower: legal victory and social reality did not arrive together, and for many Southern school districts, meaningful desegregation took not months but years, in some places more than a decade.</p>
+
+      <p>Set <em>Plessy</em> and <em>Brown</em> side by side and you have a case study in something this course returns to more than once: the American constitutional order's capacity for both serious failure and serious self-correction, using the very same document and the very same clause. In 1896, the Fourteenth Amendment's Equal Protection Clause was read to permit a state to sort its citizens by race and call the result equal. In 1954, the same clause, unanimously, was read to forbid exactly that. Nothing about the text of the Fourteenth Amendment changed between those two rulings. What changed was the Court's willingness to look honestly at what segregation actually did, and to say so. That is not a small thing to be able to say about a constitutional order: not merely that it can make a grave mistake, but that it retains, within its own legal tools, the capacity to recognize the mistake and reverse it.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (<em>Brown v. Board of Education</em>, unanimous opinion) and Primary Source Report 15.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 15.2 &middot; Brown v. Board of Education (1954)</div></div>
+</div>
+</div>
+</body>
+</html>

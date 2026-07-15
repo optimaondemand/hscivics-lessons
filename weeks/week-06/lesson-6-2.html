@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Great Compromise and the Price of Union</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-6-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 6.2</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.1.4, 1.5, 3.12</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 6.2</div><div class="title">The Great Compromise and the Price of Union</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> How the Convention broke its deadlock over representation, and the string of further compromises, on slavery, on the presidency, on ratification itself, that followed once the delegates had proven a deal was possible.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain the terms of the Connecticut Compromise and why it satisfied both large and small states.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Describe the Three-Fifths Compromise, the Electoral College, and the decision to ratify by state convention, and explain what political problem each was meant to solve.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Connect Machiavelli's argument about civic conflict in the <em>Discourses on Livy</em> to the Convention's own turbulent process, and to Rome's Struggle of the Orders.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Roger Sherman and Oliver Ellsworth of Connecticut proposed the way out of the deadlock left over from before the July 4th recess, and the Convention adopted it on July 16, 1787. Historians call it the <em class="term">Connecticut Compromise</em>, or the <em class="term">Great Compromise</em>: a bicameral Congress in which the two chambers would be built on two different principles at once. The House of Representatives would be apportioned by population, exactly as the Virginia Plan wanted, giving large states the influence their numbers warranted. The Senate would give each state, regardless of size, two seats and two votes, exactly as the New Jersey Plan wanted, protecting the small states from being permanently outvoted. Neither side got everything. Both sides got the one thing they most needed to accept the deal: proof that the other side's core interest would be structurally protected, not merely promised.</p>
+
+      <p>The Great Compromise did not end the Convention's hard bargaining; it proved that hard bargaining could produce results, which made the delegates willing to strike further deals on the questions still outstanding. Several of those deals deserve to be examined honestly, because they show the framers solving real problems with means that ranged from ingenious to genuinely troubling.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Three-Fifths Compromise</h2>
+      <p>Once representation in the House was tied to population, a hard question followed immediately: would slaves count in that population, and if so, how? Southern delegates, whose states held large slave populations, wanted slaves counted fully for the purpose of allocating House seats, which would give the South considerably more representation in Congress. Northern delegates objected that slaves had no vote, no freedom, and no legal standing as persons under the laws of the states that held them in bondage, and asked why they should be counted for representation at all, since counting them only increased the political power of the very men who denied them any rights whatsoever.</p>
+
+      <p>The delegates settled on a formula, written into Article I, Section 2 of the Constitution, apportioning representation (and direct taxes) by counting the "whole Number of free Persons" plus <em class="term">"three fifths of all other Persons."</em> Read the clause carefully: it counts three-fifths <em>of</em> all other Persons, meaning three-fifths of a state's whole and complete slave population, not each individual slave as three-fifths of a person. The clause takes no position on anyone's degree of personhood; a slave counted under it is, in the Constitution's own words, a whole "Person," full stop. The question the clause actually answers is narrower and more mercenary: how much should a state's slave population count toward that state's share of political power in Congress? Count them fully, as the South wanted, and slaveholding states would gain House seats and electoral votes in direct proportion to the number of people they held in bondage and denied any voice at all. Count them not at all, as many Northern delegates wanted, and slaveholding states lost that advantage entirely. The three-fifths fraction was a bargain over that specific arithmetic of power, struck between men who agreed on very little else about slavery; it was not a compromise between two equally defensible positions in the way the Great Compromise was, but the price several Southern states demanded for joining the Union at all, and the price the rest of the Convention was willing to pay to get a Constitution. You will study the Constitution's specific provisions on slavery in much greater depth in Week 9, including the other clauses touching the slave trade and fugitive slaves.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Electoral College</h2>
+      <p>A different kind of disagreement surrounded the presidency. Some delegates wanted the president chosen by direct popular vote; others, worried that voters scattered across a vast country with no national newspapers or parties would have no reliable way to judge candidates from other states, wanted the president chosen by Congress or by the state legislatures instead; a method that itself raised the danger of a president beholden to the legislature that selected him, undermining the separation of powers the delegates were building into every other part of the Constitution. The delegates compromised on a middle mechanism: each state would appoint, by whatever method its legislature chose, a number of <em class="term">electors</em> equal to its total representation in Congress (House seats plus Senate seats combined), and those electors, meeting in their own states, would cast the actual votes for president. The system, now called the <em class="term">Electoral College</em>, gave the choice of president neither to Congress nor to a direct national popular vote, but to a body assembled solely for that purpose and then dissolved, and it built in the same large-state/small-state balance already struck in the Great Compromise, since a state's total electors reflected both its House seats (population-based) and its Senate seats (equal by state).</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Breaking the Rule on Ratification</h2>
+      <p>One final choice deserves attention precisely because it is easy to miss: how would this new Constitution be approved? The Articles of Confederation had required the unanimous consent of every state legislature for any amendment; the same rule that had made the Articles nearly impossible to fix, and the same rule the delegates in Philadelphia had technically violated just by proposing a wholesale replacement rather than a unanimous amendment. Rather than send the finished Constitution back to the state legislatures for approval under that old unanimity rule, the delegates specified in Article VII that the Constitution would take effect once special <em class="term">ratifying conventions</em> in nine of the thirteen states approved it; conventions of specially elected delegates, distinct from the sitting state legislatures, meeting for the sole purpose of voting on the Constitution.</p>
+
+      <p>This was itself a significant constitutional choice, not a formality. By routing ratification through the people acting in specially elected conventions, rather than through the state legislatures whose own power the new Constitution would partly displace, the framers reinforced the Preamble's claim that the new government's authority rested on "We the People" directly, not on the permission of state governments. And by setting the bar at nine states rather than thirteen, they guaranteed that a Constitution could take effect for the states that wanted it, without being held hostage to the single holdout that had crippled reform under the Articles. The delegates who wrote Article V's demanding amendment process were the same delegates who had just broken the old amendment rule to bring the Constitution into being in the first place; a pointed reminder that even the most carefully designed rules sometimes require political courage, and a fair measure of daring, to get a country from one settlement to the next.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Machiavelli and the Uses of Conflict</h2>
+      <p>The Convention's summer was not calm. Delegates walked out, threatened to leave for good, denounced one another's motives, and very nearly failed. It can be tempting to read that turbulence as a flaw in the process; a near-catastrophe the framers were lucky to survive. The Florentine political writer <em class="term">Niccolò Machiavelli</em>, in his early sixteenth-century commentary on Roman history, the <em>Discourses on Livy</em>, argued for a strikingly different way of reading exactly this kind of turbulence.</p>
+
+      <p>Machiavelli had studied the history of the Roman Republic, including the long internal struggle between its patrician and plebeian orders that you read about in Week 2; the <em class="term">Struggle of the Orders</em>, in which the plebeians repeatedly withdrew from the city and forced concession after concession from the patrician class, eventually winning their own magistrates, the tribunes, and a real share of power. Roman writers before Machiavelli had mostly treated this history of internal conflict as a shameful record of disorder that Rome had been fortunate to survive. Machiavelli inverted the judgment. He argued that the tumults between the plebeians and the senate, far from weakening Rome, were the very thing that had made it strong: "I say that those who condemn the tumults between the nobles and the plebs seem to me to be cavilling at the very things that were the primary cause of Rome's retaining her freedom." Conflict, properly channeled through institutions that let grievances be aired and settled rather than suppressed or left to fester, was for Machiavelli not a danger to a republic's freedom but a condition of it. A republic with no visible friction, he suggested, is not a republic at peace; it is a republic where one faction has already won and stopped listening to any other.</p>
+
+      <p>Read Philadelphia's summer through that lens, and the Convention's near-collapses look different. The large-state/small-state standoff that nearly wrecked the Convention in June and July was not a breakdown of the process; it was the process doing exactly what a well-institutionalized conflict should do; forcing each side to reveal what it actually needed, and making a genuine settlement (the Great Compromise) both necessary and, eventually, possible. Machiavelli would not have been surprised that a Convention capable of producing a durable Constitution was also a Convention that nearly fell apart three or four times along the way. Next week, you will meet a more direct descendant of this idea, much closer to home: James Madison's argument in Federalist No. 10 that a large, diverse republic does not need to eliminate faction; the clashing interests and factions that so worried many of his contemporaries, but can instead be built to control faction's worst effects while still drawing strength from the competition it produces. Machiavelli was arguing about Rome's tribunes and plebeian assemblies nearly three centuries before Madison ever picked up a pen; the family resemblance between the two arguments is not a coincidence.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (Machiavelli, <em>Discourses on Livy</em>) and the VR Activity, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 6.2 &middot; The Great Compromise and the Price of Union</div></div>
+</div>
+</div>
+</body>
+</html>

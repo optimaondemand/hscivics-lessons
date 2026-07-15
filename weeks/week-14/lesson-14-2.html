@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Sixth Amendment, the Right to Counsel, and Calibrating Suspicion in Terry v. Ohio</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-14-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 14.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Constitution</div><div class="subvalue">Amendment VI</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:12px;">SS.912.CG.3.11, 3.2</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 14.2</div><div class="title">The Sixth Amendment, the Right to Counsel, and Calibrating Suspicion in <em>Terry v. Ohio</em></div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> The Sixth Amendment's guarantees for the accused at trial, why the right to counsel became the linchpin that let the Court decide <em>Miranda</em> the way it did, and a companion case, <em>Terry v. Ohio</em>, that shows the Court calibrating a different, lower standard of suspicion to a different, smaller police intrusion.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Identify the five guarantees of the Sixth Amendment covered this lesson, with particular attention to the right to counsel.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain the Court's reasoning in <em>Miranda</em> for why the presence of counsel, specifically, is the safeguard that makes custodial interrogation constitutionally tolerable.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Distinguish <em>probable cause</em> from <em>reasonable suspicion</em> as constitutional standards, and explain how <em>Terry v. Ohio</em> ties the lower standard to a narrower police intrusion.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>The Sixth Amendment governs what happens to a person once formal criminal proceedings have begun against him, and it reads almost like a bill of particulars for a fair trial. It guarantees the accused a <em class="term">speedy and public trial</em>, so that a person cannot be left to languish in jail indefinitely awaiting a hearing, nor tried in secret where abuses go unwitnessed. It guarantees trial "by an <em class="term">impartial jury</em>," drawn from the community rather than selected or dismissed at the government's convenience. It guarantees that the accused be informed "of the nature and cause of the accusation" against him; he cannot be made to guess at the charge he must answer. It guarantees the right "to be confronted with the witnesses against him," meaning the accused can see and cross-examine the people whose testimony is used to convict him, rather than being convicted on the strength of accusations he never gets to challenge face to face. And it guarantees "the Assistance of Counsel for his defence"; the right to a lawyer.</p>
+
+      <p>Of these five, the right to counsel is the one that reaches backward, out of the courtroom, and into the police station; which is precisely why it matters so much to this week's discussion topic. The Sixth Amendment's text, read narrowly, promises counsel only "in all criminal prosecutions," language that could be understood to mean the right begins at trial, once the prosecution has formally started. But the Supreme Court, in the two years leading up to <em>Miranda</em>, had already begun to ask a harder question: if a suspect's fate can be effectively sealed by what happens to him <em>before</em> trial (specifically, by a confession extracted during police interrogation) does the right to counsel mean anything at all if it only switches on once the most damaging evidence has already been collected?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>Miranda</em> Revisited: Why Counsel Is the Safeguard That Does the Real Work</h2>
+      <p>Return to Monday's reading. The Court's core diagnosis was that custodial interrogation is inherently coercive; not necessarily through violence, but through isolation, psychological pressure, and what the opinion calls the "compulsion inherent in custodial surroundings." Once the Court had reached that diagnosis, it needed a remedy strong enough to actually neutralize the pressure it had just described, and its reasoning is worth walking through carefully, because it explains why the four warnings work together rather than as a checklist of separate, interchangeable rights.</p>
+
+      <p>Simply telling a suspect he has a right to remain silent, the Court reasoned, is not enough on its own. A frightened, isolated person, cut off from family and unfamiliar with legal procedure, can be talked out of that right within minutes by a skilled interrogator; the Court's opinion goes into considerable and unsettling detail about the psychological techniques contemporary police manuals recommended for exactly this purpose, from projecting absolute confidence in the suspect's guilt to alternating a hostile interrogator with a sympathetic one. A warning alone does not change the room the suspect is sitting in, or the fact that he is alone in it, facing trained professionals whose job is to get him to talk. What changes the room is a lawyer physically present in it. Counsel can advise the suspect not to answer; counsel can intervene if questioning turns coercive; counsel's very presence is a witness who can later testify in court if something did go wrong. This is why the Court held that a suspect must be told not only that he has a right to remain silent, but that he has "a right to the presence of an attorney" during the interrogation itself, and that if he cannot afford one, the state will provide one before questioning proceeds. The right to counsel, in other words, is the mechanism the Fifth Amendment's privilege against self-incrimination needs in order to actually function inside a police station rather than existing only on paper.</p>
+
+      <p>And because <em>Miranda</em> treats the coercive pressure of custodial interrogation itself (apart from any physical mistreatment) as the harm the Constitution addresses, the remedy had to apply automatically, before any specific abuse could be proven, rather than being litigated case by case after the fact. That is the reasoning behind the rule you read on Tuesday: warn first, or the statement cannot be used.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>Terry v. Ohio</em>: A Narrower Question, A Lower Standard</h2>
+      <p>Two years after <em>Miranda</em>, the Court took up a different constitutional question that looks, at first glance, like it belongs in the same family but is actually addressed to a much smaller, more common police encounter. In <em>Terry v. Ohio</em> (1968), a Cleveland police detective named Martin McFadden observed two men, one of them John Terry, repeatedly walking past and peering into a store window, conferring with each other, and repeating the pattern several times; behavior the detective, with 39 years of experience, recognized as consistent with "casing" a store for a robbery. McFadden approached the men, identified himself, asked their names, and then, receiving only a mumbled response, spun Terry around and patted down the outside of his clothing. He felt a pistol in Terry's coat pocket, removed it, and Terry was later convicted of carrying a concealed weapon.</p>
+
+      <p>Terry argued that this pat-down was a search under the Fourth Amendment, and that McFadden had no <em class="term">probable cause</em> (the traditional Fourth Amendment standard, requiring a reasonable basis grounded in specific facts to believe a crime has been, is being, or is about to be committed) to search him or place him under arrest. The Court agreed that a pat-down is indeed a search and therefore governed by the Fourth Amendment, but it declined to require full probable cause for this particular, narrower kind of police action. Instead, the Court held that an officer may briefly stop a person based on <em class="term">reasonable suspicion</em>; a standard lower than probable cause, requiring specific, articulable facts that, taken together with rational inferences from those facts, would lead a reasonable officer to conclude that criminal activity may be afoot. And where an officer reasonably suspects the person he has stopped may be armed and dangerous, he may conduct a limited pat-down of the person's outer clothing, for the narrow purpose of protecting himself and others nearby; not a full search for evidence, but a safety measure.</p>
+
+      <p>Why does the Court permit a lower standard here than it would ever permit for, say, a full search of someone's house or a formal arrest? The Court's reasoning turns on <em>proportionality</em> between the level of intrusion and the level of justification required to authorize it. A full arrest, or a full search, is a serious deprivation of liberty and privacy, and the Constitution demands the more demanding standard of probable cause before the state may impose it. A brief stop and a limited pat-down of outer clothing, by contrast, is a much smaller intrusion (seconds or minutes long, confined to a search for weapons rather than a general rummaging for evidence), and the Court concluded that requiring the full weight of probable cause for so limited an intrusion would leave police unable to protect themselves or investigate genuinely suspicious behavior in the ordinary course of patrol. The Court also balanced this against the very real danger officers face in street encounters, reasoning that a rule barring even minimal, protective pat-downs absent full probable cause would expose officers to unacceptable risk during exactly the kind of ambiguous encounter <em>Terry</em> itself presented.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Reading <em>Miranda</em> and <em>Terry</em> Together</h2>
+      <p>Placed side by side, these two cases teach the same lesson from two different directions. <em>Miranda</em> shows the Court insisting on a strong, fixed safeguard (the full complement of warnings, including counsel) precisely because the intrusion it addresses, custodial interrogation aimed at extracting a confession, is severe and its coercive potential is high. <em>Terry</em> shows the Court permitting a lower threshold of justification precisely because the intrusion it addresses (a brief stop and a pat-down for weapons) is comparatively limited. Neither case treats "the police may act" and "the police may not act" as the only two options. Both instead calibrate exactly how much suspicion or evidence the Constitution demands to how much the government is about to do to the individual standing in front of it. That calibration (matching the strength of the constitutional safeguard to the severity of the government's intrusion) is one of the recurring moves of American constitutional law, and you will see the same logic at work again and again as this course continues through the Fourth Amendment's search-and-seizure jurisprudence.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (<em>Terry v. Ohio</em>) and Primary Source Report 14.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 14.2 &middot; The Sixth Amendment and <em>Terry v. Ohio</em></div></div>
+</div>
+</div>
+</body>
+</html>

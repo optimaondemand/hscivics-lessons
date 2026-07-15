@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Three Drafts: Civil War, WWII, and Vietnam</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-16-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 16.2</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:12px;">SS.912.CG.2.2, 2.3, 2.8, 2.11, 2.12, 2.13; SS.912.G.4.1</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 16.2</div><div class="title">The Three Drafts: Civil War, WWII, and Vietnam</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> Three times in American history, Congress and the President turned military service from a volunteer's choice into a legal compulsion. Each time, citizens experienced that compulsion differently, and comparing the three tells you something durable about what makes a civic duty feel legitimate rather than imposed.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Compare the Civil War, WWII, and Vietnam drafts along the dimension of how equally each distributed its burden.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Explain how political parties, interest groups, and media coverage shaped public support or resistance to conscription in each era.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Interpret an illustrative table of voter turnout by age group and discuss what patterns of civic participation it suggests.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Monday's lesson left you with a question sharpened by contrast: military conscription asks more of a citizen than any other civic duty, so it is the duty most likely to expose whether a republic's citizens experience an obligation as legitimate or as an imposition. American history offers three clear test cases. Read them side by side and a pattern starts to surface; one worth naming precisely, because it will show up again whenever this course asks you to evaluate a government's claim on a citizen's obedience.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">1863: A Draft That Could Be Bought Out</h2>
+      <p>The Union's Enrollment Act of 1863 was the first true federal conscription law in American history, and it was, by nearly every measure, deeply unpopular. Its most corrosive feature was the <em class="term">commutation fee</em>: a drafted man could pay $300; roughly a year's wages for a laborer; to be excused from that particular draft call entirely. Wealthier men could also hire a substitute to serve in their place. The practical effect was that the burden of the draft fell almost entirely on those too poor to buy their way out, while men of means could treat conscription as an optional expense rather than a duty.</p>
+
+      <p>The resentment this produced detonated in New York City in July 1863, in what remains the largest civil insurrection in American history apart from the Civil War itself. The <em class="term">New York City draft riots</em> began as an attack on the draft office where enrollment lists were being drawn and expanded, over four days, into violence that killed at least 120 people, much of it directed at the city's Black population, who rioters scapegoated as a cause of the war being fought. It took federal troops, pulled directly from the just-fought battlefield of Gettysburg, to restore order. The 1863 draft is the starkest case study this course will offer of a civic duty experienced as illegitimate: when a burden the law claims to impose equally is in practice escapable by wealth, the citizens left holding it stop experiencing it as a shared duty and start experiencing it as a targeted extraction.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">1940&ndash;1945: A Draft With Broad Buy-In</h2>
+      <p>The draft that mobilized America for the Second World War tells a different story. Congress passed the Selective Training and Service Act in September 1940, over a year before Pearl Harbor, making it the first peacetime draft in U.S. history. But it was the attack you read about in Tuesday's primary source that transformed conscription from a contested peacetime policy into something close to a national consensus. Roosevelt's five-hundred-word address, and the shared sense of existential threat it both described and crystallized, meant that by the time the WWII draft was operating at full scale, it drew from every region, every class, and nearly every family in the country, and it did so with comparatively little of the organized resistance the Civil War draft had produced. That does not mean WWII conscription was universally welcomed by every individual called; it means the burden was distributed broadly enough, and the shared danger felt urgently enough, that most citizens experienced the draft as a duty rather than an imposition. Contrast that with 1863: a duty distributed narrowly, onto the poor alone, breeds riot; a duty distributed broadly, in the face of a threat the whole nation feels, breeds buy-in.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">1969&ndash;1973: A Draft Under a Legitimacy Crisis</h2>
+      <p>By the height of American involvement in Vietnam, conscription had once again become deeply contested. The escalating war lacked the single galvanizing event Pearl Harbor supplied, and as American casualties mounted with no clear end in sight, the draft that fed the war effort came under sustained attack. Congress and the Nixon administration introduced a draft lottery in 1969, assigning induction order by randomly drawn birth dates, explicitly to correct the perception; not entirely unlike 1863's; that deferments for college enrollment and other exemptions let wealthier and better-connected young men avoid service more easily than the poor. The lottery reduced some of that inequity but did not resolve the deeper problem: large numbers of draft-eligible young men resisted or evaded the draft outright, fled to Canada, or publicly burned draft cards, while campuses across the country erupted in protest against the war the draft was feeding. The Vietnam draft became one of the central engines of a broader collapse of public trust in government that marked the era; a crisis this course will return to when it studies the Cold War more broadly next week.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Throughline</h2>
+      <p>Lay the three drafts side by side and ask what actually determined whether citizens experienced conscription as a legitimate duty or an imposed burden. It was not simply whether people wanted to fight. It was, in every case, some combination of two factors: how <em>equally</em> the burden was distributed across rich and poor, and how clearly and urgently citizens perceived the threat the draft was meant to answer. The 1863 draft failed on the first factor. The Vietnam draft struggled on both. The WWII draft, powerfully aided by an attack the whole nation had just witnessed, largely succeeded on both. Keep that framework in mind; equality of burden, clarity of threat; whenever you are asked, in this course or outside it, to judge whether a government is asking something reasonable of its citizens or something else.</p>
+
+      <div class="oa-callout-help">
+        <div class="oa-kicker" style="color:#1B6A94;">&#128161; REQUIRED: How Politics and Media Shaped the Draft</div>
+        <p>Conscription was never argued about in a vacuum. In every era, political parties, interest groups, and the media actively shaped whether citizens experienced the draft as legitimate.</p>
+        <p>During World War II, the federal government itself became one of the loudest voices in this argument. Government agencies, war-bond drives, and Hollywood studios produced a flood of <em class="term">propaganda</em>; persuasive material designed to shape public opinion and behavior, not to inform neutrally; that framed enlistment and the draft as an urgent, shared patriotic duty. Posters showed Uncle Sam pointing directly at the viewer; recruitment films used ordinary-seeming actors ("plain folks") to suggest that anyone could and should serve; newsreels paired images of Pearl Harbor's destruction with calls to enlist. This coordinated media push did not create public support for the WWII draft out of nothing, but it amplified and organized a sense of shared threat that was already present after Pearl Harbor, and it deliberately marginalized dissent.</p>
+        <p>The Vietnam era ran the opposite direction. As the war dragged on, television brought combat footage into American living rooms nightly; the first war Americans watched in something close to real time, and investigative journalism increasingly challenged the government's official version of events, most famously after the 1968 Tet Offensive and later revelations like the Pentagon Papers. Antiwar organizations, campus groups, and eventually influential figures within both political parties used that media environment to organize public opposition to the draft directly, arguing it was propping up a war effort the government itself could not honestly justify. Where WWII-era media mobilized citizens toward the draft, Vietnam-era media increasingly mobilized citizens against it; a vivid illustration of how political parties, interest groups, and the media do not just report on a civic duty; they actively help determine whether the public will regard it as legitimate.</p>
+      </div>
+
+      <div class="oa-callout-widget">
+        <div class="oa-kicker" style="color:#555;">&#129513; Interactive: Propaganda Techniques Identifier</div>
+        <p><em>[Widget placeholder; not yet built; to be developed for the live Canvas version of this course.]</em> This interactive activity will present students with a gallery of real WWII-era posters and Vietnam-era headlines and require them to drag each item into the persuasive-technique category it best represents: <strong>"plain folks"</strong> (ordinary-seeming figures used to suggest universality), <strong>fear appeal</strong> (imagery designed to provoke anxiety about a threat), <strong>glittering generalities</strong> (vague, emotionally loaded language like "freedom" or "duty" used without specific content), and <strong>testimonial</strong> (a trusted or admired figure endorsing a position). The widget will score students on correct categorization and provide brief explanatory feedback for each item once submitted.</p>
+      </div>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Reading the Numbers: Voter Turnout by Age Group</h2>
+      <p>Civic duty is not only about conscription. Voting participation itself varies sharply by demographic group, and reading that variation is itself a basic civic skill. The table below presents illustrative, approximate figures; rounded for clarity, not drawn from a single official source; representative of the general pattern political scientists have observed across recent U.S. presidential elections. Study it, then consider: what might explain the pattern, and what would it mean for a republic if one age group came to dominate elections while others opted out almost entirely?</p>
+
+      <table class="oa-rubric-table" style="margin-bottom:14px;">
+        <tr><th>Age Group</th><th>Approximate Turnout, Recent Presidential Elections (Illustrative)</th></tr>
+        <tr><td>18&ndash;24</td><td>~45%</td></tr>
+        <tr><td>25&ndash;44</td><td>~55%</td></tr>
+        <tr><td>45&ndash;64</td><td>~65%</td></tr>
+        <tr><td>65 and older</td><td>~70%</td></tr>
+      </table>
+
+      <p>Students will interpret this table and discuss what it suggests about civic participation. Notice the direction of the trend: turnout tends to rise with age. Political scientists offer several explanations worth weighing against each other; older citizens have generally had more time to establish residency, build the habit of voting across repeated elections, and develop a stake in policies (Social Security, property taxes, local school boards) that visibly affect them, while younger citizens move more often, which complicates registration, and may not yet perceive as direct a stake in the outcome. Whatever the explanation, an age gap this size in a duty this basic to citizencraft is worth taking seriously, in the same way this lesson has asked you to take seriously why some civic duties are experienced as legitimate and others are not.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>VR Activity 16: Civic Duty in Wartime, and Primary Source 2 (LBJ, Johns Hopkins Address), below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 16.2 &middot; The Three Drafts: Civil War, WWII, and Vietnam</div></div>
+</div>
+</div>
+</body>
+</html>

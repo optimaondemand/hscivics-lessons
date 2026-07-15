@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Two Religion Clauses, One Amendment</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-13-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 13.2</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.11</div><div class="subvalue">SS.912.CG.3.2</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 13.2</div><div class="title">Two Religion Clauses, One Amendment</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> The First Amendment does not contain one religion clause but two, pulling in directions that can strain against each other, and the Supreme Court's attempt, in <em>Lemon v. Kurtzman</em>, to give lower courts a workable rule for telling when government has crossed the line from accommodating religion into establishing it.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Distinguish the Establishment Clause from the Free Exercise Clause and explain the tension between them.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>State the three parts of the <em>Lemon</em> test and explain what each part is designed to catch.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Explain how <em>Sherbert v. Verner</em> illustrates a Free Exercise Clause claim, and how it sits on the opposite side of the same coin from <em>Lemon</em>.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Return to the First Amendment's text: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof." Read carefully, that is two separate commands, not one. The <em class="term">Establishment Clause</em> forbids the government from setting up an official state religion or otherwise officially favoring or endorsing religion. The <em class="term">Free Exercise Clause</em> forbids the government from interfering with a person's right to practice his own religion. Both clauses protect religious liberty, but they protect it from opposite directions; one restrains government from promoting religion, the other restrains government from burdening it.</p>
+
+      <p>Most of the time these two commands work in harmony: government simply stays out of religious matters, and both clauses are satisfied at once. But the two clauses can pull against each other in a specific and recurring way. Suppose government accommodates a religious practice; exempts a church from a general regulation, say, or excuses a religious objector from an otherwise universal requirement. To the person who benefits, that accommodation looks like simple respect for free exercise. But to someone outside that faith, the same accommodation can look like government favoring one religion's needs over everyone else's; an establishment, or at least a step toward one. This is not a flaw in the Amendment; it is the price of protecting two related but distinct goods with two separate rules. Courts have spent decades since the founding, and especially since the mid-twentieth century, working out where the line between reasonable accommodation and impermissible establishment actually falls.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Lemon Test</h2>
+      <p>You read <em>Lemon v. Kurtzman</em> (1971) yesterday for its facts: Pennsylvania and Rhode Island used tax money to help pay the salaries of teachers of secular subjects in nonpublic schools, almost all of them Roman Catholic. The Supreme Court struck both programs down. But the more lasting achievement of Chief Justice Burger's opinion was not the specific ruling; it was the general test he distilled from decades of prior Establishment Clause cases, a test lower courts could actually apply to the next case, and the one after that, without having to reason the whole problem out from scratch every time. That test has three parts, and a law challenged under the Establishment Clause must satisfy all three to survive:</p>
+
+      <div class="oa-numbered"><div class="circ">1</div><div><strong>Secular purpose.</strong> The government action must have a secular legislative purpose; it cannot exist mainly to advance or promote religion.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div><strong>Primary effect.</strong> Its principal or primary effect must neither advance nor inhibit religion.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div><strong>No excessive entanglement.</strong> It must not foster "excessive government entanglement with religion"; meaning it cannot require the kind of ongoing government monitoring, auditing, or supervision of religious institutions that itself creates an improper closeness between church and state.</div></div>
+
+      <p>Notice how the third prong did the actual work in <em>Lemon</em> itself. The Pennsylvania and Rhode Island laws arguably had a secular purpose (better-educated citizens) and were framed to have a secular effect (funding only secular subjects). What sank them was entanglement: to make sure the money actually paid only for secular instruction, the state would have had to audit parochial school finances and, more troublingly, police what teachers (many of them nuns and priests, in schools whose entire purpose was religious formation) actually said in the classroom. That ongoing supervisory relationship between government and church, the Court held, was itself the constitutional problem, independent of whether any teacher had actually preached in a math class.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Other Side of the Coin: Sherbert v. Verner</h2>
+      <p><em>Lemon</em> is an Establishment Clause case: it asks how far government can go in aiding religion before the aid becomes an establishment. <em>Sherbert v. Verner</em> (1963), decided eight years earlier, is a Free Exercise Clause case, and it asks the opposite question: how far can government go in burdening religion before the burden becomes an unconstitutional interference with free exercise?</p>
+
+      <p>Adell Sherbert was a Seventh-day Adventist working in a South Carolina textile mill. Her faith's Sabbath falls on Saturday, and when her employer began requiring Saturday shifts, she refused to work that day and was fired. South Carolina then denied her unemployment compensation, on the ground that she had turned down available work without "good cause." Sherbert argued that her cause (obedience to her Sabbath) was exactly the kind of religious practice the Free Exercise Clause exists to protect, and that conditioning a government benefit on her willingness to violate it unconstitutionally burdened her free exercise of religion.</p>
+
+      <p>The Supreme Court agreed with her. It held that South Carolina's rule placed a substantial burden on Sherbert's free exercise of religion, forcing her to choose between following the tenets of her faith and receiving a government benefit to which she would otherwise be entitled. The Court further held that the state had failed to show a sufficiently compelling justification for that burden; South Carolina's asserted interest in preventing fraudulent unemployment claims did not require putting Sabbath-observers to that particular choice. Denying her benefits, in other words, worked as effectively as an outright fine or penalty on her religious practice, and the state could not impose that kind of penalty on the exercise of religion without a strong enough reason, which it did not have here.</p>
+
+      <p>Now put the two cases side by side. In <em>Lemon</em>, the worry ran one direction: government aid to religious schools risked crossing over into establishment. In <em>Sherbert</em>, the worry ran the other direction: a religiously neutral-sounding state rule risked crossing over into an unconstitutional burden on free exercise. Both cases are the Supreme Court trying to hold the same two-sided coin steady; keeping government far enough from religion that it does not establish or promote any faith, while keeping government close enough to fairness that it does not accidentally punish citizens for practicing theirs. Read together, <em>Lemon</em> and <em>Sherbert</em> show you the First Amendment's two religion clauses doing their separate jobs in the same decade of American law, and occasionally making a lower court's task look less like drawing one clean line and more like balancing on two ropes at once.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (<em>Sherbert v. Verner</em>) and Primary Source Report 13.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 13.2 &middot; Two Religion Clauses, One Amendment</div></div>
+</div>
+</div>
+</body>
+</html>

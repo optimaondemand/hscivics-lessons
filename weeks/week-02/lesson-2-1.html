@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Founding of the Republic and the Mixed Constitution</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-2-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 2.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">De Republica</div><div class="subvalue">Cicero</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 2.1</div><div class="title">The Founding of the Republic and the Mixed Constitution</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p style="font-style:italic; margin-bottom:2px;">De Republica (On the Commonwealth)</p>
+      <p style="color:#555; margin-bottom:8px;">Marcus Tullius Cicero, 54 BC</p>
+      <p><strong>Reading:</strong> An account of how Rome, having expelled its kings, built a government designed not around one citizen's power but around the deliberate multiplication and mutual checking of power; the Roman answer to the same question Athens answered by other means.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain the etymology and meaning of <em>res publica</em>, and state why the Romans of 509 BC organized their politics around that idea rather than around a restored monarchy.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Describe the dual consulship (joint <em>imperium</em>, annual terms, and mutual veto), and explain what problem this arrangement was built to solve.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Distinguish Rome's strategy for checking power (institutional plurality) from Athens's strategy (direct citizen power), and connect both to the six foundational questions of this course.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>In 509 BC, the Romans threw a king out of his own city. Tradition says the last straw was personal: Sextus, son of King Lucius Tarquinius Superbus ("Tarquin the Proud"), committed a monstrous crime against a noblewoman named Lucretia, who then took her own life rather than live with the shame of it. Her kinsman Lucius Junius Brutus is said to have stood over her body and sworn that Rome would never again be ruled by a king. Whatever the precise truth buried under roughly four and a half centuries of retelling by the time Cicero wrote, the political fact is not in dispute: the Romans expelled their seventh king, and rather than replace him with an eighth, they built something that had not quite existed before; not, at least, in the form Rome gave it.</p>
+
+      <p>They called it the <em class="term">res publica</em>; literally, "the public thing," or "the people's affair." The word survives in English as <em>republic</em>, and the etymology is not decoration; it is the whole argument compressed into two words. A <em>res privata</em> is a private matter, the business of one household or one man. A <em>res publica</em> is everyone's business, the common property of the citizens who constitute it, administered on their behalf and, in some real if imperfect sense, by them. To call a government a res publica was to make a claim: that the offices of the state are not anyone's inheritance, that no single household owns Rome, and that public power exists to be discharged, not possessed.</p>
+
+      <p>That claim needed institutions to make it real, and here Rome's answer diverges sharply from the Athenian answer you studied last week. Solon and Cleisthenes solved the problem of unchecked power by widening the circle of who could exercise it directly: more citizens gaining a real voice, more offices open to more property classes, until eventually the Assembly, composed of every free adult male citizen, held the supreme power in the state. Rome, by contrast, did not scatter power outward toward mass participation nearly so far, at least not at first. Instead, the Romans multiplied and divided the offices of government and set each division against the others, so that no single magistrate, no single body, and for a long time no single class could act alone for long without another checking it. Athens pursued liberty through the breadth of direct citizen power. Rome pursued it through the depth of institutional plurality; more officers, more bodies, more mutual vetoes, each one a brake on the others. Hold that contrast. It is the hinge on which the rest of this course's constitutional story turns, because when James Madison sat down in Philadelphia in 1787, it was substantially the Roman strategy, not the Athenian one, that he reached for.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Consuls, One Office, Divided</h2>
+      <p>At the center of the early Republic stood two annually elected magistrates called <em class="term">consuls</em>. Each consul held <em class="term">imperium</em>; the full executive power of the old kings: command of the army, the authority to convene the Senate and the assemblies, the power to execute the law. This is the "dual executive" your discussion this week will explore, and it is worth sitting with how strange the arrangement actually is. Rome did not abolish the king's power when it abolished the king. It kept the power nearly intact and instead handed the whole of it, jointly, to two men at once, each serving only one year, each entitled to overrule ("veto," from the Latin for "I forbid") any act of the other.</p>
+
+      <p>Why two, and not one, and not twenty? A single chief executive is efficient, but efficiency was exactly what the Romans of 509 BC had reason to distrust; they had just spent a quarter of a millennium learning what a single man with unchecked <em>imperium</em> could do to a city that could not remove him. Twenty chief executives, or a hundred, would guard against tyranny even more thoroughly, but at the cost of paralysis and confusion in war and in the ordinary daily business of governing a city; a plural executive dilutes will along with power. Two was the Roman wager on a narrow path between those dangers: enough division that no consul could rule as a king, because his colleague's veto stood in the way; but few enough that the state could still act, decide, and command an army in a genuine emergency. It is not an obviously stable solution (you will spend Wednesday's lesson examining exactly how it could fail), but it is a considered one, and it names, in miniature, a problem this course will return to under different names for the rest of the semester: how do you check power without also disabling it?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Senate: Authority Without a Vote</h2>
+      <p>Alongside the consuls stood the <em class="term">Senate</em>, a body that is easy to misdescribe if you import modern assumptions about legislatures. The Senate did not, strictly, make law in the early Republic, and its members were not elected by the citizen body at large in the way a modern senator is. It was composed of former magistrates and heads of leading families, appointed for life, and its formal instrument was the <em class="term">senatus consultum</em>; a "decree of the Senate," which was technically only advice. And yet Roman magistrates followed that advice with something close to the force of law, because the Senate's actual power was not procedural but experiential: it was a standing body of men who had already held office, already commanded armies, already negotiated treaties, meeting year after year while the consuls rotated out every twelve months. A new consul, however capable, faced the Senate as a collection of predecessors who remembered the last war, the last famine, the last treaty violated by a neighboring people twenty years before he was born. Rome's mixed constitution did not check power only by dividing executive authority against itself; it also built in a permanent institutional memory that no annually elected magistrate could outrank by force of office alone, only by force of persuasion.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Assemblies: Rome's Narrower Democratic Element</h2>
+      <p>Rome also had popular assemblies in which citizens voted directly on laws, on war and peace, and eventually on the election of magistrates themselves. This is the piece of the Roman constitution that most resembles Athens, and it matters that it existed at all; the res publica genuinely depended on the consent and the votes of its citizen body, not merely on the goodwill of an elite. But the resemblance to Athens should not be overstated. The most important of these bodies, the <em class="term">Comitia Centuriata</em> ("Assembly of Centuries"), organized citizens into voting blocs weighted heavily toward property and military rank, so that the wealthiest citizens, though far fewer in number, controlled enough blocs to decide most questions before the poorer and more numerous blocs even finished casting their votes. The assemblies gave the Roman citizen a real vote and a real voice, but a voice tuned, deliberately, to give property and standing more weight than headcount. Democratic legitimacy is present in the res publica; it is not, in the early Republic, the dominant note.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Different Answer to an Old Question</h2>
+      <p>Put the three elements together (the dual consulship, the Senate, the assemblies), and you have the outline of what later writers would call a <em class="term">mixed constitution</em>: a government that blends monarchic, aristocratic, and democratic elements rather than choosing decisively among them. You will meet the man who gave this idea its fullest ancient statement, the Greek historian Polybius, in Wednesday's lesson; Cicero, whom you read today, absorbed Polybius's analysis and made it his own. For now, notice what this Roman answer implies about the six questions this course keeps returning to. Who rules, and what makes that rule legitimate? In Rome, no one office and no one class rules alone; legitimacy rests on the plural, checked structure itself, not on the wisdom or virtue of any single ruler. How is authority distributed among citizens and the communities they belong to? Rome distributes it across offices in tension with one another, rather than concentrating it and then trusting an electorate to remove bad occupants of a single office. Athens had asked whether the many could be trusted to rule directly. Rome asked a different question: whether any part of the state, however capable, could be trusted to rule without another part standing ready to say no. The American Constitution you will study later this semester inherits Athens's commitment to popular consent, but its actual machinery (two houses of Congress checking each other, a president checking Congress, courts checking both) is Roman to its bones.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 2.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 2.1 &middot; The Founding of the Republic and the Mixed Constitution</div></div>
+</div>
+</div>
+</body>
+</html>

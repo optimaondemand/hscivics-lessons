@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Power the Constitution Never Names: Judicial Review</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-11-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 11.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Federalist No. 78</div><div class="subvalue">Hamilton; <em>Marbury v. Madison</em> (1803)</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.3.7, 3.9, 3.10</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 11.2</div><div class="title">The Power the Constitution Never Names: Judicial Review</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> This week's discussion topic. You will not find the words "judicial review" anywhere in Article III. The Supreme Court claimed that power for itself in 1803, and, as Week 8 already showed you, the argument for why it could do so had been sitting in print for fifteen years by the time the Court finally used it.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>State that judicial review is not explicit in Article III's text, and explain that the Supreme Court claimed the power for itself in <em>Marbury v. Madison</em> (1803).</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Reconstruct the Court's core logic in plain terms: the Constitution is supreme law, a statute conflicting with it cannot be valid, and courts must therefore be able to decline to enforce an unconstitutional law.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Explain why Federalist No. 78 (1788) already contains the theoretical seeds of this argument fifteen years before <em>Marbury</em>, and name at least one later case where judicial review becomes the operative mechanism.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Go back and reread Article III's text from Monday and Tuesday. It describes a Supreme Court, defines its jurisdiction, protects its judges' tenure and pay, and lists the kinds of cases it may hear. Nowhere does it say that the Court may strike down an act of Congress as unconstitutional. The power you have almost certainly heard called <em class="term">judicial review</em> (the authority of courts to declare a law void because it conflicts with the Constitution) is not written into Article III's text at all. It is, instead, a power the Supreme Court claimed for itself, in a specific case, more than a decade after the Constitution was ratified.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>Marbury v. Madison</em> and the Argument From Supreme Law</h2>
+      <p>That case was <em>Marbury v. Madison</em>, decided in 1803. Without walking through its tangled political backstory in full, the essential legal question the case posed was this: when a federal statute conflicts with the Constitution, which one governs? Chief Justice John Marshall's opinion answered by reasoning from a clause you already read in Week 9: Article VI's <em class="term">Supremacy Clause</em>, which declares the Constitution "the supreme Law of the Land." If the Constitution is genuinely supreme (superior to any ordinary act of Congress) then a statute that conflicts with it cannot simultaneously be valid law. Something has to give, and it cannot be the higher law. Marshall then reasoned from the judiciary's most basic and uncontested duty: courts exist to decide cases by determining which legal rule governs when two rules conflict. Deciding between a statute and the Constitution, Marshall argued, is no different in kind from deciding between two ordinary statutes that clash with each other; it is simply what courts do. It followed, in his reasoning, that when a court finds an act of Congress in irreconcilable conflict with the Constitution, the court's basic judicial duty requires it to follow the Constitution and refuse to enforce the statute.</p>
+
+      <p>Strip away the legal vocabulary and the logic is not complicated. If a law conflicts with the Constitution, and the Constitution is superior law, then courts applying the law must follow the Constitution over the conflicting statute. But a court cannot follow the Constitution over a statute in a real case without, in effect, declining to enforce that statute; without, that is, exercising exactly the power Marshall's opinion claimed. The argument does not require inventing a new power out of nothing; it requires only accepting two premises most of the founding generation already accepted: that the Constitution genuinely outranks ordinary legislation, and that courts must resolve legal conflicts by applying whichever authority actually governs.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Fifteen Years Earlier, Already in Print</h2>
+      <p>Here is why this week assigned Federalist No. 78 again, on top of Week 8's reading of it: that essay's core argument already contains this same logic, published in 1788, fifteen years before Marshall's opinion made it operative law. Recall Hamilton's words from Week 8's excerpt: "A constitution is in fact, and must be, regarded by the judges as a fundamental law," and where a statute and the Constitution stand in "irreconcilable variance," Hamilton wrote, "the constitution ought to be preferred to the statute, the intention of the people to the intention of their agents." That is Marshall's argument in <em>Marbury</em>, essentially unchanged, appearing in a newspaper essay written to persuade New York voters to ratify the Constitution a full generation before any American court had actually exercised the power Hamilton was defending.</p>
+
+      <p>This gap between argument and practice matters for how you think about the American constitutional tradition. Judicial review was not sprung on the country as a surprise in 1803, nor was it obviously written into the Constitution's plain text waiting to be discovered. It was a theoretical possibility, reasoned out from the structure of the Constitution itself, publicly debated during ratification, and then left dormant as a practical matter until a case arose that put the question squarely before the Court. Hamilton supplied the reasoning before anyone needed it. Marshall supplied the precedent once someone did.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Where This Power Goes Next</h2>
+      <p>Judicial review, once established in 1803, became the mechanism behind some of the most consequential decisions in American constitutional history; cases this course will study in detail later this semester. <em>Brown v. Board of Education</em> (1954) used judicial review to strike down state laws mandating racially segregated public schools as inconsistent with the Constitution's guarantee of equal protection. <em>Miranda v. Arizona</em> (1966) used it to establish that certain police interrogation practices, absent specific warnings to a suspect, violated constitutional protections against self-incrimination. Neither case invented a new judicial power; both simply exercised the same authority Marshall's Court claimed in 1803, and Hamilton had already defended in 1788; the authority to measure a government action against the Constitution and follow the Constitution when the two conflict. You will read both cases closely in a later unit. For now, hold onto the mechanism: a power never written into Article III's text, reasoned out from the Constitution's own claim to supremacy, that has shaped the boundaries of American law for well over two centuries.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source (Federalist No. 78, on judicial review) and Reading Quiz 11.2, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 11.2 &middot; The Power the Constitution Never Names</div></div>
+</div>
+</div>
+</body>
+</html>

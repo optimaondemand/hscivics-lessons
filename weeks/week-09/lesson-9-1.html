@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; A Congress of Two Minds: House, Senate, and the Powers of Foreign Policy</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-9-1">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-tagline">An Education Experience Company</div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.1</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Constitution, Article I</div></div>
+    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.3, 3.6</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 9.1</div><div class="title">A Congress of Two Minds: House, Senate, and the Powers of Foreign Policy</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p style="font-style:italic; margin-bottom:2px;">Constitution of the United States, Article I, Sections 1&ndash;7</p>
+      <p style="color:#555; margin-bottom:8px;">Ratified 1788</p>
+      <p><strong>Reading:</strong> The moment where nine weeks of theory (Athenian assemblies, Roman mixed government, Locke's consent, the Great Compromise on the floor of the Constitutional Convention) finally becomes operative text. Article I is the longest article in the Constitution, and for good reason: the framers, having just fought a revolution against a king, put the branch closest to the people first, and wrote it in more structural detail than anything that follows.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain why the Constitutional Convention produced a bicameral Congress, and connect that structure back to the Great Compromise.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Contrast the House and Senate on size, term length, and constituency, and explain how those differences were designed to produce two different institutional temperaments.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Identify the Senate's distinctive foreign-policy powers (treaty ratification and confirmation of ambassadors), and explain why the framers assigned these powers to the Senate specifically.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Return, for a moment, to Philadelphia in the summer of 1787. The delegates had already spent weeks deadlocked over a single question: would representation in the new national legislature be apportioned by population, favoring large states, or allotted equally to each state, favoring small ones? The <em class="term">Great Compromise</em> (brokered in committee and adopted narrowly on the Convention floor) resolved the deadlock by refusing to choose. It gave the nation not one legislative chamber but two: a House of Representatives apportioned by population, and a Senate in which every state, regardless of size, held equal footing. Article I, Section 1 states the result in a single sentence: "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives." Everything that follows in Article I is the machinery built to make that two-chamber compromise actually function.</p>
+
+      <p>But the framers did not stop at splitting Congress in two for the sake of a head count. Having created two chambers, they built each one to behave differently; on purpose. Read Section 2 and Section 3 side by side and the design becomes visible. Representatives are chosen "every second Year," directly "by the People of the several States." A House member need only be twenty-five years old and a citizen for seven years. Senators, by contrast, originally served six-year terms and (this is easy to read past, but it is the single most important structural fact about the pre-1913 Senate) were "chosen by the Legislature thereof," meaning the state legislature, not the voters directly. A Senator had to be at least thirty and a citizen for nine years. The House was built to turn over quickly and answer directly to shifting public sentiment; the Senate was built to change slowly and stand one layer removed from it.</p>
+
+      <p>This was not an accident of drafting, and it was not, originally, a fully democratic arrangement by modern standards. The framers wanted one chamber that would feel the pulse of public opinion within two years and respond to it, and a second chamber insulated enough from that same pulse to slow down, deliberate, and resist passing passions the House might amplify. James Madison and his fellow framers had read enough classical history (Polybius on Rome's mixed constitution of consuls, senate, and assembly) to distrust a government answerable to only one kind of pressure. A legislature with two different institutional temperaments, each checking the other's characteristic weakness, was the design answer to that distrust.</p>
+
+      <p>The Senate's indirect election by state legislatures lasted well over a century. It was changed only by the <em class="term">Seventeenth Amendment</em>, ratified in 1913, which moved Senate elections to direct popular vote; the same method already used for the House. That amendment is worth flagging now, even though it belongs formally to a later unit on the amendment process: it means the "originally insulated Senate" you are reading about in Article I's text is not quite the Senate that exists today. The Senate remains more insulated than the House by design (six-year terms, only a third up for election at a time, statewide rather than district-level constituencies), but the direct link to state legislatures, the most distinctive insulating feature of 1787, is gone.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why the Senate Gets Foreign Policy</h2>
+      <p>This week's discussion topic asks you to look closely at one specific set of Senate powers, and Article I, Section 2 of the Constitution (in the portion covering the executive, which you will read fully in a later unit) assigns two of the most consequential foreign-policy tools in the entire document to the Senate alone: the power to give "Advice and Consent" on treaties the President negotiates, requiring a two-thirds vote of Senators present to ratify, and the power to give "Advice and Consent" on the President's nominations of ambassadors and other public ministers, requiring only a majority.</p>
+
+      <p>Why the Senate, and not the House, and not a shared vote of the whole Congress? Three features of the Senate's design converge on an answer. First, treaty-making requires patience and continuity that a body elected every two years, and up entirely for re-election at once, does not reliably supply; the Senate's staggered six-year terms mean it never turns over all at once, giving it institutional memory a treaty negotiation spanning years can rely on. Second, the framers regarded foreign affairs as an arena where a large, frequently-elected body answerable to immediate public passions was a liability rather than an asset; a declaration of war, deliberately, does require the full Congress, including the House, because starting a war is a decision the framers wanted made slowly and with the people's most direct representatives fully engaged; but negotiating and ratifying a treaty, or vetting an ambassador, was judged to need discretion, confidentiality, and insulation from the House's faster electoral rhythm. Third, giving the smaller chamber this power, rather than leaving treaty-making to the President alone, kept the executive from becoming an independent monarch in foreign affairs; a check the framers, having just separated from a king who could make war and treaties by his sole will, considered non-negotiable. The two-thirds threshold for treaties, higher than an ordinary legislative majority, reinforces the same logic: a treaty binds the nation to other nations in ways an ordinary law does not, so the framers required something closer to consensus, not a bare majority, before the Senate could bind the country to it.</p>
+
+      <p>Notice what this arrangement is not. It is not a case of Congress "sharing" foreign policy equally between its two chambers, and it is not the President and Senate governing foreign affairs jointly as equals in every sense; the President negotiates and signs; the Senate consents or withholds consent, and can amend the terms it will accept. It is a specific, deliberately unequal division of labor: the House's electoral speed made it the wrong instrument for this particular job, and the Senate's built-in insulation made it, in the framers' judgment, the right one.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 9.1</strong>: a short, inference-based check on this lesson.</div></div>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 9.1 &middot; A Congress of Two Minds</div></div>
+</div>
+</div>
+</body>
+</html>

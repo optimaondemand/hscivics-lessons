@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; Cleisthenes and the Reforms That Made a Democracy</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-1-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 1.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Constitution of Athens</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 1.2</div><div class="title">Cleisthenes and the Reforms That Made a Democracy</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> A century after Solon, Athens finally becomes what we would recognize as a democracy, and the man who makes that happen, Cleisthenes, does it not through a philosophy of equality but through a piece of shrewd, almost mechanical, political engineering: he redraws the map.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain how the tribal reorganization under Cleisthenes broke the political power of old aristocratic clans.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Describe ostracism as an institution and evaluate the problem it was designed to solve.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Distinguish Solon's reforms from Cleisthenes's, and explain why historians date the birth of Athenian democracy to the later, not the earlier, of the two.</div></div>
+      <div class="oa-numbered"><div class="circ">4</div><div>Explain isegoria and identify the reforms of Ephialtes and Pericles that completed Athens's transition to full democracy.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Solon's constitution did not end Athens's troubles. Attic politics under Solon's new rules split into three regional factions: a Plain faction of wealthy lowland Aristocrats, a Coast faction under the Alcmaeonid family, and a Hill faction, the poorest and most numerous group, based in the rugged highlands. Its leader was Pisistratus, himself a wealthy Aristocrat by birth, but the acknowledged champion of Athens's poorer commoners. In 561 BC, with Hill-faction support, Pisistratus seized the Acropolis by force and made himself tyrant of Athens ("tyrant" in the ancient Greek sense of one who holds power without a constitutional title to it, not necessarily a cruel despot). Because Pisistratus was seen as the poor's own man taking power, his tyranny was widely regarded at the time as a victory for the common Athenian rather than a defeat for the constitution.</p>
+
+      <p>What mattered most for Athens's long-term development, though, was what Pisistratus did not do. He left Solon's machinery of government standing exactly as Solon had built it: the same Council, the same courts, the same property-based qualifications for office, unchanged in form or membership. Real power, of course, rested with Pisistratus and later his sons, who ruled Athens as tyrants for decades. But because the Council and the Heliaia kept meeting and functioning throughout, ordinary Athenians, including many commoners of modest means, spent two generations gaining actual practice in the business of deliberating, judging, and ruling. That habit, once acquired, proved impossible to legislate away. When the last of Pisistratus's sons, Hippias, was finally expelled in 510 BC with Spartan help, the city faced the same question it had faced in Solon's day, who rules now, and how, but this time the commoners who would answer it had two generations of practical experience in Council and jury that Solon's own generation never had.</p>
+
+      <p>Two aristocrats competed for the answer. Isagoras, backed by Spartan troops, tried to restore a narrow oligarchy and purge his rivals. Cleisthenes, from the powerful Alcmaeonid family, made a different bet: he turned to the ordinary people of Athens, the demos, and offered them, in Aristotle's words, "a share in the government," in exchange for their support against Isagoras. It worked. The people besieged Isagoras and his Spartan allies on the Acropolis, forced their surrender, and recalled Cleisthenes from the exile Isagoras had briefly driven him into. Aristotle is blunt about what happened next: "the sovereign power fell into the hands of the commons," with Cleisthenes as their leader.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Reform That Mattered: Redrawing the Map</h2>
+      <p>Cleisthenes's most consequential act was not a grand statement of principle. It was cartography. Athenian political life had long run through four ancient tribes, each dominated by a handful of powerful families whose local networks of loyalty and dependence made political life, in practice, a competition between aristocratic clans. A poor farmer in a village dominated by one such family had little independent political identity of his own; he voted, if he voted, the way his patron expected.</p>
+
+      <p>Cleisthenes abolished the four old tribes and replaced them with ten new ones, deliberately engineered to cut across the old geography of family power. Each new tribe was built from three <em class="term">trittyes</em> ("thirds"): one drawn from the city, one from the coast, one from the inland farming region, so that no tribe belonged to any single region or clan. A citizen's political identity was now tied to his local <em class="term">deme</em> (township), and Athenians began identifying themselves by deme rather than by father's name, deliberately erasing the visibility of old family and clan hierarchies in political life. The Council of Four Hundred that Solon had created became a Council of Five Hundred, fifty from each of the ten new tribes, chosen by lot.</p>
+
+      <p>Why does redrawing administrative boundaries count as a democratic reform, and not just bureaucratic housekeeping? Because political power in the old system depended on being able to mobilize a geographically concentrated network of dependents. By deliberately scrambling geography, Cleisthenes made that kind of local patronage machine impossible to operate at scale. Power could no longer run through inherited clan networks; it had to run through the assembled body of citizens as citizens, meeting and voting as individuals rather than as followers. This is the structural change that lets us call what came after a democracy in a way Solon's Athens, with its property-based offices and unbroken aristocratic dominance of the archonship, was not yet.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Ostracism: A Safety Valve, or a Weapon?</h2>
+      <p>Cleisthenes is also credited with introducing <em class="term">ostracism</em>, a procedure by which the Assembly could, by a certain quorum of votes scratched onto broken pottery shards (<em>ostraka</em>), banish a citizen from Athens for ten years, without trial, without formal charge, and without confiscating his property. Aristotle tells us the law was aimed specifically at the friends and relatives of the deposed tyrants, out of fear that anyone connected to Pisistratus's family might use their remaining influence to restore the tyranny.</p>
+
+      <p>Ostracism is a strange institution to modern eyes, precisely because it punishes influence itself, independent of any specific wrongdoing. Its defenders would say a young democracy, still afraid of relapsing into tyranny, needed some check on any single citizen accumulating dangerous personal power (a preventive tool, not a punitive one). Its critics, ancient and modern, note that a vote with no charge and no defense is exactly the kind of instrument a democracy's own majority can misuse against an unpopular minority of one. Both readings are defensible; historians still argue about how the institution was actually used across the fifth century. Hold that tension. It is the first of many moments this semester where you will be asked to weigh a real democratic safeguard against its real democratic abuse potential, the same tension James Madison will wrestle with, in a very different form, in Federalist No. 10.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isegoria: The Right to Speak, Not Just the Right to Shout</h2>
+      <p>One reform of this period deserves its own emphasis: <em class="term">isegoria</em>, equal freedom of speech in the Assembly. Every male citizen, whatever his class, had always been entitled to attend the Assembly: this was an ancient Greek institution, found in every city-state, far older than either Solon or Cleisthenes. You can see it functioning as far back as Homer's <em>Iliad</em>, where Agamemnon calls an assembly of every fighting man in the Greek camp, common soldiers included. But attendance was never the same thing as a voice. Traditionally, only Aristocrats were permitted to address the Assembly in formal speech; commoners could show approval or disapproval only by voice, through shouting, not through argument of their own. The <em>Iliad</em> preserves a famous, almost comic illustration of how seriously this rule was enforced: when the common soldier Thersites dares to stand and criticize Agamemnon in a speech of his own, Odysseus beats him in front of the whole army for the presumption of speaking at all, and the assembled soldiers laugh in approval. What changes by Cleisthenes's Athens is that every citizen, including the Thetes, now has the recognized right to stand and address the Assembly in his own words, not merely to shout approval or disapproval at what an Aristocrat has said. That right, isegoria, is at least as important a democratic milestone as the reshuffled tribes.</p>
+
+      <p>One qualification matters here. Membership in the new Council of Five Hundred was technically open to Thetes: nothing in Cleisthenes's law barred them by class. In practice, though, the demes first voted on a pool of candidates willing to serve, and only from that shortlist were the actual councilors chosen by lot; in the years immediately after Cleisthenes's reforms, Thetes were essentially never selected. Serving on the Council meant a year of unpaid public duty, and a Thete, who worked for his daily bread, could not afford to give up a year of wages for it. A right that exists on paper and a right a poor citizen can actually exercise are two different things, and closing that gap took another two generations.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Completing the Trajectory: Ephialtes and Pericles</h2>
+      <p>The last steps in this story belong to two statesmen a generation after Cleisthenes: Ephialtes and, following him, Pericles. Two changes in the 460s and 450s BC finished what Solon and Cleisthenes had started. First, Ephialtes and Pericles stripped the Areopagus, the old aristocratic council that had traditionally guarded the laws and tried the most serious cases, of nearly all its remaining power, leaving it with little beyond jurisdiction over homicide. Second, and just as important, Pericles introduced a state stipend for jury duty and, eventually, for service on the Council of Five Hundred, which finally made it financially possible for a Thete to serve without starving his family in the process. The right that had existed only on paper since Cleisthenes now became a right the poorest Athenian could actually use.</p>
+
+      <p>The effect on the balance of power between Athens's institutions was decisive. Under Solon, and still under Cleisthenes, the Council had directed the business the Assembly considered: it set the agenda, and the Assembly voted on what the Council brought to it. After Ephialtes and Pericles, with the Areopagus neutralized and Council and jury service open in practice to every citizen, the relationship reversed. It is the Assembly, now composed of every male citizen with a practical, paid ability to participate, that holds supreme authority, with the Council increasingly its administrative instrument rather than its director. This, not Solon's reforms and not even Cleisthenes's, is the point at which Athens becomes the kind of democracy the word usually calls to mind: the direct rule of the assembled citizen body.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (Plutarch, <em>Life of Solon</em>) and Primary Source Report 1.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 1.2 &middot; Cleisthenes and the Reforms That Made a Democracy</div></div>
+</div>
+</div>
+</body>
+</html>

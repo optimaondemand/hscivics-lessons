@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Civics &mdash; The Second Amendment: Text and Debate</title>
+<style>
+html, body { margin: 0; padding: 0; background: #f4f6fa; }
+.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.page { page-break-after: auto; }
+/* HS Civics U.S. Govt Honors — Master PDF stylesheet
+   Derived from Optima design-system.md. Used only for this print artifact;
+   Canvas-native deployment will use the skill's inline-style templates directly. */
+
+@page { size: letter; margin: 0.6in 0.7in; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a2340;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+.no-break { page-break-inside: avoid; }
+
+/* ===== Header / Footer (lesson & assignment pages) ===== */
+.oa-header {
+  background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;
+}
+.oa-header-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.oa-wordmark { font-size: 22px; color: #ffffff; font-weight: 600; }
+.oa-tagline { font-size: 12px; color: #55c8e8; }
+.oa-course-name { font-size: 30px; color: #ffffff; margin-top: 6px; text-transform: uppercase; }
+
+.oa-metastrip {
+  background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;
+}
+.oa-metastrip .cell {
+  flex: 1; min-width: 140px; padding: 10px 16px; border-right: 1px solid #D0D9E8;
+}
+.oa-metastrip .cell:last-child { border-right: none; }
+.oa-metastrip .label { font-size: 10px; color: #6b7a99; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .03em; }
+.oa-metastrip .value { font-size: 15px; color: #0e1c42; }
+.oa-metastrip .subvalue { font-size: 11px; color: #666; }
+
+.oa-body { padding: 18px 34px; }
+
+.oa-titlestrip {
+  background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
+  padding: 14px 20px; margin-bottom: 16px;
+}
+.oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
+.oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
+.oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.oa-card {
+  background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.oa-card.gold-top { border-top: 3px solid #C7922C; }
+.oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
+
+.oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
+.oa-lavender.leftbar { border-left: 5px solid #0E1C42; border-radius: 6px; }
+
+.oa-callout-gold { background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-help { background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-warn { background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-m365 { background: #FFF7E6; border-left: 5px solid #8A6D3B; border-radius: 6px; padding: 14px 20px; margin-bottom: 14px; }
+.oa-callout-widget { background: #EFEFEF; border-left: 5px solid #888; border-radius: 6px; padding: 12px 20px; margin-bottom: 14px; font-style: italic; }
+
+.oa-numbered { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.oa-numbered .circ {
+  min-width: 24px; height: 24px; border-radius: 50%; background: #C7922C; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.oa-numbered .circ.navy { background: #0E1C42; }
+
+.oa-source-block {
+  border-left: 4px solid #0E1C42; background: #F8F9FC; padding: 14px 18px; margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65;
+}
+.oa-source-cite { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+
+.oa-question { margin-bottom: 14px; }
+.oa-question .qnum { font-weight: 700; color: #0e1c42; }
+.oa-mc-option { margin-left: 20px; }
+.oa-answer-key { background: #F4F6FA; border: 1px dashed #aaa; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #333; margin-top: 6px; }
+
+.oa-rubric-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+.oa-rubric-table th { background: #0E1C42; color: #fff; padding: 6px 8px; text-align: left; }
+.oa-rubric-table td { border: 1px solid #D0D9E8; padding: 6px 8px; vertical-align: top; }
+.oa-rubric-table tr:nth-child(even) td { background: #F4F6FA; }
+
+.oa-footer {
+  background: #0E1C42; border-top: 3px solid #55C8E8; padding: 12px 34px; text-align: center;
+}
+.oa-footer .l1 { font-size: 13px; color: #ffffff; }
+.oa-footer .l2 { font-size: 11px; color: rgba(255,255,255,0.65); }
+
+/* ===== Front matter / TOC ===== */
+.title-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 9.5in; text-align: center; }
+.title-page h1 { font-size: 34px; color: #0E1C42; margin-bottom: 6px; }
+.title-page h2 { font-size: 18px; color: #C7922C; font-weight: 400; margin-top: 0; }
+.title-page .badge { margin-top: 40px; font-size: 13px; color: #6b7a99; }
+.title-page .wordmark { font-size: 15px; letter-spacing: .1em; color: #55C8E8; font-weight: 600; margin-bottom: 26px; text-transform: uppercase; }
+.title-page .big-title { font-size: 34px; color: #0E1C42; margin: 0 0 10px 0; }
+.title-page .big-subtitle { font-size: 15px; color: #444; margin: 2px 0; }
+.title-page .title-divider { width: 120px; height: 2px; background: #C7922C; margin: 26px auto; }
+.title-page .title-tag { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #0E1C42; font-weight: 700; margin: 0 0 8px 0; }
+.title-page .title-note { font-size: 13px; color: #6b7a99; max-width: 5in; margin: 0 auto; }
+
+.toc h1 { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 8px; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin-bottom: 4px; }
+.toc .toc-module { font-weight: 700; color: #0E1C42; margin-top: 16px; font-size: 16px; }
+.toc .toc-week { font-weight: 600; color: #0E1C42; margin-top: 10px; }
+.toc .toc-item { margin-left: 20px; font-size: 13.5px; }
+.toc a { color: #1a2340; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+h1.section-head { color: #0E1C42; border-bottom: 3px solid #55C8E8; padding-bottom: 6px; margin-top: 0; }
+h2.sub-head { color: #0E1C42; margin-top: 26px; }
+
+.lesson-prose p { margin: 0 0 12px 0; }
+.lesson-prose .term { font-style: italic; }
+
+.week-divider {
+  background: #0E1C42; color: #fff; padding: 10px 24px; margin: 0 0 16px 0;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+<div class="page" id="lesson-12-2">
+  <div class="oa-header">
+    <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
+    <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
+  </div>
+  <div class="oa-metastrip">
+    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 12.2</div></div>
+    <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Bill of Rights, Amendment II</div></div>
+  </div>
+  <div class="oa-body">
+    <div class="oa-titlestrip"><div class="kicker">Lesson 12.2</div><div class="title">The Second Amendment: Text and Debate</div></div>
+
+    <div class="oa-card gold-top">
+      <div class="oa-kicker">&#128214; What You Are Reading Today</div>
+      <p><strong>Topic:</strong> A single sentence of twenty-seven words, written in two clauses whose relationship to each other has been argued over for more than two centuries. This week's discussion topic asks you to read that sentence as carefully as any lawyer or historian would; not to settle the argument, but to understand it well enough to see why reasonable people disagree.</p>
+    </div>
+
+    <div class="oa-card">
+      <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Identify the prefatory (militia) clause and the operative (right-to-bear-arms) clause of the Second Amendment, and state what each clause says.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Describe the central interpretive question scholars and courts have debated about how the two clauses relate to each other.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Name <em>District of Columbia v. Heller</em> (2008) and state, at a general level, what the Supreme Court held.</div></div>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <p>Here is the full text of the Second Amendment, exactly as ratified in 1791: "A well regulated militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed." Read it once quickly, and it seems plain enough. Read it twice, slowly, with an eye trained on grammar rather than assumption, and a genuine interpretive puzzle appears.</p>
+
+      <p>The sentence has two parts. The first ("a well regulated militia, being necessary to the security of a free State") is called the <em class="term">prefatory clause</em>: a clause that states a purpose or justification but does not, by itself, grant or restrict anything. The second ("the right of the people to keep and bear Arms, shall not be infringed") is the <em class="term">operative clause</em>: the part that actually does the legal work of protecting a right. Nearly everyone who studies the amendment agrees on this much grammar. The disagreement begins at the next step: what is the logical relationship between the two clauses? Does the prefatory clause define and limit the operative clause, so that the right to keep and bear arms exists specifically <em>because of</em>, and <em>in service of</em>, an organized militia, meaning the right is most naturally read as a collective one, belonging to the states' power to maintain militias, rather than to individuals as such? Or does the prefatory clause merely announce one important reason among others for protecting an individual right that exists independently of militia service; meaning "the people" here means the same thing it means everywhere else in the Bill of Rights: individual persons, each holding the right personally?</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Ways of Reading "the People"</h2>
+      <p>This is not a dispute invented by contemporary politics; it traces back through American legal and historical scholarship for generations, and it turns on genuinely difficult questions of eighteenth-century usage and intent. Those who favor the <em class="term">collective-right</em> reading point to the prefatory clause's explicit invocation of the militia, note that the founding generation was deeply concerned with the danger of standing federal armies and wanted to preserve the states' power to maintain their own armed citizen militias against federal disarmament, and argue that reading the amendment as protecting a private, individual right to weapons untethered from any militia purpose ignores the sentence's own stated justification.</p>
+
+      <p>Those who favor the <em class="term">individual-right</em> reading point out that "the right of the people," the actual phrase in the operative clause, is used elsewhere in the Bill of Rights (in the First Amendment's assembly and petition clauses, and in the Fourth Amendment's protection against unreasonable searches) to describe rights held by individual persons, not by states or organized bodies, and argue there is no clear textual signal that the Second Amendment uses "the people" differently from its neighbors. They also point to historical evidence that an armed citizenry was widely understood, at the founding, as valuable for reasons beyond formal militia service, including individual self-defense, and that eighteenth-century militias were composed of ordinary armed citizens rather than a separate class of government-issued soldiers; making the line between "individual" and "militia-related" less sharp in 1791 than it can look today.</p>
+
+      <p>Both readings can marshal serious historical and textual evidence, and both have had serious adherents among judges, historians, and constitutional scholars. This is exactly the kind of contested question this course asks you to sit with honestly rather than resolve by assertion: the text is genuinely open to more than one careful reading, and which reading you find more persuasive depends on judgments about grammar, history, and founding-era usage that thoughtful people continue to weigh differently.</p>
+
+      <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>District of Columbia v. Heller</em> (2008)</h2>
+      <p>The debate did not stay purely academic. In 2008, the Supreme Court directly addressed this interpretive question in <em class="term">District of Columbia v. Heller</em>, a case challenging a Washington, D.C. law that effectively barred handgun possession in private homes. The Court held, by a 5&ndash;4 majority, that the Second Amendment protects an individual right to keep and bear arms for lawful purposes such as self-defense, unconnected to service in a militia; the first time the Court had ruled squarely on that question. At the same time, the Heller majority was explicit that this individual right is not unlimited: the opinion stated that longstanding regulations, such as prohibitions on possession by felons or the mentally ill, restrictions on carrying weapons in sensitive places like schools and government buildings, and conditions on the commercial sale of arms, remain presumptively constitutional. The full reach of Heller, and the cases that have applied and extended it since, is a subject for later study; what matters for this lesson is simply that the Court answered the individual-versus-collective question in favor of an individual right, while simultaneously affirming that reasonable regulation and constitutional protection are not, in the Court's own view, mutually exclusive.</p>
+
+      <p>What this lesson will not do is tell you which side of the ongoing policy debate over gun regulation (what specific laws should exist, and how strict they should be) is correct. That is a live question of public policy on which citizens of goodwill disagree, and on which this course, consistent with its commitment to teaching structure before opinion and to fair-minded treatment of contested questions, takes no side. What you are responsible for here is something prior to that debate and more durable than it: what the amendment's text actually says, what the genuine interpretive dispute over that text consists of, and how the Supreme Court has, for now, resolved the constitutional question of whether the right is individual or militia-bound. Citizens who want to argue well about gun policy, whatever conclusion they reach, need to start from that same textual and historical ground.</p>
+    </div>
+
+    <div class="oa-card navy-top">
+      <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
+      <p>Primary Source 2 (the Second Amendment, close reading) and Primary Source Report 12.1, below.</p>
+    </div>
+  </div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 12.2 &middot; The Second Amendment: Text and Debate</div></div>
+</div>
+</div>
+</body>
+</html>
