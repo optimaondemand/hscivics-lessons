@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuse the Powers</title>
+<style>
+  :root {
+    --navy: #0E1C42;
+    --gold: #C7922C;
+    --teal: #1B7A6E;
+    --maroon: #7A2048;
+    --text: #1a2340;
+    --muted: #6b7a99;
+    --border: #D0D9E8;
+    --card: #F8F9FC;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .header {
+    background: var(--teal);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .header .sub { font-size: 12px; font-weight: 400; color: #dff2ee; }
+
+  .wrap { padding: 12px; max-width: 720px; margin: 0 auto; }
+
+  .instructions {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--teal);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    margin-bottom: 12px;
+    line-height: 1.45;
+  }
+  .instructions strong { color: var(--navy); }
+
+  .meter-wrap {
+    margin-bottom: 14px;
+  }
+  .meter-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .meter-track {
+    width: 100%;
+    height: 22px;
+    background: #e7ecf5;
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .meter-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--teal), #3fae9c);
+    border-radius: 11px 0 0 11px;
+    transition: width 220ms ease, background 220ms ease;
+  }
+  .meter-fill.warn { background: linear-gradient(90deg, var(--gold), #d9a53f); }
+  .meter-fill.danger { background: linear-gradient(90deg, var(--maroon), #a13560); }
+
+  .boxes-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 14px 0;
+  }
+  .box {
+    flex: 1 1 30%;
+    min-width: 96px;
+    min-height: 110px;
+    background: var(--card);
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .box.dragover {
+    border-color: var(--teal);
+    background: #eef7f5;
+  }
+  .box.target-select {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(199,146,44,0.35);
+  }
+  .box-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+  .token-slot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    min-height: 34px;
+  }
+
+  .token {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    text-align: center;
+    transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+    touch-action: none;
+  }
+  .token.legislative { background: var(--navy); }
+  .token.executive { background: var(--gold); color: #2a1c00; }
+  .token.judicial { background: var(--maroon); }
+  .token.selected {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
+  }
+  .token.dragging { opacity: 0.5; }
+
+  .msg-area {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--maroon);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    min-height: 50px;
+    margin-top: 8px;
+    display: none;
+  }
+  .msg-area.shown { display: block; }
+  .msg-area .who { font-weight: 700; color: var(--maroon); display:block; margin-bottom: 4px; }
+  .msg-area.ok-state { border-left-color: var(--teal); }
+  .msg-area.ok-state .who { color: var(--teal); }
+
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  button.oa-btn {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: var(--navy);
+    transition: background 150ms ease, transform 150ms ease;
+  }
+  button.oa-btn:hover { transform: translateY(-1px); }
+  button.oa-btn.reset { background: #fff; color: var(--maroon); border: 1.5px solid var(--maroon); }
+
+  .hint {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 420px) {
+    .box { min-width: 90px; min-height: 96px; }
+    .header { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span>Fuse the Powers</span>
+  <span class="sub">Montesquieu, The Spirit of the Laws, Book XI</span>
+</div>
+
+<div class="wrap">
+
+  <div class="instructions">
+    <strong>Drag a token</strong> (or tap a token, then tap a box) to move it. Each box should hold one power. Watch the Liberty Meter and the message area when two powers share a box.
+  </div>
+
+  <div class="meter-wrap">
+    <div class="meter-label"><span>Liberty Meter</span><span id="meterPct">100%</span></div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill" style="width:100%;"></div></div>
+  </div>
+
+  <div class="boxes-row" id="boxesRow">
+    <div class="box" id="box-legislative" data-box="legislative">
+      <div class="box-title">Legislative Box</div>
+      <div class="token-slot" id="slot-legislative"></div>
+    </div>
+    <div class="box" id="box-executive" data-box="executive">
+      <div class="box-title">Executive Box</div>
+      <div class="token-slot" id="slot-executive"></div>
+    </div>
+    <div class="box" id="box-judicial" data-box="judicial">
+      <div class="box-title">Judicial Box</div>
+      <div class="token-slot" id="slot-judicial"></div>
+    </div>
+  </div>
+  <div class="hint">Tokens: Legislative, Executive, Judicial. Tap a token to select it, then tap a box to move it there.</div>
+
+  <div class="msg-area" id="msgArea"></div>
+
+  <div class="btn-row">
+    <button class="oa-btn reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var tokens = {
+    legislative: { label: "Legislative", cls: "legislative", home: "legislative" },
+    executive:   { label: "Executive",   cls: "executive",   home: "executive" },
+    judicial:    { label: "Judicial",    cls: "judicial",    home: "judicial" }
+  };
+
+  // where each token currently sits (box key)
+  var placement = { legislative: "legislative", executive: "executive", judicial: "judicial" };
+  var selectedToken = null;
+  var draggingToken = null;
+
+  var meterFill = document.getElementById("meterFill");
+  var meterPct = document.getElementById("meterPct");
+  var msgArea = document.getElementById("msgArea");
+  var boxesRow = document.getElementById("boxesRow");
+
+  var messages = {
+    "legislative+executive": {
+      liberty: 55,
+      text: 'Montesquieu\'s own warning: "When the legislative and executive powers are united in the same person, or in the same body of magistrates, there can be no liberty; because apprehensions may arise, lest the same monarch or senate should enact tyrannical laws, to execute them in a tyrannical manner." The body that writes the law now also enforces it, with nothing external positioned to object to either half.'
+    },
+    "legislative+judicial": {
+      liberty: 45,
+      text: 'This matches the lesson\'s own warning: a legislature that writes a law and also arrests and punishes anyone accused of breaking it is not really judging, it is legislating after the fact. Montesquieu\'s phrase for this is exact: "the judge would be then the legislator." A citizen accused would face a power with no internal reason to be fair.'
+    },
+    "executive+judicial": {
+      liberty: 50,
+      text: 'Montesquieu\'s warning here: "Were it joined to the executive power, the judge might behave with violence and oppression." The same hand that seizes a person is now the hand that convicts them, with no independent judge standing between arrest and verdict.'
+    },
+    "all three": {
+      liberty: 10,
+      text: 'Montesquieu points to real examples. In Turkey, "these three powers are united in the sultan\'s person, the subjects groan under the most dreadful oppression." In the aristocratic republics of Italy, the same fusion of powers, he argues, forces a government to rely on secret informants and terror to maintain itself; a government no less arbitrary for lacking a single crowned tyrant at the top. "There would be an end of every thing," Montesquieu concludes, "were the same man, or the same body... to exercise those three powers."'
+    }
+  };
+
+  function currentCombo() {
+    var byBox = { legislative: [], executive: [], judicial: [] };
+    Object.keys(placement).forEach(function(tk) {
+      byBox[placement[tk]].push(tk);
+    });
+    var occupied = Object.keys(byBox).filter(function(b) { return byBox[b].length > 0; });
+    var allInOne = occupied.length === 1 && byBox[occupied[0]].length === 3;
+    if (allInOne) return "all three";
+    for (var b in byBox) {
+      if (byBox[b].length === 2) {
+        var pair = byBox[b].slice().sort().join("+");
+        return pair;
+      }
+    }
+    return null;
+  }
+
+  function render() {
+    ["legislative","executive","judicial"].forEach(function(boxKey) {
+      document.getElementById("slot-" + boxKey).innerHTML = "";
+    });
+    Object.keys(tokens).forEach(function(tk) {
+      var t = tokens[tk];
+      var el = document.createElement("div");
+      el.className = "token " + t.cls;
+      el.textContent = t.label;
+      el.id = "token-" + tk;
+      el.setAttribute("draggable", "true");
+      if (selectedToken === tk) el.classList.add("selected");
+
+      el.addEventListener("dragstart", function(e) {
+        draggingToken = tk;
+        el.classList.add("dragging");
+        e.dataTransfer.setData("text/plain", tk);
+      });
+      el.addEventListener("dragend", function() {
+        el.classList.remove("dragging");
+        draggingToken = null;
+      });
+      el.addEventListener("click", function() {
+        if (selectedToken === tk) {
+          selectedToken = null;
+        } else {
+          selectedToken = tk;
+        }
+        render();
+      });
+
+      document.getElementById("slot-" + placement[tk]).appendChild(el);
+    });
+
+    // box target-select highlighting for tap mode
+    document.querySelectorAll(".box").forEach(function(boxEl) {
+      boxEl.classList.toggle("target-select", !!selectedToken);
+    });
+
+    updateMeterAndMessage();
+  }
+
+  function updateMeterAndMessage() {
+    var combo = currentCombo();
+    var liberty = 100;
+    var showMsg = false;
+    var msgText = "";
+    var danger = false;
+
+    if (combo && messages[combo]) {
+      liberty = messages[combo].liberty;
+      msgText = messages[combo].text;
+      showMsg = true;
+      danger = liberty <= 20;
+    }
+
+    meterFill.style.width = liberty + "%";
+    meterPct.textContent = liberty + "%";
+    meterFill.classList.remove("warn", "danger");
+    if (liberty <= 20) meterFill.classList.add("danger");
+    else if (liberty < 100) meterFill.classList.add("warn");
+
+    if (showMsg) {
+      msgArea.classList.add("shown");
+      msgArea.classList.remove("ok-state");
+      msgArea.innerHTML = '<span class="who">' + (danger ? "All Three Powers Fused" : "Two Powers Fused") + '</span>' + msgText;
+    } else {
+      msgArea.classList.remove("shown");
+      msgArea.innerHTML = "";
+    }
+  }
+
+  function moveTokenTo(tk, boxKey) {
+    placement[tk] = boxKey;
+    selectedToken = null;
+    render();
+  }
+
+  // drag and drop on boxes
+  ["legislative","executive","judicial"].forEach(function(boxKey) {
+    var boxEl = document.getElementById("box-" + boxKey);
+    boxEl.addEventListener("dragover", function(e) {
+      e.preventDefault();
+      boxEl.classList.add("dragover");
+    });
+    boxEl.addEventListener("dragleave", function() {
+      boxEl.classList.remove("dragover");
+    });
+    boxEl.addEventListener("drop", function(e) {
+      e.preventDefault();
+      boxEl.classList.remove("dragover");
+      var tk = e.dataTransfer.getData("text/plain");
+      if (tk && tokens[tk]) moveTokenTo(tk, boxKey);
+    });
+    // tap-to-place mode
+    boxEl.addEventListener("click", function(e) {
+      // avoid double-handling clicks that originated on a token (token click already toggles selection)
+      if (e.target.classList.contains("token")) return;
+      if (selectedToken) {
+        moveTokenTo(selectedToken, boxKey);
+      }
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function() {
+    placement = { legislative: "legislative", executive: "executive", judicial: "judicial" };
+    selectedToken = null;
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

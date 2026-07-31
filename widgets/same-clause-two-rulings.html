@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Same Clause, Two Rulings</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--maroon);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .header .sub{
+    font-size:12px;
+    font-weight:400;
+    color:#eccfda;
+    margin-top:2px;
+  }
+  .wrap{
+    padding:14px 16px 20px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .progress{
+    display:flex;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .step-pill{
+    flex:1;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 8px;
+    border-radius:16px;
+    border:1px solid var(--border);
+    color:var(--muted);
+    background:var(--card);
+    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+  }
+  .step-pill.active{
+    background:var(--navy);
+    color:#fff;
+    border-color:var(--navy);
+  }
+  .step-pill.done{
+    background:#eaf6f2;
+    color:var(--teal);
+    border-color:var(--teal);
+  }
+
+  .clause-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:14px;
+    line-height:1.55;
+    margin-bottom:14px;
+  }
+  .clause-box .clause-kicker{
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--gold);
+    margin-bottom:4px;
+  }
+  .clause-box blockquote{
+    margin:6px 0 0;
+    font-style:italic;
+    color:var(--navy);
+  }
+
+  .phase{
+    display:none;
+  }
+  .phase.active{
+    display:block;
+    animation: fadeIn 300ms ease;
+  }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(6px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .fact-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:12px 14px;
+    margin-bottom:12px;
+  }
+  .fact-card .year-tag{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    color:#fff;
+    background:var(--navy);
+    padding:2px 10px;
+    border-radius:12px;
+    margin-bottom:8px;
+  }
+  .fact-card p{ font-size:14px; line-height:1.55; margin:0 0 4px; }
+
+  .question{
+    font-size:14px;
+    font-weight:600;
+    color:var(--navy);
+    margin:10px 0 8px;
+  }
+
+  .choices{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  button.choice{
+    flex:1 1 220px;
+    background:#fff;
+    border:2px solid var(--border);
+    border-radius:8px;
+    padding:10px 12px;
+    font-size:13.5px;
+    font-family:inherit;
+    color:var(--text);
+    cursor:pointer;
+    text-align:left;
+    transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+  }
+  button.choice:hover:not(:disabled){
+    border-color:var(--teal);
+    transform:translateY(-1px);
+  }
+  button.choice:disabled{
+    cursor:not-allowed;
+  }
+  button.choice.picked{
+    border-color:var(--navy);
+    background:#eef1f9;
+    font-weight:700;
+  }
+
+  .reveal{
+    display:none;
+    opacity:0;
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:13.5px;
+    line-height:1.55;
+    margin-top:6px;
+    background:#eaf6f2;
+    border:1px solid var(--teal);
+    transition: opacity 250ms ease;
+  }
+  .reveal.show{ display:block; opacity:1; }
+  .reveal .verdict{
+    font-weight:700;
+    color:var(--navy);
+    display:block;
+    margin-bottom:6px;
+  }
+  .reveal blockquote{
+    margin:6px 0;
+    font-style:italic;
+    color:var(--maroon);
+    padding-left:10px;
+    border-left:3px solid var(--maroon);
+  }
+
+  .continue-row{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:10px;
+  }
+  button.continue{
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:9px 18px;
+    font-size:13.5px;
+    font-family:inherit;
+    cursor:pointer;
+    display:none;
+    transition: background-color 200ms ease;
+  }
+  button.continue.show{ display:inline-block; }
+  button.continue:hover{ background:#155f55; }
+
+  .aha{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--navy);
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:13.5px;
+    line-height:1.55;
+    margin-top:14px;
+    display:none;
+  }
+  .aha.show{ display:block; animation: fadeIn 300ms ease; }
+  .aha strong{ color:var(--navy); }
+
+  .bottom-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .note{ font-size:12px; color:var(--muted); }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{ background:#16295e; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  Same Clause, Two Rulings
+  <div class="sub">The Equal Protection Clause, 1896 and 1954</div>
+</div>
+
+<div class="wrap">
+
+  <div class="progress">
+    <div class="step-pill" id="pill1">Phase 1: 1896</div>
+    <div class="step-pill" id="pill2">Phase 2: 1954</div>
+  </div>
+
+  <div class="clause-box">
+    <div class="clause-kicker">The Fourteenth Amendment, Equal Protection Clause</div>
+    <blockquote>"...nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws."</blockquote>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase" id="phase1">
+    <div class="fact-card">
+      <span class="year-tag">1896</span>
+      <p>Louisiana's 1890 Separate Car Act requires railroads to provide "equal but separate accommodations" for white and Black passengers, and makes it a crime to sit in a car not assigned to one's race. Homer Plessy, a shoemaker classified under the law as one-eighth Black, deliberately sits in a car reserved for white passengers to test the statute, and is arrested.</p>
+    </div>
+
+    <div class="question">Predict: applying the clause above, will the Supreme Court rule that Louisiana's separate-car law violates the Equal Protection Clause?</div>
+    <div class="choices" id="choices1">
+      <button class="choice" data-val="violates">Yes, requiring separate cars by race violates equal protection.</button>
+      <button class="choice" data-val="constitutional">No, the law is constitutional as long as the separate cars are equal.</button>
+    </div>
+
+    <div class="reveal" id="reveal1">
+      <span class="verdict">The actual 1896 ruling, <em>Plessy v. Ferguson</em>:</span>
+      The Court ruled 7 to 1 that Louisiana's law was constitutional. Justice Henry Billings Brown held that the Fourteenth Amendment guaranteed legal equality but did not abolish distinctions based on color, and that a law requiring separate facilities was constitutional so long as those facilities were substantially equal. This became the doctrine of "separate but equal."
+      <blockquote>Justice Harlan alone dissented: "Our Constitution is color-blind, and neither knows nor tolerates classes among citizens."</blockquote>
+      In practice, separate facilities across the South were almost never actually equal, and <em>Plessy</em> gave Southern segregation the Supreme Court's constitutional blessing for the next fifty-eight years.
+    </div>
+
+    <div class="continue-row">
+      <button class="continue" id="continueBtn">Continue to 1954</button>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase" id="phase2">
+    <div class="fact-card">
+      <span class="year-tag">1954</span>
+      <p>Linda Brown, a Black child in Topeka, Kansas, is denied enrollment in the white elementary school near her home and is required to travel further to attend a segregated Black school, under the same "separate but equal" framework the law has followed since 1896.</p>
+    </div>
+
+    <div class="question">Predict: applying the very same clause quoted above, word for word, will the 1954 Supreme Court rule that segregated public schools violate the Equal Protection Clause?</div>
+    <div class="choices" id="choices2">
+      <button class="choice" data-val="violates">Yes, segregating public schools by race violates equal protection.</button>
+      <button class="choice" data-val="constitutional">No, the schools are constitutional as long as they are equal.</button>
+    </div>
+
+    <div class="reveal" id="reveal2">
+      <span class="verdict">The actual 1954 ruling, <em>Brown v. Board of Education</em>:</span>
+      A unanimous Court, 9 to 0, held that "in the field of public education the doctrine of 'separate but equal' has no place. Separate educational facilities are inherently unequal." Chief Justice Earl Warren's opinion explicitly rejected <em>Plessy</em>'s reasoning for public schooling, relying in part on evidence about the psychological harm segregation caused children forced to attend separate schools.
+      <blockquote>"[Segregation] generates a feeling of inferiority as to their status in the community that may affect their hearts and minds in a way unlikely ever to be undone."</blockquote>
+    </div>
+  </div>
+
+  <div class="aha" id="ahaBox">
+    <strong>Notice what did and did not change:</strong> the Equal Protection Clause's text is identical, word for word, in 1896 and 1954. Not one word of the Fourteenth Amendment changed between these two rulings. What changed was the Court's willingness to look honestly at what racial separation actually does to the people living under it.
+  </div>
+
+  <div class="bottom-row">
+    <span class="note" id="stepNote">Phase 1 of 2: read the fact pattern, then predict.</span>
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var pill1 = document.getElementById('pill1');
+  var pill2 = document.getElementById('pill2');
+  var phase1 = document.getElementById('phase1');
+  var phase2 = document.getElementById('phase2');
+  var choices1 = document.getElementById('choices1');
+  var choices2 = document.getElementById('choices2');
+  var reveal1 = document.getElementById('reveal1');
+  var reveal2 = document.getElementById('reveal2');
+  var continueBtn = document.getElementById('continueBtn');
+  var ahaBox = document.getElementById('ahaBox');
+  var resetBtn = document.getElementById('resetBtn');
+  var stepNote = document.getElementById('stepNote');
+
+  function wireChoices(container, revealEl, onPick){
+    var buttons = container.querySelectorAll('button.choice');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if (container.dataset.picked) return;
+        container.dataset.picked = "1";
+        buttons.forEach(function(b){ b.disabled = true; });
+        btn.classList.add('picked');
+        revealEl.classList.add('show');
+        onPick();
+      });
+    });
+  }
+
+  wireChoices(choices1, reveal1, function(){
+    continueBtn.classList.add('show');
+    stepNote.textContent = "Phase 1 revealed. Continue to see the 1954 case.";
+  });
+
+  wireChoices(choices2, reveal2, function(){
+    ahaBox.classList.add('show');
+    stepNote.textContent = "Both rulings revealed.";
+  });
+
+  continueBtn.addEventListener('click', function(){
+    phase1.classList.remove('active');
+    phase2.classList.add('active');
+    pill1.classList.remove('active');
+    pill1.classList.add('done');
+    pill2.classList.add('active');
+    stepNote.textContent = "Phase 2 of 2: read the fact pattern, then predict.";
+  });
+
+  function reset(){
+    phase1.classList.add('active');
+    phase2.classList.remove('active');
+    pill1.classList.add('active');
+    pill1.classList.remove('done');
+    pill2.classList.remove('active');
+    pill2.classList.remove('done');
+
+    [choices1, choices2].forEach(function(c){
+      delete c.dataset.picked;
+      c.querySelectorAll('button.choice').forEach(function(b){
+        b.disabled = false;
+        b.classList.remove('picked');
+      });
+    });
+    reveal1.classList.remove('show');
+    reveal2.classList.remove('show');
+    continueBtn.classList.remove('show');
+    ahaBox.classList.remove('show');
+    stepNote.textContent = "Phase 1 of 2: read the fact pattern, then predict.";
+  }
+
+  resetBtn.addEventListener('click', reset);
+
+  reset();
+})();
+</script>
+
+</body>
+</html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Publius Writes for New York: Madison and the Problem of Faction</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.10 Publius Writes for New York: Madison and the Problem of Faction | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,24 +144,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-7-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 4</div><div class="subvalue">Constitutional Convention & Federalist Papers</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.10</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Federalist</div><div class="subvalue">Nos. 9&ndash;10, Madison</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.1.3, 1.5, 3.12</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 7.1</div><div class="title">Publius Writes for New York: Madison and the Problem of Faction</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 4.10</div><div class="title">Publius Writes for New York: Madison and the Problem of Faction</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">Electoral College</span><span class="gloss-def">The constitutional body of state-chosen electors whose votes, not the national popular vote directly, elect the President and Vice President.</span></div><div class="gloss-entry"><span class="gloss-term">electors</span><span class="gloss-def">The members of the Electoral College, chosen by each state, who cast the official votes that elect the President and Vice President.</span></div><div class="gloss-entry"><span class="gloss-term">extended republic</span><span class="gloss-def">Madison's argument that spreading a republic over a large territory and population, rather than confining it to a small city, actually makes it harder for any one faction to dominate.</span></div><div class="gloss-entry"><span class="gloss-term">faction</span><span class="gloss-def">In Madison's usage, a group of citizens united by some common interest or passion opposed to the rights of others or to the interests of the community as a whole.</span></div><div class="gloss-entry"><span class="gloss-term">pure democracy</span><span class="gloss-def">A government in which citizens make and administer the laws directly themselves, without elected representatives.</span></div><div class="gloss-entry"><span class="gloss-term">ratifying conventions</span><span class="gloss-def">Special state conventions, separate from the state legislatures, called specifically to approve or reject the new Constitution in 1787 and 1788.</span></div><div class="gloss-entry"><span class="gloss-term">republic</span><span class="gloss-def">A government in which citizens rule through elected representatives rather than directly, and in which political power belongs to the public, not to a monarch.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -167,42 +223,68 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
       <div class="oa-numbered"><div class="circ">1</div><div>Explain what the Federalist Papers are, who wrote them under the name "Publius," and why they were written, and identify why that purpose means they should be read as advocacy, not neutral commentary.</div></div>
       <div class="oa-numbered"><div class="circ">2</div><div>State Madison's definition of <em>faction</em> in <em>Federalist</em> No. 10 and explain his argument that faction cannot be eliminated without destroying liberty itself.</div></div>
-      <div class="oa-numbered"><div class="circ">3</div><div>Explain Madison's solution (the <em>extended republic</em>), and why he judged it superior to a small direct democracy, and connect his reasoning to the Rousseau lesson from Week 4.</div></div>
+      <div class="oa-numbered"><div class="circ">3</div><div>Explain Madison's solution (the <em>extended republic</em>), and why he judged it superior to a small direct democracy, and connect his reasoning to the Rousseau lesson from Module 2.</div></div>
+    </div>
+
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is October 1787, and the fight over the new Constitution has moved from a locked room in Philadelphia to the newspapers of New York. Governor George Clinton opposes ratification, and essay after essay is appearing in the city's papers warning that the new government will swallow the states and crush the liberty the Revolution was fought to win. If New York rejects the Constitution, the union it is meant to bind together may not survive intact. Two of the men who helped write the document in Philadelphia, Alexander Hamilton and James Madison, sit down to answer every objection, essay by essay, signing each one with a single borrowed name so that the argument, not the author, has to carry the case. No one yet knows whether Publius will be enough to save the Constitution in the one state that might sink it.</p>
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>In the autumn of 1787, the Constitutional Convention in Philadelphia had finished its work and sent the proposed Constitution out to the states for ratification. New York's ratification was far from certain. The state's governor, George Clinton, opposed the new charter, and New York's newspapers were filling with essays attacking it as a document that would swallow the states, endanger liberty, and hand power to a distant, unaccountable government. Between October 1787 and August 1788, eighty-five essays appeared in New York papers answering those attacks, arguing point by point for the Constitution's ratification. All eighty-five were signed with a single pen name: <strong>Publius</strong>, after Publius Valerius Publicola, a founder of the Roman Republic remembered for voluntarily giving up power once it had served its purpose. Behind that one name stood three men: Alexander Hamilton, who wrote the largest share; James Madison, who wrote the essays this week's lesson centers on; and John Jay, who wrote a handful before illness forced him to stop.</p>
+      <p>In the autumn of 1787, the Constitutional Convention in Philadelphia had finished its work and sent the proposed Constitution out to the states for ratification. New York's ratification was far from certain. The state's governor, George Clinton, opposed the new charter, and New York's newspapers were filling with essays attacking it as a document that would swallow the states, endanger liberty, and hand power to a distant, unaccountable government. Between October 1787 and August 1788, eighty-five essays appeared in New York papers answering those attacks, arguing point by point for the Constitution's ratification. All eighty-five were signed with a single pen name: <strong>Publius</strong>, after Publius Valerius Publicola, a founder of the Roman Republic remembered for voluntarily giving up power once it had served its purpose. Behind that one name stood three men: Alexander Hamilton, who wrote the largest share; James Madison, who wrote the essays this module's lesson centers on; and John Jay, who wrote a handful before illness forced him to stop.</p>
 
       <p>It matters, before you read a word of Publius, to be honest about what these essays are. They are not a neutral explanation of the Constitution written by disinterested scholars after the fact. Hamilton and Madison had both been delegates at the Philadelphia convention; they had helped write the document they were now defending, and they had a direct stake in seeing it ratified. The Federalist Papers are a work of persuasion, aimed at a specific and skeptical audience (the delegates who would soon vote at New York's ratifying convention) written by people who already believed the Constitution should pass. That does not make them dishonest, and it does not make their arguments weak; Madison's reasoning in the essay you'll read today has outlasted nearly every specific political fight of 1787&ndash;88 and is still taught as serious political theory. But you should read Publius the way you'd read a skilled lawyer's brief: rigorous, often brilliant, and never pretending to be anything other than one side's case.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Danger Every Republic Has to Face</h2>
-      <p>In <em>Federalist</em> No. 9, Hamilton opened a sequence of essays on a specific worry raised by the Constitution's opponents: that republics are inherently unstable, doomed to collapse into the "tempestuous waves of sedition and party rage" that had wrecked ancient and Italian republics before. Madison picked up that thread directly in <em>Federalist</em> No. 10, arguably the single most studied essay in the entire collection. His opening move is definitional, and precise. "By a faction," he writes, "I understand a number of citizens, whether amounting to a majority or minority of the whole, who are united and actuated by some common impulse of passion, or of interest, adverse to the rights of other citizens, or to the permanent and aggregate interests of the community." Notice what that definition does <em>not</em> require: a faction can be a minority or a majority. What makes a group a <em class="term">faction</em>, in Madison's sense, is not its size but its posture; a shared passion or interest pursued against the rights of others or against the common good of the whole community.</p>
+      <p>In <em>Federalist</em> No. 9, Hamilton opened a sequence of essays on a specific worry raised by the Constitution's opponents: that republics are inherently unstable, doomed to collapse into the "tempestuous waves of sedition and party rage" that had wrecked ancient and Italian republics before. Madison picked up that thread directly in <em>Federalist</em> No. 10, arguably the single most studied essay in the entire collection. His opening move is definitional, and precise. "By a faction," he writes, "I understand a number of citizens, whether amounting to a majority or minority of the whole, who are united and actuated by some common impulse of passion, or of interest, adverse to the rights of other citizens, or to the permanent and aggregate interests of the community." Notice what that definition does <em>not</em> require: a faction can be a minority or a majority. What makes a group a <strong class="term-subject" tabindex="0">faction<span class="gloss-tip">In Madison's usage, a group of citizens united by some common interest or passion opposed to the rights of others or to the interests of the community as a whole.</span></strong>, in Madison's sense, is not its size but its posture; a shared passion or interest pursued against the rights of others or against the common good of the whole community.</p>
 
       <p>Madison's next move is the one that separates him from most people who complain about faction, then and now. Having named the disease, he refuses the two easiest cures. The first is to "remove the causes" of faction by destroying the liberty that lets people organize around their own opinions and interests in the first place. Madison rejects this instantly and completely: "It could never be more truly said, than of the first remedy, that it is worse than the disease. Liberty is to faction, what air is to fire, an aliment, without which it instantly expires." You cannot eliminate faction without eliminating the freedom that makes faction possible, and a cure that kills the patient to kill the disease is no cure at all. The second easy fix, giving every citizen "the same opinions, the same passions, and the same interests," Madison dismisses as simply impossible: as long as human reason is fallible and free, people will form different opinions, accumulate different amounts of property, and divide into different interests. He traces this directly to something built into free society itself; what he calls "the various and unequal distribution of property," from which landed, mercantile, manufacturing, and other competing interests "grow up of necessity in civilized nations." Faction, for Madison, is not a defect that seeped into republican government by accident. It is a permanent, structural feature of any society where people are free to think, own property, and pursue their own good.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Direct Answer to Rousseau</h2>
-      <p>Recall Week 4's lesson on Jean-Jacques Rousseau and the <em>general will</em>; Rousseau's claim that a healthy political community could discover and act on a single, unified will aimed at the common good, provided the community stayed small, direct, and free of factions distorting its members' judgment. Madison had read this tradition of thought, and <em>Federalist</em> No. 10 is, among other things, a quiet rejection of it. Rousseau's solution to faction was to prevent it from forming: keep the community small and unified enough that no faction gains a foothold, and trust the assembled people to will the common good directly. Madison's essay argues that this is not a solution at all; it is a description of the exact conditions under which faction becomes most dangerous, not least. If you cannot eliminate the causes of faction, keeping government small and direct does not protect the community from a factious majority; it hands that majority the whole machinery of the state with nothing standing between its passions and its power.</p>
+      <p>Recall Module 2's lesson on Jean-Jacques Rousseau and the <em>general will</em>; Rousseau's claim that a healthy political community could discover and act on a single, unified will aimed at the common good, provided the community stayed small, direct, and free of factions distorting its members' judgment. Madison had read this tradition of thought, and <em>Federalist</em> No. 10 is, among other things, a quiet rejection of it. Rousseau's solution to faction was to prevent it from forming: keep the community small and unified enough that no faction gains a foothold, and trust the assembled people to will the common good directly. Madison's essay argues that this is not a solution at all; it is a description of the exact conditions under which faction becomes most dangerous, not least. If you cannot eliminate the causes of faction, keeping government small and direct does not protect the community from a factious majority; it hands that majority the whole machinery of the state with nothing standing between its passions and its power.</p>
 
-      <p>This is why Madison, having ruled out removing the causes of faction, turns to controlling its <em>effects</em> instead, and here his analysis of scale becomes the heart of the essay. A faction that is a minority of the whole is not the deepest danger; "the republican principle," Madison notes, lets the majority out-vote it through ordinary elections. The real danger is a faction that <em>is</em> the majority, because in a government where the majority rules directly, nothing stops that majority from using the law itself to "sacrifice to its ruling passion or interest, both the public good and the rights of other citizens." A <em class="term">pure democracy</em> (Madison's term for "a society consisting of a small number of citizens, who assemble and administer the government in person," exactly the Rousseauian model) offers no defense against this at all. In a small, direct democracy, Madison writes, "there is nothing to check the inducements to sacrifice the weaker party, or an obnoxious individual," which is why such governments "have ever been spectacles of turbulence and contention" and "as short in their lives, as they have been violent in their deaths."</p>
+      <p>This is why Madison, having ruled out removing the causes of faction, turns to controlling its <em>effects</em> instead, and here his analysis of scale becomes the heart of the essay. A faction that is a minority of the whole is not the deepest danger; "the republican principle," Madison notes, lets the majority out-vote it through ordinary elections. The real danger is a faction that <em>is</em> the majority, because in a government where the majority rules directly, nothing stops that majority from using the law itself to "sacrifice to its ruling passion or interest, both the public good and the rights of other citizens." A <strong class="term-subject" tabindex="0">pure democracy<span class="gloss-tip">A government in which citizens make and administer the laws directly themselves, without elected representatives.</span></strong> (Madison's term for "a society consisting of a small number of citizens, who assemble and administer the government in person," exactly the Rousseauian model) offers no defense against this at all. In a small, direct democracy, Madison writes, "there is nothing to check the inducements to sacrifice the weaker party, or an obnoxious individual," which is why such governments "have ever been spectacles of turbulence and contention" and "as short in their lives, as they have been violent in their deaths."</p>
 
-      <p>Madison's alternative is a <em class="term">republic</em> (which he defines precisely as "a government in which the scheme of representation takes place") extended over a large and diverse territory. Two features of this <em class="term">extended republic</em> do the work. First, representation itself filters public opinion "through the medium of a chosen body of citizens," whose judgment may (though Madison concedes it may not always) refine and elevate the raw passions of the moment. Second, and more importantly for his argument, sheer size and diversity of interests make it structurally difficult for any single faction to become a stable, coordinated majority at all. "Extend the sphere," Madison writes, "and you take in a greater variety of parties and interests; you make it less probable that a majority of the whole will have a common motive to invade the rights of other citizens; or if such a common motive exists, it will be more difficult for all who feel it to discover their own strength, and to act in unison with each other." A large, commercially and religiously diverse republic does not eliminate faction (nothing can, on Madison's own argument), but it multiplies factions against each other so thoroughly that no single one can easily seize and hold a permanent, oppressive majority. Scale, for Madison, is not a problem the Constitution has to overcome. It is the solution.</p>
+      <p>Madison's alternative is a <strong class="term-subject" tabindex="0">republic<span class="gloss-tip">A government in which citizens rule through elected representatives rather than directly, and in which political power belongs to the public, not to a monarch.</span></strong> (which he defines precisely as "a government in which the scheme of representation takes place") extended over a large and diverse territory. Two features of this <strong class="term-subject" tabindex="0">extended republic<span class="gloss-tip">Madison's argument that spreading a republic over a large territory and population, rather than confining it to a small city, actually makes it harder for any one faction to dominate.</span></strong> do the work. First, representation itself filters public opinion "through the medium of a chosen body of citizens," whose judgment may (though Madison concedes it may not always) refine and elevate the raw passions of the moment. Second, and more importantly for his argument, sheer size and diversity of interests make it structurally difficult for any single faction to become a stable, coordinated majority at all. "Extend the sphere," Madison writes, "and you take in a greater variety of parties and interests; you make it less probable that a majority of the whole will have a common motive to invade the rights of other citizens; or if such a common motive exists, it will be more difficult for all who feel it to discover their own strength, and to act in unison with each other." A large, commercially and religiously diverse republic does not eliminate faction (nothing can, on Madison's own argument), but it multiplies factions against each other so thoroughly that no single one can easily seize and hold a permanent, oppressive majority. Scale, for Madison, is not a problem the Constitution has to overcome. It is the solution.</p>
 
       <p>You'll read Madison's own words on all of this directly tomorrow, in <em>Federalist</em> No. 10 itself. Read for the definition of faction, the two rejected cures, and the argument for extending the republic's sphere rather than shrinking it, and keep Rousseau in the back of your mind the whole time.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Faction Size Simulator</div>
+      <p>Use the sliders to change the republic's size and the diversity of its interests, and watch what happens to the colored dots below. Notice at what point one color stops being able to take over more than half the group.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/faction-size-simulator.html" title="Faction Size Simulator" style="width:100%; height:620px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/faction-size-simulator.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     </div>
 
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 7.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 4.11</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 7.1 &middot; Publius Writes for New York: Madison and the Problem of Faction</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.10 &middot; Publius Writes for New York: Madison and the Problem of Faction</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 4.11: Publius Writes for New York is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

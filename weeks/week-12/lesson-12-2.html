@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Second Amendment: Text and Debate</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.6 The Second Amendment: Text and Debate | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,26 +144,75 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-12-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 12.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 7</div><div class="subvalue">Bill of Rights & Civil Liberties</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.6</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Bill of Rights, Amendment II</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 12.2</div><div class="title">The Second Amendment: Text and Debate</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 7.6</div><div class="title">The Second Amendment: Text and Debate</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">Anti-Federalists</span><span class="gloss-def">Opponents of ratifying the U.S. Constitution, who feared it created too powerful a national government and, at first, contained no bill of rights.</span></div><div class="gloss-entry"><span class="gloss-term">collective-right</span><span class="gloss-def">A reading of the Second Amendment holding that it protects a right connected to organized militia service, not an individual right to own weapons for private purposes.</span></div><div class="gloss-entry"><span class="gloss-term">double jeopardy</span><span class="gloss-def">The Fifth Amendment's protection against being tried twice for the same crime after an acquittal or conviction.</span></div><div class="gloss-entry"><span class="gloss-term">enumerated powers</span><span class="gloss-def">The specific powers the Constitution actually lists as belonging to Congress, as opposed to powers left to the states or the people.</span></div><div class="gloss-entry"><span class="gloss-term">Federalists</span><span class="gloss-def">Supporters of ratifying the U.S. Constitution in 1787 and 1788, who favored a stronger national government than the Articles of Confederation had provided.</span></div><div class="gloss-entry"><span class="gloss-term">individual-right</span><span class="gloss-def">A reading of the Second Amendment holding that it protects a personal right to keep and bear arms, independent of militia service.</span></div><div class="gloss-entry"><span class="gloss-term">operative clause</span><span class="gloss-def">The part of a legal text that actually does the work of granting or protecting a right, as distinct from a prefatory clause explaining why.</span></div><div class="gloss-entry"><span class="gloss-term">prefatory clause</span><span class="gloss-def">An introductory clause that states a purpose or reason, such as the "well regulated Militia" language that opens the Second Amendment.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> A single sentence of twenty-seven words, written in two clauses whose relationship to each other has been argued over for more than two centuries. This week's discussion topic asks you to read that sentence as carefully as any lawyer or historian would; not to settle the argument, but to understand it well enough to see why reasonable people disagree.</p>
+      <p><strong>Topic:</strong> A single sentence of twenty-seven words, written in two clauses whose relationship to each other has been argued over for more than two centuries. This module's discussion topic asks you to read that sentence as carefully as any lawyer or historian would; not to settle the argument, but to understand it well enough to see why reasonable people disagree.</p>
     </div>
 
     <div class="oa-card">
@@ -169,28 +225,50 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>Here is the full text of the Second Amendment, exactly as ratified in 1791: "A well regulated militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed." Read it once quickly, and it seems plain enough. Read it twice, slowly, with an eye trained on grammar rather than assumption, and a genuine interpretive puzzle appears.</p>
 
-      <p>The sentence has two parts. The first ("a well regulated militia, being necessary to the security of a free State") is called the <em class="term">prefatory clause</em>: a clause that states a purpose or justification but does not, by itself, grant or restrict anything. The second ("the right of the people to keep and bear Arms, shall not be infringed") is the <em class="term">operative clause</em>: the part that actually does the legal work of protecting a right. Nearly everyone who studies the amendment agrees on this much grammar. The disagreement begins at the next step: what is the logical relationship between the two clauses? Does the prefatory clause define and limit the operative clause, so that the right to keep and bear arms exists specifically <em>because of</em>, and <em>in service of</em>, an organized militia, meaning the right is most naturally read as a collective one, belonging to the states' power to maintain militias, rather than to individuals as such? Or does the prefatory clause merely announce one important reason among others for protecting an individual right that exists independently of militia service; meaning "the people" here means the same thing it means everywhere else in the Bill of Rights: individual persons, each holding the right personally?</p>
+      <p>The sentence has two parts. The first ("a well regulated militia, being necessary to the security of a free State") is called the <strong class="term-subject" tabindex="0">prefatory clause<span class="gloss-tip">An introductory clause that states a purpose or reason, such as the "well regulated Militia" language that opens the Second Amendment.</span></strong>: a clause that states a purpose or justification but does not, by itself, grant or restrict anything. The second ("the right of the people to keep and bear Arms, shall not be infringed") is the <strong class="term-subject" tabindex="0">operative clause<span class="gloss-tip">The part of a legal text that actually does the work of granting or protecting a right, as distinct from a prefatory clause explaining why.</span></strong>: the part that actually does the legal work of protecting a right. Nearly everyone who studies the amendment agrees on this much grammar. The disagreement begins at the next step: what is the logical relationship between the two clauses? Does the prefatory clause define and limit the operative clause, so that the right to keep and bear arms exists specifically <em>because of</em>, and <em>in service of</em>, an organized militia, meaning the right is most naturally read as a collective one, belonging to the states' power to maintain militias, rather than to individuals as such? Or does the prefatory clause merely announce one important reason among others for protecting an individual right that exists independently of militia service; meaning "the people" here means the same thing it means everywhere else in the Bill of Rights: individual persons, each holding the right personally?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Ways of Reading "the People"</h2>
-      <p>This is not a dispute invented by contemporary politics; it traces back through American legal and historical scholarship for generations, and it turns on genuinely difficult questions of eighteenth-century usage and intent. Those who favor the <em class="term">collective-right</em> reading point to the prefatory clause's explicit invocation of the militia, note that the founding generation was deeply concerned with the danger of standing federal armies and wanted to preserve the states' power to maintain their own armed citizen militias against federal disarmament, and argue that reading the amendment as protecting a private, individual right to weapons untethered from any militia purpose ignores the sentence's own stated justification.</p>
+      <p>This is not a dispute invented by contemporary politics; it traces back through American legal and historical scholarship for generations, and it turns on genuinely difficult questions of eighteenth-century usage and intent. Those who favor the <strong class="term-subject" tabindex="0">collective-right<span class="gloss-tip">A reading of the Second Amendment holding that it protects a right connected to organized militia service, not an individual right to own weapons for private purposes.</span></strong> reading point to the prefatory clause's explicit invocation of the militia, note that the founding generation was deeply concerned with the danger of standing federal armies and wanted to preserve the states' power to maintain their own armed citizen militias against federal disarmament, and argue that reading the amendment as protecting a private, individual right to weapons untethered from any militia purpose ignores the sentence's own stated justification.</p>
 
-      <p>Those who favor the <em class="term">individual-right</em> reading point out that "the right of the people," the actual phrase in the operative clause, is used elsewhere in the Bill of Rights (in the First Amendment's assembly and petition clauses, and in the Fourth Amendment's protection against unreasonable searches) to describe rights held by individual persons, not by states or organized bodies, and argue there is no clear textual signal that the Second Amendment uses "the people" differently from its neighbors. They also point to historical evidence that an armed citizenry was widely understood, at the founding, as valuable for reasons beyond formal militia service, including individual self-defense, and that eighteenth-century militias were composed of ordinary armed citizens rather than a separate class of government-issued soldiers; making the line between "individual" and "militia-related" less sharp in 1791 than it can look today.</p>
+      <p>Those who favor the <strong class="term-subject" tabindex="0">individual-right<span class="gloss-tip">A reading of the Second Amendment holding that it protects a personal right to keep and bear arms, independent of militia service.</span></strong> reading point out that "the right of the people," the actual phrase in the operative clause, is used elsewhere in the Bill of Rights (in the First Amendment's assembly and petition clauses, and in the Fourth Amendment's protection against unreasonable searches) to describe rights held by individual persons, not by states or organized bodies, and argue there is no clear textual signal that the Second Amendment uses "the people" differently from its neighbors. They also point to historical evidence that an armed citizenry was widely understood, at the founding, as valuable for reasons beyond formal militia service, including individual self-defense, and that eighteenth-century militias were composed of ordinary armed citizens rather than a separate class of government-issued soldiers; making the line between "individual" and "militia-related" less sharp in 1791 than it can look today.</p>
 
       <p>Both readings can marshal serious historical and textual evidence, and both have had serious adherents among judges, historians, and constitutional scholars. This is exactly the kind of contested question this course asks you to sit with honestly rather than resolve by assertion: the text is genuinely open to more than one careful reading, and which reading you find more persuasive depends on judgments about grammar, history, and founding-era usage that thoughtful people continue to weigh differently.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>District of Columbia v. Heller</em> (2008)</h2>
-      <p>The debate did not stay purely academic. In 2008, the Supreme Court directly addressed this interpretive question in <em class="term">District of Columbia v. Heller</em>, a case challenging a Washington, D.C. law that effectively barred handgun possession in private homes. The Court held, by a 5&ndash;4 majority, that the Second Amendment protects an individual right to keep and bear arms for lawful purposes such as self-defense, unconnected to service in a militia; the first time the Court had ruled squarely on that question. At the same time, the Heller majority was explicit that this individual right is not unlimited: the opinion stated that longstanding regulations, such as prohibitions on possession by felons or the mentally ill, restrictions on carrying weapons in sensitive places like schools and government buildings, and conditions on the commercial sale of arms, remain presumptively constitutional. The full reach of Heller, and the cases that have applied and extended it since, is a subject for later study; what matters for this lesson is simply that the Court answered the individual-versus-collective question in favor of an individual right, while simultaneously affirming that reasonable regulation and constitutional protection are not, in the Court's own view, mutually exclusive.</p>
+      <p>The debate did not stay purely academic. In 2008, the Supreme Court directly addressed this interpretive question in <strong class="term-entity" tabindex="0">District of Columbia v. Heller<span class="gloss-tip">The 2008 Supreme Court case holding that the Second Amendment protects an individual right to keep a handgun at home for self-defense.</span></strong>, a case challenging a Washington, D.C. law that effectively barred handgun possession in private homes. The Court held, by a 5&ndash;4 majority, that the Second Amendment protects an individual right to keep and bear arms for lawful purposes such as self-defense, unconnected to service in a militia; the first time the Court had ruled squarely on that question. At the same time, the Heller majority was explicit that this individual right is not unlimited: the opinion stated that longstanding regulations, such as prohibitions on possession by felons or the mentally ill, restrictions on carrying weapons in sensitive places like schools and government buildings, and conditions on the commercial sale of arms, remain presumptively constitutional. The full reach of Heller, and the cases that have applied and extended it since, is a subject for later study; what matters for this lesson is simply that the Court answered the individual-versus-collective question in favor of an individual right, while simultaneously affirming that reasonable regulation and constitutional protection are not, in the Court's own view, mutually exclusive.</p>
 
       <p>What this lesson will not do is tell you which side of the ongoing policy debate over gun regulation (what specific laws should exist, and how strict they should be) is correct. That is a live question of public policy on which citizens of goodwill disagree, and on which this course, consistent with its commitment to teaching structure before opinion and to fair-minded treatment of contested questions, takes no side. What you are responsible for here is something prior to that debate and more durable than it: what the amendment's text actually says, what the genuine interpretive dispute over that text consists of, and how the Supreme Court has, for now, resolved the constitutional question of whether the right is individual or militia-bound. Citizens who want to argue well about gun policy, whatever conclusion they reach, need to start from that same textual and historical ground.</p>
     </div>
 
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>December 15, 1791 &ndash; the Bill of Rights ratified.</strong> Ten of Madison's twelve proposed amendments met the three-fourths threshold and took effect.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>The Second Amendment's two clauses.</strong> A prefatory clause on the militia, an operative clause protecting "the right of the people to keep and bear Arms"; the interpretive dispute turns on how the two relate.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>Collective-right versus individual-right readings.</strong> Whether the amendment protects a right tied to militia service or a personal right independent of it, a genuine and long-standing scholarly disagreement.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>2008 &ndash; <em>District of Columbia v. Heller</em>.</strong> The Supreme Court held, 5&ndash;4, that the Second Amendment protects an individual right to keep a handgun at home for self-defense.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Heller's limiting language.</strong> The same opinion affirmed that longstanding regulations, such as bans on possession by felons or restrictions in sensitive places, remain presumptively constitutional.</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (the Second Amendment, close reading) and Primary Source Report 12.1, below.</p>
+      <p>Primary Source 2 (the Second Amendment, close reading) and Primary Source Report 7.8, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 12.2 &middot; The Second Amendment: Text and Debate</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 7.6 &middot; The Second Amendment: Text and Debate</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 7.8 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

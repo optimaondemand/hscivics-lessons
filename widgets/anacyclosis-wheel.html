@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wheel of Anacyclosis</title>
+<style>
+  :root {
+    --navy: #0E1C42;
+    --gold: #C7922C;
+    --teal: #1B7A6E;
+    --maroon: #7A2048;
+    --text: #1a2340;
+    --muted: #6b7a99;
+    --border: #D0D9E8;
+    --card: #F8F9FC;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: #ffffff;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .header .sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #cfd6e8;
+  }
+  .wrap {
+    padding: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .instructions {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    margin-bottom: 12px;
+    line-height: 1.45;
+  }
+  .instructions strong { color: var(--navy); }
+
+  .stage-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .wheel-area {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 6px;
+  }
+  .wheel-svg-holder {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+  }
+  svg#wheelSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 900ms cubic-bezier(.4,1.4,.4,1);
+  }
+  .wheel-locked svg#wheelSvg {
+    filter: grayscale(0.15);
+  }
+  .stage-seg {
+    stroke: #fff;
+    stroke-width: 2;
+    cursor: default;
+    transition: fill 300ms ease, opacity 300ms ease;
+  }
+  .stage-seg.active {
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.35));
+  }
+  .stage-seg.dimmed {
+    opacity: 0.35;
+  }
+  .stage-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    fill: #fff;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+  .center-pointer {
+    fill: var(--maroon);
+  }
+  .hub-text {
+    font-size: 9px;
+    font-weight: 700;
+    fill: var(--navy);
+    text-anchor: middle;
+  }
+
+  .pin-dot {
+    cursor: pointer;
+  }
+  .pin-slot-ring {
+    fill: #fff;
+    stroke: var(--muted);
+    stroke-dasharray: 3 3;
+    stroke-width: 1.5;
+  }
+  .pin-slot-ring.filled {
+    stroke: var(--teal);
+    stroke-dasharray: none;
+    fill: var(--teal);
+  }
+
+  .prompt-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    min-height: 64px;
+  }
+  .prompt-card .q {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .prompt-card .a {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    background: #fff;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-top: 8px;
+    display: none;
+  }
+  .prompt-card .a.shown { display: block; }
+  .prompt-card textarea {
+    width: 100%;
+    min-height: 44px;
+    font-family: inherit;
+    font-size: 13.5px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 8px;
+    resize: vertical;
+    margin-top: 4px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  button.oa-btn {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: var(--navy);
+    transition: background 150ms ease, transform 150ms ease;
+  }
+  button.oa-btn:hover { transform: translateY(-1px); }
+  button.oa-btn.gold { background: var(--gold); color: #2a1c00; }
+  button.oa-btn.teal { background: var(--teal); }
+  button.oa-btn.reset { background: #fff; color: var(--maroon); border: 1.5px solid var(--maroon); }
+  button.oa-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .pin-tray {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+    justify-content: center;
+  }
+  .pin-chip {
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--teal);
+    color: var(--teal);
+    background: #fff;
+    cursor: pointer;
+    transition: all 150ms ease;
+  }
+  .pin-chip.selected {
+    background: var(--teal);
+    color: #fff;
+  }
+  .pin-chip.placed {
+    opacity: 0.35;
+    cursor: default;
+    border-style: dashed;
+  }
+
+  .closing-msg {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--maroon);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    display: none;
+  }
+  .closing-msg.shown { display: block; }
+  .closing-msg strong { color: var(--maroon); }
+
+  .progress-dots {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 4px 0 8px;
+  }
+  .progress-dots span {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--border);
+    transition: background 200ms ease;
+  }
+  .progress-dots span.done { background: var(--teal); }
+  .progress-dots span.current { background: var(--gold); }
+
+  @media (max-width: 400px) {
+    .header { font-size: 14px; }
+    .prompt-card .q { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span>The Wheel of Anacyclosis</span>
+  <span class="sub">Polybius, Histories, Book 6</span>
+</div>
+
+<div class="wrap">
+
+  <div class="instructions" id="instrPanel">
+    <strong>Phase 1: Turn the wheel.</strong> Click "Rotate to Next Stage" to move through Polybius's six-stage cycle of constitutions. Before each new stage is revealed, you will be asked to predict what corrupts the current stage into the next. Then click to reveal his answer.
+  </div>
+
+  <div class="progress-dots" id="progressDots"></div>
+
+  <div class="wheel-area">
+    <div class="wheel-svg-holder">
+      <svg id="wheelSvg" viewBox="0 0 300 300">
+        <g id="segGroup"></g>
+        <circle cx="150" cy="150" r="46" fill="#fff" stroke="#0E1C42" stroke-width="2"></circle>
+        <text x="150" y="146" class="hub-text">ROME'S</text>
+        <text x="150" y="158" class="hub-text">MIXED</text>
+        <text x="150" y="170" class="hub-text">CONSTITUTION</text>
+        <polygon id="pointer" class="center-pointer" points="150,18 142,40 158,40"></polygon>
+        <g id="pinLayer"></g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="stage-tag" id="stageTag">Stage 1 of 6</div>
+  <div class="prompt-card" id="promptCard">
+    <div class="q" id="promptQ">Click "Rotate to Next Stage" to begin.</div>
+    <div class="a" id="promptA"></div>
+  </div>
+
+  <div class="btn-row" id="phase1Controls">
+    <button class="oa-btn gold" id="revealBtn" style="display:none;">Reveal Polybius's Answer</button>
+    <button class="oa-btn" id="rotateBtn">Rotate to Next Stage</button>
+    <button class="oa-btn reset" id="resetBtn1">Reset</button>
+  </div>
+
+  <div id="phase2Panel" style="display:none;">
+    <div class="instructions" style="border-left-color: var(--teal);">
+      <strong>Phase 2: Jam the wheel.</strong> The cycle has come full circle back to monarchy. Rome, however, never let any pure form take hold. Click a pin below, then click one of the three empty slots on the wheel to place it. Place all three: Consuls, Senate, and Tribunes.
+    </div>
+    <div class="pin-tray" id="pinTray"></div>
+  </div>
+
+  <div class="closing-msg" id="closingMsg"></div>
+
+</div>
+
+<script>
+(function() {
+  var NAVY = "#0E1C42", GOLD = "#C7922C", TEAL = "#1B7A6E", MAROON = "#7A2048";
+
+  var stages = [
+    {
+      name: "Monarchy",
+      color: "#2E6E9E",
+      predictQ: "Predict: what corrupts the rule of one good king into something worse?",
+      answer: "Polybius argues that monarchy decays into tyranny across generations. A king who earned his throne through merit is followed by a son who merely inherits it, with no equivalent claim to legitimacy, and inherited power untested by merit tends to curdle into rule for the ruler's own benefit rather than the people's."
+    },
+    {
+      name: "Tyranny",
+      color: "#8B3A3A",
+      predictQ: "Predict: what corrupts tyranny, and who ends it?",
+      answer: "Tyranny provokes revolt, not from the masses but from the best and most capable citizens, those with the standing and courage to act. They overthrow the tyrant and, having done so, claim rule for themselves as a deserving few: aristocracy."
+    },
+    {
+      name: "Aristocracy",
+      color: "#C7922C",
+      predictQ: "Predict: what corrupts rule by the deserving few?",
+      answer: "Aristocracy degrades into oligarchy across generations, the same pattern as monarchy's decay into tyranny. The children of virtuous aristocrats inherit status and privilege without inheriting the merit that originally justified it, and rule by the deserving few becomes rule by a narrow, self-interested few."
+    },
+    {
+      name: "Oligarchy",
+      color: "#6b3f6e",
+      predictQ: "Predict: what corrupts oligarchy, and who rises against it?",
+      answer: "Oligarchy provokes a popular revolt. The many, excluded from power and mistreated by the self-interested few, rise up and establish democracy: rule by the people themselves."
+    },
+    {
+      name: "Democracy",
+      color: "#1B7A6E",
+      predictQ: "Predict: what corrupts rule by the many?",
+      answer: "Polybius argues that democracy eventually degrades into mob rule (ochlocracy) as citizens grow accustomed to flattery, demagogues promise more than the state can deliver, and the ordinary restraints of law lose their hold on a people used to getting their way."
+    },
+    {
+      name: "Mob Rule",
+      color: "#3a3a3a",
+      predictQ: "Predict: what finally ends mob rule, and where does the cycle go from there?",
+      answer: "Out of the chaos of ochlocracy, the ambitious few forcibly re-impose one-man rule to restore order, and the cycle restarts at monarchy. Every pure form, Polybius argues, carries the seed of its own decay: the very quality that makes it legitimate at its founding is exactly what corrodes across generations into its opposite."
+    }
+  ];
+
+  var pins = [
+    { key: "consuls", label: "Consuls", note: "Consuls supplied the monarchic element: two annually elected chief magistrates holding executive and military command." },
+    { key: "senate", label: "Senate", note: "The Senate supplied the aristocratic element: a body of former magistrates whose advice carried enormous practical authority." },
+    { key: "tribunes", label: "Tribunes", note: "The Tribunes of the Plebs supplied the democratic element: officers elected by the common people with the power to veto any act of a magistrate or the Senate." }
+  ];
+
+  var svgNS = "http://www.w3.org/2000/svg";
+  var segGroup = document.getElementById("segGroup");
+  var pinLayer = document.getElementById("pinLayer");
+  var wheelSvg = document.getElementById("wheelSvg");
+  var progressDots = document.getElementById("progressDots");
+  var stageTag = document.getElementById("stageTag");
+  var promptQ = document.getElementById("promptQ");
+  var promptA = document.getElementById("promptA");
+  var revealBtn = document.getElementById("revealBtn");
+  var rotateBtn = document.getElementById("rotateBtn");
+  var resetBtn1 = document.getElementById("resetBtn1");
+  var instrPanel = document.getElementById("instrPanel");
+  var phase2Panel = document.getElementById("phase2Panel");
+  var pinTray = document.getElementById("pinTray");
+  var closingMsg = document.getElementById("closingMsg");
+
+  var cx = 150, cy = 150, rOuter = 120, rInner = 46;
+  var current = -1; // index of currently displayed stage, -1 = not started
+  var revealed = false;
+  var placedPins = {};
+  var selectedPin = null;
+  var phase2Active = false;
+
+  function polarToXY(cxp, cyp, r, angleDeg) {
+    var rad = (angleDeg - 90) * Math.PI / 180;
+    return { x: cxp + r * Math.cos(rad), y: cyp + r * Math.sin(rad) };
+  }
+
+  function describeArc(cxp, cyp, r, startAngle, endAngle) {
+    var start = polarToXY(cxp, cyp, r, endAngle);
+    var end = polarToXY(cxp, cyp, r, startAngle);
+    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    return ["M", cxp, cyp, "L", start.x, start.y, "A", r, r, 0, largeArcFlag, 0, end.x, end.y, "Z"].join(" ");
+  }
+
+  function buildWheel() {
+    segGroup.innerHTML = "";
+    var segAngle = 360 / stages.length;
+    stages.forEach(function(stage, i) {
+      var startA = i * segAngle;
+      var endA = startA + segAngle;
+      var path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", describeArc(cx, cy, rOuter, startA, endA));
+      path.setAttribute("fill", stage.color);
+      path.setAttribute("class", "stage-seg dimmed");
+      path.setAttribute("id", "seg-" + i);
+      segGroup.appendChild(path);
+
+      var midAngle = startA + segAngle / 2;
+      var labelPos = polarToXY(cx, cy, (rOuter + rInner) / 2 + 8, midAngle);
+      var text = document.createElementNS(svgNS, "text");
+      text.setAttribute("x", labelPos.x);
+      text.setAttribute("y", labelPos.y);
+      text.setAttribute("class", "stage-label");
+      text.textContent = stage.name;
+      segGroup.appendChild(text);
+    });
+  }
+
+  function updateProgressDots() {
+    progressDots.innerHTML = "";
+    stages.forEach(function(_, i) {
+      var dot = document.createElement("span");
+      if (i < current || (i === current && revealed)) dot.className = "done";
+      else if (i === current) dot.className = "current";
+      progressDots.appendChild(dot);
+    });
+  }
+
+  function highlightSegment(idx) {
+    stages.forEach(function(_, i) {
+      var seg = document.getElementById("seg-" + i);
+      if (!seg) return;
+      seg.classList.remove("active", "dimmed");
+      if (i === idx) seg.classList.add("active");
+      else seg.classList.add("dimmed");
+    });
+  }
+
+  function rotatePointerTo(idx) {
+    var segAngle = 360 / stages.length;
+    var targetAngle = idx * segAngle + segAngle / 2;
+    wheelSvg.style.transform = "rotate(" + (-targetAngle) + "deg)";
+  }
+
+  function showStage(idx) {
+    current = idx;
+    revealed = false;
+    highlightSegment(idx);
+    rotatePointerTo(idx);
+    stageTag.textContent = "Stage " + (idx + 1) + " of 6: " + stages[idx].name;
+    promptQ.textContent = stages[idx].predictQ;
+    promptA.textContent = stages[idx].answer;
+    promptA.classList.remove("shown");
+    revealBtn.style.display = "inline-block";
+    revealBtn.disabled = false;
+    rotateBtn.disabled = true;
+    updateProgressDots();
+  }
+
+  rotateBtn.addEventListener("click", function() {
+    if (current === -1) {
+      instrPanel.style.display = "none";
+      showStage(0);
+      return;
+    }
+    if (current < stages.length - 1) {
+      showStage(current + 1);
+    } else {
+      // full rotation complete, enter phase 2
+      enterPhase2();
+    }
+  });
+
+  revealBtn.addEventListener("click", function() {
+    revealed = true;
+    promptA.classList.add("shown");
+    revealBtn.disabled = true;
+    rotateBtn.disabled = false;
+    rotateBtn.textContent = (current < stages.length - 1) ? "Rotate to Next Stage" : "Complete the Cycle";
+    updateProgressDots();
+  });
+
+  function enterPhase2() {
+    phase2Active = true;
+    stageTag.textContent = "Full rotation complete";
+    promptQ.textContent = "The wheel has turned all the way back to monarchy. Rome's constitution never let this happen freely.";
+    promptA.textContent = "";
+    promptA.classList.remove("shown");
+    document.getElementById("phase1Controls").style.display = "none";
+    phase2Panel.style.display = "block";
+    buildPinSlots();
+    buildPinTray();
+  }
+
+  function buildPinSlots() {
+    pinLayer.innerHTML = "";
+    var slotAngles = [30, 150, 270]; // three slots spaced around inner ring, offset from segment boundaries
+    pins.forEach(function(pin, i) {
+      var pos = polarToXY(cx, cy, rOuter + 26, slotAngles[i]);
+      var g = document.createElementNS(svgNS, "g");
+      g.setAttribute("id", "slot-" + pin.key);
+      var circle = document.createElementNS(svgNS, "circle");
+      circle.setAttribute("cx", pos.x);
+      circle.setAttribute("cy", pos.y);
+      circle.setAttribute("r", 20);
+      circle.setAttribute("class", "pin-slot-ring");
+      circle.setAttribute("data-key", pin.key);
+      circle.style.cursor = "pointer";
+      circle.addEventListener("click", function() { placePin(pin.key); });
+      var label = document.createElementNS(svgNS, "text");
+      label.setAttribute("x", pos.x);
+      label.setAttribute("y", pos.y + 4);
+      label.setAttribute("text-anchor", "middle");
+      label.setAttribute("font-size", "9");
+      label.setAttribute("font-weight", "700");
+      label.setAttribute("fill", NAVY);
+      label.textContent = "?";
+      label.setAttribute("id", "slot-label-" + pin.key);
+      label.style.pointerEvents = "none";
+      g.appendChild(circle);
+      g.appendChild(label);
+      pinLayer.appendChild(g);
+    });
+  }
+
+  function buildPinTray() {
+    pinTray.innerHTML = "";
+    pins.forEach(function(pin) {
+      var chip = document.createElement("div");
+      chip.className = "pin-chip";
+      chip.textContent = pin.label;
+      chip.id = "chip-" + pin.key;
+      chip.addEventListener("click", function() {
+        if (placedPins[pin.key]) return;
+        selectedPin = pin.key;
+        document.querySelectorAll(".pin-chip").forEach(function(c) { c.classList.remove("selected"); });
+        chip.classList.add("selected");
+      });
+      pinTray.appendChild(chip);
+    });
+  }
+
+  function placePin(slotKey) {
+    if (!selectedPin) {
+      // allow clicking a slot directly if only one pin remains unplaced
+      var remaining = pins.filter(function(p) { return !placedPins[p.key]; });
+      if (remaining.length === 1) {
+        selectedPin = remaining[0].key;
+      } else {
+        return;
+      }
+    }
+    if (placedPins[slotKey]) return; // slot already filled by dropping in order; but we allow any pin to any slot
+    var pinObj = pins.filter(function(p){ return p.key === selectedPin; })[0];
+    placedPins[selectedPin] = true;
+    var ring = document.querySelector('#slot-' + slotKey + ' .pin-slot-ring');
+    var label = document.getElementById("slot-label-" + slotKey);
+    // find an unfilled slot's ring to fill: since any pin can go to any slot, use whichever slot was clicked but only once
+    if (ring.classList.contains("filled")) {
+      // slot occupied, find next open slot
+      var openSlot = pins.map(function(p){return p.key;}).filter(function(k){
+        var r = document.querySelector('#slot-' + k + ' .pin-slot-ring');
+        return !r.classList.contains("filled");
+      })[0];
+      if (openSlot) {
+        ring = document.querySelector('#slot-' + openSlot + ' .pin-slot-ring');
+        label = document.getElementById("slot-label-" + openSlot);
+      }
+    }
+    ring.classList.add("filled");
+    label.textContent = pinObj.label.slice(0,3).toUpperCase();
+    var chip = document.getElementById("chip-" + selectedPin);
+    chip.classList.remove("selected");
+    chip.classList.add("placed");
+    selectedPin = null;
+
+    var placedCount = Object.keys(placedPins).length;
+    if (placedCount === pins.length) {
+      lockWheel();
+    } else {
+      promptQ.textContent = "Placed " + placedCount + " of 3. Select the next pin, then tap an empty slot.";
+    }
+  }
+
+  function lockWheel() {
+    document.querySelector(".wheel-svg-holder").classList.add("wheel-locked");
+    wheelSvg.style.transition = "transform 1400ms cubic-bezier(.2,.9,.2,1)";
+    wheelSvg.style.transform = wheelSvg.style.transform + " scale(1.0)";
+    promptQ.textContent = "The wheel has jammed. Consuls, Senate, and Tribunes now hold the monarchic, aristocratic, and democratic elements at once, each checking the others.";
+    var pinNotes = pins.map(function(p) { return "<strong>" + p.label + ":</strong> " + p.note; }).join("<br><br>");
+    closingMsg.innerHTML = pinNotes + "<br><br><strong>Not virtue, but mixture.</strong> Polybius does not credit Rome's endurance to having better or more virtuous citizens than other states. He credits the structure itself: a constitution built from all three forms simultaneously cannot slide cleanly from one pure form to its corrupt twin, because the other two elements stand in the way. Mixture, not virtue, is what jams the wheel.";
+    closingMsg.classList.add("shown");
+  }
+
+  resetBtn1.addEventListener("click", function() {
+    current = -1;
+    revealed = false;
+    placedPins = {};
+    selectedPin = null;
+    phase2Active = false;
+    instrPanel.style.display = "block";
+    document.getElementById("phase1Controls").style.display = "flex";
+    phase2Panel.style.display = "none";
+    closingMsg.classList.remove("shown");
+    closingMsg.innerHTML = "";
+    document.querySelector(".wheel-svg-holder").classList.remove("wheel-locked");
+    wheelSvg.style.transition = "transform 900ms cubic-bezier(.4,1.4,.4,1)";
+    wheelSvg.style.transform = "rotate(0deg)";
+    stageTag.textContent = "Stage 1 of 6";
+    promptQ.textContent = 'Click "Rotate to Next Stage" to begin.';
+    promptA.textContent = "";
+    promptA.classList.remove("shown");
+    revealBtn.style.display = "none";
+    rotateBtn.disabled = false;
+    rotateBtn.textContent = "Rotate to Next Stage";
+    pinLayer.innerHTML = "";
+    pinTray.innerHTML = "";
+    stages.forEach(function(_, i) {
+      var seg = document.getElementById("seg-" + i);
+      seg.classList.remove("active");
+      seg.classList.add("dimmed");
+    });
+    updateProgressDots();
+  });
+
+  // initial build: pre-loaded default state
+  buildWheel();
+  stages.forEach(function(_, i) {
+    var seg = document.getElementById("seg-" + i);
+    seg.classList.add("dimmed");
+  });
+  updateProgressDots();
+  rotateBtn.textContent = "Rotate to Next Stage";
+})();
+</script>
+
+</body>
+</html>

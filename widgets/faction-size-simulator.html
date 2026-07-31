@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faction Size Simulator</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--navy);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .wrap{
+    padding:14px 16px 18px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px 14px;
+    margin-bottom:14px;
+  }
+  .control{
+    flex:1 1 240px;
+    min-width:200px;
+  }
+  .control label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .control .valline{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  input[type="range"]{
+    width:100%;
+    accent-color:var(--teal);
+  }
+  .stage{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:10px;
+    margin-bottom:12px;
+  }
+  .stage-label{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:6px;
+    text-align:center;
+  }
+  #grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+    min-height:180px;
+    align-content:flex-start;
+  }
+  .dot{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    transition: background-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    flex:0 0 auto;
+  }
+  .dot.majority{
+    box-shadow:0 0 0 2px rgba(0,0,0,0.15);
+    transform:scale(1.12);
+  }
+  .readout{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:12px;
+    min-height:70px;
+    transition: background-color 300ms ease;
+  }
+  .readout .verdict{
+    font-weight:700;
+    color:var(--navy);
+    display:block;
+    margin-bottom:4px;
+  }
+  .readout .quote{
+    font-style:italic;
+    color:var(--maroon);
+  }
+  .metrics{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .metric{
+    flex:1 1 140px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:8px 10px;
+    text-align:center;
+  }
+  .metric .num{
+    font-size:20px;
+    font-weight:700;
+    color:var(--teal);
+  }
+  .metric .lab{
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .actions{
+    display:flex;
+    justify-content:flex-end;
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:14px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{
+    background:#16295e;
+  }
+  @media (max-width:420px){
+    .dot{width:16px;height:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">Faction Size Simulator</div>
+
+<div class="wrap">
+
+  <div class="controls">
+    <div class="control">
+      <label for="sizeSlider">Republic size</label>
+      <div class="valline" id="sizeVal">Small city-state</div>
+      <input type="range" id="sizeSlider" min="0" max="3" step="1" value="0">
+    </div>
+    <div class="control">
+      <label for="diversitySlider">Diversity of interests</label>
+      <div class="valline" id="diversityVal">Low (one dominant interest)</div>
+      <input type="range" id="diversitySlider" min="0" max="3" step="1" value="0">
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="stage-label">Each dot is a group of citizens sharing one interest. Same color, same faction.</div>
+    <div id="grid"></div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num" id="factionCount">1</div><div class="lab">Distinct interests</div></div>
+    <div class="metric"><div class="num" id="largestShare">100%</div><div class="lab">Largest faction's share</div></div>
+    <div class="metric"><div class="num" id="majorityFlag">Yes</div><div class="lab">Can one faction form a majority?</div></div>
+  </div>
+
+  <div class="readout" id="readout"></div>
+
+  <div class="actions">
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var sizeSlider = document.getElementById('sizeSlider');
+  var diversitySlider = document.getElementById('diversitySlider');
+  var sizeVal = document.getElementById('sizeVal');
+  var diversityVal = document.getElementById('diversityVal');
+  var grid = document.getElementById('grid');
+  var readout = document.getElementById('readout');
+  var factionCountEl = document.getElementById('factionCount');
+  var largestShareEl = document.getElementById('largestShare');
+  var majorityFlagEl = document.getElementById('majorityFlag');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var sizeLabels = ["Small city-state", "Small republic", "Large republic", "Extended, continental republic"];
+  var diversityLabels = ["Low (one dominant interest)", "Modest", "High", "Very high (many interests)"];
+
+  var totalDotsBySize = [16, 30, 48, 64];
+
+  var palette = ["#7A2048","#1B7A6E","#C7922C","#0E1C42","#5b8c3f","#a15c1f","#4a5a8c","#8c3f6e"];
+
+  var seed = 1234;
+  function rand(){
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return (seed % 1000) / 1000;
+  }
+
+  function computeShares(size, diversity){
+    var numFactions = diversity + 2; // 2 to 5 distinct interests
+    var total = totalDotsBySize[size];
+
+    var skew = 1 - (diversity * 0.28) - (size * 0.12);
+    if (skew < 0.12) skew = 0.12;
+
+    var shares = [];
+    var remaining = 1.0;
+    var dominant = 0.32 + skew * 0.55;
+    if (dominant > 0.92) dominant = 0.92;
+    shares.push(dominant);
+    remaining -= dominant;
+
+    for (var i = 1; i < numFactions; i++){
+      var portion = remaining / (numFactions - i);
+      var jitter = (rand() - 0.5) * portion * 0.4;
+      var val = Math.max(0.02, portion + jitter);
+      if (i === numFactions - 1) val = Math.max(0.02, remaining);
+      shares.push(val);
+      remaining -= val;
+      if (remaining < 0) remaining = 0;
+    }
+
+    var sum = shares.reduce(function(a,b){return a+b;}, 0);
+    shares = shares.map(function(s){ return s / sum; });
+
+    var counts = shares.map(function(s){ return Math.max(1, Math.round(s * total)); });
+    var diff = total - counts.reduce(function(a,b){return a+b;}, 0);
+    counts[0] += diff;
+    if (counts[0] < 1) counts[0] = 1;
+
+    return counts;
+  }
+
+  function render(){
+    var size = parseInt(sizeSlider.value, 10);
+    var diversity = parseInt(diversitySlider.value, 10);
+    seed = 1000 + size * 97 + diversity * 331;
+
+    sizeVal.textContent = sizeLabels[size];
+    diversityVal.textContent = diversityLabels[diversity];
+
+    var counts = computeShares(size, diversity);
+    var total = counts.reduce(function(a,b){return a+b;}, 0);
+    var largest = Math.max.apply(null, counts);
+    var largestPct = Math.round((largest / total) * 100);
+    var isMajority = largest > total / 2;
+
+    grid.innerHTML = "";
+    var dots = [];
+    counts.forEach(function(count, idx){
+      for (var i = 0; i < count; i++){
+        dots.push(idx);
+      }
+    });
+
+    for (var i = dots.length - 1; i > 0; i--){
+      var j = Math.floor(rand() * (i + 1));
+      var tmp = dots[i]; dots[i] = dots[j]; dots[j] = tmp;
+    }
+
+    dots.forEach(function(factionIdx){
+      var d = document.createElement('div');
+      d.className = 'dot';
+      d.style.backgroundColor = palette[factionIdx % palette.length];
+      if (isMajority && factionIdx === 0){
+        d.classList.add('majority');
+      }
+      grid.appendChild(d);
+    });
+
+    factionCountEl.textContent = counts.length;
+    largestShareEl.textContent = largestPct + "%";
+    majorityFlagEl.textContent = isMajority ? "Yes" : "No";
+
+    var msg = "";
+    if (isMajority){
+      msg = '<span class="verdict">One faction can seize a majority here.</span>' +
+        'With a small republic and few competing interests, one shared passion can spread through nearly the whole community. ' +
+        'Madison warned that in this setup there is "nothing to check the inducements to sacrifice the weaker party."';
+    } else {
+      msg = '<span class="verdict">No single faction can dominate here.</span>' +
+        'Spread the republic wider and multiply the interests inside it, and a majority built on one shared passion gets harder to assemble. ' +
+        'As Madison put it, extending the sphere means "you take in a greater variety of parties and interests," so it becomes far less likely that any one of them can act in unison as a majority.';
+    }
+    readout.innerHTML = msg;
+  }
+
+  sizeSlider.addEventListener('input', render);
+  diversitySlider.addEventListener('input', render);
+  resetBtn.addEventListener('click', function(){
+    sizeSlider.value = 0;
+    diversitySlider.value = 0;
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Founding of the Republic and the Mixed Constitution</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.10 The Founding of the Republic and the Mixed Constitution | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,24 +144,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-2-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 2.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 1</div><div class="subvalue">Greco-Roman Foundations</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 1.10</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">De Republica</div><div class="subvalue">Cicero</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Greco-Roman Foundations</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 2.1</div><div class="title">The Founding of the Republic and the Mixed Constitution</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 1.10</div><div class="title">The Founding of the Republic and the Mixed Constitution</div></div><span class="time-pill">20 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">consuls</span><span class="gloss-def">The two chief magistrates of the Roman Republic, elected annually, who jointly held the highest executive and military power.</span></div><div class="gloss-entry"><span class="gloss-term">mixed constitution</span><span class="gloss-def">A government that blends monarchy, aristocracy, and democracy into one system, so that each branch checks the others; Rome's Republic is the classic example.</span></div><div class="gloss-entry"><span class="gloss-term">ostracism</span><span class="gloss-def">An Athenian practice in which citizens voted, without a trial, to exile a person from the city for ten years, usually to remove a political threat.</span></div><div class="gloss-entry"><span class="gloss-term">Senate</span><span class="gloss-def">In Rome, a body of former magistrates who advised on state policy; its decrees were technically only advice, but carried enormous practical authority.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -170,41 +226,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Distinguish Rome's strategy for checking power (institutional plurality) from Athens's strategy (direct citizen power), and connect both to the six foundational questions of this course.</div></div>
     </div>
 
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is 509 BC, and Rome has just torn down its own king. A noblewoman named Lucretia is dead by her own hand rather than live with what the king's son did to her, and her kinsman Lucius Junius Brutus stands over her body in front of a gathered crowd, holding up a bloody knife and swearing that Rome will never again answer to a king. The crowd roars its agreement. The king and his family flee the city. But swearing off kings is the easy part. Building something to replace one is not. No constitution yet exists to say who commands the army tomorrow, who judges a dispute, or who speaks for Rome in a treaty. Every option is still open: one strongman, a council of nobles, a vote of the whole people, or something no one has quite tried before.</p>
+    </div>
+
     <div class="oa-card lesson-prose">
       <p>In 509 BC, the Romans threw a king out of his own city. Tradition says the last straw was personal: Sextus, son of King Lucius Tarquinius Superbus ("Tarquin the Proud"), committed a monstrous crime against a noblewoman named Lucretia, who then took her own life rather than live with the shame of it. Her kinsman Lucius Junius Brutus is said to have stood over her body and sworn that Rome would never again be ruled by a king. Whatever the precise truth buried under roughly four and a half centuries of retelling by the time Cicero wrote, the political fact is not in dispute: the Romans expelled their seventh king, and rather than replace him with an eighth, they built something that had not quite existed before; not, at least, in the form Rome gave it.</p>
 
-      <p>They called it the <em class="term">res publica</em>; literally, "the public thing," or "the people's affair." The word survives in English as <em>republic</em>, and the etymology is not decoration; it is the whole argument compressed into two words. A <em>res privata</em> is a private matter, the business of one household or one man. A <em>res publica</em> is everyone's business, the common property of the citizens who constitute it, administered on their behalf and, in some real if imperfect sense, by them. To call a government a res publica was to make a claim: that the offices of the state are not anyone's inheritance, that no single household owns Rome, and that public power exists to be discharged, not possessed.</p>
+      
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Comitia Centuriata</span><span class="gloss-pron">coh-MIT-ee-uh sen-tur-ee-AH-tuh</span> <button class="gloss-speak" onclick="speakGloss(event,'Comitia Centuriata, coh-MIT-ee-uh sen-tur-ee-AH-tuh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Roman Assembly of Centuries, organized by property and military rank, which elected consuls and voted on war.</span></div><div class="gloss-entry"><span class="gloss-term">deme</span><span class="gloss-pron">deem</span> <button class="gloss-speak" onclick="speakGloss(event,'deme, deem')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A local Athenian district or township, and (after Cleisthenes) the basic unit of citizenship and voter registration.</span></div><div class="gloss-entry"><span class="gloss-term">imperium</span><span class="gloss-pron">im-PEER-ee-um</span> <button class="gloss-speak" onclick="speakGloss(event,'imperium, im-PEER-ee-um')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The supreme executive and military command held by a Roman magistrate such as a consul, including the power to lead an army and issue binding orders.</span></div><div class="gloss-entry"><span class="gloss-term">isegoria</span><span class="gloss-pron">ee-say-GOR-ee-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'isegoria, ee-say-GOR-ee-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The equal right of every Athenian citizen to speak before the Assembly.</span></div><div class="gloss-entry"><span class="gloss-term">res publica</span><span class="gloss-pron">rayss POO-blih-kah</span> <button class="gloss-speak" onclick="speakGloss(event,'res publica, rayss POO-blih-kah')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Latin for "the public thing": the Roman state understood as the shared property of its citizens, the root of the word "republic."</span></div><div class="gloss-entry"><span class="gloss-term">senatus consultum</span><span class="gloss-pron">seh-NAH-tuss con-SUL-tum</span> <button class="gloss-speak" onclick="speakGloss(event,'senatus consultum, seh-NAH-tuss con-SUL-tum')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A formal "decree of the Senate": technically only advice to a Roman magistrate, but followed with something close to the force of law.</span></div><div class="gloss-entry"><span class="gloss-term">trittyes</span><span class="gloss-pron">TRIT-oo-eez</span> <button class="gloss-speak" onclick="speakGloss(event,'trittyes, TRIT-oo-eez')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Athenian "thirds": groupings of demes later used by Cleisthenes to mix citizens from different regions into the same tribes.</span></div></div>
+<p>They called it the <em class="term" tabindex="0">res publica<span class="gloss-tip">Latin for "the public thing": the Roman state understood as the shared property of its citizens, the root of the word "republic." <button class="gloss-speak" onclick="speakGloss(event,'res publica, rayss POO-blih-kah')" aria-label="Hear pronunciation">&#128266;</button></span></em>; literally, "the public thing," or "the people's affair." The word survives in English as <em>republic</em>, and the etymology is not decoration; it is the whole argument compressed into two words. A <em>res privata</em> is a private matter, the business of one household or one man. A <em>res publica</em> is everyone's business, the common property of the citizens who constitute it, administered on their behalf and, in some real if imperfect sense, by them. To call a government a res publica was to make a claim: that the offices of the state are not anyone's inheritance, that no single household owns Rome, and that public power exists to be discharged, not possessed.</p>
 
-      <p>That claim needed institutions to make it real, and here Rome's answer diverges sharply from the Athenian answer you studied last week. Solon and Cleisthenes solved the problem of unchecked power by widening the circle of who could exercise it directly: more citizens gaining a real voice, more offices open to more property classes, until eventually the Assembly, composed of every free adult male citizen, held the supreme power in the state. Rome, by contrast, did not scatter power outward toward mass participation nearly so far, at least not at first. Instead, the Romans multiplied and divided the offices of government and set each division against the others, so that no single magistrate, no single body, and for a long time no single class could act alone for long without another checking it. Athens pursued liberty through the breadth of direct citizen power. Rome pursued it through the depth of institutional plurality; more officers, more bodies, more mutual vetoes, each one a brake on the others. Hold that contrast. It is the hinge on which the rest of this course's constitutional story turns, because when James Madison sat down in Philadelphia in 1787, it was substantially the Roman strategy, not the Athenian one, that he reached for.</p>
+      <p>That claim needed institutions to make it real, and here Rome's answer diverges sharply from the Athenian answer you studied the previous lesson. Solon and Cleisthenes solved the problem of unchecked power by widening the circle of who could exercise it directly: more citizens gaining a real voice, more offices open to more property classes, until eventually the Assembly, composed of every free adult male citizen, held the supreme power in the state. Rome, by contrast, did not scatter power outward toward mass participation nearly so far, at least not at first. Instead, the Romans multiplied and divided the offices of government and set each division against the others, so that no single magistrate, no single body, and for a long time no single class could act alone for long without another checking it. Athens pursued liberty through the breadth of direct citizen power. Rome pursued it through the depth of institutional plurality; more officers, more bodies, more mutual vetoes, each one a brake on the others. Hold that contrast. It is the hinge on which the rest of this course's constitutional story turns, because when James Madison sat down in Philadelphia in 1787, it was substantially the Roman strategy, not the Athenian one, that he reached for.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Consuls, One Office, Divided</h2>
-      <p>At the center of the early Republic stood two annually elected magistrates called <em class="term">consuls</em>. Each consul held <em class="term">imperium</em>; the full executive power of the old kings: command of the army, the authority to convene the Senate and the assemblies, the power to execute the law. This is the "dual executive" your discussion this week will explore, and it is worth sitting with how strange the arrangement actually is. Rome did not abolish the king's power when it abolished the king. It kept the power nearly intact and instead handed the whole of it, jointly, to two men at once, each serving only one year, each entitled to overrule ("veto," from the Latin for "I forbid") any act of the other.</p>
+      <p>At the center of the early Republic stood two annually elected magistrates called <strong class="term-subject" tabindex="0">consuls<span class="gloss-tip">The two chief magistrates of the Roman Republic, elected annually, who jointly held the highest executive and military power.</span></strong>. Each consul held <em class="term" tabindex="0">imperium<span class="gloss-tip">The supreme executive and military command held by a Roman magistrate such as a consul, including the power to lead an army and issue binding orders. <button class="gloss-speak" onclick="speakGloss(event,'imperium, im-PEER-ee-um')" aria-label="Hear pronunciation">&#128266;</button></span></em>; the full executive power of the old kings: command of the army, the authority to convene the Senate and the assemblies, the power to execute the law. This is the "dual executive" your discussion this session will explore, and it is worth sitting with how strange the arrangement actually is. Rome did not abolish the king's power when it abolished the king. It kept the power nearly intact and instead handed the whole of it, jointly, to two men at once, each serving only one year, each entitled to overrule ("veto," from the Latin for "I forbid") any act of the other.</p>
 
       <p>Why two, and not one, and not twenty? A single chief executive is efficient, but efficiency was exactly what the Romans of 509 BC had reason to distrust; they had just spent a quarter of a millennium learning what a single man with unchecked <em>imperium</em> could do to a city that could not remove him. Twenty chief executives, or a hundred, would guard against tyranny even more thoroughly, but at the cost of paralysis and confusion in war and in the ordinary daily business of governing a city; a plural executive dilutes will along with power. Two was the Roman wager on a narrow path between those dangers: enough division that no consul could rule as a king, because his colleague's veto stood in the way; but few enough that the state could still act, decide, and command an army in a genuine emergency. It is not an obviously stable solution (you will spend Wednesday's lesson examining exactly how it could fail), but it is a considered one, and it names, in miniature, a problem this course will return to under different names for the rest of the semester: how do you check power without also disabling it?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Senate: Authority Without a Vote</h2>
-      <p>Alongside the consuls stood the <em class="term">Senate</em>, a body that is easy to misdescribe if you import modern assumptions about legislatures. The Senate did not, strictly, make law in the early Republic, and its members were not elected by the citizen body at large in the way a modern senator is. It was composed of former magistrates and heads of leading families, appointed for life, and its formal instrument was the <em class="term">senatus consultum</em>; a "decree of the Senate," which was technically only advice. And yet Roman magistrates followed that advice with something close to the force of law, because the Senate's actual power was not procedural but experiential: it was a standing body of men who had already held office, already commanded armies, already negotiated treaties, meeting year after year while the consuls rotated out every twelve months. A new consul, however capable, faced the Senate as a collection of predecessors who remembered the last war, the last famine, the last treaty violated by a neighboring people twenty years before he was born. Rome's mixed constitution did not check power only by dividing executive authority against itself; it also built in a permanent institutional memory that no annually elected magistrate could outrank by force of office alone, only by force of persuasion.</p>
+      <p>Alongside the consuls stood the <strong class="term-subject" tabindex="0">Senate<span class="gloss-tip">In Rome, a body of former magistrates who advised on state policy; its decrees were technically only advice, but carried enormous practical authority.</span></strong>, a body that is easy to misdescribe if you import modern assumptions about legislatures. The Senate did not, strictly, make law in the early Republic, and its members were not elected by the citizen body at large in the way a modern senator is. It was composed of former magistrates and heads of leading families, appointed for life, and its formal instrument was the <em class="term" tabindex="0">senatus consultum<span class="gloss-tip">A formal "decree of the Senate": technically only advice to a Roman magistrate, but followed with something close to the force of law. <button class="gloss-speak" onclick="speakGloss(event,'senatus consultum, seh-NAH-tuss con-SUL-tum')" aria-label="Hear pronunciation">&#128266;</button></span></em>; a "decree of the Senate," which was technically only advice. And yet Roman magistrates followed that advice with something close to the force of law, because the Senate's actual power was not procedural but experiential: it was a standing body of men who had already held office, already commanded armies, already negotiated treaties, meeting year after year while the consuls rotated out every twelve months. A new consul, however capable, faced the Senate as a collection of predecessors who remembered the last war, the last famine, the last treaty violated by a neighboring people twenty years before he was born. Rome's mixed constitution did not check power only by dividing executive authority against itself; it also built in a permanent institutional memory that no annually elected magistrate could outrank by force of office alone, only by force of persuasion.</p>
+
+      <p>Those "former magistrates" did not arrive at high office by accident. Rome expected an ambitious citizen to climb a fixed sequence of elected posts, each with its own minimum age and each a precondition for the next, that Romans themselves called the <em class="term" tabindex="0">cursus honorum<span class="gloss-tip">Latin for "the course of honors": the fixed ladder of elected offices an ambitious Roman climbed, in order, on the way to the consulship.</span></em>, "the course of honors." A young man could not simply run for consul; he had to earn the Senate's floor one rung at a time.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">The Cursus Honorum: Rome's Ladder of Offices</div>
+        <div class="oa-ladder">
+          <div class="rung"><div class="rung-title">Quaestor</div><div class="rung-desc">Entry office, minimum age 30; managed public finances and automatically earned a seat in the Senate.</div></div>
+          <div class="rung"><div class="rung-title">Aedile</div><div class="rung-desc">Oversaw public buildings, markets, and civic festivals; optional, but a visible way to win popular favor.</div></div>
+          <div class="rung"><div class="rung-title">Praetor</div><div class="rung-desc">Administered justice and could command an army; second-highest imperium in the Republic.</div></div>
+          <div class="rung top"><div class="rung-title">Consul</div><div class="rung-desc">The summit of the cursus honorum: one of two annually elected holders of full imperium.</div></div>
+          <div class="rung top"><div class="rung-title">Censor</div><div class="rung-desc">A rare capstone reserved for ex-consuls; conducted the census and could remove a senator for misconduct.</div></div>
+        </div>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Assemblies: Rome's Narrower Democratic Element</h2>
-      <p>Rome also had popular assemblies in which citizens voted directly on laws, on war and peace, and eventually on the election of magistrates themselves. This is the piece of the Roman constitution that most resembles Athens, and it matters that it existed at all; the res publica genuinely depended on the consent and the votes of its citizen body, not merely on the goodwill of an elite. But the resemblance to Athens should not be overstated. The most important of these bodies, the <em class="term">Comitia Centuriata</em> ("Assembly of Centuries"), organized citizens into voting blocs weighted heavily toward property and military rank, so that the wealthiest citizens, though far fewer in number, controlled enough blocs to decide most questions before the poorer and more numerous blocs even finished casting their votes. The assemblies gave the Roman citizen a real vote and a real voice, but a voice tuned, deliberately, to give property and standing more weight than headcount. Democratic legitimacy is present in the res publica; it is not, in the early Republic, the dominant note.</p>
+      <p>Rome also had popular assemblies in which citizens voted directly on laws, on war and peace, and eventually on the election of magistrates themselves. This is the piece of the Roman constitution that most resembles Athens, and it matters that it existed at all; the res publica genuinely depended on the consent and the votes of its citizen body, not merely on the goodwill of an elite. But the resemblance to Athens should not be overstated. The most important of these bodies, the <em class="term" tabindex="0">Comitia Centuriata<span class="gloss-tip">The Roman Assembly of Centuries, organized by property and military rank, which elected consuls and voted on war. <button class="gloss-speak" onclick="speakGloss(event,'Comitia Centuriata, coh-MIT-ee-uh sen-tur-ee-AH-tuh')" aria-label="Hear pronunciation">&#128266;</button></span></em> ("Assembly of Centuries"), organized citizens into voting blocs weighted heavily toward property and military rank, so that the wealthiest citizens, though far fewer in number, controlled enough blocs to decide most questions before the poorer and more numerous blocs even finished casting their votes. The assemblies gave the Roman citizen a real vote and a real voice, but a voice tuned, deliberately, to give property and standing more weight than headcount. Democratic legitimacy is present in the res publica; it is not, in the early Republic, the dominant note.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Different Answer to an Old Question</h2>
-      <p>Put the three elements together (the dual consulship, the Senate, the assemblies), and you have the outline of what later writers would call a <em class="term">mixed constitution</em>: a government that blends monarchic, aristocratic, and democratic elements rather than choosing decisively among them. You will meet the man who gave this idea its fullest ancient statement, the Greek historian Polybius, in Wednesday's lesson; Cicero, whom you read today, absorbed Polybius's analysis and made it his own. For now, notice what this Roman answer implies about the six questions this course keeps returning to. Who rules, and what makes that rule legitimate? In Rome, no one office and no one class rules alone; legitimacy rests on the plural, checked structure itself, not on the wisdom or virtue of any single ruler. How is authority distributed among citizens and the communities they belong to? Rome distributes it across offices in tension with one another, rather than concentrating it and then trusting an electorate to remove bad occupants of a single office. Athens had asked whether the many could be trusted to rule directly. Rome asked a different question: whether any part of the state, however capable, could be trusted to rule without another part standing ready to say no. The American Constitution you will study later this semester inherits Athens's commitment to popular consent, but its actual machinery (two houses of Congress checking each other, a president checking Congress, courts checking both) is Roman to its bones.</p>
+      <p>Put the three elements together (the dual consulship, the Senate, the assemblies), and you have the outline of what later writers would call a <strong class="term-subject" tabindex="0">mixed constitution<span class="gloss-tip">A government that blends monarchy, aristocracy, and democracy into one system, so that each branch checks the others; Rome's Republic is the classic example.</span></strong>: a government that blends monarchic, aristocratic, and democratic elements rather than choosing decisively among them. You will meet the man who gave this idea its fullest ancient statement, the Greek historian Polybius, in Wednesday's lesson; Cicero, whom you read today, absorbed Polybius's analysis and made it his own. For now, notice what this Roman answer implies about the six questions this course keeps returning to. Who rules, and what makes that rule legitimate? In Rome, no one office and no one class rules alone; legitimacy rests on the plural, checked structure itself, not on the wisdom or virtue of any single ruler. How is authority distributed among citizens and the communities they belong to? Rome distributes it across offices in tension with one another, rather than concentrating it and then trusting an electorate to remove bad occupants of a single office. Athens had asked whether the many could be trusted to rule directly. Rome asked a different question: whether any part of the state, however capable, could be trusted to rule without another part standing ready to say no. The American Constitution you will study later this semester inherits Athens's commitment to popular consent, but its actual machinery (two houses of Congress checking each other, a president checking Congress, courts checking both) is Roman to its bones.</p>
     </div>
 
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">20 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 2.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 1.11</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 2.1 &middot; The Founding of the Republic and the Mixed Constitution</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 1.10 &middot; The Founding of the Republic and the Mixed Constitution</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 1.11: The Founding of the Republic and the Mixed Constitution is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Two Religion Clauses, One Amendment</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.14 Two Religion Clauses, One Amendment | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-13-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 13.2</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.11</div><div class="subvalue">SS.912.CG.3.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 7</div><div class="subvalue">Bill of Rights & Civil Liberties</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.14</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 13.2</div><div class="title">Two Religion Clauses, One Amendment</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 7.14</div><div class="title">Two Religion Clauses, One Amendment</div></div><span class="time-pill">10 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">incitement to imminent lawless action</span><span class="gloss-def">Speech that is directed at producing immediate illegal action and is likely to actually produce it; one of the narrow categories the First Amendment does not protect.</span></div><div class="gloss-entry"><span class="gloss-term">true threats</span><span class="gloss-def">Statements that a reasonable person would understand as a genuine, serious expression of intent to commit violence against someone; a category the First Amendment does not protect.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -167,7 +223,29 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>Return to the First Amendment's text: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof." Read carefully, that is two separate commands, not one. The <em class="term">Establishment Clause</em> forbids the government from setting up an official state religion or otherwise officially favoring or endorsing religion. The <em class="term">Free Exercise Clause</em> forbids the government from interfering with a person's right to practice his own religion. Both clauses protect religious liberty, but they protect it from opposite directions; one restrains government from promoting religion, the other restrains government from burdening it.</p>
+      <p>Return to the First Amendment's text: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof." Read carefully, that is two separate commands, not one. The <strong class="term-entity" tabindex="0">Establishment Clause<span class="gloss-tip">The First Amendment clause forbidding the government from establishing an official religion or favoring one religion over another.</span></strong> forbids the government from setting up an official state religion or otherwise officially favoring or endorsing religion. The <strong class="term-entity" tabindex="0">Free Exercise Clause<span class="gloss-tip">The First Amendment clause protecting an individual's right to practice their own religion without government interference.</span></strong> forbids the government from interfering with a person's right to practice his own religion. Both clauses protect religious liberty, but they protect it from opposite directions; one restrains government from promoting religion, the other restrains government from burdening it.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">One Amendment, Two Directions</div>
+        <div class="oa-compare">
+          <div class="col">
+            <div class="col-head">Establishment Clause</div>
+            <div class="col-body">
+              <div class="col-row">Restrains government from promoting or favoring religion.</div>
+              <div class="col-row">Tested in <em>Lemon v. Kurtzman</em> (1971).</div>
+              <div class="col-row">Worry: government too close to religion.</div>
+            </div>
+          </div>
+          <div class="col emphasis">
+            <div class="col-head">Free Exercise Clause</div>
+            <div class="col-body">
+              <div class="col-row">Restrains government from burdening religious practice.</div>
+              <div class="col-row">Tested in <em>Sherbert v. Verner</em> (1963).</div>
+              <div class="col-row">Worry: government too hard on religion.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <p>Most of the time these two commands work in harmony: government simply stays out of religious matters, and both clauses are satisfied at once. But the two clauses can pull against each other in a specific and recurring way. Suppose government accommodates a religious practice; exempts a church from a general regulation, say, or excuses a religious objector from an otherwise universal requirement. To the person who benefits, that accommodation looks like simple respect for free exercise. But to someone outside that faith, the same accommodation can look like government favoring one religion's needs over everyone else's; an establishment, or at least a step toward one. This is not a flaw in the Amendment; it is the price of protecting two related but distinct goods with two separate rules. Courts have spent decades since the founding, and especially since the mid-twentieth century, working out where the line between reasonable accommodation and impermissible establishment actually falls.</p>
 
@@ -190,13 +268,35 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Now put the two cases side by side. In <em>Lemon</em>, the worry ran one direction: government aid to religious schools risked crossing over into establishment. In <em>Sherbert</em>, the worry ran the other direction: a religiously neutral-sounding state rule risked crossing over into an unconstitutional burden on free exercise. Both cases are the Supreme Court trying to hold the same two-sided coin steady; keeping government far enough from religion that it does not establish or promote any faith, while keeping government close enough to fairness that it does not accidentally punish citizens for practicing theirs. Read together, <em>Lemon</em> and <em>Sherbert</em> show you the First Amendment's two religion clauses doing their separate jobs in the same decade of American law, and occasionally making a lower court's task look less like drawing one clean line and more like balancing on two ropes at once.</p>
     </div>
 
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>The Establishment Clause and the Free Exercise Clause.</strong> Two separate commands in one sentence: government may not establish religion, and may not interfere with its free exercise.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>1971 &ndash; <em>Lemon v. Kurtzman</em>.</strong> The three-part test: a secular purpose, a primary effect that neither advances nor inhibits religion, and no excessive government entanglement with it.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>What actually sank the Pennsylvania and Rhode Island laws.</strong> Not purpose or effect, but entanglement: the state would have had to audit and monitor religious schools to enforce the funding rule.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>1963 &ndash; <em>Sherbert v. Verner</em>.</strong> Denying unemployment benefits to a Sabbath-observer who refused Saturday work was an unconstitutional burden on free exercise.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>The same coin, two sides.</strong> <em>Lemon</em> guards against government aiding religion too far; <em>Sherbert</em> guards against government burdening it too far.</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (<em>Sherbert v. Verner</em>) and Primary Source Report 13.1, below.</p>
+      <p>Primary Source 2 (<em>Sherbert v. Verner</em>) and Primary Source Report 7.16, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 13.2 &middot; Two Religion Clauses, One Amendment</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 7.14 &middot; Two Religion Clauses, One Amendment</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 7.16 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Least Dangerous Branch, and Aristotle on Constitutions That Decay</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.22 The Least Dangerous Branch, and Aristotle on Constitutions That Decay | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,23 +144,72 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-8-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 8.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 4</div><div class="subvalue">Constitutional Convention & Federalist Papers</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.22</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">The Federalist</div><div class="subvalue">No. 78, Hamilton; <em>Politics</em>, Aristotle</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.3.3, 3.4, 3.7, 1.3</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 8.2</div><div class="title">The Least Dangerous Branch, and Aristotle on Constitutions That Decay</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 4.22</div><div class="title">The Least Dangerous Branch, and Aristotle on Constitutions That Decay</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">aristocracy</span><span class="gloss-def">In the classical sense, rule by the best or most virtuous few, governing for the community's good; its corrupt form is oligarchy.</span></div><div class="gloss-entry"><span class="gloss-term">demagogue</span><span class="gloss-pron">DEM-uh-gog</span> <button class="gloss-speak" onclick="speakGloss(event,'demagogue, DEM-uh-gog')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A leader who gains power by appealing to popular emotions and prejudices rather than by reasoned argument, often at the expense of sound policy.</span></div><div class="gloss-entry"><span class="gloss-term">judicial review</span><span class="gloss-def">The power of courts to declare a law or government action unconstitutional and therefore void.</span></div><div class="gloss-entry"><span class="gloss-term">life tenure</span><span class="gloss-def">The arrangement by which federal judges hold their offices for as long as they exhibit good behavior, rather than for a fixed term, to protect their independence.</span></div><div class="gloss-entry"><span class="gloss-term">monarchy</span><span class="gloss-def">Rule by a single hereditary ruler, such as a king or queen.</span></div><div class="gloss-entry"><span class="gloss-term">polity</span><span class="gloss-pron">PAH-lih-tee</span> <button class="gloss-speak" onclick="speakGloss(event,'polity, PAH-lih-tee')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">In Aristotle's technical sense, the good form of rule by the many, governing for the common good; its corrupt form is pure democracy understood as mob rule.</span></div><div class="gloss-entry"><span class="gloss-term">tyranny</span><span class="gloss-def">In the classical sense, the corrupt form of one-person rule: a ruler who governs for his own benefit rather than the community's good.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -168,7 +224,7 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>Alexander Hamilton did not live to see the argument of <em>Federalist</em> No. 78 vindicated in practice. He wrote the essay in 1788, defending the proposed judiciary's design against critics who worried that unelected judges, serving for life, posed a threat to republican self-government. It was not until 1803, in <em>Marbury v. Madison</em>, that the Supreme Court actually exercised the power Hamilton describes here; striking down an act of Congress as unconstitutional, establishing in practice what is now called <em class="term">judicial review</em>, the power of courts to declare a law void when it conflicts with the Constitution. Chief Justice John Marshall's opinion in that case is often treated as the founding moment of American judicial review. But the theoretical foundation for that power was already fully articulated fifteen years earlier, in the essay you'll read tomorrow. Reading No. 78 is, in a sense, reading the argument for judicial review before anyone had actually used it.</p>
+      <p>Alexander Hamilton did not live to see the argument of <em>Federalist</em> No. 78 vindicated in practice. He wrote the essay in 1788, defending the proposed judiciary's design against critics who worried that unelected judges, serving for life, posed a threat to republican self-government. It was not until 1803, in <em>Marbury v. Madison</em>, that the Supreme Court actually exercised the power Hamilton describes here; striking down an act of Congress as unconstitutional, establishing in practice what is now called <strong class="term-subject" tabindex="0">judicial review<span class="gloss-tip">The power of courts to declare a law or government action unconstitutional and therefore void.</span></strong>, the power of courts to declare a law void when it conflicts with the Constitution. Chief Justice John Marshall's opinion in that case is often treated as the founding moment of American judicial review. But the theoretical foundation for that power was already fully articulated fifteen years earlier, in the essay you'll read tomorrow. Reading No. 78 is, in a sense, reading the argument for judicial review before anyone had actually used it.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Neither the Sword Nor the Purse</h2>
       <p>Hamilton's essay opens by comparing the three branches of the proposed government according to what each one actually controls. The executive, he observes, "holds the sword of the community": command of the military and the enforcement power of the state. The legislature "commands the purse": the power to tax, spend, and write the laws that govern every citizen's rights and duties. The judiciary, by contrast, has "no influence over either the sword or the purse; no direction either of the strength or of the wealth of the society." It can order nothing enforced and appropriate nothing spent. Hamilton's famous formulation is that the judiciary has "neither Force nor Will, but merely judgment," and must depend on the executive branch even to carry out its own rulings. From this comparison he draws his central claim: of the three departments, the judiciary "will always be the least dangerous to the political rights of the constitution," precisely because it is structurally the weakest, least equipped to act aggressively against the other branches or against the people.</p>
@@ -176,14 +232,14 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>This claim does real argumentative work. Hamilton's critics worried that unelected judges serving for life were a standing danger to republican liberty; an unaccountable aristocracy in robes. Hamilton's response is not to deny that judges hold significant power, but to reframe the comparison: whatever risk an independent judiciary poses, it is a smaller risk than either an executive with unchecked command of force or a legislature with unchecked command of money and lawmaking. The real danger, Hamilton argues, would come not from judicial independence itself but from the judiciary losing that independence and becoming an extension of one of the other, genuinely dangerous branches.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Life Tenure and Secure Pay, as a Safeguard</h2>
-      <p>Because the judiciary is naturally the weakest branch, Hamilton argues, it needs the strongest possible institutional protection to keep it independent of the other two. This is his case for <em class="term">life tenure</em>; judges serving "during good behaviour," removable only for genuine misconduct, not at the pleasure of whoever appointed them or whoever currently controls Congress. If judges held office only for a fixed term, or served at the will of the president or Congress, Hamilton warns, they would face constant pressure to rule in ways that pleased whichever branch controlled their reappointment or their livelihood; exactly the kind of dependency that would destroy the judiciary's usefulness as a check on the other branches. He extends this logic to judicial salaries as well: a legislature that could reduce a judge's pay at will would hold real leverage over that judge's decisions, so the Constitution guards judicial compensation from being diminished during a judge's time in office. Life tenure and secure pay are not perks, in Hamilton's argument; they are the specific mechanisms that let a structurally weak branch resist pressure from the two genuinely powerful ones.</p>
+      <p>Because the judiciary is naturally the weakest branch, Hamilton argues, it needs the strongest possible institutional protection to keep it independent of the other two. This is his case for <strong class="term-subject" tabindex="0">life tenure<span class="gloss-tip">The arrangement by which federal judges hold their offices for as long as they exhibit good behavior, rather than for a fixed term, to protect their independence.</span></strong>; judges serving "during good behaviour," removable only for genuine misconduct, not at the pleasure of whoever appointed them or whoever currently controls Congress. If judges held office only for a fixed term, or served at the will of the president or Congress, Hamilton warns, they would face constant pressure to rule in ways that pleased whichever branch controlled their reappointment or their livelihood; exactly the kind of dependency that would destroy the judiciary's usefulness as a check on the other branches. He extends this logic to judicial salaries as well: a legislature that could reduce a judge's pay at will would hold real leverage over that judge's decisions, so the Constitution guards judicial compensation from being diminished during a judge's time in office. Life tenure and secure pay are not perks, in Hamilton's argument; they are the specific mechanisms that let a structurally weak branch resist pressure from the two genuinely powerful ones.</p>
 
       <p>Hamilton then makes the argument for judicial review itself, years before any court used it. If the Constitution is the fundamental law, superior to any ordinary statute Congress might pass, then a law that conflicts with the Constitution cannot be valid law at all, and someone must have the authority to say so in a specific case. Hamilton argues this authority naturally belongs to the courts, whose whole function is interpreting law and applying it to specific cases. This does not mean, he is careful to add, that the judiciary is somehow superior to the legislature; it means that the Constitution (the people's fundamental law) is superior to both, and where an ordinary statute conflicts with it, judges are bound to follow the higher law. This is precisely the reasoning John Marshall would echo, nearly word for word in spirit, when the Supreme Court actually struck down a federal statute for the first time in 1803.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Aristotle's Map of Constitutions</h2>
       <p>Turn now to a much older text, one both Hamilton and Madison had studied closely: Aristotle's <em>Politics</em>, written in Athens in the fourth century BC as a systematic study of how cities are actually governed and how they ought to be. In Book III and carried forward into Books IV and V, Aristotle lays out a typology of constitutions that organizes them along two axes: how many people rule (one, few, or many), and whether that rule serves the common good or only the private advantage of the rulers.</p>
 
-      <p>Rule by one, aiming at the common good, Aristotle calls <em class="term">monarchy</em>; rule by one aiming only at the ruler's private advantage he calls <em class="term">tyranny</em>; monarchy's corrupt twin. Rule by a few, aiming at the common good, he calls <em class="term">aristocracy</em> (literally, from the Greek, "rule of the best"); rule by a few aiming only at their own advantage he calls <em class="term">oligarchy</em>, rule by and for the wealthy few. Rule by the many, aiming at the common good, Aristotle calls <em class="term">polity</em>; a term distinct from simple "democracy" in his usage; rule by the many aiming only at the advantage of the poor majority, at the expense of the whole community's good, he calls, in his own more critical usage, a corrupted <em class="term">democracy</em>, closer to what we might call mob rule. Six constitutions in all, arranged in three matched pairs, each pair distinguished not by who rules but by whether that rule serves everyone or only the rulers themselves.</p>
+      <p>Rule by one, aiming at the common good, Aristotle calls <strong class="term-subject" tabindex="0">monarchy<span class="gloss-tip">Rule by a single hereditary ruler, such as a king or queen.</span></strong>; rule by one aiming only at the ruler's private advantage he calls <strong class="term-subject" tabindex="0">tyranny<span class="gloss-tip">In the classical sense, the corrupt form of one-person rule: a ruler who governs for his own benefit rather than the community's good.</span></strong>; monarchy's corrupt twin. Rule by a few, aiming at the common good, he calls <strong class="term-subject" tabindex="0">aristocracy<span class="gloss-tip">In the classical sense, rule by the best or most virtuous few, governing for the community's good; its corrupt form is oligarchy.</span></strong> (literally, from the Greek, "rule of the best"); rule by a few aiming only at their own advantage he calls oligarchy, rule by and for the wealthy few. Rule by the many, aiming at the common good, Aristotle calls <strong class="term-subject" tabindex="0">polity<span class="gloss-tip">In Aristotle's technical sense, the good form of rule by the many, governing for the common good; its corrupt form is pure democracy understood as mob rule. <button class="gloss-speak" onclick="speakGloss(event,'polity, PAH-lih-tee')" aria-label="Hear pronunciation">&#128266;</button></span></strong>; a term distinct from simple "democracy" in his usage; rule by the many aiming only at the advantage of the poor majority, at the expense of the whole community's good, he calls, in his own more critical usage, a corrupted democracy, closer to what we might call mob rule. Six constitutions in all, arranged in three matched pairs, each pair distinguished not by who rules but by whether that rule serves everyone or only the rulers themselves.</p>
 
       <p>This typology is not just a classification exercise. It carries a warning built into its structure: every one of the three "good" forms sits directly beside a corrupted version of itself, separated only by whether power is used for the common good or turned toward private or factional advantage. Aristotle's point is that no single form of government is safe simply by virtue of its structure; a monarchy can decay into tyranny, an aristocracy into oligarchy, a polity into mob rule, if the persons or groups holding power stop governing for the whole community and start governing for themselves.</p>
 
@@ -193,13 +249,35 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Notice how close this is to a concern running through Hamilton's essays and Madison's alike. Aristotle worried that a democracy's majority, left unchecked, would eventually govern for its own advantage rather than the whole community's good, tipping a polity into mob rule; he worried, in the same breath, that an oligarchy's wealthy few would do exactly the same thing in the other direction, tipping an aristocracy into naked rule by and for the rich. The founders inherited this same worry in a different vocabulary. Madison's fear of majority faction in <em>Federalist</em> No. 10 is, in substance, Aristotle's fear of democracy decaying into mob rule. Hamilton's insistence, in No. 78, on an independent judiciary answerable to the Constitution rather than to any momentary majority or any single powerful branch is a structural answer to the same underlying problem Aristotle diagnosed: unchecked power, whether held by one, by a few, or by the many, tends over time to bend government away from the common good and toward the advantage of whoever holds it. Checks and balances, separation of powers, and an independent judiciary are not just clever engineering. They are the founders' considered response to a pattern of constitutional decay that Aristotle had already mapped out more than two thousand years before Philadelphia.</p>
     </div>
 
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong><em>Federalist</em> No. 68, 1788 &ndash; Hamilton on the Electoral College.</strong> Electors, chosen by the states and meeting separately, would combine popular input with deliberative judgment and resist foreign corruption.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong><em>Federalist</em> No. 78 &ndash; "the least dangerous branch."</strong> The judiciary controls neither the sword nor the purse, only judgment, so it needs the strongest protection: life tenure and secure pay.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>1803 &ndash; <em>Marbury v. Madison</em>.</strong> The Supreme Court's first exercise of judicial review, striking down an act of Congress, fifteen years after Hamilton had already argued for the power in No. 78.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Aristotle's six constitutions.</strong> Monarchy/tyranny, aristocracy/oligarchy, polity/mob rule; each good form paired with the corrupt version it decays into when rulers serve themselves instead of the common good.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Aristotle's cause of constitutional collapse.</strong> A mismatch between who holds power and honor and who actually deserves it by merit or contribution, provoking the resentment that topples a constitution.</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (Aristotle, <em>Politics</em>, Books IV&ndash;V) and Primary Source Report 8.1, below.</p>
+      <p>Primary Source 2 (Aristotle, <em>Politics</em>, Books IV&ndash;V) and Primary Source Report 4.24, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 8.2 &middot; The Least Dangerous Branch, and Aristotle on Constitutions That Decay</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.22 &middot; The Least Dangerous Branch, and Aristotle on Constitutions That Decay</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 4.24 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

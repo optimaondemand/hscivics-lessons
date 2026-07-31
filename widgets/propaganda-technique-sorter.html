@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propaganda Technique Sorter</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--gold);
+    color:#2a1e05;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:700;
+  }
+  .header .sub{
+    font-size:12px;
+    font-weight:400;
+    color:#4d3c10;
+    margin-top:2px;
+  }
+  .wrap{
+    padding:14px 16px 20px;
+    max-width:860px;
+    margin:0 auto;
+  }
+  .intro{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:13.5px;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+  .top-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+  }
+  .progress-text{
+    font-size:13px;
+    font-weight:600;
+    color:var(--muted);
+  }
+  .score-text{
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{ background:#16295e; }
+
+  .item-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:14px 16px;
+    margin-bottom:14px;
+    min-height:70px;
+    transition: box-shadow 200ms ease;
+  }
+  .item-era{
+    display:inline-block;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding:2px 9px;
+    border-radius:10px;
+    margin-bottom:8px;
+    background:var(--card);
+    color:var(--muted);
+    border:1px solid var(--border);
+  }
+  .item-text{
+    font-size:14.5px;
+    line-height:1.55;
+    margin-bottom:12px;
+  }
+
+  .bins{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  button.bin{
+    flex:1 1 150px;
+    background:#fff;
+    border:2px solid var(--border);
+    border-radius:8px;
+    padding:9px 8px;
+    font-size:12.5px;
+    font-weight:600;
+    font-family:inherit;
+    color:var(--navy);
+    cursor:pointer;
+    text-align:center;
+    transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+  }
+  button.bin:hover:not(:disabled){
+    border-color:var(--teal);
+    transform:translateY(-1px);
+  }
+  button.bin:disabled{ cursor:not-allowed; }
+  button.bin.correct-pick{ border-color:var(--teal); background:#eaf6f2; }
+  button.bin.wrong-pick{ border-color:var(--maroon); background:#fbeef2; }
+  button.bin.reveal-correct{ border-color:var(--teal); background:#eaf6f2; }
+
+  .feedback{
+    display:none;
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:13.5px;
+    line-height:1.5;
+    margin-top:6px;
+  }
+  .feedback.show{ display:block; animation: fadeIn 250ms ease; }
+  .feedback.correct{ background:#eaf6f2; border:1px solid var(--teal); }
+  .feedback.incorrect{ background:#fbeef2; border:1px solid var(--maroon); }
+  .feedback .verdict{ font-weight:700; color:var(--navy); display:block; margin-bottom:4px; }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(-4px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .next-row{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:10px;
+  }
+  button.next{
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    display:none;
+    transition: background-color 200ms ease;
+  }
+  button.next.show{ display:inline-block; }
+  button.next:hover{ background:#155f55; }
+
+  .done-card{
+    display:none;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--navy);
+    border-radius:6px;
+    padding:14px 16px;
+    font-size:14px;
+    line-height:1.55;
+    text-align:center;
+  }
+  .done-card.show{ display:block; animation: fadeIn 300ms ease; }
+  .done-card .big{
+    font-size:22px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+
+  .legend{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.6;
+  }
+  .legend strong{ color:var(--navy); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  Propaganda Technique Sorter
+  <div class="sub">Wartime persuasion, WWII and Vietnam</div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    Read each item below and sort it into the persuasive technique it best represents. Click the category you think fits, then read the explanation before moving to the next item.
+  </div>
+
+  <div class="top-row">
+    <span class="progress-text" id="progressText">Item 1 of 8</span>
+    <span class="score-text" id="scoreText">Correct: 0</span>
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+  <div id="itemStage"></div>
+
+  <div class="done-card" id="doneCard">
+    <div class="big" id="finalScore"></div>
+    <div>You sorted all eight items. Each technique works by a different route: some borrow a trusted voice, some provoke fear of a threat, some suggest "people just like you already agree," and some rely on stirring words with no specific content behind them.</div>
+  </div>
+
+  <div class="legend">
+    <strong>Plain folks:</strong> ordinary-seeming figures suggesting anyone, everyone, would do the same. &middot;
+    <strong>Fear appeal:</strong> imagery meant to provoke anxiety about a threat. &middot;
+    <strong>Glittering generalities:</strong> vague, emotionally loaded language without specific content. &middot;
+    <strong>Testimonial:</strong> a trusted or admired figure endorsing a position.
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+  var categories = [
+    { key: "plainfolks", label: "Plain Folks" },
+    { key: "fear", label: "Fear Appeal" },
+    { key: "glittering", label: "Glittering Generalities" },
+    { key: "testimonial", label: "Testimonial" }
+  ];
+
+  var items = [
+    {
+      era: "WWII",
+      text: "A recruitment film features an ordinary-looking small-town man, dressed and speaking just like any viewer's neighbor, describing his own decision to enlist.",
+      correct: "plainfolks",
+      explain: "The lesson describes exactly this device: recruitment films used ordinary-seeming actors, “plain folks,” to suggest that anyone, someone just like you, could and should serve."
+    },
+    {
+      era: "WWII",
+      text: "A poster shows an average-looking factory worker, not a general or a celebrity, urging fellow workers to buy war bonds because “people like us” are the ones who need to help.",
+      correct: "plainfolks",
+      explain: "An unremarkable, relatable figure stands in for the audience itself, suggesting universality: if someone this ordinary is doing it, so should you."
+    },
+    {
+      era: "WWII",
+      text: "A newsreel pairs footage of the smoking wreckage at Pearl Harbor with an urgent call to enlist immediately.",
+      correct: "fear",
+      explain: "Pairing images of destruction and threat with a call to action is a fear appeal: it provokes anxiety about danger and channels that anxiety into a specific response."
+    },
+    {
+      era: "WWII",
+      text: "A poster depicts a menacing enemy silhouette looming over a map of the American coastline, warning that the danger could reach home.",
+      correct: "fear",
+      explain: "This is a classic fear appeal: imagery designed to make a distant war feel like an imminent, personal threat."
+    },
+    {
+      era: "WWII",
+      text: "A poster prints the words “Freedom,” “Duty,” and “Victory” in bold letters, without describing any specific policy, plan, or fact.",
+      correct: "glittering",
+      explain: "These are emotionally loaded words used for their feeling rather than their content: glittering generalities that ask for agreement without offering anything specific to evaluate."
+    },
+    {
+      era: "WWII",
+      text: "A war bonds advertisement uses the phrase “For Liberty and Justice” without giving any specific detail about how the bonds will be used.",
+      correct: "glittering",
+      explain: "“Liberty” and “Justice” sound stirring but carry no specific claim here; that vagueness, paired with emotional weight, is the signature of glittering generalities."
+    },
+    {
+      era: "WWII",
+      text: "A poster shows Uncle Sam, a symbol of the U.S. government itself, pointing directly at the viewer and declaring, “I Want YOU for U.S. Army.”",
+      correct: "testimonial",
+      explain: "Uncle Sam stands in as a trusted national figure personally calling on the viewer; a symbolic authority endorsing enlistment, which is the core of a testimonial."
+    },
+    {
+      era: "Vietnam",
+      text: "A televised interview features a well-known, decorated veteran voicing doubts about whether the war effort is still justified.",
+      correct: "testimonial",
+      explain: "A testimonial does not have to support a cause; it can also work against one. Here a respected, admired figure lends his own credibility to a position, this time skepticism about the war."
+    }
+  ];
+
+  var stage = document.getElementById('itemStage');
+  var progressText = document.getElementById('progressText');
+  var scoreText = document.getElementById('scoreText');
+  var doneCard = document.getElementById('doneCard');
+  var finalScore = document.getElementById('finalScore');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var currentIndex = 0;
+  var correctCount = 0;
+  var answered = false;
+
+  function render(){
+    stage.style.display = 'block';
+    doneCard.classList.remove('show');
+    progressText.textContent = 'Item ' + (currentIndex + 1) + ' of ' + items.length;
+    scoreText.textContent = 'Correct: ' + correctCount;
+
+    var item = items[currentIndex];
+    answered = false;
+
+    var card = document.createElement('div');
+    card.className = 'item-card';
+
+    var era = document.createElement('div');
+    era.className = 'item-era';
+    era.textContent = item.era;
+    card.appendChild(era);
+
+    var text = document.createElement('div');
+    text.className = 'item-text';
+    text.textContent = item.text;
+    card.appendChild(text);
+
+    var bins = document.createElement('div');
+    bins.className = 'bins';
+
+    categories.forEach(function(cat){
+      var btn = document.createElement('button');
+      btn.className = 'bin';
+      btn.textContent = cat.label;
+      btn.addEventListener('click', function(){
+        if (answered) return;
+        answered = true;
+
+        var isCorrect = cat.key === item.correct;
+        if (isCorrect){
+          btn.classList.add('correct-pick');
+          correctCount++;
+        } else {
+          btn.classList.add('wrong-pick');
+          var correctBtn = bins.querySelector('[data-key="' + item.correct + '"]');
+          if (correctBtn) correctBtn.classList.add('reveal-correct');
+        }
+        bins.querySelectorAll('button.bin').forEach(function(b){ b.disabled = true; });
+
+        var fb = card.querySelector('.feedback');
+        fb.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+        fb.innerHTML = '<span class="verdict">' + (isCorrect ? 'Correctly sorted.' : 'Sorted into the wrong bin.') + '</span>' + item.explain;
+
+        scoreText.textContent = 'Correct: ' + correctCount;
+
+        var nextBtn = card.querySelector('.next');
+        nextBtn.classList.add('show');
+      });
+      btn.setAttribute('data-key', cat.key);
+      bins.appendChild(btn);
+    });
+    card.appendChild(bins);
+
+    var feedback = document.createElement('div');
+    feedback.className = 'feedback';
+    card.appendChild(feedback);
+
+    var nextRow = document.createElement('div');
+    nextRow.className = 'next-row';
+    var nextBtn = document.createElement('button');
+    nextBtn.className = 'next';
+    nextBtn.textContent = (currentIndex === items.length - 1) ? 'See Results' : 'Next Item';
+    nextBtn.addEventListener('click', function(){
+      currentIndex++;
+      if (currentIndex >= items.length){
+        showDone();
+      } else {
+        render();
+      }
+    });
+    nextRow.appendChild(nextBtn);
+    card.appendChild(nextRow);
+
+    stage.innerHTML = '';
+    stage.appendChild(card);
+  }
+
+  function showDone(){
+    stage.innerHTML = '';
+    progressText.textContent = 'Complete';
+    doneCard.classList.add('show');
+    finalScore.textContent = correctCount + ' / ' + items.length + ' correct';
+  }
+
+  function reset(){
+    currentIndex = 0;
+    correctCount = 0;
+    render();
+  }
+
+  resetBtn.addEventListener('click', reset);
+
+  render();
+})();
+</script>
+
+</body>
+</html>

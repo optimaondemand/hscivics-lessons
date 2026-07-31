@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Rousseau and the General Will</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.14 Rousseau and the General Will | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-4-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 2</div><div class="subvalue">Enlightenment & Natural Law</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 2.14</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">On the Social Contract</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 4.2</div><div class="title">Rousseau and the General Will</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 2.14</div><div class="title">Rousseau and the General Will</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">checks and balances</span><span class="gloss-def">A system in which each branch of government has some power to limit the actions of the other branches, preventing any one branch from dominating the rest.</span></div><div class="gloss-entry"><span class="gloss-term">executive power</span><span class="gloss-def">The power to carry out and enforce the laws once they are made.</span></div><div class="gloss-entry"><span class="gloss-term">general will</span><span class="gloss-def">Rousseau's term for what a political community wills in common for its shared good, as distinct from the sum of everyone's private, individual wishes.</span></div><div class="gloss-entry"><span class="gloss-term">judiciary power</span><span class="gloss-def">The power to interpret the laws and decide disputes that arise under them.</span></div><div class="gloss-entry"><span class="gloss-term">legislative power</span><span class="gloss-def">The power to make law: to write, debate, and pass the rules that govern a political community.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -162,7 +218,7 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card">
       <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
       <div class="oa-numbered"><div class="circ">1</div><div>Define the <em>general will</em> and explain how Rousseau's account of freedom as "obedience to law we have prescribed to ourselves" differs from Locke's account of pre-existing individual rights.</div></div>
-      <div class="oa-numbered"><div class="circ">2</div><div>Contrast Rousseau's theory of legitimacy explicitly with both Locke's (Week 3) and Montesquieu's (this week).</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Contrast Rousseau's theory of legitimacy explicitly with both Locke's (Module 2) and Montesquieu's (this session).</div></div>
       <div class="oa-numbered"><div class="circ">3</div><div>Explain, honestly and specifically, why the American founders drew far more from Locke and Montesquieu than from Rousseau.</div></div>
     </div>
 
@@ -172,18 +228,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Jean-Jacques Rousseau, writing his <em>Discourse on the Origin of Inequality</em> in 1755 and <em>On the Social Contract</em> in 1762, takes the state-of-nature starting point from Hobbes and Locke and pushes it somewhere neither of them goes. His famous opening line to the <em>Social Contract</em> sets the whole problem in a single sentence: <strong>"Man is born free, and everywhere he is in chains."</strong> People are naturally free, Rousseau agrees, but the societies they have actually built have mostly enslaved them, often while pretending to protect their liberty. The question that drives the entire book, in his own words, is to "find a form of association" that protects each person and their property "while still enabling each of them to obey no one but himself, and to remain as free as before." That last clause is the puzzle: how can you be bound by laws and commands, and still be, in some meaningful sense, obeying no one but yourself?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The General Will: Freedom as Self-Legislation</h2>
-      <p>Rousseau's answer is the <em class="term">general will</em>; a term that has confused and fascinated readers for more than 250 years, so it is worth being precise about what it does and does not mean. The general will is not simply what most people happen to want at a given moment; Rousseau is careful to distinguish it from the mere sum of private wishes, which he calls the "will of all." The general will is instead what the political community, considered as a whole, wills for its own common good, when each citizen sets aside narrow private interest and asks what serves everyone together. When a citizen participates in making the law as part of the sovereign people, and that law is genuinely aimed at the common good rather than at favoring one faction, Rousseau holds that obeying the resulting law is not obedience to someone else's will at all; it is obedience to a law the citizen himself had a hand in making, as a member of the body that made it. This is what he means by his claim that true freedom is <em>obedience to a law we have prescribed to ourselves</em>: not the absence of laws, but participation, as co-author, in the laws that bind you.</p>
+      <p>Rousseau's answer is the <strong class="term-subject" tabindex="0">general will<span class="gloss-tip">Rousseau's term for what a political community wills in common for its shared good, as distinct from the sum of everyone's private, individual wishes.</span></strong>; a term that has confused and fascinated readers for more than 250 years, so it is worth being precise about what it does and does not mean. The general will is not simply what most people happen to want at a given moment; Rousseau is careful to distinguish it from the mere sum of private wishes, which he calls the "will of all." The general will is instead what the political community, considered as a whole, wills for its own common good, when each citizen sets aside narrow private interest and asks what serves everyone together. When a citizen participates in making the law as part of the sovereign people, and that law is genuinely aimed at the common good rather than at favoring one faction, Rousseau holds that obeying the resulting law is not obedience to someone else's will at all; it is obedience to a law the citizen himself had a hand in making, as a member of the body that made it. This is what he means by his claim that true freedom is <em>obedience to a law we have prescribed to ourselves</em>: not the absence of laws, but participation, as co-author, in the laws that bind you.</p>
 
       <p>This is a genuinely different theory of legitimacy from Locke's, and the difference is not a minor variation on a shared theme. For Locke, individual rights exist prior to and independent of the political community; government is legitimate to the degree that it protects those pre-existing rights, and a person retains rights against the community even when the community disagrees. For Rousseau, the political community itself, acting through the general will, is close to the ultimate source of what counts as rightful and free action for its members; there is much less room in his theory for an individual to stand on a private right against what the general will has determined, because true freedom, on his account, is found precisely in alignment with that will, not in independence from it. Locke asks: what pre-existing rights must government respect? Rousseau asks: what would the community, willing rightly, choose for itself? Those are different questions, and they can produce different answers to the same practical dispute.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Third Position, Next to Locke and Montesquieu</h2>
-      <p>Set the three theories side by side, because the comparison is the point of this week. Locke locates legitimacy in the protection of rights that exist before and outside of government; a limited trust that can be broken and reclaimed, as you studied last week. Montesquieu mostly brackets the question of ultimate legitimacy and asks instead how power must be structurally divided so that whatever government exists cannot become arbitrary; a question about architecture, not origins. Rousseau locates legitimacy in the collective self-legislation of the political community itself, where genuine freedom is not a private possession protected from the group, but a good realized only through the group, when the group wills rightly.</p>
+      <p>Set the three theories side by side, because the comparison is the point of this session. Locke locates legitimacy in the protection of rights that exist before and outside of government; a limited trust that can be broken and reclaimed, as you studied the previous lesson. Montesquieu mostly brackets the question of ultimate legitimacy and asks instead how power must be structurally divided so that whatever government exists cannot become arbitrary; a question about architecture, not origins. Rousseau locates legitimacy in the collective self-legislation of the political community itself, where genuine freedom is not a private possession protected from the group, but a good realized only through the group, when the group wills rightly.</p>
 
       <p>Here the lesson owes you an honest accounting, because this is a point where the historical record is unambiguous: <strong>the American founders drew far more from Locke and Montesquieu than from Rousseau.</strong> The Declaration of Independence's language of unalienable rights that exist prior to government is recognizably Lockean, not Rousseauian. The Constitution's structure of divided and checked powers is recognizably Montesquieuan. Rousseau's direct textual fingerprint on the American founding is comparatively faint.</p>
 
       <p>Why? Because the very feature that makes the general will theoretically powerful (its claim to represent the true, rightly-willing community rather than merely a headcount of private opinions) is also what worried the founders most. If the "general will" is not simply whatever the majority happens to vote for, then someone has to decide what the community's true common good actually is, and separate it from a passing majority's mistaken or selfish preferences. Rousseau himself insisted the general will is not the same as the will of all, precisely because majorities can get it wrong. But once you grant that a government or a movement can claim to speak for the true general will against an actual, counted majority (or, just as dangerously, once an actual majority convinces itself that its own preference simply is the general will, with no room left for dissent) you have built a theory that can justify overriding individual rights and minority dissent in the name of the "real" community good, every bit as easily as it can justify freedom. A concept built to guarantee liberty can, without much twisting, be made to license its opposite.</p>
 
-      <p>This is not a modern objection read backward into the eighteenth century. It is a worry James Madison develops at length in Federalist No. 10, which you will read in Week 7, when he writes about the danger of an unchecked majority faction imposing its will on the rest of the community in the name of the common good. Madison's solution (a large, diverse republic with representative institutions, checks, and balances, rather than a compact community bound by a single general will) is, in its own way, a direct answer to the risk Rousseau's theory carries, even though Madison is not writing about Rousseau by name. Hold that thread. You will pick it back up in Week 7.</p>
+      <p>This is not a modern objection read backward into the eighteenth century. It is a worry James Madison develops at length in Federalist No. 10, which you will read in Module 4, when he writes about the danger of an unchecked majority faction imposing its will on the rest of the community in the name of the common good. Madison's solution (a large, diverse republic with representative institutions, checks, and balances, rather than a compact community bound by a single general will) is, in its own way, a direct answer to the risk Rousseau's theory carries, even though Madison is not writing about Rousseau by name. Hold that thread. You will pick it back up in Module 4.</p>
 
       <div class="oa-callout-help">
         <div class="oa-kicker" style="color:#1B6A94;">&#128161; Reading Rousseau Fairly</div>
@@ -191,13 +247,35 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       </div>
     </div>
 
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>1748 &ndash; Montesquieu's <em>The Spirit of the Laws</em>.</strong> "Power should be a check to power": the legislative, executive, and judiciary powers must never unite in the same hands.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>Federalist No. 47.</strong> Madison cites Montesquieu by name to defend the Constitution's separation of powers, whose first three Articles restate his tripartite division directly.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>1762 &ndash; Rousseau's <em>On the Social Contract</em>.</strong> "Man is born free, and everywhere he is in chains": true freedom is obedience to a law we have prescribed to ourselves.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>The general will.</strong> What a community wills for its shared good, distinct from the "will of all," the mere sum of everyone's private wishes.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Why the founders chose Locke and Montesquieu over Rousseau.</strong> A theory that claims to speak for the true common good, against a counted majority, can justify overriding individual rights as easily as protecting them.</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (Rousseau, <em>On the Social Contract</em>) and Primary Source Report 4.1, below.</p>
+      <p>Primary Source 2 (Rousseau, <em>On the Social Contract</em>) and Primary Source Report 2.16, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.2 &middot; Rousseau and the General Will</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 2.14 &middot; Rousseau and the General Will</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 2.16 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Cleisthenes and the Reforms That Made a Democracy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.6 Cleisthenes and the Reforms That Made a Democracy | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-1-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 1.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 1</div><div class="subvalue">Greco-Roman Foundations</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 1.6</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Constitution of Athens</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 1.2</div><div class="title">Cleisthenes and the Reforms That Made a Democracy</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 1.6</div><div class="title">Cleisthenes and the Reforms That Made a Democracy</div></div><span class="time-pill">20 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">democracy</span><span class="gloss-def">Rule by the people: a system in which political power rests with the citizen body as a whole, not with a king or a narrow class.</span></div><div class="gloss-entry"><span class="gloss-term">oligarchy</span><span class="gloss-pron">AH-lih-gar-kee</span> <button class="gloss-speak" onclick="speakGloss(event,'oligarchy, AH-lih-gar-kee')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Rule by a small, privileged group, often the wealthy or the hereditary nobility, rather than by the whole citizen body.</span></div><div class="gloss-entry"><span class="gloss-term">ostracism</span><span class="gloss-def">An Athenian practice in which citizens voted, without a trial, to exile a person from the city for ten years, usually to remove a political threat.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -177,33 +233,67 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Reform That Mattered: Redrawing the Map</h2>
       <p>Cleisthenes's most consequential act was not a grand statement of principle. It was cartography. Athenian political life had long run through four ancient tribes, each dominated by a handful of powerful families whose local networks of loyalty and dependence made political life, in practice, a competition between aristocratic clans. A poor farmer in a village dominated by one such family had little independent political identity of his own; he voted, if he voted, the way his patron expected.</p>
 
-      <p>Cleisthenes abolished the four old tribes and replaced them with ten new ones, deliberately engineered to cut across the old geography of family power. Each new tribe was built from three <em class="term">trittyes</em> ("thirds"): one drawn from the city, one from the coast, one from the inland farming region, so that no tribe belonged to any single region or clan. A citizen's political identity was now tied to his local <em class="term">deme</em> (township), and Athenians began identifying themselves by deme rather than by father's name, deliberately erasing the visibility of old family and clan hierarchies in political life. The Council of Four Hundred that Solon had created became a Council of Five Hundred, fifty from each of the ten new tribes, chosen by lot.</p>
+      
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">archon</span><span class="gloss-pron">AR-kon</span> <button class="gloss-speak" onclick="speakGloss(event,'archon, AR-kon')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">One of the chief magistrates who governed Athens; before Solon, the office was open only to the hereditary nobility.</span></div><div class="gloss-entry"><span class="gloss-term">Areopagus</span><span class="gloss-pron">air-ee-OP-uh-guss</span> <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The council of former archons that heard serious court cases and guarded the laws of Athens.</span></div><div class="gloss-entry"><span class="gloss-term">Boule</span><span class="gloss-pron">boo-LAY</span> <button class="gloss-speak" onclick="speakGloss(event,'Boule, boo-LAY')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Athenian Council (Four Hundred under Solon, later Five Hundred), which prepared business for the full Assembly to vote on.</span></div><div class="gloss-entry"><span class="gloss-term">deme</span><span class="gloss-pron">deem</span> <button class="gloss-speak" onclick="speakGloss(event,'deme, deem')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A local Athenian district or township, and (after Cleisthenes) the basic unit of citizenship and voter registration.</span></div><div class="gloss-entry"><span class="gloss-term">Eupatridae</span><span class="gloss-pron">yoo-PA-trih-day</span> <button class="gloss-speak" onclick="speakGloss(event,'Eupatridae, yoo-PA-trih-day')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The hereditary noble families of early Athens, literally "the well-born," who alone could hold office before Solon's reforms.</span></div><div class="gloss-entry"><span class="gloss-term">hektemoroi</span><span class="gloss-pron">hek-teh-MOR-oy</span> <button class="gloss-speak" onclick="speakGloss(event,'hektemoroi, hek-teh-MOR-oy')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A poor Athenian tenant farmer who owed a landlord a sixth of his harvest as rent, and could be seized as a bond servant if he fell short.</span></div><div class="gloss-entry"><span class="gloss-term">Heliaia</span><span class="gloss-pron">hell-ee-EYE-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'Heliaia, hell-ee-EYE-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Athenian people's court Solon created, where any citizen, including the poorest Thetes, could sit on a jury and appeal a magistrate's ruling.</span></div><div class="gloss-entry"><span class="gloss-term">isegoria</span><span class="gloss-pron">ee-say-GOR-ee-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'isegoria, ee-say-GOR-ee-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The equal right of every Athenian citizen to speak before the Assembly.</span></div><div class="gloss-entry"><span class="gloss-term">Pentakosiomedimnoi</span><span class="gloss-pron">pen-tah-koh-see-oh-meh-DIM-noy</span> <button class="gloss-speak" onclick="speakGloss(event,'Pentakosiomedimnoi, pen-tah-koh-see-oh-meh-DIM-noy')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The wealthiest of Solon's four Athenian property classes: those whose land produced at least 500 measures of grain, oil, or wine a year.</span></div><div class="gloss-entry"><span class="gloss-term">Seisachtheia</span><span class="gloss-pron">say-sock-THAY-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'Seisachtheia, say-sock-THAY-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Solon's "shaking off of burdens": the cancellation of Athenian debts and the ban on using a person's own body as loan collateral.</span></div><div class="gloss-entry"><span class="gloss-term">Thetes</span><span class="gloss-pron">THAY-teez</span> <button class="gloss-speak" onclick="speakGloss(event,'Thetes, THAY-teez')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The poorest of Solon's four Athenian property classes, owning little or no land; barred from office but given a seat on the Heliaia.</span></div><div class="gloss-entry"><span class="gloss-term">trittyes</span><span class="gloss-pron">TRIT-oo-eez</span> <button class="gloss-speak" onclick="speakGloss(event,'trittyes, TRIT-oo-eez')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Athenian "thirds": groupings of demes later used by Cleisthenes to mix citizens from different regions into the same tribes.</span></div><div class="gloss-entry"><span class="gloss-term">zeugetai</span><span class="gloss-pron">zoy-GET-eye</span> <button class="gloss-speak" onclick="speakGloss(event,'zeugetai, zoy-GET-eye')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Athenian yeoman farmers, "the yoke-men," who owned and worked a modest plot with their own hands; the third of Solon's four property classes.</span></div></div>
+<p>Cleisthenes abolished the four old tribes and replaced them with ten new ones, deliberately engineered to cut across the old geography of family power. Each new tribe was built from three <em class="term" tabindex="0">trittyes<span class="gloss-tip">Athenian "thirds": groupings of demes later used by Cleisthenes to mix citizens from different regions into the same tribes. <button class="gloss-speak" onclick="speakGloss(event,'trittyes, TRIT-oo-eez')" aria-label="Hear pronunciation">&#128266;</button></span></em> ("thirds"): one drawn from the city, one from the coast, one from the inland farming region, so that no tribe belonged to any single region or clan. A citizen's political identity was now tied to his local <em class="term" tabindex="0">deme<span class="gloss-tip">A local Athenian district or township, and (after Cleisthenes) the basic unit of citizenship and voter registration. <button class="gloss-speak" onclick="speakGloss(event,'deme, deem')" aria-label="Hear pronunciation">&#128266;</button></span></em> (township), and Athenians began identifying themselves by deme rather than by father's name, deliberately erasing the visibility of old family and clan hierarchies in political life. The Council of Four Hundred that Solon had created became a Council of Five Hundred, fifty from each of the ten new tribes, chosen by lot.</p>
 
       <p>Why does redrawing administrative boundaries count as a democratic reform, and not just bureaucratic housekeeping? Because political power in the old system depended on being able to mobilize a geographically concentrated network of dependents. By deliberately scrambling geography, Cleisthenes made that kind of local patronage machine impossible to operate at scale. Power could no longer run through inherited clan networks; it had to run through the assembled body of citizens as citizens, meeting and voting as individuals rather than as followers. This is the structural change that lets us call what came after a democracy in a way Solon's Athens, with its property-based offices and unbroken aristocratic dominance of the archonship, was not yet.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Ostracism: A Safety Valve, or a Weapon?</h2>
-      <p>Cleisthenes is also credited with introducing <em class="term">ostracism</em>, a procedure by which the Assembly could, by a certain quorum of votes scratched onto broken pottery shards (<em>ostraka</em>), banish a citizen from Athens for ten years, without trial, without formal charge, and without confiscating his property. Aristotle tells us the law was aimed specifically at the friends and relatives of the deposed tyrants, out of fear that anyone connected to Pisistratus's family might use their remaining influence to restore the tyranny.</p>
+      <p>Cleisthenes is also credited with introducing <strong class="term-subject" tabindex="0">ostracism<span class="gloss-tip">An Athenian practice in which citizens voted, without a trial, to exile a person from the city for ten years, usually to remove a political threat.</span></strong>, a procedure by which the Assembly could, by a certain quorum of votes scratched onto broken pottery shards (<em>ostraka</em>), banish a citizen from Athens for ten years, without trial, without formal charge, and without confiscating his property. Aristotle tells us the law was aimed specifically at the friends and relatives of the deposed tyrants, out of fear that anyone connected to Pisistratus's family might use their remaining influence to restore the tyranny.</p>
 
       <p>Ostracism is a strange institution to modern eyes, precisely because it punishes influence itself, independent of any specific wrongdoing. Its defenders would say a young democracy, still afraid of relapsing into tyranny, needed some check on any single citizen accumulating dangerous personal power (a preventive tool, not a punitive one). Its critics, ancient and modern, note that a vote with no charge and no defense is exactly the kind of instrument a democracy's own majority can misuse against an unpopular minority of one. Both readings are defensible; historians still argue about how the institution was actually used across the fifth century. Hold that tension. It is the first of many moments this semester where you will be asked to weigh a real democratic safeguard against its real democratic abuse potential, the same tension James Madison will wrestle with, in a very different form, in Federalist No. 10.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isegoria: The Right to Speak, Not Just the Right to Shout</h2>
-      <p>One reform of this period deserves its own emphasis: <em class="term">isegoria</em>, equal freedom of speech in the Assembly. Every male citizen, whatever his class, had always been entitled to attend the Assembly: this was an ancient Greek institution, found in every city-state, far older than either Solon or Cleisthenes. You can see it functioning as far back as Homer's <em>Iliad</em>, where Agamemnon calls an assembly of every fighting man in the Greek camp, common soldiers included. But attendance was never the same thing as a voice. Traditionally, only Aristocrats were permitted to address the Assembly in formal speech; commoners could show approval or disapproval only by voice, through shouting, not through argument of their own. The <em>Iliad</em> preserves a famous, almost comic illustration of how seriously this rule was enforced: when the common soldier Thersites dares to stand and criticize Agamemnon in a speech of his own, Odysseus beats him in front of the whole army for the presumption of speaking at all, and the assembled soldiers laugh in approval. What changes by Cleisthenes's Athens is that every citizen, including the Thetes, now has the recognized right to stand and address the Assembly in his own words, not merely to shout approval or disapproval at what an Aristocrat has said. That right, isegoria, is at least as important a democratic milestone as the reshuffled tribes.</p>
+      <p>One reform of this period deserves its own emphasis: <em class="term" tabindex="0">isegoria<span class="gloss-tip">The equal right of every Athenian citizen to speak before the Assembly. <button class="gloss-speak" onclick="speakGloss(event,'isegoria, ee-say-GOR-ee-uh')" aria-label="Hear pronunciation">&#128266;</button></span></em>, equal freedom of speech in the Assembly. Every male citizen, whatever his class, had always been entitled to attend the Assembly: this was an ancient Greek institution, found in every city-state, far older than either Solon or Cleisthenes. You can see it functioning as far back as Homer's <em>Iliad</em>, where Agamemnon calls an assembly of every fighting man in the Greek camp, common soldiers included. But attendance was never the same thing as a voice. Traditionally, only Aristocrats were permitted to address the Assembly in formal speech; commoners could show approval or disapproval only by voice, through shouting, not through argument of their own. The <em>Iliad</em> preserves a famous, almost comic illustration of how seriously this rule was enforced: when the common soldier Thersites dares to stand and criticize Agamemnon in a speech of his own, Odysseus beats him in front of the whole army for the presumption of speaking at all, and the assembled soldiers laugh in approval. What changes by Cleisthenes's Athens is that every citizen, including the Thetes, now has the recognized right to stand and address the Assembly in his own words, not merely to shout approval or disapproval at what an Aristocrat has said. That right, isegoria, is at least as important a democratic milestone as the reshuffled tribes.</p>
 
       <p>One qualification matters here. Membership in the new Council of Five Hundred was technically open to Thetes: nothing in Cleisthenes's law barred them by class. In practice, though, the demes first voted on a pool of candidates willing to serve, and only from that shortlist were the actual councilors chosen by lot; in the years immediately after Cleisthenes's reforms, Thetes were essentially never selected. Serving on the Council meant a year of unpaid public duty, and a Thete, who worked for his daily bread, could not afford to give up a year of wages for it. A right that exists on paper and a right a poor citizen can actually exercise are two different things, and closing that gap took another two generations.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Completing the Trajectory: Ephialtes and Pericles</h2>
-      <p>The last steps in this story belong to two statesmen a generation after Cleisthenes: Ephialtes and, following him, Pericles. Two changes in the 460s and 450s BC finished what Solon and Cleisthenes had started. First, Ephialtes and Pericles stripped the Areopagus, the old aristocratic council that had traditionally guarded the laws and tried the most serious cases, of nearly all its remaining power, leaving it with little beyond jurisdiction over homicide. Second, and just as important, Pericles introduced a state stipend for jury duty and, eventually, for service on the Council of Five Hundred, which finally made it financially possible for a Thete to serve without starving his family in the process. The right that had existed only on paper since Cleisthenes now became a right the poorest Athenian could actually use.</p>
+      <p>The last steps in this story belong to two statesmen a generation after Cleisthenes: Ephialtes and, following him, Pericles. Two changes in the 460s and 450s BC finished what Solon and Cleisthenes had started. First, Ephialtes and Pericles stripped the <em class="term" tabindex="0">Areopagus<span class="gloss-tip">The council of former archons that heard serious court cases and guarded the laws of Athens. <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button></span></em>, the old aristocratic council that had traditionally guarded the laws and tried the most serious cases, of nearly all its remaining power, leaving it with little beyond jurisdiction over homicide. Second, and just as important, Pericles introduced a state stipend for jury duty and, eventually, for service on the Council of Five Hundred, which finally made it financially possible for a Thete to serve without starving his family in the process. The right that had existed only on paper since Cleisthenes now became a right the poorest Athenian could actually use.</p>
 
-      <p>The effect on the balance of power between Athens's institutions was decisive. Under Solon, and still under Cleisthenes, the Council had directed the business the Assembly considered: it set the agenda, and the Assembly voted on what the Council brought to it. After Ephialtes and Pericles, with the Areopagus neutralized and Council and jury service open in practice to every citizen, the relationship reversed. It is the Assembly, now composed of every male citizen with a practical, paid ability to participate, that holds supreme authority, with the Council increasingly its administrative instrument rather than its director. This, not Solon's reforms and not even Cleisthenes's, is the point at which Athens becomes the kind of democracy the word usually calls to mind: the direct rule of the assembled citizen body.</p>
+      <p>The effect on the balance of power between Athens's institutions was decisive. Under Solon, and still under Cleisthenes, the Council had directed the business the Assembly considered: it set the agenda, and the Assembly voted on what the Council brought to it. After Ephialtes and Pericles, with the <em class="term" tabindex="0">Areopagus<span class="gloss-tip">The council of former archons that heard serious court cases and guarded the laws of Athens. <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button></span></em> neutralized and Council and jury service open in practice to every citizen, the relationship reversed. It is the Assembly, now composed of every male citizen with a practical, paid ability to participate, that holds supreme authority, with the Council increasingly its administrative instrument rather than its director. This, not Solon's reforms and not even Cleisthenes's, is the point at which Athens becomes the kind of democracy the word usually calls to mind: the direct rule of the assembled citizen body.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">A Century of Reform, at a Glance</div>
+        <div class="oa-timeline">
+          <div class="tl-event"><div class="tl-date">594 BC</div><div class="tl-label">Solon</div><div class="tl-desc">Cancels debts, ends debt-bondage, and opens office-holding to wealth rather than birth alone.</div></div>
+          <div class="tl-event"><div class="tl-date">561&ndash;510 BC</div><div class="tl-label">Pisistratus</div><div class="tl-desc">Rules as tyrant but leaves Solon's Council and courts standing, giving ordinary Athenians two generations of practice governing.</div></div>
+          <div class="tl-event"><div class="tl-date">508 BC</div><div class="tl-label">Cleisthenes</div><div class="tl-desc">Redraws the tribes to break clan patronage networks and introduces ostracism.</div></div>
+          <div class="tl-event"><div class="tl-date">460s&ndash;450s BC</div><div class="tl-label">Ephialtes &amp; Pericles</div><div class="tl-desc">Strip the Areopagus of its power and pay citizens for jury and Council service, making the rights of the poorest Thetes usable in practice, not just on paper.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>594 BC &ndash; Solon's archonship.</strong> The year Athens handed one man the power to rewrite its constitution rather than fight a civil war over debt.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>The Seisachtheia.</strong> Solon's cancellation of debts and permanent ban on debt-bondage, the reform that ended the hektemoroi's danger of enslavement.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>508 BC &ndash; Cleisthenes's reforms.</strong> The year ten new tribes replaced the four old ones, breaking the aristocratic patronage networks that had run Athenian politics.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Ostracism.</strong> A ten-year exile decided by vote, without trial or formal charge, aimed first at the friends and family of the deposed tyrants.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Isegoria.</strong> The equal right of every citizen, however poor, to stand and address the Assembly in his own words, not merely to shout approval or disapproval.</div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (Plutarch, <em>Life of Solon</em>) and Primary Source Report 1.1, below.</p>
+      <p>Primary Source 2 (Plutarch, <em>Life of Solon</em>) and Primary Source Report 1.8, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 1.2 &middot; Cleisthenes and the Reforms That Made a Democracy</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 1.6 &middot; Cleisthenes and the Reforms That Made a Democracy</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 1.8 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

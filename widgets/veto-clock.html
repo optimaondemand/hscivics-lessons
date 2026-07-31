@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veto Clock</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--maroon);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .wrap{
+    padding:14px 16px 18px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px 14px;
+    margin-bottom:14px;
+  }
+  .control{
+    flex:1 1 260px;
+    min-width:220px;
+  }
+  .control .glabel{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  .choice-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .choice-btn{
+    flex:1 1 auto;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:8px 8px;
+    font-size:12.5px;
+    font-family:inherit;
+    color:var(--text);
+    cursor:pointer;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+    text-align:center;
+  }
+  .choice-btn:hover{
+    border-color:var(--teal);
+  }
+  .choice-btn.selected{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:#fff;
+  }
+  .runrow{
+    display:flex;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  button.run{
+    background:var(--gold);
+    color:#0E1C42;
+    border:none;
+    border-radius:6px;
+    padding:10px 26px;
+    font-size:14.5px;
+    font-weight:700;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease, opacity 200ms ease;
+  }
+  button.run:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+  }
+  .clockstage{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:14px;
+    margin-bottom:14px;
+  }
+  .daytrack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+    margin-bottom:10px;
+  }
+  .day{
+    width:28px;
+    height:28px;
+    border-radius:5px;
+    border:1px solid var(--border);
+    background:#F8F9FC;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    color:var(--muted);
+    font-weight:600;
+    transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, transform 250ms ease;
+  }
+  .day.elapsed{
+    background:var(--teal);
+    color:#fff;
+    border-color:var(--teal);
+  }
+  .day.marker{
+    background:var(--maroon);
+    color:#fff;
+    border-color:var(--maroon);
+    transform:scale(1.12);
+  }
+  .day.moot{
+    background:#eef0f5;
+    color:#c3cad9;
+  }
+  .clockcaption{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    min-height:18px;
+    transition: opacity 200ms ease;
+  }
+  .outcome{
+    border-radius:6px;
+    padding:14px 16px;
+    font-size:14px;
+    line-height:1.55;
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    background:var(--card);
+    margin-bottom:14px;
+    display:none;
+  }
+  .outcome.show{ display:block; }
+  .outcome .verdict{
+    display:block;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:5px;
+    font-size:15px;
+  }
+  .override-panel{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:14px;
+    margin-bottom:14px;
+    display:none;
+  }
+  .override-panel.show{ display:block; }
+  .override-panel .glabel{
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:8px;
+    display:block;
+  }
+  .override-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .override-buttons button{
+    flex:1 1 180px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:9px 10px;
+    font-size:13px;
+    font-family:inherit;
+    color:var(--text);
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  .override-buttons button:hover{
+    background:var(--card);
+  }
+  .actions{
+    display:flex;
+    justify-content:flex-end;
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 18px;
+    font-size:14px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{
+    background:#16295e;
+  }
+  @media (max-width:420px){
+    .day{ width:22px; height:22px; font-size:9px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">Veto Clock: Ten Days That Decide a Bill's Fate</div>
+
+<div class="wrap">
+
+  <div class="controls">
+    <div class="control">
+      <label class="glabel">The President's action on the bill</label>
+      <div class="choice-row" id="actionRow">
+        <button class="choice-btn" data-val="sign">Sign It</button>
+        <button class="choice-btn" data-val="veto">Veto and Return It</button>
+        <button class="choice-btn" data-val="none">Take No Action</button>
+      </div>
+    </div>
+    <div class="control">
+      <label class="glabel">Congress, during the ten-day window</label>
+      <div class="choice-row" id="sessionRow">
+        <button class="choice-btn" data-val="session">Remains in Session</button>
+        <button class="choice-btn" data-val="adjourned">Adjourns</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="runrow">
+    <button class="run" id="runBtn">Run the Clock</button>
+  </div>
+
+  <div class="clockstage">
+    <div class="daytrack" id="dayTrack"></div>
+    <div class="clockcaption" id="clockCaption">Day 0: the bill has just arrived on the President's desk.</div>
+  </div>
+
+  <div class="outcome" id="outcome">
+    <span class="verdict" id="outcomeVerdict"></span>
+    <span id="outcomeText"></span>
+  </div>
+
+  <div class="override-panel" id="overridePanel">
+    <span class="glabel">Congress now votes on whether to override the veto. Two-thirds of both the House and the Senate must agree to override. Try both and see what changes.</span>
+    <div class="override-buttons">
+      <button id="overrideSucceeds">Override Succeeds (two-thirds, both chambers)</button>
+      <button id="overrideFails">Override Fails</button>
+    </div>
+  </div>
+
+  <div class="outcome" id="overrideOutcome">
+    <span class="verdict" id="overrideVerdict"></span>
+    <span id="overrideText"></span>
+  </div>
+
+  <div class="actions">
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var actionRow = document.getElementById('actionRow');
+  var sessionRow = document.getElementById('sessionRow');
+  var runBtn = document.getElementById('runBtn');
+  var dayTrack = document.getElementById('dayTrack');
+  var clockCaption = document.getElementById('clockCaption');
+  var outcome = document.getElementById('outcome');
+  var outcomeVerdict = document.getElementById('outcomeVerdict');
+  var outcomeText = document.getElementById('outcomeText');
+  var overridePanel = document.getElementById('overridePanel');
+  var overrideOutcome = document.getElementById('overrideOutcome');
+  var overrideVerdict = document.getElementById('overrideVerdict');
+  var overrideText = document.getElementById('overrideText');
+  var overrideSucceeds = document.getElementById('overrideSucceeds');
+  var overrideFails = document.getElementById('overrideFails');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var DEFAULT_ACTION = 'none';
+  var DEFAULT_SESSION = 'session';
+
+  var selectedAction = DEFAULT_ACTION;
+  var selectedSession = DEFAULT_SESSION;
+  var running = false;
+  var timers = [];
+
+  function clearTimers(){
+    timers.forEach(function(t){ clearTimeout(t); });
+    timers = [];
+  }
+
+  function buildDayTrack(){
+    dayTrack.innerHTML = '';
+    for (var i = 1; i <= 10; i++){
+      var d = document.createElement('div');
+      d.className = 'day';
+      d.textContent = i;
+      dayTrack.appendChild(d);
+    }
+  }
+
+  function setButtons(row, val){
+    Array.prototype.forEach.call(row.children, function(b){
+      b.classList.toggle('selected', b.getAttribute('data-val') === val);
+    });
+  }
+
+  function resetOutcomePanels(){
+    outcome.classList.remove('show');
+    overridePanel.classList.remove('show');
+    overrideOutcome.classList.remove('show');
+    outcomeVerdict.textContent = '';
+    outcomeText.textContent = '';
+    overrideVerdict.textContent = '';
+    overrideText.textContent = '';
+  }
+
+  function resetAll(){
+    clearTimers();
+    running = false;
+    selectedAction = DEFAULT_ACTION;
+    selectedSession = DEFAULT_SESSION;
+    setButtons(actionRow, selectedAction);
+    setButtons(sessionRow, selectedSession);
+    buildDayTrack();
+    clockCaption.textContent = "Day 0: the bill has just arrived on the President's desk.";
+    resetOutcomePanels();
+    runBtn.disabled = false;
+  }
+
+  actionRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.choice-btn');
+    if (!btn || running) return;
+    selectedAction = btn.getAttribute('data-val');
+    setButtons(actionRow, selectedAction);
+  });
+
+  sessionRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.choice-btn');
+    if (!btn || running) return;
+    selectedSession = btn.getAttribute('data-val');
+    setButtons(sessionRow, selectedSession);
+  });
+
+  function markDay(idx, cls){
+    var days = dayTrack.children;
+    if (idx >= 1 && idx <= days.length){
+      days[idx - 1].classList.add(cls);
+    }
+  }
+
+  function fillMootFrom(idx){
+    var days = dayTrack.children;
+    for (var i = idx; i < days.length; i++){
+      if (!days[i].classList.contains('elapsed') && !days[i].classList.contains('marker')){
+        days[i].classList.add('moot');
+      }
+    }
+  }
+
+  function runClock(){
+    if (running) return;
+    running = true;
+    runBtn.disabled = true;
+    resetOutcomePanels();
+    buildDayTrack();
+
+    var action = selectedAction;
+    var session = selectedSession;
+    var step = 220;
+
+    if (action === 'sign'){
+      timers.push(setTimeout(function(){
+        markDay(1, 'marker');
+        clockCaption.textContent = "Day 1: the President signs the bill.";
+        fillMootFrom(1);
+      }, step));
+      timers.push(setTimeout(function(){
+        showOutcome(
+          "The bill becomes law.",
+          "Signature is the direct route: the President agrees, and the bill takes effect as law immediately. Congress's session status does not change this outcome; a signed bill is law whether Congress is sitting or not.",
+          false
+        );
+        finishRun();
+      }, step * 2));
+      return;
+    }
+
+    if (action === 'veto'){
+      timers.push(setTimeout(function(){
+        markDay(1, 'marker');
+        clockCaption.textContent = "Day 1: the President vetoes the bill and returns it to Congress with objections.";
+        fillMootFrom(1);
+      }, step));
+      timers.push(setTimeout(function(){
+        showOutcome(
+          "The bill goes back to Congress.",
+          "A regular veto does not kill a bill outright. It returns the bill, with the President's objections, to the chamber where it started. Congress can now vote on whether to override that objection.",
+          false
+        );
+        overridePanel.classList.add('show');
+        finishRun();
+      }, step * 2));
+      return;
+    }
+
+    // action === 'none': animate through the ten-day window
+    var dayIdx = 1;
+    function tick(){
+      if (dayIdx <= 10){
+        markDay(dayIdx, 'elapsed');
+        if (session === 'adjourned' && dayIdx === 4){
+          clockCaption.textContent = "Day " + dayIdx + ": Congress adjourns. The President has still signed nothing.";
+        } else {
+          clockCaption.textContent = "Day " + dayIdx + ": the President has taken no action. Congress remains in session.";
+        }
+
+        if (session === 'adjourned' && dayIdx === 4){
+          // stop the clock here: pocket veto triggers the moment Congress adjourns
+          fillMootFrom(dayIdx);
+          timers.push(setTimeout(function(){
+            showOutcome(
+              "Pocket veto. The bill dies.",
+              "The President took no action, the same inaction as the other branch of this scenario, but because Congress adjourned before the ten days ran out, the bill cannot be returned to a sitting Congress. It dies quietly, with no veto message and no chance for Congress to override anything.",
+              true
+            );
+            finishRun();
+          }, step));
+          return;
+        }
+
+        dayIdx++;
+        timers.push(setTimeout(tick, step));
+      } else {
+        timers.push(setTimeout(function(){
+          showOutcome(
+            "The bill becomes law, without the President's signature.",
+            "Ten days passed with no signature and no veto, but because Congress stayed in session the whole time, the Constitution treats silence as consent. The exact same inaction that just killed a bill under an adjourned Congress instead lets this one become law.",
+            false
+          );
+          finishRun();
+        }, step));
+      }
+    }
+    timers.push(setTimeout(tick, step));
+  }
+
+  function showOutcome(verdict, text, isPocketVeto){
+    outcomeVerdict.textContent = verdict;
+    outcomeText.textContent = text;
+    outcome.classList.add('show');
+    outcome.style.borderLeftColor = isPocketVeto ? '#7A2048' : '#C7922C';
+  }
+
+  function finishRun(){
+    running = false;
+    runBtn.disabled = false;
+  }
+
+  overrideSucceeds.addEventListener('click', function(){
+    overrideVerdict.textContent = "Override succeeds. The bill becomes law over the President's objection.";
+    overrideText.textContent = "Two-thirds of both the House and the Senate voted to override, the high bar the framers set specifically because overruling the President is meant to take something close to broad, cross-chamber consensus, not a narrow majority.";
+    overrideOutcome.classList.add('show');
+  });
+
+  overrideFails.addEventListener('click', function(){
+    overrideVerdict.textContent = "Override fails. The veto stands, and the bill dies.";
+    overrideText.textContent = "Without two-thirds in both chambers, the President's objection holds. The bill does not become law, but note this is a different kind of death than a pocket veto: it happened in the open, with a recorded veto message and a recorded vote to try to overturn it.";
+    overrideOutcome.classList.add('show');
+  });
+
+  runBtn.addEventListener('click', runClock);
+  resetBtn.addEventListener('click', resetAll);
+
+  resetAll();
+})();
+</script>
+
+</body>
+</html>

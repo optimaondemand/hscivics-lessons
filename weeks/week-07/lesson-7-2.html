@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Federalism as Double Security, and a Democracy That Voted Itself Into Disaster</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.14 Federalism as Double Security, and a Democracy That Voted Itself Into Disaster | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,23 +144,72 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-7-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 4</div><div class="subvalue">Constitutional Convention & Federalist Papers</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.14</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">History of the Peloponnesian War</div><div class="subvalue">Thucydides</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.1.3, 1.5, 3.12</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 7.2</div><div class="title">Federalism as Double Security, and a Democracy That Voted Itself Into Disaster</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 4.14</div><div class="title">Federalism as Double Security, and a Democracy That Voted Itself Into Disaster</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">extended republic</span><span class="gloss-def">Madison's argument that spreading a republic over a large territory and population, rather than confining it to a small city, actually makes it harder for any one faction to dominate.</span></div><div class="gloss-entry"><span class="gloss-term">faction</span><span class="gloss-def">In Madison's usage, a group of citizens united by some common interest or passion opposed to the rights of others or to the interests of the community as a whole.</span></div><div class="gloss-entry"><span class="gloss-term">Federalism</span><span class="gloss-def">A system of government in which power is divided and shared between a national government and state governments, each with its own sphere of authority.</span></div><div class="gloss-entry"><span class="gloss-term">pure democracy</span><span class="gloss-def">A government in which citizens make and administer the laws directly themselves, without elected representatives.</span></div><div class="gloss-entry"><span class="gloss-term">republic</span><span class="gloss-def">A government in which citizens rule through elected representatives rather than directly, and in which political power belongs to the public, not to a monarch.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -162,13 +218,13 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
     <div class="oa-card">
       <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
-      <div class="oa-numbered"><div class="circ">1</div><div>Explain <em>federalism</em> as a "double security" that divides power between national and state governments, and connect it to this week's discussion topic of separation of powers.</div></div>
+      <div class="oa-numbered"><div class="circ">1</div><div>Explain <em>federalism</em> as a "double security" that divides power between national and state governments, and connect it to this module's discussion topic of separation of powers.</div></div>
       <div class="oa-numbered"><div class="circ">2</div><div>Narrate the Athenian Assembly's decision to invade Sicily in 415 BC, including the roles of Alcibiades and Nicias.</div></div>
       <div class="oa-numbered"><div class="circ">3</div><div>Explain why Thucydides's account of the Sicilian Expedition illustrates, in concrete historical form, exactly the danger Madison warns against in <em>Federalist</em> No. 10.</div></div>
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>This week's discussion topic asks you to think about Madison on <em>separation of powers</em>; the horizontal division of the national government into legislative, executive, and judicial branches, each checking the others. <em>Federalist</em> No. 10 gives you the logic behind a second, equally important division: not horizontal, but vertical. <em class="term">Federalism</em> is the arrangement by which political power is divided between a national government and the state governments beneath it, each sovereign in its own sphere and each a check on the ambitions of the other.</p>
+      <p>This module's discussion topic asks you to think about Madison on <em>separation of powers</em>; the horizontal division of the national government into legislative, executive, and judicial branches, each checking the others. <em>Federalist</em> No. 10 gives you the logic behind a second, equally important division: not horizontal, but vertical. <strong class="term-subject" tabindex="0">Federalism<span class="gloss-tip">A system of government in which power is divided and shared between a national government and state governments, each with its own sphere of authority.</span></strong> is the arrangement by which political power is divided between a national government and the state governments beneath it, each sovereign in its own sphere and each a check on the ambitions of the other.</p>
 
       <p>Madison develops this argument at length elsewhere in the Federalist Papers (most explicitly in No. 51, which you will encounter later this semester), but the logic is already implicit in No. 10's case for an extended republic. If a large, diverse republic controls the effects of faction better than a small one, that logic applies at two levels simultaneously. The national government, spanning the whole diverse union, is structurally resistant to any single faction seizing permanent control, for exactly the reasons No. 10 lays out. But Madison does not therefore conclude that all power should simply be centralized in that national government. Instead the Constitution splits authority between the nation and the states, so that a faction that manages to capture a state government still runs into the limits of that state's power, and a faction that somehow captured the national government would still find the states retaining independent authority of their own. Madison later called this arrangement a "double security" for the rights of the people: "the different governments will control each other, at the same time that each will be controlled by itself." Federalism, in other words, is separation of powers applied to the nation/state axis rather than the executive/legislative/judicial axis; another structural answer to the same underlying problem of unchecked power, whether that power belongs to a king, a faction, or an unrestrained majority.</p>
 
@@ -189,13 +245,35 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Notice what actually happened, structurally, in the Assembly that day. There was no upper house to slow the vote down, no separate executive with an independent check, no requirement of supermajority consent, no division between a national and a more local authority that might have limited the scale of the commitment. A single body of citizens, meeting once, swept up in the rhetoric of an ambitious and self-interested speaker, voted the entire community into an irreversible commitment that its own most experienced general had warned against in detail. This is not a metaphorical illustration of Madison's argument in <em>Federalist</em> No. 10. It is close to a textbook case of it: a direct democracy, small enough and unified enough that a passionate temporary majority could seize the whole apparatus of the state in a single session, with nothing built into the structure of Athenian government to slow the decision down, divide the decision-making power, or force reconsideration once the passion of the moment had passed. Madison never cites this specific episode (he did not need to; the pattern was familiar to any educated reader of Thucydides in his era), but the logic is exactly his: extend the sphere, divide the power, multiply the interests that must agree before the whole community can be committed to any single course, precisely because you cannot count on the wisdom or restraint of any single assembly, however confident, to check its own worst impulses in the moment that matters most.</p>
     </div>
 
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>1787-88 &ndash; the Federalist Papers.</strong> Eighty-five essays signed "Publius," written by Hamilton, Madison, and Jay to win New York's ratification of the Constitution.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong><em>Federalist</em> No. 10 &ndash; Madison's definition of faction.</strong> A group united by a common passion or interest adverse to the rights of others or the community's good; liberty cannot be removed without also killing the faction it feeds.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>The extended republic.</strong> Madison's answer to faction: spread a republic over a large, diverse territory, so no single faction can easily become a stable majority.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Federalism as "double security."</strong> Power divided between national and state governments, each controlled by the other and by itself, the vertical counterpart to the separation of powers.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>415 BC &ndash; the Athenian vote for the Sicilian Expedition.</strong> A single Assembly, swayed by Alcibiades over Nicias's warning, committed Athens to a catastrophic invasion in one afternoon, with no structure in place to slow the decision down.</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (Thucydides on the Sicilian Expedition) and Primary Source Report 7.1, below.</p>
+      <p>Primary Source 2 (Thucydides on the Sicilian Expedition) and Primary Source Report 4.16, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 7.2 &middot; Federalism as Double Security, and a Democracy That Voted Itself Into Disaster</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.14 &middot; Federalism as Double Security, and a Democracy That Voted Itself Into Disaster</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 4.16 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

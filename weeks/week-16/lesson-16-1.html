@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Civic Duties: Voting, Juries, and Military Service</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.2 Civic Duties: Voting, Juries, and Military Service | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,28 +144,77 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-16-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The Citizen and the Republic</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 16.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 9</div><div class="subvalue">Civic Duties, Foreign Policy & Comparative Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.2</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Pearl Harbor Address to Congress</div><div class="subvalue">Franklin D. Roosevelt</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Civic Duty in Wartime</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Civic Duties, Foreign Policy & Comparative Government</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 16.1</div><div class="title">Civic Duties: Voting, Juries, and Military Service</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 9.2</div><div class="title">Civic Duties: Voting, Juries, and Military Service</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">citizencraft</span><span class="gloss-def">The knowledge and practical skill of exercising one's rights and fulfilling one's duties well as a citizen of a self-governing republic.</span></div><div class="gloss-entry"><span class="gloss-term">civic duty</span><span class="gloss-def">An obligation a citizen owes to the political community, such as obeying the law, serving on a jury, or voting.</span></div><div class="gloss-entry"><span class="gloss-term">conscription</span><span class="gloss-def">The compulsory enrollment of citizens into military service, commonly called the draft.</span></div><div class="gloss-entry"><span class="gloss-term">duty</span><span class="gloss-def">An obligation owed to others or to the community, as distinct from a right one may claim for oneself.</span></div><div class="gloss-entry"><span class="gloss-term">preregistration</span><span class="gloss-def">The practice, allowed in many states, of registering to vote before turning eighteen so a young citizen is ready to vote as soon as they become eligible.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> Rights are half of the citizen's relationship to the republic. The other half is <em class="term">duty</em>; what the citizen owes the commonwealth in exchange for its protection and its voice. Today's lesson examines the three duties most bound up with a citizen's standing in American public life: voting, jury service, and military service.</p>
+      <p><strong>Topic:</strong> Rights are half of the citizen's relationship to the republic. The other half is <strong class="term-subject" tabindex="0">duty<span class="gloss-tip">An obligation owed to others or to the community, as distinct from a right one may claim for oneself.</span></strong>; what the citizen owes the commonwealth in exchange for its protection and its voice. Today's lesson examines the three duties most bound up with a citizen's standing in American public life: voting, jury service, and military service.</p>
     </div>
 
     <div class="oa-card">
@@ -168,15 +224,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Connect jury service directly to the 6th and 7th Amendment trial rights studied earlier this semester.</div></div>
     </div>
 
-    <div class="oa-card lesson-prose">
-      <p>Back in Week 1 of this course, you met the idea of <em class="term">citizencraft</em>; the claim that an American citizen is not a subject who merely receives protection from the state, but a part-owner of the commonwealth, a shareholder in a <em class="term">res publica</em>, "the public thing," with a stake in how it is run. Ownership of that kind is not free. A shareholder who only collects dividends and never shows up to a vote, never serves on the board, never does the unglamorous maintenance a shared enterprise requires, is not really exercising ownership at all; he is a passenger. The Constitution guarantees you rights: to speak, to worship, to a fair trial, to due process before the government can touch your life, liberty, or property. Those guarantees are not self-enforcing. They survive only because enough citizens, generation after generation, do the unglamorous work of keeping the republic running. That work has a name: <em class="term">civic duty</em>, the obligations a citizen owes the political community in return for the protections and voice it extends to him.</p>
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>A letter arrives with your name on it. Not a bill, not an advertisement: a jury summons, ordering you to appear at the county courthouse on a specific date to help decide a stranger's case. You did nothing to invite this. You have work, or school, or plans that week, and none of that matters to the envelope in your hand. You could simply not show up. Nothing physically stops you. But every citizen who has ever stood trial and asked for a jury of their peers was counting on someone, somewhere, opening an envelope exactly like this one and deciding to come. The right you might someday claim for yourself is only real because other citizens, on other days, treated an inconvenient summons as a debt they owed rather than a request they could ignore.</p>
+    </div>
 
-      <p>Three duties deserve special attention this week, because each one reveals something different about how a republic asks things of its citizens, and because all three converge, in different ways, on the same question you will spend the rest of this week's discussion wrestling with: when is a civic duty experienced as legitimate, and when does it start to feel like an imposition?</p>
+    <div class="oa-card lesson-prose">
+      <p>Back in Module 1 of this course, you met the idea of <strong class="term-subject" tabindex="0">citizencraft<span class="gloss-tip">The knowledge and practical skill of exercising one's rights and fulfilling one's duties well as a citizen of a self-governing republic.</span></strong>; the claim that an American citizen is not a subject who merely receives protection from the state, but a part-owner of the commonwealth, a shareholder in a res publica, "the public thing," with a stake in how it is run. Ownership of that kind is not free. A shareholder who only collects dividends and never shows up to a vote, never serves on the board, never does the unglamorous maintenance a shared enterprise requires, is not really exercising ownership at all; he is a passenger. The Constitution guarantees you rights: to speak, to worship, to a fair trial, to due process before the government can touch your life, liberty, or property. Those guarantees are not self-enforcing. They survive only because enough citizens, generation after generation, do the unglamorous work of keeping the republic running. That work has a name: <strong class="term-subject" tabindex="0">civic duty<span class="gloss-tip">An obligation a citizen owes to the political community, such as obeying the law, serving on a jury, or voting.</span></strong>, the obligations a citizen owes the political community in return for the protections and voice it extends to him.</p>
+
+      <p>Three duties deserve special attention this session, because each one reveals something different about how a republic asks things of its citizens, and because all three converge, in different ways, on the same question you will spend the rest of this module's discussion wrestling with: when is a civic duty experienced as legitimate, and when does it start to feel like an imposition?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Voting: Expected, Not Compelled</h2>
       <p>Start with the duty every American has heard about since elementary school, and the one that turns out to be the least legally binding of the three. No federal law and no state law requires an American citizen to vote. Compare that to Australia, Belgium, or Brazil, where failing to vote can bring a fine. The United States chose a different model: voting is a civic <em>expectation</em>, woven into the culture and rhetoric of American citizenship, but not a legal compulsion backed by penalty. The Constitution instead focuses on removing barriers to the ballot (the 15th Amendment barring denial of the vote on account of race, the 19th on account of sex, the 24th abolishing poll taxes, the 26th lowering the voting age to eighteen) rather than on forcing turnout once the barriers are gone.</p>
 
-      <p>That expectation still requires machinery to make it usable. In Florida, a citizen who wishes to vote must first register, a process that includes <em class="term">preregistration</em>: 16- and 17-year-olds may complete the registration paperwork before they are old enough to vote, so that their registration automatically activates on their 18th birthday. The state treats the step of registering not as a hurdle to discourage participation, but as an administrative prerequisite that a citizen serious about the duty of voting is expected to clear well before an election is on the calendar. A duty the law leaves voluntary is still a duty; it just relies on civic culture, rather than a court summons, to get citizens to show up.</p>
+      <p>That expectation still requires machinery to make it usable. In Florida, a citizen who wishes to vote must first register, a process that includes <strong class="term-subject" tabindex="0">preregistration<span class="gloss-tip">The practice, allowed in many states, of registering to vote before turning eighteen so a young citizen is ready to vote as soon as they become eligible.</span></strong>: 16- and 17-year-olds may complete the registration paperwork before they are old enough to vote, so that their registration automatically activates on their 18th birthday. The state treats the step of registering not as a hurdle to discourage participation, but as an administrative prerequisite that a citizen serious about the duty of voting is expected to clear well before an election is on the calendar. A duty the law leaves voluntary is still a duty; it just relies on civic culture, rather than a court summons, to get citizens to show up.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Jury Service: The Duty Behind the Right</h2>
       <p>Recall the two trial-rights amendments you studied earlier this semester. The 6th Amendment guarantees a criminal defendant "the right to a speedy and public trial, by an impartial jury"; the 7th Amendment extends a jury-trial right to most federal civil cases as well. Those rights are not abstractions written on parchment that enforce themselves. A jury trial requires an actual jury; twelve, or in many states six to twelve, ordinary citizens willing to set aside their own lives for a few days, sit in judgment on a stranger's case, and render a verdict. If citizens routinely dodge jury summonses, the 6th and 7th Amendment rights of every defendant who comes after them get thinner and slower, not because the Constitution changed, but because the pool of willing jurors did.</p>
@@ -184,24 +245,36 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>This is why every state treats jury service as a genuine legal duty, not a mere expectation like voting. A citizen who receives a jury summons and simply ignores it can be held in contempt of court, fined, or in some jurisdictions jailed. The logic is straightforward once you see it: the right to trial by jury belongs to the defendant, but the <em>duty</em> to staff that jury belongs to everyone else. A right that only one side has to honor is not really a right at all; it is a hope. Jury service is the clearest possible illustration of a civic duty as the necessary flip side of a civic right: the 6th Amendment promises you a jury of your peers, and that promise obligates you, in turn, to be somebody else's peer on their jury when your own summons arrives.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Military Service: Registration Now, Conscription in Extremity</h2>
-      <p>The third duty carries the highest possible stakes, because it can ask a citizen to risk his life for the commonwealth. In ordinary peacetime, the United States maintains an all-volunteer military; no one is compelled to serve. But federal law still requires nearly all male U.S. citizens and male immigrants, at age eighteen, to register with the <em class="term">Selective Service System</em>; a standing administrative registry that exists so that, if Congress and the President ever needed to reinstate a draft, the government would already have a list of who could be called. Registration itself is not service; it is preparedness, the legal residue of a duty the republic reserves the right to activate.</p>
+      <p>The third duty carries the highest possible stakes, because it can ask a citizen to risk his life for the commonwealth. In ordinary peacetime, the United States maintains an all-volunteer military; no one is compelled to serve. But federal law still requires nearly all male U.S. citizens and male immigrants, at age eighteen, to register with the <strong class="term-entity" tabindex="0">Selective Service System<span class="gloss-tip">The federal agency that maintains the registry of men eligible for military conscription if a draft is ever reinstated.</span></strong>; a standing administrative registry that exists so that, if Congress and the President ever needed to reinstate a draft, the government would already have a list of who could be called. Registration itself is not service; it is preparedness, the legal residue of a duty the republic reserves the right to activate.</p>
 
-      <p>Historically, that reserve power has been activated more than once, and always in wartime, through <em class="term">conscription</em>; the compulsory enrollment of citizens into military service, commonly called "the draft." The United States has conscripted citizens during the Civil War, both World Wars, the Korean War, and the Vietnam War. Each time, the government asked something of its citizens that voting and jury duty never do: not an afternoon, not a few days, but years, and possibly a life. That is precisely why military conscription is the duty most likely to expose whether a republic's citizens experience an obligation as legitimate or as an imposition; which is where Wednesday's lesson picks up.</p>
+      <p>Historically, that reserve power has been activated more than once, and always in wartime, through <strong class="term-subject" tabindex="0">conscription<span class="gloss-tip">The compulsory enrollment of citizens into military service, commonly called the draft.</span></strong>; the compulsory enrollment of citizens into military service, commonly called "the draft." The United States has conscripted citizens during the Civil War, both World Wars, the Korean War, and the Vietnam War. Each time, the government asked something of its citizens that voting and jury duty never do: not an afternoon, not a few days, but years, and possibly a life. That is precisely why military conscription is the duty most likely to expose whether a republic's citizens experience an obligation as legitimate or as an imposition; which is where Wednesday's lesson picks up.</p>
     </div>
 
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 16.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 9.3</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 16.1 &middot; Civic Duties: Voting, Juries, and Military Service</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.2 &middot; Civic Duties: Voting, Juries, and Military Service</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 9.3: Civic Duties: Voting, Juries, and Military Service is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

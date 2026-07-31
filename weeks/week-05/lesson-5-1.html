@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: From Protest to Separation</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.2 From Protest to Separation | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,24 +144,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-5-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 5.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 3</div><div class="subvalue">Founding Documents</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 3.2</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Declaration of Independence</div><div class="subvalue">Thomas Jefferson, 1776</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Founding Documents</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 5.1</div><div class="title">From Protest to Separation</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 3.2</div><div class="title">From Protest to Separation</div></div><span class="time-pill">20 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">general will</span><span class="gloss-def">Rousseau's term for what a political community wills in common for its shared good, as distinct from the sum of everyone's private, individual wishes.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -170,22 +226,27 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Identify the Declaration's three-part structure (preamble, indictment, formal declaration), and trace the specific Lockean lineage of its opening theory of government.</div></div>
     </div>
 
-    <div class="oa-card lesson-prose">
-      <p>In the autumn of 1774, delegates from twelve colonies sat down together in Philadelphia for the first time in the colonies' history and did something that would have been unthinkable a decade earlier: they acted, however cautiously, as one body. The occasion was the Coercive Acts, four punitive measures Parliament had passed that spring to answer the Boston Tea Party; among them the closing of Boston's port until the ruined tea was paid for, and the effective suspension of Massachusetts's own elected government. The <em class="term">First Continental Congress</em> that met in response did not ask for independence. It petitioned the king, organized a boycott of British goods, and affirmed (more than once) that the colonies wanted reconciliation, not rupture. That petition was refused. The boycott provoked no concession. And in April 1775, colonial militia and British regulars exchanged fire at Lexington and Concord, and the argument over words became a war.</p>
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is the winter of 1775 to 1776. You are a colonist loyal, at least on paper, to a king who has just refused to read your Congress's last petition for peace and declared you and your neighbors in open rebellion. Your militia is already fighting his soldiers. Yet you have named no other government to replace his, no other flag to fight under. Everyone around you senses the contradiction, but almost no one has said the word "independence" out loud in public, because it still sounds like an unthinkable act, one with no clear precedent and no guaranteed foreign ally waiting to help. Then, in January, an anonymous fifty-page pamphlet begins circulating through every colony, arguing that the whole idea of hereditary kingship, not just this king's bad decisions, was a mistake from the start.</p>
+    </div>
 
-      <p>The <em class="term">Second Continental Congress</em>, convening within weeks of that first bloodshed, inherited an odd, unstable position: it was now managing an actual war (raising a Continental Army, naming George Washington its commander), while still, on paper, professing loyalty to the Crown and hoping for peace. In July 1775 it sent the king one more petition, the Olive Branch Petition, asking him to intervene with Parliament on the colonies' behalf. George III refused even to read it, and in late 1775 declared the colonies in open rebellion. By the winter of 1775&ndash;76, the colonies were fighting a war in the name of a king who had disowned them and a Parliament whose authority they had never fully accepted. This was, as a matter of plain political logic, an untenable position. Armed resistance without a stated aim beyond "stop mistreating us" could not sustain itself, could not attract foreign allies, and could not answer the basic question every rebellion must eventually answer: <em>rebellion against what, and toward what?</em></p>
+    <div class="oa-card lesson-prose">
+      <p>In the autumn of 1774, delegates from twelve colonies sat down together in Philadelphia for the first time in the colonies' history and did something that would have been unthinkable a decade earlier: they acted, however cautiously, as one body. The occasion was the Coercive Acts, four punitive measures Parliament had passed that spring to answer the Boston Tea Party; among them the closing of Boston's port until the ruined tea was paid for, and the effective suspension of Massachusetts's own elected government. The <strong class="term-entity" tabindex="0">First Continental Congress<span class="gloss-tip">The 1774 meeting of colonial delegates that coordinated resistance to British policy before the Revolutionary War began.</span></strong> that met in response did not ask for independence. It petitioned the king, organized a boycott of British goods, and affirmed (more than once) that the colonies wanted reconciliation, not rupture. That petition was refused. The boycott provoked no concession. And in April 1775, colonial militia and British regulars exchanged fire at Lexington and Concord, and the argument over words became a war.</p>
+
+      <p>The <strong class="term-entity" tabindex="0">Second Continental Congress<span class="gloss-tip">The colonial congress that governed the war effort from 1775 onward and adopted the Declaration of Independence in 1776.</span></strong>, convening within weeks of that first bloodshed, inherited an odd, unstable position: it was now managing an actual war (raising a Continental Army, naming George Washington its commander), while still, on paper, professing loyalty to the Crown and hoping for peace. In July 1775 it sent the king one more petition, the Olive Branch Petition, asking him to intervene with Parliament on the colonies' behalf. George III refused even to read it, and in late 1775 declared the colonies in open rebellion. By the winter of 1775&ndash;76, the colonies were fighting a war in the name of a king who had disowned them and a Parliament whose authority they had never fully accepted. This was, as a matter of plain political logic, an untenable position. Armed resistance without a stated aim beyond "stop mistreating us" could not sustain itself, could not attract foreign allies, and could not answer the basic question every rebellion must eventually answer: <em>rebellion against what, and toward what?</em></p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What <em>Common Sense</em> Did</h2>
-      <p>Into this uncertainty, in January 1776, dropped a fifty-page pamphlet with no author's name on it, written by a recent immigrant to Pennsylvania named Thomas Paine. <em class="term">Common Sense</em> did not argue, primarily, that Parliament had overstepped its authority on this tax or that regulation; the argument the colonies had been having, in various forms, since the Stamp Act of 1765. Paine's target was bigger and stranger: he set out to make monarchy itself, and hereditary succession in particular, look absurd. "One of the strongest natural proofs of the folly of hereditary right in Kings," he wrote, "is that nature disapproves it, otherwise she would not so frequently turn it into ridicule, by giving mankind an <em>Ass for a Lion</em>." He walked through the Old Testament's own account of Israel's demand for a king (a demand the prophet Samuel and, in Paine's reading, God himself treated as a sin), and used it to argue that no serious biblical or rational case for kingship existed at all. He mocked the English constitution's celebrated "balance" of King, Lords, and Commons as a structure that "first excludes a man from the means of information, yet empowers him to act in cases where the highest judgment is required."</p>
+      <p>Into this uncertainty, in January 1776, dropped a fifty-page pamphlet with no author's name on it, written by a recent immigrant to Pennsylvania named Thomas Paine. <strong class="term-entity" tabindex="0">Common Sense<span class="gloss-tip">Thomas Paine's 1776 pamphlet arguing plainly for American independence from Britain; one of the most widely read political texts of the Revolution.</span></strong> did not argue, primarily, that Parliament had overstepped its authority on this tax or that regulation; the argument the colonies had been having, in various forms, since the Stamp Act of 1765. Paine's target was bigger and stranger: he set out to make monarchy itself, and hereditary succession in particular, look absurd. "One of the strongest natural proofs of the folly of hereditary right in Kings," he wrote, "is that nature disapproves it, otherwise she would not so frequently turn it into ridicule, by giving mankind an <em>Ass for a Lion</em>." He walked through the Old Testament's own account of Israel's demand for a king (a demand the prophet Samuel and, in Paine's reading, God himself treated as a sin), and used it to argue that no serious biblical or rational case for kingship existed at all. He mocked the English constitution's celebrated "balance" of King, Lords, and Commons as a structure that "first excludes a man from the means of information, yet empowers him to act in cases where the highest judgment is required."</p>
 
       <p>Why does this matter for the colonies' specific quarrel with George III? Because until someone made this case, the colonists' options looked like exactly two: stay loyal subjects of the Crown, or become outlaws and traitors with no legitimate standing at all. Paine opened a third position that had barely existed in colonial political imagination before January 1776: that the colonies could become a legitimate, self-governing people in their own right, answerable to no monarch, and that doing so was not treason against a rightful order but simply the correction of a very old mistake; the mistake of monarchy itself. "Everything that is right or reasonable pleads for separation," Paine wrote. "The blood of the slain, the weeping voice of nature cries, 'TIS TIME TO PART." The pamphlet sold, by most estimates, more than 100,000 copies in its first few months; in a population of roughly two and a half million free colonists. It did not win the argument by itself. But it moved independence from an unspeakable idea to a widely discussed, and increasingly popular, one, in a matter of weeks. By the time Richard Henry Lee rose in Congress on June 7, 1776, to propose the resolution that the colonies "are, and of right ought to be, free and independent States," the ground Paine had cleared made that motion possible in a way it would not have been a year, or even six months, before.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Committee, and the Document's Deliberate Architecture</h2>
       <p>Congress did not wait for Lee's resolution to pass before preparing its justification. On June 11, 1776, it named a Committee of Five to draft a declaration: <strong>Thomas Jefferson</strong> of Virginia, <strong>John Adams</strong> of Massachusetts, <strong>Benjamin Franklin</strong> of Pennsylvania, Roger Sherman of Connecticut, and Robert R. Livingston of New York. Adams later gave a vivid, if self-serving, account of urging Jefferson to write the draft himself: "You can write ten times better than I can," he claimed to have told him. Jefferson's own account, written decades later, insists the committee simply and unanimously pressed the task on him alone, and that Franklin and Adams made only "two or three" small verbal corrections before it went to Congress. Whichever account is more exact in its particulars, the substance is not in dispute: Jefferson held the pen, and the document that emerged from that pen is built with real deliberateness around three distinct parts, each doing separate work.</p>
 
-      <p>The <strong>first part</strong> (the famous opening) states a general theory of legitimate government, not tied to any particular grievance at all. This was necessary for a reason you should recognize from Week 3's lesson on Locke: a list of grievances, however long, cannot by itself justify overthrowing "established and long recognized political authority," to use the historian Carl Becker's phrase. George III made no claim to rule by divine right; that doctrine was never a traditional or medieval one to begin with, but a novel Early Modern theory that had enjoyed its real popularity in the 1600s and carried little live force in Britain's constitutional monarchy by Jefferson's day. Still, the basic presumption of that constitutional order was that an established government deserved a strong presumption of continued obedience, and grievances alone, however numerous, could not overturn that presumption by themselves. What the colonies needed, before a single grievance was named, was an affirmative theory of government general enough to make revolution <em>respectable</em> under the right conditions, and only then could they show that those conditions applied to them.</p>
+      <p>The <strong>first part</strong> (the famous opening) states a general theory of legitimate government, not tied to any particular grievance at all. This was necessary for a reason you should recognize from Module 2's lesson on Locke: a list of grievances, however long, cannot by itself justify overthrowing "established and long recognized political authority," to use the historian Carl Becker's phrase. George III made no claim to rule by divine right; that doctrine was never a traditional or medieval one to begin with, but a novel Early Modern theory that had enjoyed its real popularity in the 1600s and carried little live force in Britain's constitutional monarchy by Jefferson's day. Still, the basic presumption of that constitutional order was that an established government deserved a strong presumption of continued obedience, and grievances alone, however numerous, could not overturn that presumption by themselves. What the colonies needed, before a single grievance was named, was an affirmative theory of government general enough to make revolution <em>respectable</em> under the right conditions, and only then could they show that those conditions applied to them.</p>
 
-      <p>That theory is drawn directly, specifically, and traceably from John Locke's <em>Second Treatise of Government</em>, the same text you studied in Week 3 on the dissolution of government. Locke's argument runs in a precise sequence: all men are born free and equal, possessing certain rights by nature (among them life, liberty, and property) that no government grants and no government may justly take away. Governments are instituted by the consent of the people specifically <em>to secure</em> those pre-existing rights; that is the whole purpose for which political power exists. And because government's authority is delegated by the people for that limited purpose, a government that persistently and deliberately betrays it (that becomes, in Locke's word, "destructive" of the very ends it was created to secure) forfeits its claim on the people's obedience. At that point, Locke argues, sovereignty reverts to the people, who retain the right to "alter or abolish" the government and construct a new one. This is not incidental borrowing. Jefferson himself, decades later, denied consulting Locke's book directly while drafting, but he readily admitted the debt in substance, writing that the Declaration was meant to rest "on the harmonizing sentiments of the day... as Aristotle, Cicero, Locke, Sidney, etc." Compare Jefferson's language to Locke's directly and the lineage is unmistakable, down to the sequence of the argument itself:</p>
+      <p>That theory is drawn directly, specifically, and traceably from John Locke's <em>Second Treatise of Government</em>, the same text you studied in Module 2 on the dissolution of government. Locke's argument runs in a precise sequence: all men are born free and equal, possessing certain rights by nature (among them life, liberty, and property) that no government grants and no government may justly take away. Governments are instituted by the consent of the people specifically <em>to secure</em> those pre-existing rights; that is the whole purpose for which political power exists. And because government's authority is delegated by the people for that limited purpose, a government that persistently and deliberately betrays it (that becomes, in Locke's word, "destructive" of the very ends it was created to secure) forfeits its claim on the people's obedience. At that point, Locke argues, sovereignty reverts to the people, who retain the right to "alter or abolish" the government and construct a new one. This is not incidental borrowing. Jefferson himself, decades later, denied consulting Locke's book directly while drafting, but he readily admitted the debt in substance, writing that the Declaration was meant to rest "on the harmonizing sentiments of the day... as Aristotle, Cicero, Locke, Sidney, etc." Compare Jefferson's language to Locke's directly and the lineage is unmistakable, down to the sequence of the argument itself:</p>
 
       <div class="oa-source-block" style="margin-top:8px;">
         <p><strong>Locke, <em>Second Treatise</em>:</strong> "governments are instituted among men, deriving their just powers from the consent of the governed"&hellip; when government becomes destructive of the people's "life, health, liberty, or possessions," the people retain "a right to. . . throw off" that government and provide new guards for their future security.</p>
@@ -199,19 +260,40 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The <strong>third part</strong>, only a single paragraph, is the declaration proper: the actual, formal announcement that the united colonies "are, and of right ought to be, free and independent States." Everything before it is argument; this is the act itself, and it borrows its precise legal language from the resolution Congress had already passed on July 2. It is worth noticing how short this part is, and how little rhetorical weight it carries compared to the sixty-some lines of theory and evidence that precede it. By the time a reader reaches it, the actual declaration of independence feels almost like a formality; which is exactly the effect Jefferson was building toward. The document's whole architecture is designed to make the concluding act seem, by the time you arrive at it, not a leap but an obvious and overdue conclusion.</p>
     </div>
 
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Grievance Sorter</div>
+      <p>Sort eight of the Declaration's actual grievance clauses into the three triggers Locke named for lawfully dissolving a government. Read the feedback after each placement, and watch your running tally build.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/grievance-sorter.html" title="Grievance Sorter" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/grievance-sorter.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">20 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 5.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 3.3</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 5.1 &middot; From Protest to Separation</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 3.2 &middot; From Protest to Separation</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 3.3: From Protest to Separation is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

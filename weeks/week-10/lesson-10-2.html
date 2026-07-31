@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: One Executive, Not Two: The Veto and the Case Against a Plural Presidency</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.5 One Executive, Not Two: The Veto and the Case Against a Plural Presidency | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,27 +144,76 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-10-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 10.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 6</div><div class="subvalue">Article II & III: Executive & Judicial</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 6.5</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Federalist No. 70</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value">SS.912.CG.3.4</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 10.2</div><div class="title">One Executive, Not Two: The Veto and the Case Against a Plural Presidency</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 6.5</div><div class="title">One Executive, Not Two: The Veto and the Case Against a Plural Presidency</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">commander-in-chief</span><span class="gloss-def">The Constitution's title for the President's role as the head of the U.S. armed forces.</span></div><div class="gloss-entry"><span class="gloss-term">executive orders</span><span class="gloss-def">Directives issued by the President to manage the operations of the federal government, without needing a new act of Congress.</span></div><div class="gloss-entry"><span class="gloss-term">lawmaking</span><span class="gloss-def">The process of writing, debating, and enacting laws, chiefly the work of the legislative branch.</span></div><div class="gloss-entry"><span class="gloss-term">natural-born citizen</span><span class="gloss-def">The Constitution's requirement for the presidency: a citizen from birth, whether by being born in the United States or born abroad to American parents.</span></div><div class="gloss-entry"><span class="gloss-term">pocket veto</span><span class="gloss-def">An indirect veto that occurs when the President neither signs nor returns a bill within ten days and Congress has adjourned, so the bill dies without a signature.</span></div><div class="gloss-entry"><span class="gloss-term">policymaking</span><span class="gloss-def">The process of deciding how a government's laws and resources will actually be carried out and applied.</span></div><div class="gloss-entry"><span class="gloss-term">regular veto</span><span class="gloss-def">The President's ordinary veto: returning a bill to Congress unsigned, with objections, within ten days of receiving it.</span></div><div class="gloss-entry"><span class="gloss-term">unity</span><span class="gloss-def">In Hamilton's Federalist No. 70 argument, having a single person, rather than a council or committee, hold the executive power, so that responsibility for action cannot be diffused or hidden.</span></div><div class="gloss-entry"><span class="gloss-term">veto</span><span class="gloss-def">The President's power to reject a bill passed by Congress, which Congress can override only with a two-thirds vote in both chambers.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> This week's discussion topic; the veto power; is where lawmaking and policymaking physically meet: the one moment the Constitution lets the executive reach directly into the legislative process. Behind that single power sits a much bigger argument the framers had already settled by 1787, one this course flagged back in Week 2: should the nation's chief executive be one person, or several?</p>
+      <p><strong>Topic:</strong> This module's discussion topic; the veto power; is where lawmaking and policymaking physically meet: the one moment the Constitution lets the executive reach directly into the legislative process. Behind that single power sits a much bigger argument the framers had already settled by 1787, one this course flagged back in Module 1: should the nation's chief executive be one person, or several?</p>
     </div>
 
     <div class="oa-card">
@@ -168,29 +224,62 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>The Constitution does not give the President a vote in Congress, and it does not let the President introduce a bill. Lawmaking, as Lesson 10.1 established, belongs to Congress. But Article I, Section 7 gives the President one carefully limited tool for reaching into that process anyway: the <em class="term">veto</em>, from the Latin for "I forbid." Once both chambers of Congress pass a bill in identical form, it goes to the President, who has three options. He may sign it into law. He may return it to Congress unsigned, along with his objections; the <em class="term">regular veto</em>; in which case the bill dies unless two-thirds of both the House and the Senate vote to override the President's objection and enact it anyway. Or, if Congress adjourns within ten days of sending him the bill and he takes no action, the bill dies automatically without his signature and without a formal veto message; this quieter method is the <em class="term">pocket veto</em>, so called because the President, in effect, simply lets the bill sit unsigned "in his pocket" until Congress is no longer in session to override anything.</p>
+      <p>The Constitution does not give the President a vote in Congress, and it does not let the President introduce a bill. Lawmaking, as Lesson 6.2 established, belongs to Congress. But Article I, Section 7 gives the President one carefully limited tool for reaching into that process anyway: the <strong class="term-subject" tabindex="0">veto<span class="gloss-tip">The President's power to reject a bill passed by Congress, which Congress can override only with a two-thirds vote in both chambers.</span></strong>, from the Latin for "I forbid." Once both chambers of Congress pass a bill in identical form, it goes to the President, who has three options. He may sign it into law. He may return it to Congress unsigned, along with his objections; the <strong class="term-subject" tabindex="0">regular veto<span class="gloss-tip">The President's ordinary veto: returning a bill to Congress unsigned, with objections, within ten days of receiving it.</span></strong>; in which case the bill dies unless two-thirds of both the House and the Senate vote to override the President's objection and enact it anyway. Or, if Congress adjourns within ten days of sending him the bill and he takes no action, the bill dies automatically without his signature and without a formal veto message; this quieter method is the <strong class="term-subject" tabindex="0">pocket veto<span class="gloss-tip">An indirect veto that occurs when the President neither signs nor returns a bill within ten days and Congress has adjourned, so the bill dies without a signature.</span></strong>, so called because the President, in effect, simply lets the bill sit unsigned "in his pocket" until Congress is no longer in session to override anything.</p>
 
-      <p>Notice what the veto is not. It is not a lawmaking power; the President cannot write a bill's language, and a vetoed bill that Congress declines to override simply fails to become law rather than being replaced with the President's preferred version. It is a check; a defensive power that lets the executive object to a specific product of the legislative process without ever letting him originate law himself. The two-thirds override threshold matters for the same reason the Senate's two-thirds treaty threshold mattered in Week 9: it sets the bar higher than an ordinary majority precisely because overriding the executive's objection is meant to require something closer to broad, cross-partisan consensus in Congress, not a bare majority scraping by.</p>
+      <p>Notice what the veto is not. It is not a lawmaking power; the President cannot write a bill's language, and a vetoed bill that Congress declines to override simply fails to become law rather than being replaced with the President's preferred version. It is a check; a defensive power that lets the executive object to a specific product of the legislative process without ever letting him originate law himself. The two-thirds override threshold matters for the same reason the Senate's two-thirds treaty threshold mattered in Module 5: it sets the bar higher than an ordinary majority precisely because overriding the executive's objection is meant to require something closer to broad, cross-partisan consensus in Congress, not a bare majority scraping by.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Question the Framers Had Already Settled</h2>
-      <p>Behind the veto sits a larger design question, and the framers did not arrive at Philadelphia undecided about it. Recall Week 2's study of the Roman Republic: Rome, having expelled its kings, deliberately split its highest executive office between two <em class="term">consuls</em>, each holding an equal check on the other, precisely so that no single Roman could accumulate the unchecked power a king once held. It was a considered answer to a real problem, and it is exactly the model the American framers looked at, and rejected, for their own presidency.</p>
+      <p>Behind the veto sits a larger design question, and the framers did not arrive at Philadelphia undecided about it. Recall Module 1's study of the Roman Republic: Rome, having expelled its kings, deliberately split its highest executive office between two consuls, each holding an equal check on the other, precisely so that no single Roman could accumulate the unchecked power a king once held. It was a considered answer to a real problem, and it is exactly the model the American framers looked at, and rejected, for their own presidency.</p>
 
       <p>Alexander Hamilton makes that rejection explicit in <em>Federalist No. 70</em>, writing under the pseudonym Publius as part of the essay series urging ratification of the Constitution. Hamilton opens with a direct claim: "Energy in the Executive is a leading character in the definition of good government," necessary, he argues, for the nation's defense, the steady administration of the laws, and protection against the "irregular and high-handed combinations" that threaten a republic from within. A weak, divided executive, in Hamilton's view, was not a safeguard for liberty but a liability to it.</p>
 
-      <p>Hamilton then turns directly to Rome as his historical evidence, and his reading of Roman history is more skeptical than admiring. He notes that Rome's own constitution, for all its balance between consuls, senate, and assembly, was repeatedly forced to abandon that balance in moments of genuine crisis, taking "refuge in the absolute power of a single man, under the formidable title of Dictator"; an implicit admission, Hamilton suggests, that a divided executive could not reliably act with the speed and decisiveness a republic sometimes needs. He goes further, observing that "the Roman history records many instances of mischiefs to the republic from the dissensions between the Consuls," and reaches for a still sharper example in the <em class="term">Decemvirs</em>, a ten-member commission that briefly governed Rome and, in Hamilton's account, became "more to be dreaded in their usurpation than any ONE of them would have been"; a plurality of executives, in other words, did not distribute danger safely; it multiplied it.</p>
+      
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Decemvirs</span><span class="gloss-pron">deh-SEM-vurz</span> <button class="gloss-speak" onclick="speakGloss(event,'Decemvirs, deh-SEM-vurz')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The board of ten men appointed to write down Rome's first code of law, the Twelve Tables.</span></div></div>
+<p>Hamilton then turns directly to Rome as his historical evidence, and his reading of Roman history is more skeptical than admiring. He notes that Rome's own constitution, for all its balance between consuls, senate, and assembly, was repeatedly forced to abandon that balance in moments of genuine crisis, taking "refuge in the absolute power of a single man, under the formidable title of Dictator"; an implicit admission, Hamilton suggests, that a divided executive could not reliably act with the speed and decisiveness a republic sometimes needs. He goes further, observing that "the Roman history records many instances of mischiefs to the republic from the dissensions between the Consuls," and reaches for a still sharper example in the <em class="term" tabindex="0">Decemvirs<span class="gloss-tip">The board of ten men appointed to write down Rome's first code of law, the Twelve Tables. <button class="gloss-speak" onclick="speakGloss(event,'Decemvirs, deh-SEM-vurz')" aria-label="Hear pronunciation">&#128266;</button></span></em>, a ten-member commission that briefly governed Rome and, in Hamilton's account, became "more to be dreaded in their usurpation than any ONE of them would have been"; a plurality of executives, in other words, did not distribute danger safely; it multiplied it.</p>
 
-      <p>From this historical case, Hamilton draws a general argument for <em class="term">unity</em> in the executive; a single person holding the office, rather than a council or a pair. "Decision, activity, secrecy, and despatch," he argues, "will generally characterize the proceedings of one man in a much more eminent degree than the proceedings of any greater number." A plural executive invites exactly the kind of internal "dissensions" Rome's consuls suffered, and it damages accountability as much as efficiency: when something goes wrong under a divided executive, responsibility scatters across multiple officials, each able to blame the others, leaving the public unable to identify who, specifically, failed. A single executive has nowhere to hide. The veto, on this reading, is not a threat to republican government but part of what makes a single, accountable executive safe to empower in the first place: it gives that one person real energy and a real check on hasty legislation, while leaving him no power to act alone in creating law, and leaving Congress, in turn, a clear two-thirds path to overrule him when it disagrees.</p>
+      <p>From this historical case, Hamilton draws a general argument for <strong class="term-subject" tabindex="0">unity<span class="gloss-tip">In Hamilton's Federalist No. 70 argument, having a single person, rather than a council or committee, hold the executive power, so that responsibility for action cannot be diffused or hidden.</span></strong> in the executive; a single person holding the office, rather than a council or a pair. "Decision, activity, secrecy, and despatch," he argues, "will generally characterize the proceedings of one man in a much more eminent degree than the proceedings of any greater number." A plural executive invites exactly the kind of internal "dissensions" Rome's consuls suffered, and it damages accountability as much as efficiency: when something goes wrong under a divided executive, responsibility scatters across multiple officials, each able to blame the others, leaving the public unable to identify who, specifically, failed. A single executive has nowhere to hide. The veto, on this reading, is not a threat to republican government but part of what makes a single, accountable executive safe to empower in the first place: it gives that one person real energy and a real check on hasty legislation, while leaving him no power to act alone in creating law, and leaving Congress, in turn, a clear two-thirds path to overrule him when it disagrees.</p>
 
       <p>Hold the comparison in view: Rome answered the problem of executive power by dividing it between two equals and, in its worst crises, had to suspend that very division to survive. The American framers, reading that history closely, answered the same problem differently; not by eliminating checks on the executive, but by keeping the office singular and building the checks around it instead, through the Senate's advice and consent, Congress's override, and the ordinary machinery of elections. It was a considered, historically informed choice, not an oversight.</p>
     </div>
 
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Veto Clock</div>
+      <p>Choose what the President does with a bill and whether Congress stays in session, then run the ten-day clock. Pay attention to what happens when the President takes no action: the outcome flips completely depending on whether Congress is still sitting.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/veto-clock.html" title="Veto Clock" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/veto-clock.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>The Take Care Clause.</strong> Article II, Section 3's charge that the President "shall take Care that the Laws be faithfully executed": the textual line between lawmaking and executing law.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>The regular veto and the pocket veto.</strong> A returned bill needs a two-thirds override in both chambers; an unsigned bill left at adjournment dies without one.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong><em>Federalist</em> No. 70 &ndash; Hamilton on unity in the executive.</strong> "Decision, activity, secrecy, and despatch" belong to one man far more than to a council; responsibility scatters when power is shared.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Rome's dual consulship, rejected.</strong> Hamilton points to Roman consuls' "dissensions" and the Decemvirs' worse tyranny as evidence a plural executive multiplies danger rather than dividing it.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Four amendments that reshaped the presidency.</strong> The Twelfth (1804, separate ballots), Twentieth (1933, inauguration date), Twenty-Second (1951, two-term limit), and Twenty-Fifth (1967, succession and disability).</div></div>
+    </div>
+
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source (Federalist No. 70) and Reading Quiz 10.2, below.</p>
+      <p>Primary Source (Federalist No. 70) and Reading Quiz 6.7, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 10.2 &middot; One Executive, Not Two</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 6.5 &middot; One Executive, Not Two</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 6.7: The Veto and Federalist No. 70 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suspicion Spectrum</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--navy);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .header .sub{
+    font-size:12px;
+    font-weight:400;
+    color:#c9d3ea;
+    margin-top:2px;
+  }
+  .wrap{
+    padding:14px 16px 18px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .intro{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:13.5px;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+  .scoreboard{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .score{
+    font-size:13px;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .score span{
+    color:var(--navy);
+    font-size:16px;
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{ background:#16295e; }
+
+  .card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:12px 14px;
+    margin-bottom:14px;
+  }
+  .scenario-text{
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:10px;
+  }
+  .spectrum-labels{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    font-weight:600;
+    color:var(--muted);
+    margin-bottom:2px;
+  }
+  .spectrum-labels .left{ color:var(--teal); }
+  .spectrum-labels .right{ color:var(--maroon); }
+
+  .track-wrap{
+    position:relative;
+    padding:6px 0 4px;
+  }
+  input[type="range"]{
+    width:100%;
+    height:10px;
+    border-radius:6px;
+    -webkit-appearance:none;
+    appearance:none;
+    background:linear-gradient(to right, var(--teal), var(--card) 48%, var(--card) 52%, var(--maroon));
+    outline:none;
+    transition: opacity 200ms ease;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--navy);
+    border:2px solid #fff;
+    box-shadow:0 0 0 1px var(--border);
+    cursor:pointer;
+    transition: transform 200ms ease;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--navy);
+    border:2px solid #fff;
+    box-shadow:0 0 0 1px var(--border);
+    cursor:pointer;
+  }
+  input[type="range"]:disabled{ opacity:0.75; cursor:not-allowed; }
+
+  .zone-line{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+
+  .card-actions{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:8px;
+  }
+  button.lock{
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:7px 14px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease, opacity 200ms ease;
+  }
+  button.lock:hover{ background:#155f55; }
+  button.lock:disabled{ opacity:0.5; cursor:not-allowed; }
+
+  .reveal{
+    margin-top:10px;
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:13.5px;
+    line-height:1.5;
+    display:none;
+    opacity:0;
+    transform:translateY(-4px);
+    transition: opacity 250ms ease, transform 250ms ease;
+  }
+  .reveal.show{
+    display:block;
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal.correct{
+    background:#eaf6f2;
+    border:1px solid var(--teal);
+  }
+  .reveal.incorrect{
+    background:#fbeef2;
+    border:1px solid var(--maroon);
+  }
+  .reveal .verdict{
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+    color:var(--navy);
+  }
+  .standard-tag{
+    display:inline-block;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding:2px 8px;
+    border-radius:10px;
+    margin-right:6px;
+  }
+  .standard-tag.suspicion{ background:#eaf6f2; color:var(--teal); border:1px solid var(--teal); }
+  .standard-tag.cause{ background:#fbeef2; color:var(--maroon); border:1px solid var(--maroon); }
+
+  .aha{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--navy);
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:13.5px;
+    line-height:1.5;
+    margin-top:6px;
+  }
+  .aha strong{ color:var(--navy); }
+
+  @media (max-width:420px){
+    .scoreboard{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  Suspicion Spectrum
+  <div class="sub">Calibrating the Fourth Amendment: <em>Terry v. Ohio</em></div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    For each scenario below, drag the marker to show how much police intrusion you think it involves: closer to <strong>Reasonable Suspicion</strong> for a brief, limited stop, or closer to <strong>Probable Cause</strong> for a full search or arrest. Lock in your answer, then see which standard the courts actually require.
+  </div>
+
+  <div class="scoreboard">
+    <div class="score">Locked in: <span id="lockedCount">0</span> / <span id="totalCount">6</span> &middot; Matched the standard: <span id="correctCount">0</span></div>
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+  <div id="scenarioList"></div>
+
+  <div class="aha" id="ahaBox" style="display:none;">
+    <strong>The core idea:</strong> Constitutional protection against police intrusion is not a single on/off switch. It scales continuously with how severe the intrusion is: a brief stop and pat-down needs only reasonable suspicion, while a full search or an arrest needs the stronger standard of probable cause.
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+  var scenarios = [
+    {
+      text: "An officer sees two men repeatedly walk past and peer into a store window, conferring with each other in a pattern he recognizes, from experience, as consistent with “casing” a store for a robbery. He stops them, asks their names, and pats down the outside of their clothing.",
+      correct: "suspicion",
+      caseNote: "This is the actual fact pattern of <em>Terry v. Ohio</em> (1968).",
+      explain: "The Court held that a brief stop and a pat-down of outer clothing for weapons requires only reasonable suspicion: specific, articulable facts suggesting criminal activity may be afoot, not the full weight of probable cause."
+    },
+    {
+      text: "A detective's sworn statement describes specific evidence of stolen property believed to be inside a particular house. A judge issues a warrant, and officers search the home room by room.",
+      correct: "cause",
+      caseNote: "A full search of a home.",
+      explain: "A full search of a residence is a serious intrusion on privacy. The Fourth Amendment requires probable cause, a reasonable basis grounded in specific facts, before officers may search it."
+    },
+    {
+      text: "A patrol car pulls over a vehicle matching a specific radio description (make, color, partial plate) of a car just used in a robbery a few blocks away. The officer briefly questions the driver.",
+      correct: "suspicion",
+      caseNote: "A brief investigative stop.",
+      explain: "Specific, matching facts pointing to a particular vehicle support the kind of brief, limited stop <em>Terry</em> allows on reasonable suspicion alone."
+    },
+    {
+      text: "After a lawful traffic stop, an officer searches the entire trunk and interior of the car for drugs, based only on a hunch that the driver “seemed nervous.”",
+      correct: "cause",
+      caseNote: "A full search of a vehicle's contents.",
+      explain: "A vague hunch does not even meet the lower standard here. A full search of a car's contents is treated like a full search: it demands probable cause, specific facts, not a feeling."
+    },
+    {
+      text: "Detectives identify a specific suspect through eyewitness identification and physical evidence, then take him into custody and formally book him at the station.",
+      correct: "cause",
+      caseNote: "A formal arrest.",
+      explain: "An arrest is one of the most serious deprivations of liberty the state can impose short of trial itself, so it requires probable cause."
+    },
+    {
+      text: "During a lawful stop, an officer notices a hard bulge in a suspect's jacket pocket that could be a weapon, and pats down only the outside of that pocket for his own safety.",
+      correct: "suspicion",
+      caseNote: "The narrow safety pat-down <em>Terry</em> describes.",
+      explain: "This is limited to outer clothing, aimed only at finding weapons for officer safety, not a general search for evidence, so reasonable suspicion is enough."
+    }
+  ];
+
+  var list = document.getElementById('scenarioList');
+  var lockedCountEl = document.getElementById('lockedCount');
+  var correctCountEl = document.getElementById('correctCount');
+  var totalCountEl = document.getElementById('totalCount');
+  var ahaBox = document.getElementById('ahaBox');
+  var resetBtn = document.getElementById('resetBtn');
+
+  totalCountEl.textContent = scenarios.length;
+
+  var state = [];
+
+  function build(){
+    list.innerHTML = "";
+    state = scenarios.map(function(){ return { value: 50, locked: false }; });
+
+    scenarios.forEach(function(sc, idx){
+      var card = document.createElement('div');
+      card.className = 'card';
+
+      var txt = document.createElement('div');
+      txt.className = 'scenario-text';
+      txt.innerHTML = '<strong>Scenario ' + (idx+1) + '.</strong> ' + sc.text;
+      card.appendChild(txt);
+
+      var labels = document.createElement('div');
+      labels.className = 'spectrum-labels';
+      labels.innerHTML = '<span class="left">Reasonable Suspicion (brief, limited)</span><span class="right">Probable Cause (full search or arrest)</span>';
+      card.appendChild(labels);
+
+      var trackWrap = document.createElement('div');
+      trackWrap.className = 'track-wrap';
+      var slider = document.createElement('input');
+      slider.type = 'range';
+      slider.min = 0;
+      slider.max = 100;
+      slider.value = 50;
+      slider.setAttribute('aria-label', 'Intrusion severity for scenario ' + (idx+1));
+      trackWrap.appendChild(slider);
+      card.appendChild(trackWrap);
+
+      var zoneLine = document.createElement('div');
+      zoneLine.className = 'zone-line';
+      zoneLine.innerHTML = '<span>Low intrusion</span><span>High intrusion</span>';
+      card.appendChild(zoneLine);
+
+      var actions = document.createElement('div');
+      actions.className = 'card-actions';
+      var lockBtn = document.createElement('button');
+      lockBtn.className = 'lock';
+      lockBtn.textContent = 'Lock In Placement';
+      actions.appendChild(lockBtn);
+      card.appendChild(actions);
+
+      var reveal = document.createElement('div');
+      reveal.className = 'reveal';
+      card.appendChild(reveal);
+
+      slider.addEventListener('input', function(){
+        state[idx].value = parseInt(slider.value, 10);
+      });
+
+      lockBtn.addEventListener('click', function(){
+        if (state[idx].locked) return;
+        state[idx].locked = true;
+        slider.disabled = true;
+        lockBtn.disabled = true;
+        lockBtn.textContent = 'Locked In';
+
+        var guess = state[idx].value < 50 ? 'suspicion' : 'cause';
+        var isRight = guess === sc.correct;
+
+        reveal.className = 'reveal show ' + (isRight ? 'correct' : 'incorrect');
+        var tagHtml = sc.correct === 'suspicion'
+          ? '<span class="standard-tag suspicion">Reasonable Suspicion</span>'
+          : '<span class="standard-tag cause">Probable Cause</span>';
+        reveal.innerHTML = '<span class="verdict">' + (isRight ? 'Your placement matches the standard courts actually apply.' : 'Courts calibrate this one differently than you placed it.') + '</span>' +
+          tagHtml + ' ' + sc.caseNote + '<br><br>' + sc.explain;
+
+        updateScoreboard();
+      });
+
+      list.appendChild(card);
+    });
+
+    updateScoreboard();
+    ahaBox.style.display = 'none';
+  }
+
+  function updateScoreboard(){
+    var lockedCount = state.filter(function(s){ return s.locked; }).length;
+    var correctCount = 0;
+    state.forEach(function(s, idx){
+      if (s.locked){
+        var guess = s.value < 50 ? 'suspicion' : 'cause';
+        if (guess === scenarios[idx].correct) correctCount++;
+      }
+    });
+    lockedCountEl.textContent = lockedCount;
+    correctCountEl.textContent = correctCount;
+    if (lockedCount === scenarios.length){
+      ahaBox.style.display = 'block';
+    }
+  }
+
+  resetBtn.addEventListener('click', build);
+
+  build();
+})();
+</script>
+
+</body>
+</html>

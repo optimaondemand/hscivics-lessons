@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Containment, the New World Order, and Resources as a Driver of Foreign Policy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.14 Containment, the New World Order, and Resources as a Driver of Foreign Policy | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-17-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 17.2</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.4.2, 4.3, 4.4 &middot; SS.912.G.5.5</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 9</div><div class="subvalue">Civic Duties, Foreign Policy & Comparative Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.14</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 17.2</div><div class="title">Containment, the New World Order, and Resources as a Driver of Foreign Policy</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 9.14</div><div class="title">Containment, the New World Order, and Resources as a Driver of Foreign Policy</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">containment</span><span class="gloss-def">The Cold War strategy of stopping the spread of Soviet Communism to new countries, without seeking to directly attack the Soviet Union itself.</span></div><div class="gloss-entry"><span class="gloss-term">Expansionism</span><span class="gloss-def">A foreign policy aimed at extending a nation's territory or influence, as in nineteenth-century America's westward growth.</span></div><div class="gloss-entry"><span class="gloss-term">Idealism</span><span class="gloss-def">A theory of foreign policy holding that moral principles, international law, and cooperation should guide relations between nations.</span></div><div class="gloss-entry"><span class="gloss-term">Isolationism</span><span class="gloss-def">A foreign policy of avoiding involvement in other nations' conflicts and alliances, historically influential in U.S. policy before both World Wars.</span></div><div class="gloss-entry"><span class="gloss-term">new world order</span><span class="gloss-def">A phrase used, notably by President George H. W. Bush after the Cold War, to describe a hoped-for era of greater international cooperation under shared rules.</span></div><div class="gloss-entry"><span class="gloss-term">Realism</span><span class="gloss-def">A theory of foreign policy holding that nations act primarily out of self-interest and the pursuit of power, not out of moral principle.</span></div><div class="gloss-entry"><span class="gloss-term">sphere of influence</span><span class="gloss-def">A region where one country claims special political or economic influence over the affairs of other states in that area.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -167,31 +223,45 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>Historians now use the word <em class="term">containment</em> as shorthand for the policy Truman announced, almost in passing, in the speech you read on Tuesday: the United States would use its economic, diplomatic, and eventually military power to stop the further spread of Soviet-aligned communist power, without necessarily trying to roll back or destroy it where it already existed. The term itself comes from a slightly earlier, even more influential document; the diplomat George Kennan's 1946 "Long Telegram" and his follow-up 1947 article arguing that Soviet expansion had to be met with "long-term, patient but firm and vigilant containment." Truman's speech translated Kennan's strategic analysis into a public, congressional commitment, and in doing so set American foreign policy on a track it would follow, with variations, for the next four decades: in Korea, in Berlin, in Vietnam, in a hundred smaller confrontations across the globe.</p>
+      <p>Historians now use the word <strong class="term-subject" tabindex="0">containment<span class="gloss-tip">The Cold War strategy of stopping the spread of Soviet Communism to new countries, without seeking to directly attack the Soviet Union itself.</span></strong> as shorthand for the policy Truman announced, almost in passing, in the speech you read on Tuesday: the United States would use its economic, diplomatic, and eventually military power to stop the further spread of Soviet-aligned communist power, without necessarily trying to roll back or destroy it where it already existed. The term itself comes from a slightly earlier, even more influential document; the diplomat George Kennan's 1946 "Long Telegram" and his follow-up 1947 article arguing that Soviet expansion had to be met with "long-term, patient but firm and vigilant containment." Truman's speech translated Kennan's strategic analysis into a public, congressional commitment, and in doing so set American foreign policy on a track it would follow, with variations, for the next four decades: in Korea, in Berlin, in Vietnam, in a hundred smaller confrontations across the globe.</p>
 
-      <p>Notice how the Truman Doctrine you read on Tuesday works as a blend of two of this week's five categories. Its realist core is plain enough once you look for it: a Soviet-aligned communist victory in Greece would put pressure on Turkey, threaten to "spread confusion and disorder" through the Middle East, and damage American strategic interests in a region increasingly important to American planners. But Truman does not sell this to Congress in the flat language of strategic calculation alone. He wraps it in the idealist language of a global contest between "alternative ways of life"; a language that turns a specific, limited aid request into a moral commitment to "free peoples" everywhere. That fusion of hard calculation and moral framing is exactly why the speech worked as persuasion, and exactly why it became a doctrine rather than a one-time appropriation.</p>
+      <p>Notice how the Truman Doctrine you read on Tuesday works as a blend of two of this module's five categories. Its realist core is plain enough once you look for it: a Soviet-aligned communist victory in Greece would put pressure on Turkey, threaten to "spread confusion and disorder" through the Middle East, and damage American strategic interests in a region increasingly important to American planners. But Truman does not sell this to Congress in the flat language of strategic calculation alone. He wraps it in the idealist language of a global contest between "alternative ways of life"; a language that turns a specific, limited aid request into a moral commitment to "free peoples" everywhere. That fusion of hard calculation and moral framing is exactly why the speech worked as persuasion, and exactly why it became a doctrine rather than a one-time appropriation.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Bush and the "New World Order"</h2>
       <p>By 1990, the world Truman had been responding to was ending. The Soviet Union's grip on Eastern Europe was collapsing, the Berlin Wall had fallen the previous year, and the Cold War's basic organizing conflict (two superpowers, two blocs, one long standoff) no longer described the world accurately. Into this moment, President George H.W. Bush faced an immediate crisis: in August 1990, Iraq under Saddam Hussein invaded and annexed its small, oil-rich neighbor Kuwait. Bush assembled an extraordinary international coalition, including the Soviet Union itself and several Arab states, backed by a United Nations Security Council resolution authorizing force, to reverse the invasion; a campaign that became the Gulf War of early 1991.</p>
 
-      <p>In an address to Congress in September 1990, as that coalition was being built, Bush described the moment in terms that went well beyond Kuwait. He spoke of "a rare opportunity" to move toward what he called a <em class="term">new world order</em>; a phrase he used to describe an international system in which nations would act together, through cooperative and collective security arrangements rather than unilateral aggression, to deter and reverse acts like Iraq's invasion. Bush framed the Gulf crisis as an early test of whether the post-Cold War world could actually operate on those terms: whether naked aggression against a small state would be tolerated by the international community, or answered collectively.</p>
+      <p>In an address to Congress in September 1990, as that coalition was being built, Bush described the moment in terms that went well beyond Kuwait. He spoke of "a rare opportunity" to move toward what he called a <strong class="term-subject" tabindex="0">new world order<span class="gloss-tip">A phrase used, notably by President George H. W. Bush after the Cold War, to describe a hoped-for era of greater international cooperation under shared rules.</span></strong>; a phrase he used to describe an international system in which nations would act together, through cooperative and collective security arrangements rather than unilateral aggression, to deter and reverse acts like Iraq's invasion. Bush framed the Gulf crisis as an early test of whether the post-Cold War world could actually operate on those terms: whether naked aggression against a small state would be tolerated by the international community, or answered collectively.</p>
 
       <p>Read Bush's vision alongside Truman's, and the family resemblance is unmistakable. Both blend realist and idealist reasoning. The realist core of Bush's position was straightforward: Iraq's conquest of Kuwait put Saddam Hussein in a position to dominate a large share of the world's oil reserves and to threaten Saudi Arabia, a far larger prize and a far more consequential American strategic partner. But Bush, like Truman, did not rest his public case on oil and strategic access alone. He framed the response in the language of collective security and the rule of law among nations; aggression must not be allowed to pay, sovereignty must be respected, coalitions of free nations must act together against outlaw states. Realist interest and idealist principle, once again, pointing in the same direction and reinforcing each other in the public argument for action.</p>
 
       <div class="oa-callout-gold">
-        <div class="oa-kicker" style="color:#8A6D3B;">REQUIRED STANDARDS PATCH &middot; SS.912.G.5.5</div>
+        <div class="oa-kicker" style="color:#8A6D3B;">Case Study</div>
         <h2 class="sub-head" style="font-size:16px; margin-top:4px;">Case Study: Strategic Resources and the Shape of American Foreign Policy</h2>
         <p>Foreign policy is not made only in the language of doctrines and moral principle. It is also made on a map, in relation to where the world's most valuable and most necessary resources happen to sit. This is a case study in geography's influence on foreign policy; the kind of analysis geographers perform when they study how resource distribution shapes human decisions, including decisions about war and diplomacy.</p>
-        <p>The Gulf War is the clearest illustration available to you this week. The Persian Gulf region holds a disproportionate share of the world's proven oil reserves, and by the late twentieth century, the industrialized world (the United States very much included) depended on reliable access to that oil for its economy to function at all. When Iraq seized Kuwait in 1990, it was not simply annexing territory; it was placing a hostile, unpredictable regime in a position to control an enormous share of global oil supply and to threaten Saudi Arabia's much larger reserves next door. That fact, more than any abstract commitment to international law, is why the crisis drew an American-led coalition so quickly and so decisively. Notice, too, how directly this connects back to Truman's own words in 1947: he warned that if Greece fell, "confusion and disorder might well spread throughout the entire Middle East"; the region's strategic and resource importance to American planners was already assumed, decades before Kuwait.</p>
-        <p>Oil is the central example this week, but it is not the only recurring case of resources shaping policy. Access to fresh water has driven tension and diplomacy in the Middle East, the Nile basin, and Central Asia for decades. Control of strategic minerals (cobalt, lithium, rare earth elements used in modern electronics, batteries, and military technology) has become an increasingly visible factor in how the United States and other powers weigh their relationships with resource-producing regions in Africa, Latin America, and Asia. In each case, the same underlying pattern holds: where a critical resource is concentrated geographically, the nations that need it develop foreign policies shaped, in part, by the location of that resource on the map; whether those policies are dressed in the language of realism, idealism, or both at once.</p>
+        <p>The Gulf War is the clearest illustration available to you this session. The Persian Gulf region holds a disproportionate share of the world's proven oil reserves, and by the late twentieth century, the industrialized world (the United States very much included) depended on reliable access to that oil for its economy to function at all. When Iraq seized Kuwait in 1990, it was not simply annexing territory; it was placing a hostile, unpredictable regime in a position to control an enormous share of global oil supply and to threaten Saudi Arabia's much larger reserves next door. That fact, more than any abstract commitment to international law, is why the crisis drew an American-led coalition so quickly and so decisively. Notice, too, how directly this connects back to Truman's own words in 1947: he warned that if Greece fell, "confusion and disorder might well spread throughout the entire Middle East"; the region's strategic and resource importance to American planners was already assumed, decades before Kuwait.</p>
+        <p>Oil is the central example this session, but it is not the only recurring case of resources shaping policy. Access to fresh water has driven tension and diplomacy in the Middle East, the Nile basin, and Central Asia for decades. Control of strategic minerals (cobalt, lithium, rare earth elements used in modern electronics, batteries, and military technology) has become an increasingly visible factor in how the United States and other powers weigh their relationships with resource-producing regions in Africa, Latin America, and Asia. In each case, the same underlying pattern holds: where a critical resource is concentrated geographically, the nations that need it develop foreign policies shaped, in part, by the location of that resource on the map; whether those policies are dressed in the language of realism, idealism, or both at once.</p>
       </div>
 
-      <div class="oa-callout-widget">
-        <div class="oa-kicker" style="color:#555; font-style:normal;">&#128225; Interactive: Resources and Foreign Policy Map</div>
-        <p><em>(Placeholder for a future live-Canvas widget.)</em> In this exercise, students would examine an interactive world map layer showing major oil-producing regions (the Persian Gulf, the North Sea, the Gulf of Mexico, West Africa) alongside a scrollable timeline of U.S. military deployments, base agreements, and diplomatic interventions in and around those regions from 1945 to the present. Students would be asked to identify at least three moments where a spike in U.S. involvement in a region lines up with that region's importance as an oil producer, and to distinguish those moments from cases where U.S. involvement in an oil-producing region was instead driven primarily by an unrelated strategic or ideological concern. The finished widget will let students toggle between an "oil reserves" data layer and a "U.S. military and diplomatic involvement" data layer to compare the two directly.</p>
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#0E1C42;">Interactive: Foreign Policy Resource Map</div>
+        <p>Toggle between the Oil Reserves layer and the U.S. Military &amp; Diplomatic Involvement layer, then click each region to compare the two. Use the question below the map to identify which region's U.S. involvement was not primarily driven by oil.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/foreign-policy-resource-map.html" title="Foreign Policy Resource Map" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/foreign-policy-resource-map.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
       </div>
 
       <p>Hold all three pieces of this lesson together: containment as the Cold War's opening doctrine, the "new world order" as its closing vision, and strategic resources as the quiet, recurring, unglamorous factor that shaped how both were actually applied on the ground. Grand doctrines explain why American leaders said they were acting. Geography, more often than we like to admit, explains where and when they actually did.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>1947 &ndash; the Truman Doctrine.</strong> Committed the United States to containment: stopping Soviet-aligned communist expansion without necessarily rolling it back where it already existed.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>George Kennan's "Long Telegram," 1946.</strong> The strategic analysis that gave containment its name, arguing for "long-term, patient but firm and vigilant" resistance to Soviet expansion.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>August 1990 &ndash; Iraq's invasion of Kuwait.</strong> Saddam Hussein's seizure of a small, oil-rich neighbor, which drew an American-led international coalition.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Bush's "new world order," September 1990.</strong> A vision of nations acting through collective security rather than unilateral aggression, tested by the Gulf crisis.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Oil as a driver of policy.</strong> The Persian Gulf's concentrated oil reserves, more than any abstract principle, explain why the Gulf crisis drew so swift and decisive a response.</div></div>
     </div>
 
     <div class="oa-card navy-top">
@@ -199,8 +269,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The VR Activity (Part 2 of 3) and Primary Source 2 (Bush, "Toward a New World Order"), below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 17.2 &middot; Containment, the New World Order, and Resources as a Driver of Foreign Policy</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.14 &middot; Containment, the New World Order, and Resources as a Driver of Foreign Policy</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>The Situation Room: Continuing Your Government Systems Portfolio is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

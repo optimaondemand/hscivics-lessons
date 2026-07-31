@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Articles of Confederation and the Limits of a Weak Union</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.6 The Articles of Confederation and the Limits of a Weak Union | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,69 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-5-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 5.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 3</div><div class="subvalue">Founding Documents</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 3.6</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Articles of Confederation</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 5.2</div><div class="title">The Articles of Confederation and the Limits of a Weak Union</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 3.6</div><div class="title">The Articles of Confederation and the Limits of a Weak Union</div></div><span class="time-pill">10 min</span></div>
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -167,7 +221,7 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>Having just declared, with Jefferson's help, that George III's government had become a tyranny built on the "establishment of an absolute tyranny over these states," the delegates in Congress were in no mood to build anything resembling what they had just overthrown. That reluctance is the single most important fact to understand about the <em class="term">Articles of Confederation</em>, the document Congress drafted in 1777 and which the last state, Maryland, finally ratified in 1781, making it the new nation's first constitution. The men who wrote the Articles were reacting to a specific and quite recent memory, not a lifelong condition. For most of their adult lives, the colonies had taxed themselves through their own elected assemblies, largely undisturbed by Parliament; only in the decade or so before independence, beginning with the Stamp Act of 1765, did Parliament assert a new and unprecedented claim to tax the colonies directly, and only in the final years of that decade did George III dissolve colonial assemblies and govern, for a time, without their consent. Their conclusion, entirely reasonable given how alarming that comparatively brief and recent experience had been, was that a strong national government of <em>any</em> kind, not just a British one, was the thing to fear most. Better, they judged, a national government too weak to do much harm than one strong enough to become the next George III.</p>
+      <p>Having just declared, with Jefferson's help, that George III's government had become a tyranny built on the "establishment of an absolute tyranny over these states," the delegates in Congress were in no mood to build anything resembling what they had just overthrown. That reluctance is the single most important fact to understand about the <strong class="term-entity" tabindex="0">Articles of Confederation<span class="gloss-tip">The first American constitution, in effect from 1781 to 1789, which created a weak national government with no power to tax or directly enforce its own laws.</span></strong>, the document Congress drafted in 1777 and which the last state, Maryland, finally ratified in 1781, making it the new nation's first constitution. The men who wrote the Articles were reacting to a specific and quite recent memory, not a lifelong condition. For most of their adult lives, the colonies had taxed themselves through their own elected assemblies, largely undisturbed by Parliament; only in the decade or so before independence, beginning with the Stamp Act of 1765, did Parliament assert a new and unprecedented claim to tax the colonies directly, and only in the final years of that decade did George III dissolve colonial assemblies and govern, for a time, without their consent. Their conclusion, entirely reasonable given how alarming that comparatively brief and recent experience had been, was that a strong national government of <em>any</em> kind, not just a British one, was the thing to fear most. Better, they judged, a national government too weak to do much harm than one strong enough to become the next George III.</p>
 
       <p>This suspicion of concentrated power shaped the Articles at every point. The document created a Confederation Congress in which each state, regardless of size or population, cast a single vote, and in which the states, not the national government, held what the Articles called their "sovereignty, freedom and independence." The whole structure reads less like a nation than like a permanent treaty among thirteen separate countries who had agreed to cooperate on a short, specific list of matters (foreign policy and war chief among them), while jealously guarding everything else for themselves.</p>
 
@@ -182,21 +236,67 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p><strong>Fourth</strong>, amending the Articles required the unanimous consent of all thirteen state legislatures. A single small state, for reasons entirely its own, could block a reform that the other twelve badly wanted. This provision, meant to protect every state's sovereignty, in practice meant the Articles were nearly impossible to fix once their weaknesses became apparent; which they did, quickly.</p>
 
+      <div class="oa-visual">
+        <div class="oa-visual-label">The Articles' Weaknesses, and What Would Later Replace Them</div>
+        <div class="oa-compare">
+          <div class="col">
+            <div class="col-head">Articles of Confederation (1781)</div>
+            <div class="col-body">
+              <div class="col-row">Congress can only request funds from the states.</div>
+              <div class="col-row">No power to regulate interstate or foreign commerce.</div>
+              <div class="col-row">No independent executive, no national judiciary.</div>
+              <div class="col-row">Amendment requires all thirteen states to agree.</div>
+            </div>
+          </div>
+          <div class="col emphasis">
+            <div class="col-head">The Constitution (later this module)</div>
+            <div class="col-body">
+              <div class="col-row">Congress gains a direct power to tax.</div>
+              <div class="col-row">Congress gains power to regulate commerce among the states.</div>
+              <div class="col-row">A President and a system of federal courts are created.</div>
+              <div class="col-row">Amendment needs three-fourths of the states, not all of them.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Shays' Rebellion: The Weaknesses Made Visible</h2>
       <p>For several years these were mostly abstract problems, complained about but not yet catastrophic. That changed in western Massachusetts in 1786 and 1787. The state's farmers, many of them Revolutionary War veterans, were being crushed by debt and by a state tax policy demanding payment in hard currency they simply did not have; courts were seizing farms and, in some cases, jailing debtors outright. Under the leadership of a former Continental Army captain named <strong>Daniel Shays</strong>, armed farmers began forcibly shutting down county courts to stop foreclosure proceedings, and by early 1787 an armed force of over a thousand men marched on the federal arsenal at Springfield.</p>
 
-      <p>What made <em class="term">Shays' Rebellion</em> so alarming was not the uprising alone (localized unrest was nothing new in the 1780s), but what it revealed about the national government's capacity to respond. The Confederation Congress had, on paper, an army, but no power to tax meant no reliable way to pay or supply it; when the crisis came, Congress could not raise the funds to mobilize a federal response at all. Massachusetts had to suppress the rebellion using a privately funded state militia, with essentially no help from the national government. George Washington, watching from retirement at Mount Vernon, wrote to a former aide that the events in Massachusetts filled him "with great concern" and asked pointedly: "Are your people getting mad? What is the cause of all this?" The lesson many political leaders drew was blunt: a national government that could not defend against an internal armed uprising, because it lacked the basic power to tax and to act, was not simply imperfect. It was dangerously close to no government at all.</p>
+      <p>What made <strong class="term-entity" tabindex="0">Shays' Rebellion<span class="gloss-tip">An armed uprising of indebted Massachusetts farmers in 1786 and 1787 that exposed the weakness of the national government under the Articles of Confederation.</span></strong> so alarming was not the uprising alone (localized unrest was nothing new in the 1780s), but what it revealed about the national government's capacity to respond. The Confederation Congress had, on paper, an army, but no power to tax meant no reliable way to pay or supply it; when the crisis came, Congress could not raise the funds to mobilize a federal response at all. Massachusetts had to suppress the rebellion using a privately funded state militia, with essentially no help from the national government. George Washington, watching from retirement at Mount Vernon, wrote to a former aide that the events in Massachusetts filled him "with great concern" and asked pointedly: "Are your people getting mad? What is the cause of all this?" The lesson many political leaders drew was blunt: a national government that could not defend against an internal armed uprising, because it lacked the basic power to tax and to act, was not simply imperfect. It was dangerously close to no government at all.</p>
 
-      <p>Shays' Rebellion did not, by itself, cause the Constitutional Convention that met in Philadelphia later that same year, 1787; planning for a convention to revise the Articles was already underway before the rebellion broke out. But it gave that planning an urgency it had lacked, and it became, in the minds of delegates like Washington and Madison, the clearest possible proof that the states' fear of concentrated national power, reasonable as its origins had been, had produced a government too weak to survive its own internal crises. The framers who gathered in Philadelphia would spend that summer building something quite different from the Articles; a subject this course takes up next week.</p>
+      <p>Shays' Rebellion did not, by itself, cause the Constitutional Convention that met in Philadelphia later that same year, 1787; planning for a convention to revise the Articles was already underway before the rebellion broke out. But it gave that planning an urgency it had lacked, and it became, in the minds of delegates like Washington and Madison, the clearest possible proof that the states' fear of concentrated national power, reasonable as its origins had been, had produced a government too weak to survive its own internal crises. The framers who gathered in Philadelphia would spend that summer building something quite different from the Articles; a subject this course takes up the next lesson.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>July 4, 1776 &ndash; the Declaration of Independence.</strong> Jefferson's three-part argument: a Lockean theory of government, a catalogue of specific charges, and the formal declaration itself.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>1781 &ndash; ratification of the Articles of Confederation.</strong> America's first constitution, deliberately built weak, out of fear that a strong national government would become the next George III.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>No power to tax.</strong> Congress could only request funds from the states; it could not compel payment, leaving the national government chronically short of money.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Unanimous consent to amend.</strong> A single state could block any reform the other twelve wanted, making the Articles' weaknesses nearly impossible to fix.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>1786 to 1787 &ndash; Shays' Rebellion.</strong> Indebted Massachusetts farmers marched on a federal arsenal, and Congress, unable to tax, could not raise the funds to respond; the clearest proof the Articles had to be replaced.</div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (Paine, <em>Common Sense</em>) and Primary Source Report 5.1, below.</p>
+      <p>Primary Source 2 (Paine, <em>Common Sense</em>) and Primary Source Report 3.9, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 5.2 &middot; The Articles of Confederation and the Limits of a Weak Union</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 3.6 &middot; The Articles of Confederation and the Limits of a Weak Union</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 3.9 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

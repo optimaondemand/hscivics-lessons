@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Brown v. Board of Education (1954)</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.6 <em>Brown v. Board of Education</em> (1954) | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,26 +144,77 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-15-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 15.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 8</div><div class="subvalue">Civil Rights</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 8.6</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Brown v. Board of Education</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 15.2</div><div class="title"><em>Brown v. Board of Education</em> (1954)</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 8.6</div><div class="title"><em>Brown v. Board of Education</em> (1954)</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Comité des Citoyens</span><span class="gloss-pron">koh-mee-TAY day see-twa-YEN</span> <button class="gloss-speak" onclick="speakGloss(event,'Comité des Citoyens, koh-mee-TAY day see-twa-YEN')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Citizens' Committee, a group of Black and Creole professionals in New Orleans who organized the test case that became Plessy v. Ferguson.</span></div></div>
+
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">equal protection</span><span class="gloss-def">The Fourteenth Amendment's guarantee that no state may deny any person the equal protection of its laws.</span></div><div class="gloss-entry"><span class="gloss-term">separate but equal</span><span class="gloss-def">The doctrine, established in Plessy v. Ferguson and overturned in Brown v. Board of Education, that racially segregated facilities did not violate equal protection so long as they were formally equal.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> Fifty-eight years after <em>Plessy</em>, a unanimous Supreme Court reversed course and struck down "separate but equal" as applied to public schools; the product of a decades-long, carefully built legal strategy, and this week's discussion topic.</p>
+      <p><strong>Topic:</strong> Fifty-eight years after <em>Plessy</em>, a unanimous Supreme Court reversed course and struck down "separate but equal" as applied to public schools; the product of a decades-long, carefully built legal strategy, and this module's discussion topic.</p>
     </div>
 
     <div class="oa-card">
@@ -167,7 +225,7 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p><em>Plessy v. Ferguson</em> did not go unchallenged for fifty-eight years because no one objected to it. It went unchallenged, in the sense of being overturned, because reversing a Supreme Court precedent that had authorized an entire regional legal order required an extraordinarily patient, deliberate campaign, and the organization that built that campaign was the <em class="term">NAACP</em> (National Association for the Advancement of Colored People), through its Legal Defense Fund, led for much of this period by the attorney <strong>Thurgood Marshall</strong>, who would later become the first Black justice on the Supreme Court.</p>
+      <p><em>Plessy v. Ferguson</em> did not go unchallenged for fifty-eight years because no one objected to it. It went unchallenged, in the sense of being overturned, because reversing a Supreme Court precedent that had authorized an entire regional legal order required an extraordinarily patient, deliberate campaign, and the organization that built that campaign was the <strong class="term-entity" tabindex="0">NAACP<span class="gloss-tip">The National Association for the Advancement of Colored People, founded in 1909, which led the legal campaign against segregation, including Brown v. Board of Education.</span></strong> (National Association for the Advancement of Colored People), through its Legal Defense Fund, led for much of this period by the attorney <strong>Thurgood Marshall</strong>, who would later become the first Black justice on the Supreme Court.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Strategy Built Case by Case</h2>
       <p>Rather than challenge segregation everywhere at once, the NAACP's lawyers spent nearly two decades building precedent gradually, targeting graduate and professional schools first; cases where the claim that facilities were truly "equal" was hardest for states to defend, because most Southern states had never built separate law schools or graduate programs for Black students at all. Cases like <em>Missouri ex rel. Gaines v. Canada</em> (1938) and <em>Sweatt v. Painter</em> (1950) chipped away at <em>Plessy</em> without confronting it directly, forcing courts again and again to ask whether a given "separate" facility was actually equal in fact, not just in name. By the early 1950s, the NAACP judged the legal and political ground ready to challenge segregation's constitutionality head-on, in the setting where it touched the most children directly: public elementary and secondary schools.</p>
@@ -180,18 +238,49 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Warren's reasoning rested heavily on the specific harm of segregating <em>children</em>, in a setting where the state itself compels attendance and shapes a child's earliest sense of her own standing in the community. The opinion argued that separating children "from others of similar age and qualifications solely because of their race generates a feeling of inferiority as to their status in the community that may affect their hearts and minds in a way unlikely ever to be undone." In a passage that has since become one of the most discussed footnotes in constitutional law, the Court cited contemporary social science research, including psychological studies on the effects of segregation on Black children's self-perception, as evidence supporting this conclusion. The Court concluded that in public education, segregation by law is inherently a statement of inferiority imposed by the state on some of its own citizens, and for that reason alone, without any need to examine whether a particular school's facilities happened to be shabbier or better-funded, segregation in public education violates the Equal Protection Clause.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What Came After, Briefly</h2>
-      <p><em>Brown</em> declared segregated public schools unconstitutional; it did not, by itself, desegregate a single classroom. The Court issued a second decision the following year, sometimes called <em class="term">Brown II</em> (1955), which addressed the question of remedy; how quickly, and by what process, desegregation should actually occur. Rather than set a firm deadline, the Court ordered that desegregation proceed "with all deliberate speed," a phrase that gave lower federal courts and local school boards considerable discretion over the pace of compliance. In practice, that discretion was used, across large parts of the South, to delay rather than deliberately proceed: some school districts closed rather than integrate, some states organized "massive resistance" campaigns coordinated by segregationist officials, and the most visible confrontations (Little Rock, Arkansas, in 1957 chief among them) required federal troops to enforce a Black student's right to attend a public school a Supreme Court decision had already guaranteed her. A full account of that resistance, and of the broader civil rights movement it provoked, is a story for a later course; the relevant fact here is narrower: legal victory and social reality did not arrive together, and for many Southern school districts, meaningful desegregation took not months but years, in some places more than a decade.</p>
+      <p><em>Brown</em> declared segregated public schools unconstitutional; it did not, by itself, desegregate a single classroom. The Court issued a second decision the following year, sometimes called <strong class="term-entity" tabindex="0">Brown II<span class="gloss-tip">The 1955 follow-up Supreme Court ruling directing that school desegregation proceed "with all deliberate speed" after Brown v. Board of Education.</span></strong> (1955), which addressed the question of remedy; how quickly, and by what process, desegregation should actually occur. Rather than set a firm deadline, the Court ordered that desegregation proceed "with all deliberate speed," a phrase that gave lower federal courts and local school boards considerable discretion over the pace of compliance. In practice, that discretion was used, across large parts of the South, to delay rather than deliberately proceed: some school districts closed rather than integrate, some states organized "massive resistance" campaigns coordinated by segregationist officials, and the most visible confrontations (Little Rock, Arkansas, in 1957 chief among them) required federal troops to enforce a Black student's right to attend a public school a Supreme Court decision had already guaranteed her. A full account of that resistance, and of the broader civil rights movement it provoked, is a story for a later course; the relevant fact here is narrower: legal victory and social reality did not arrive together, and for many Southern school districts, meaningful desegregation took not months but years, in some places more than a decade.</p>
 
       <p>Set <em>Plessy</em> and <em>Brown</em> side by side and you have a case study in something this course returns to more than once: the American constitutional order's capacity for both serious failure and serious self-correction, using the very same document and the very same clause. In 1896, the Fourteenth Amendment's Equal Protection Clause was read to permit a state to sort its citizens by race and call the result equal. In 1954, the same clause, unanimously, was read to forbid exactly that. Nothing about the text of the Fourteenth Amendment changed between those two rulings. What changed was the Court's willingness to look honestly at what segregation actually did, and to say so. That is not a small thing to be able to say about a constitutional order: not merely that it can make a grave mistake, but that it retains, within its own legal tools, the capacity to recognize the mistake and reverse it.</p>
+
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#0E1C42;">Interactive: Same Clause, Two Rulings</div>
+        <p>Read the Equal Protection Clause, then predict how the 1896 Court would rule on the <em>Plessy</em> facts before revealing the actual holding. Then do the same for the 1954 Court and the <em>Brown</em> facts. Notice that the clause's own words never change between the two phases.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/same-clause-two-rulings.html" title="Same Clause, Two Rulings" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/same-clause-two-rulings.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>1865, 1868, 1870 &ndash; the Reconstruction Amendments.</strong> The Thirteenth abolished slavery, the Fourteenth guaranteed citizenship and equal protection, the Fifteenth barred denying the vote by race.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>1896 &ndash; <em>Plessy v. Ferguson</em>.</strong> The Court's 7-1 "separate but equal" holding: state-mandated segregation did not violate equal protection if facilities were nominally equal.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>Justice Harlan's lone dissent.</strong> "Our Constitution is color-blind, and neither knows nor tolerates classes among citizens."</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>1954 &ndash; <em>Brown v. Board of Education</em>.</strong> A unanimous Court held that separate educational facilities are inherently unequal, explicitly rejecting <em>Plessy</em> for public schools.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>1955 &ndash; <em>Brown II</em>.</strong> Ordered desegregation to proceed "with all deliberate speed," a phrase used across the South to delay rather than deliberately proceed.</div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <p>Primary Source 2 (<em>Brown v. Board of Education</em>, unanimous opinion) and Primary Source Report 15.1, below.</p>
+      <p>Primary Source 2 (<em>Brown v. Board of Education</em>, unanimous opinion) and Primary Source Report 8.8, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 15.2 &middot; Brown v. Board of Education (1954)</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 8.6 &middot; Brown v. Board of Education (1954)</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Primary Source Report 8.8 is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

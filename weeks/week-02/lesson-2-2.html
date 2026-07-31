@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Two Consuls, the Struggle of the Orders, and Polybius's Cycle</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.14 Two Consuls, the Struggle of the Orders, and Polybius's Cycle | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-2-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 2.2</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 1</div><div class="subvalue">Greco-Roman Foundations</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 1.14</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">Histories, Book 6</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 2.2</div><div class="title">Two Consuls, the Struggle of the Orders, and Polybius's Cycle</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 1.14</div><div class="title">Two Consuls, the Struggle of the Orders, and Polybius's Cycle</div></div><span class="time-pill">20 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">consuls</span><span class="gloss-def">The two chief magistrates of the Roman Republic, elected annually, who jointly held the highest executive and military power.</span></div><div class="gloss-entry"><span class="gloss-term">dictator</span><span class="gloss-def">In the Roman Republic, a magistrate given total, temporary emergency power for a fixed term, usually six months, to meet a specific crisis.</span></div><div class="gloss-entry"><span class="gloss-term">mixed constitution</span><span class="gloss-def">A government that blends monarchy, aristocracy, and democracy into one system, so that each branch checks the others; Rome's Republic is the classic example.</span></div><div class="gloss-entry"><span class="gloss-term">patricians</span><span class="gloss-pron">puh-TRISH-unz</span> <button class="gloss-speak" onclick="speakGloss(event,'patricians, puh-TRISH-unz')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The hereditary noble class of early Rome, who alone could hold high office and priesthoods before the Struggle of the Orders won the plebeians a share.</span></div><div class="gloss-entry"><span class="gloss-term">plebeians</span><span class="gloss-pron">pleh-BEE-unz</span> <button class="gloss-speak" onclick="speakGloss(event,'plebeians, pleh-BEE-unz')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The common citizens of Rome, as distinguished from the patrician nobility; the majority of the Roman population.</span></div><div class="gloss-entry"><span class="gloss-term">Senate</span><span class="gloss-def">In Rome, a body of former magistrates who advised on state policy; its decrees were technically only advice, but carried enormous practical authority.</span></div><div class="gloss-entry"><span class="gloss-term">Tribune of the Plebs</span><span class="gloss-def">An office created to protect Rome's plebeians, with the power to veto acts of magistrates and the Senate that harmed plebeian interests.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -169,24 +225,45 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>Monday's lesson described the dual consulship as Rome's wager on a narrow path between tyranny and paralysis. It is worth being honest about how often the wager tilted toward paralysis. Roman history is full of moments when two consuls, elected from rival families or rival factions, simply could not agree, and the veto that was supposed to prevent one man's abuse of power instead prevented any action at all; an army left unlevied while an enemy approached, a public crisis met with silence because neither consul would yield to the other's plan. The Romans had a term for the worst version of this failure: two consuls at open odds could deadlock the state exactly when the state most needed to move. Mutual veto solves the problem of concentrated power by creating, in its place, the problem of divided will. This is not a flaw unique to Rome; it is close to a structural law of any government that distributes executive authority among equals rather than lodging it in one office. You will meet this exact tension again, in a different institutional costume, when this course studies the American presidency's relationship to Congress, and again when it studies the Federalist Papers' defense of a strong, unified executive against the alternative of a plural one. Rome ran the plural-executive experiment first, for centuries, and left a long record of both its virtues and its costs for later constitution-makers to study.</p>
 
-      <p>Rome's answer, over time, was not to abandon the dual consulship but to surround it with additional offices for specific emergencies; most famously the <em class="term">dictator</em>, a single magistrate granted absolute but strictly temporary authority (traditionally capped at six months) to act decisively in a crisis the two consuls could not resolve between them. The word has acquired an ugly modern meaning, but the Roman office was originally the opposite of what "dictator" now suggests: a deliberate, constitutionally bounded escape hatch from paralysis, surrendered automatically when the term or the emergency ended. That a republic built its emergency valve around a temporary return to one-man rule, rather than around simply removing the veto, tells you how seriously the Romans took the danger on the other side of the ledger.</p>
+      <p>Rome's answer, over time, was not to abandon the dual consulship but to surround it with additional offices for specific emergencies; most famously the <strong class="term-subject" tabindex="0">dictator<span class="gloss-tip">In the Roman Republic, a magistrate given total, temporary emergency power for a fixed term, usually six months, to meet a specific crisis.</span></strong>, a single magistrate granted absolute but strictly temporary authority (traditionally capped at six months) to act decisively in a crisis the two consuls could not resolve between them. The word has acquired an ugly modern meaning, but the Roman office was originally the opposite of what "dictator" now suggests: a deliberate, constitutionally bounded escape hatch from paralysis, surrendered automatically when the term or the emergency ended. That a republic built its emergency valve around a temporary return to one-man rule, rather than around simply removing the veto, tells you how seriously the Romans took the danger on the other side of the ledger.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Struggle of the Orders</h2>
-      <p>The dual consulship was not the only fault line in the early Republic. Roman society was divided between the <em class="term">patricians</em> (a hereditary aristocracy claiming descent from Rome's original founding families, who alone could hold the consulship, sit in the priesthoods, and interpret the law), and the <em class="term">plebeians</em>, the much larger body of ordinary citizens, who could vote in the assemblies but for generations could not hold the highest offices, could not legally marry into patrician families, and could not even know with certainty what the law required of them, since the patricians who served as judges kept the law's content substantially to themselves. This division produced what historians call the <em class="term">Struggle of the Orders</em>, roughly two centuries (494&ndash;287 BC) of plebeian agitation, sometimes peaceful and sometimes near the edge of civil breakdown, for a genuine share in Roman political standing.</p>
+      <p>The dual consulship was not the only fault line in the early Republic. Roman society was divided between the <strong class="term-subject" tabindex="0">patricians<span class="gloss-tip">The hereditary noble class of early Rome, who alone could hold high office and priesthoods before the Struggle of the Orders won the plebeians a share. <button class="gloss-speak" onclick="speakGloss(event,'patricians, puh-TRISH-unz')" aria-label="Hear pronunciation">&#128266;</button></span></strong> (a hereditary aristocracy claiming descent from Rome's original founding families, who alone could hold the consulship, sit in the priesthoods, and interpret the law), and the <strong class="term-subject" tabindex="0">plebeians<span class="gloss-tip">The common citizens of Rome, as distinguished from the patrician nobility; the majority of the Roman population. <button class="gloss-speak" onclick="speakGloss(event,'plebeians, pleh-BEE-unz')" aria-label="Hear pronunciation">&#128266;</button></span></strong>, the much larger body of ordinary citizens, who could vote in the assemblies but for generations could not hold the highest offices, could not legally marry into patrician families, and could not even know with certainty what the law required of them, since the patricians who served as judges kept the law's content substantially to themselves. This division produced what historians call the <strong class="term-entity" tabindex="0">Struggle of the Orders<span class="gloss-tip">Rome's long political conflict between the patrician nobility and the plebeian majority, resolved gradually by concessions such as the Tribune of the Plebs and the Twelve Tables.</span></strong>, roughly two centuries (494&ndash;287 BC) of plebeian agitation, sometimes peaceful and sometimes near the edge of civil breakdown, for a genuine share in Roman political standing.</p>
 
-      <p>The plebeians' central weapon was a strange and effective one: withdrawal. Multiple times during the Struggle, the entire plebeian population of Rome physically walked out of the city and refused to return; a maneuver called <em class="term">secessio plebis</em>, "secession of the plebs." Since plebeians made up most of Rome's small farmers, craftsmen, and above all its soldiers, a plebeian secession left the city undefended and its economy stalled until the patricians negotiated. Out of the first of these secessions, in 494 BC, came the office that would anchor plebeian power for the rest of the Republic's history: the <em class="term">Tribune of the Plebs</em>. Tribunes were elected exclusively by plebeians, were legally sacrosanct (harming one was a capital religious offense), and held an extraordinary power: the right to veto not only the acts of the consuls but the decrees of the Senate itself, simply by pronouncing the word <em>veto</em>; "I forbid." A single tribune, representing no wealth and no inherited name, could halt the will of Rome's entire patrician aristocracy with one word. Later stages of the Struggle won plebeians the right to hold the consulship itself and secured, around 450 BC, the publication of Rome's laws on the Twelve Tables, so that the law belonged, at least in principle, to whoever could read it rather than to whoever happened to be a patrician judge. By 287 BC, plebeian assemblies could pass laws binding on the whole Roman people without patrician approval at all.</p>
+      
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">anacyclosis</span><span class="gloss-pron">an-uh-sy-KLOH-sis</span> <button class="gloss-speak" onclick="speakGloss(event,'anacyclosis, an-uh-sy-KLOH-sis')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Polybius's theory that governments cycle through a fixed sequence of forms, from monarchy to tyranny to aristocracy to oligarchy to democracy to mob rule and back again.</span></div><div class="gloss-entry"><span class="gloss-term">Comitia Centuriata</span><span class="gloss-pron">coh-MIT-ee-uh sen-tur-ee-AH-tuh</span> <button class="gloss-speak" onclick="speakGloss(event,'Comitia Centuriata, coh-MIT-ee-uh sen-tur-ee-AH-tuh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Roman Assembly of Centuries, organized by property and military rank, which elected consuls and voted on war.</span></div><div class="gloss-entry"><span class="gloss-term">imperium</span><span class="gloss-pron">im-PEER-ee-um</span> <button class="gloss-speak" onclick="speakGloss(event,'imperium, im-PEER-ee-um')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The supreme executive and military command held by a Roman magistrate such as a consul, including the power to lead an army and issue binding orders.</span></div><div class="gloss-entry"><span class="gloss-term">res publica</span><span class="gloss-pron">rayss POO-blih-kah</span> <button class="gloss-speak" onclick="speakGloss(event,'res publica, rayss POO-blih-kah')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Latin for "the public thing": the Roman state understood as the shared property of its citizens, the root of the word "republic."</span></div><div class="gloss-entry"><span class="gloss-term">secessio plebis</span><span class="gloss-pron">seh-KESS-ee-oh PLEH-biss</span> <button class="gloss-speak" onclick="speakGloss(event,'secessio plebis, seh-KESS-ee-oh PLEH-biss')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A "withdrawal of the plebeians": a mass strike in which Rome's common citizens physically left the city until the Senate met their demands.</span></div><div class="gloss-entry"><span class="gloss-term">senatus consultum</span><span class="gloss-pron">seh-NAH-tuss con-SUL-tum</span> <button class="gloss-speak" onclick="speakGloss(event,'senatus consultum, seh-NAH-tuss con-SUL-tum')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A formal "decree of the Senate": technically only advice to a Roman magistrate, but followed with something close to the force of law.</span></div></div>
+<p>The plebeians' central weapon was a strange and effective one: withdrawal. Multiple times during the Struggle, the entire plebeian population of Rome physically walked out of the city and refused to return; a maneuver called <em class="term" tabindex="0">secessio plebis<span class="gloss-tip">A "withdrawal of the plebeians": a mass strike in which Rome's common citizens physically left the city until the Senate met their demands. <button class="gloss-speak" onclick="speakGloss(event,'secessio plebis, seh-KESS-ee-oh PLEH-biss')" aria-label="Hear pronunciation">&#128266;</button></span></em>, "secession of the plebs." Since plebeians made up most of Rome's small farmers, craftsmen, and above all its soldiers, a plebeian secession left the city undefended and its economy stalled until the patricians negotiated. Out of the first of these secessions, in 494 BC, came the office that would anchor plebeian power for the rest of the Republic's history: the <strong class="term-subject" tabindex="0">Tribune of the Plebs<span class="gloss-tip">An office created to protect Rome's plebeians, with the power to veto acts of magistrates and the Senate that harmed plebeian interests.</span></strong>. Tribunes were elected exclusively by plebeians, were legally sacrosanct (harming one was a capital religious offense), and held an extraordinary power: the right to veto not only the acts of the consuls but the decrees of the Senate itself, simply by pronouncing the word <em>veto</em>; "I forbid." A single tribune, representing no wealth and no inherited name, could halt the will of Rome's entire patrician aristocracy with one word. Later stages of the Struggle won plebeians the right to hold the consulship itself and secured, around 450 BC, the publication of Rome's laws on the Twelve Tables, so that the law belonged, at least in principle, to whoever could read it rather than to whoever happened to be a patrician judge. By 287 BC, plebeian assemblies could pass laws binding on the whole Roman people without patrician approval at all.</p>
 
       <p>The Struggle of the Orders matters to the mixed constitution for a specific reason: it did not overthrow the mixed constitution's logic, it extended it. Rome's answer to plebeian grievance was not to dissolve the consulship, the Senate, or the assemblies and start over; it was to add another checking institution (the tribunate) whose entire function was to stand between the plebeians and everyone above them and say no when saying no was warranted. The pattern you traced in Monday's lesson repeats itself: rather than trusting any one part of the state to rule wisely, Rome kept adding parts that could stop each other.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Polybius and the Cycle of Constitutions</h2>
       <p>The clearest ancient explanation of why this pattern of adding checks actually works comes not from a Roman but from a Greek hostage. Polybius (c. 200&ndash;118 BC) was brought to Rome as a political captive after his home region of Achaea was defeated by Roman arms, and he spent the following decades among the Roman elite, eventually accompanying Scipio Aemilianus (the same Scipio who appears as Cicero's central speaker in <em>De Republica</em>) on campaign. Watching Rome's rise from the inside, Polybius set out to explain, in his <em>Histories</em>, how a single city had come to dominate the Mediterranean world in barely a century, and his answer centered on Rome's constitution.</p>
 
-      <p>Polybius inherited from earlier Greek political thought a theory of constitutional decay he called <em class="term">anacyclosis</em>; the cycle of constitutions. In its basic form: monarchy, rule by one good king, tends over generations to degrade into tyranny, rule by one bad king who inherited a throne rather than earning legitimacy through merit. Tyranny provokes revolt by the best and most capable citizens, who overthrow the tyrant and establish aristocracy, rule by the deserving few. Aristocracy, in turn, degrades across generations into oligarchy, rule by a narrow, self-interested few who inherited status rather than merit. Oligarchy provokes a popular revolt that establishes democracy, rule by the many. And democracy, Polybius argued, eventually degrades into mob rule (ochlocracy) as citizens grow accustomed to flattery, demagogues promise more than the state can deliver, and the ambitious few forcibly re-impose one-man rule from the resulting chaos, restarting the cycle at monarchy. Every pure constitutional form, on this account, carries the seed of its own decay built into its structure; the very quality that makes it legitimate at its founding (the king's merit, the aristocrats' virtue, the people's liberty) is exactly what corrodes across generations into its opposite.</p>
+      <p>Polybius inherited from earlier Greek political thought a theory of constitutional decay he called <em class="term" tabindex="0">anacyclosis<span class="gloss-tip">Polybius's theory that governments cycle through a fixed sequence of forms, from monarchy to tyranny to aristocracy to oligarchy to democracy to mob rule and back again. <button class="gloss-speak" onclick="speakGloss(event,'anacyclosis, an-uh-sy-KLOH-sis')" aria-label="Hear pronunciation">&#128266;</button></span></em>; the cycle of constitutions. In its basic form: monarchy, rule by one good king, tends over generations to degrade into tyranny, rule by one bad king who inherited a throne rather than earning legitimacy through merit. Tyranny provokes revolt by the best and most capable citizens, who overthrow the tyrant and establish aristocracy, rule by the deserving few. Aristocracy, in turn, degrades across generations into oligarchy, rule by a narrow, self-interested few who inherited status rather than merit. Oligarchy provokes a popular revolt that establishes democracy, rule by the many. And democracy, Polybius argued, eventually degrades into mob rule (ochlocracy) as citizens grow accustomed to flattery, demagogues promise more than the state can deliver, and the ambitious few forcibly re-impose one-man rule from the resulting chaos, restarting the cycle at monarchy. Every pure constitutional form, on this account, carries the seed of its own decay built into its structure; the very quality that makes it legitimate at its founding (the king's merit, the aristocrats' virtue, the people's liberty) is exactly what corrodes across generations into its opposite.</p>
 
       <p>Polybius's central argument (the one Cicero later absorbed and that you already read in Tuesday's primary source) is that Rome escaped this otherwise near-universal cycle, or at least resisted it longer and more successfully than any state he knew of, precisely because Rome never let any pure form take hold long enough to complete the cycle. The consuls supplied the monarchic element; the Senate supplied the aristocratic element; the assemblies and the Tribune of the Plebs supplied the democratic element. Each watched the others, and each could check the others' overreach before it hardened into permanent domination. A constitution built from all three elements simultaneously, Polybius argued, could not slide cleanly from monarchy to tyranny, because the Senate and the tribunes stood in the way; could not slide from aristocracy to oligarchy, because the consuls and the plebeian assemblies stood in the way; could not slide from democracy to mob rule, because the Senate's accumulated authority and the consuls' command stood in the way. The mixture does not eliminate the tendency toward decay that each element carries individually. It arrests it, by setting each element's characteristic corruption against the others' correcting pressure.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">From Polybius to Philadelphia</h2>
-      <p>This is the argument you should hold onto for the rest of the semester, because it does not stay in the ancient world. Roughly nineteen centuries after Polybius, the French political philosopher Montesquieu studied the Roman constitution and Polybius's account of it closely while developing his own theory of the separation of powers, later published in <em>The Spirit of the Laws</em> (1748) (a text you will read directly in Week 4. And when James Madison sat down to defend the proposed United States Constitution in the Federalist Papers) which you will read in Week 7; he drew on Montesquieu, and through Montesquieu on Polybius and Cicero, for the same basic conviction: that liberty is protected not by finding virtuous rulers and trusting them, but by so arranging offices against one another that no single part of government can act alone for long. Madison's Federalist No. 51 will state the principle in words that could stand as a direct English translation of Polybius's Greek: ambition must be made to counteract ambition. The mixed constitution of Rome, filtered through Polybius, through Cicero, through Montesquieu, is a direct ancestor of the separation of powers you live under today. When you reach Madison in Week 7, you will be reading the last link in a chain that starts, as far as surviving evidence shows us, in this week's lesson.</p>
+      <p>This is the argument you should hold onto for the rest of the semester, because it does not stay in the ancient world. Roughly nineteen centuries after Polybius, the French political philosopher Montesquieu studied the Roman constitution and Polybius's account of it closely while developing his own theory of the separation of powers, later published in <em>The Spirit of the Laws</em> (1748) (a text you will read directly in Module 2. And when James Madison sat down to defend the proposed United States Constitution in the Federalist Papers) which you will read in Module 4; he drew on Montesquieu, and through Montesquieu on Polybius and Cicero, for the same basic conviction: that liberty is protected not by finding virtuous rulers and trusting them, but by so arranging offices against one another that no single part of government can act alone for long. Madison's Federalist No. 51 will state the principle in words that could stand as a direct English translation of Polybius's Greek: ambition must be made to counteract ambition. The mixed constitution of Rome, filtered through Polybius, through Cicero, through Montesquieu, is a direct ancestor of the separation of powers you live under today. When you reach Madison in Module 4, you will be reading the last link in a chain that starts, as far as surviving evidence shows us, in this module's lesson.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: The Wheel of Anacyclosis</div>
+      <p>Turn the wheel through Polybius's six stages of constitutional decay, predicting each corruption before it is revealed. Then place Rome's Consuls, Senate, and Tribunes onto the wheel and watch what happens to a cycle that has all three elements at once.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/anacyclosis-wheel.html" title="The Wheel of Anacyclosis" style="width:100%; height:650px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/anacyclosis-wheel.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>509 BC &ndash; the expulsion of the kings.</strong> The year Rome swore off monarchy after Tarquin the Proud's son wronged Lucretia, and began building the res publica in its place.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>The dual consulship.</strong> Two annually elected magistrates, each holding full imperium, each able to veto the other; Rome's wager against both tyranny and paralysis.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>494 BC &ndash; the first secessio plebis.</strong> The plebeians' mass walkout that won Rome its first Tribune of the Plebs.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>The Tribune of the Plebs.</strong> A plebeian-elected officer, sacrosanct by law, whose single spoken veto could halt any act of a consul or the Senate.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Polybius's anacyclosis.</strong> The theory that every pure constitution decays into its corrupt twin, monarchy to tyranny, aristocracy to oligarchy, democracy to mob rule, and that Rome's mixed constitution resisted the cycle by combining all three forms at once.</div></div>
     </div>
 
     <div class="oa-card navy-top">
@@ -194,8 +271,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Primary Source 2 (Polybius, <em>Histories</em>, Book 6) and the VR Activity, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 2.2 &middot; Two Consuls, the Struggle of the Orders, and Polybius's Cycle</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 1.14 &middot; Two Consuls, the Struggle of the Orders, and Polybius's Cycle</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Walk the Roman Forum: Modeling the Mixed Constitution is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

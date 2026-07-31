@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Chamber, What Threshold?</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--teal);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:6px;
+  }
+  .score{
+    font-size:13px;
+    font-weight:400;
+    background:rgba(255,255,255,0.18);
+    border-radius:12px;
+    padding:3px 10px;
+  }
+  .wrap{
+    padding:14px 16px 18px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .progress{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .cardbox{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:var(--card);
+    padding:16px;
+    margin-bottom:14px;
+    min-height:120px;
+    transition: opacity 200ms ease;
+  }
+  .action-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--navy);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .action-text{
+    font-size:16px;
+    line-height:1.5;
+    margin-bottom:0;
+  }
+  .choice-group{
+    margin-bottom:12px;
+  }
+  .choice-group .glabel{
+    font-size:12px;
+    font-weight:600;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .choice-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .choice-btn{
+    flex:1 1 100px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:9px 8px;
+    font-size:13px;
+    font-family:inherit;
+    color:var(--text);
+    cursor:pointer;
+    transition: background-color 200ms ease, border-color 200ms ease, transform 150ms ease;
+    text-align:center;
+  }
+  .choice-btn:hover{
+    border-color:var(--teal);
+  }
+  .choice-btn.selected{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:#fff;
+  }
+  .choice-btn.correct{
+    background:#1B7A6E;
+    border-color:#1B7A6E;
+    color:#fff;
+  }
+  .choice-btn.incorrect{
+    background:#7A2048;
+    border-color:#7A2048;
+    color:#fff;
+  }
+  .choice-btn:disabled{
+    cursor:default;
+  }
+  .actionsrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:flex-end;
+    margin-top:10px;
+  }
+  button.primary{
+    background:var(--gold);
+    color:#0E1C42;
+    border:none;
+    border-radius:6px;
+    padding:9px 18px;
+    font-size:14px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease, opacity 200ms ease;
+  }
+  button.primary:disabled{
+    opacity:0.45;
+    cursor:not-allowed;
+  }
+  button.secondary{
+    background:#fff;
+    color:var(--navy);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:9px 18px;
+    font-size:14px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.secondary:hover{
+    background:var(--card);
+  }
+  .feedback{
+    border-radius:6px;
+    padding:12px 14px;
+    font-size:14px;
+    line-height:1.5;
+    margin-top:12px;
+    display:none;
+    border-left:5px solid var(--gold);
+    background:#fff;
+    border:1px solid var(--border);
+    border-left-width:5px;
+  }
+  .feedback.show{
+    display:block;
+  }
+  .feedback .verdict{
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+  }
+  .feedback.right .verdict{ color:var(--teal); }
+  .feedback.wrong .verdict{ color:var(--maroon); }
+  .final{
+    text-align:center;
+    padding:20px 10px;
+  }
+  .final .bignum{
+    font-size:32px;
+    font-weight:700;
+    color:var(--navy);
+  }
+  .resetrow{
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 18px;
+    font-size:14px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{
+    background:#16295e;
+  }
+  @media (max-width:420px){
+    .choice-btn{ flex:1 1 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span>Which Chamber, What Threshold?</span>
+  <span class="score" id="scoreDisplay">Score: 0 / 0</span>
+</div>
+
+<div class="wrap">
+
+  <div class="progress" id="progressLine">Card 1 of 6</div>
+
+  <div class="cardbox" id="cardbox">
+    <div class="action-label">The Constitution Assigns This Power To&hellip;</div>
+    <p class="action-text" id="actionText"></p>
+
+    <div class="choice-group">
+      <div class="glabel">Which chamber(s)?</div>
+      <div class="choice-row" id="chamberRow">
+        <button class="choice-btn" data-val="House">House</button>
+        <button class="choice-btn" data-val="Senate">Senate</button>
+        <button class="choice-btn" data-val="Both">Both Chambers</button>
+      </div>
+    </div>
+
+    <div class="choice-group">
+      <div class="glabel">What vote threshold?</div>
+      <div class="choice-row" id="thresholdRow">
+        <button class="choice-btn" data-val="Simple majority">Simple Majority</button>
+        <button class="choice-btn" data-val="Two-thirds">Two-Thirds</button>
+      </div>
+    </div>
+
+    <div class="feedback" id="feedback">
+      <span class="verdict" id="feedbackVerdict"></span>
+      <span id="feedbackText"></span>
+    </div>
+
+    <div class="actionsrow">
+      <button class="primary" id="commitBtn" disabled>Commit Answer</button>
+      <button class="primary" id="nextBtn" style="display:none;">Next Card</button>
+    </div>
+  </div>
+
+  <div class="cardbox final" id="finalBox" style="display:none;">
+    <div class="action-label">Deck Complete</div>
+    <div class="bignum" id="finalScore">0 / 0</div>
+    <p>Reset to shuffle a new order and try again.</p>
+  </div>
+
+  <div class="resetrow">
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var deckSource = [
+    {
+      action: "Ratifying a treaty the President has negotiated with a foreign nation.",
+      chamber: "Senate",
+      threshold: "Two-thirds",
+      explain: "Treaty-making needs patience and continuity a body elected every two years cannot reliably supply. The Senate's staggered six-year terms give it institutional memory, and the higher two-thirds bar means a treaty, which binds the nation to others in a lasting way, needs something closer to consensus than a bare majority."
+    },
+    {
+      action: "Confirming the President's nominee for ambassador to another country.",
+      chamber: "Senate",
+      threshold: "Simple majority",
+      explain: "Advice and consent on ambassadors belongs to the Senate for the same reason as treaties: continuity and insulation from the House's faster electoral rhythm. Confirmations, unlike treaties, only need a simple majority to clear."
+    },
+    {
+      action: "Declaring war on a foreign power.",
+      chamber: "Both",
+      threshold: "Simple majority",
+      explain: "A declaration of war deliberately requires the full Congress, including the House, because starting a war is a decision the framers wanted made slowly, with the people's most direct representatives fully engaged. As an ordinary act of Congress, it passes by simple majority in both chambers."
+    },
+    {
+      action: "Originating a bill to raise federal tax revenue.",
+      chamber: "House",
+      threshold: "Simple majority",
+      explain: "Revenue bills must start in the House, the chamber elected directly and most often by the people, echoing the principle that the power to tax should sit closest to those being taxed. The Senate may amend it, and it still needs a simple majority to pass."
+    },
+    {
+      action: "Passing an ordinary piece of legislation, such as funding for a federal program.",
+      chamber: "Both",
+      threshold: "Simple majority",
+      explain: "Ordinary lawmaking is the routine business Article I sets up Congress to do: a bill needs to clear both chambers in identical form, each by simple majority, before it goes to the President."
+    },
+    {
+      action: "Proposing a constitutional amendment to send to the states for ratification.",
+      chamber: "Both",
+      threshold: "Two-thirds",
+      explain: "Changing the Constitution itself is deliberately harder than passing an ordinary law. Article V requires a two-thirds vote in both the House and the Senate before a proposed amendment can even go to the states."
+    }
+  ];
+
+  var deck = [];
+  var currentIndex = 0;
+  var score = 0;
+  var answered = 0;
+  var selectedChamber = null;
+  var selectedThreshold = null;
+  var locked = false;
+
+  var actionText = document.getElementById('actionText');
+  var chamberRow = document.getElementById('chamberRow');
+  var thresholdRow = document.getElementById('thresholdRow');
+  var commitBtn = document.getElementById('commitBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var feedback = document.getElementById('feedback');
+  var feedbackVerdict = document.getElementById('feedbackVerdict');
+  var feedbackText = document.getElementById('feedbackText');
+  var progressLine = document.getElementById('progressLine');
+  var scoreDisplay = document.getElementById('scoreDisplay');
+  var cardbox = document.getElementById('cardbox');
+  var finalBox = document.getElementById('finalBox');
+  var finalScore = document.getElementById('finalScore');
+  var resetBtn = document.getElementById('resetBtn');
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function resetSelections(){
+    selectedChamber = null;
+    selectedThreshold = null;
+    locked = false;
+    var allBtns = chamberRow.querySelectorAll('.choice-btn').length ?
+      Array.prototype.slice.call(chamberRow.children).concat(Array.prototype.slice.call(thresholdRow.children)) : [];
+    allBtns.forEach(function(b){
+      b.classList.remove('selected','correct','incorrect');
+      b.disabled = false;
+    });
+    feedback.classList.remove('show','right','wrong');
+    commitBtn.disabled = true;
+    commitBtn.style.display = '';
+    nextBtn.style.display = 'none';
+  }
+
+  function loadCard(){
+    if (currentIndex >= deck.length){
+      showFinal();
+      return;
+    }
+    cardbox.style.display = '';
+    finalBox.style.display = 'none';
+    var item = deck[currentIndex];
+    actionText.textContent = item.action;
+    progressLine.textContent = "Card " + (currentIndex + 1) + " of " + deck.length;
+    resetSelections();
+  }
+
+  function showFinal(){
+    cardbox.style.display = 'none';
+    finalBox.style.display = '';
+    finalScore.textContent = score + " / " + deck.length;
+  }
+
+  function updateScoreDisplay(){
+    scoreDisplay.textContent = "Score: " + score + " / " + answered;
+  }
+
+  chamberRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.choice-btn');
+    if (!btn || locked) return;
+    Array.prototype.forEach.call(chamberRow.children, function(b){ b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    selectedChamber = btn.getAttribute('data-val');
+    commitBtn.disabled = !(selectedChamber && selectedThreshold);
+  });
+
+  thresholdRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.choice-btn');
+    if (!btn || locked) return;
+    Array.prototype.forEach.call(thresholdRow.children, function(b){ b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    selectedThreshold = btn.getAttribute('data-val');
+    commitBtn.disabled = !(selectedChamber && selectedThreshold);
+  });
+
+  commitBtn.addEventListener('click', function(){
+    if (locked || !selectedChamber || !selectedThreshold) return;
+    locked = true;
+    var item = deck[currentIndex];
+    var chamberRight = selectedChamber === item.chamber;
+    var thresholdRight = selectedThreshold === item.threshold;
+    var fullyRight = chamberRight && thresholdRight;
+
+    Array.prototype.forEach.call(chamberRow.children, function(b){
+      b.disabled = true;
+      var v = b.getAttribute('data-val');
+      if (v === item.chamber) b.classList.add('correct');
+      else if (b.classList.contains('selected')) b.classList.add('incorrect');
+    });
+    Array.prototype.forEach.call(thresholdRow.children, function(b){
+      b.disabled = true;
+      var v = b.getAttribute('data-val');
+      if (v === item.threshold) b.classList.add('correct');
+      else if (b.classList.contains('selected')) b.classList.add('incorrect');
+    });
+
+    answered++;
+    if (fullyRight) score++;
+    updateScoreDisplay();
+
+    feedback.classList.add('show');
+    if (fullyRight){
+      feedback.classList.add('right');
+      feedback.classList.remove('wrong');
+      feedbackVerdict.textContent = "Correct.";
+    } else {
+      feedback.classList.add('wrong');
+      feedback.classList.remove('right');
+      feedbackVerdict.textContent = "Not quite. The actual answer: " + item.chamber + ", " + item.threshold + ".";
+    }
+    feedbackText.textContent = item.explain;
+
+    commitBtn.style.display = 'none';
+    nextBtn.style.display = '';
+  });
+
+  nextBtn.addEventListener('click', function(){
+    currentIndex++;
+    loadCard();
+  });
+
+  function startDeck(){
+    deck = shuffle(deckSource);
+    currentIndex = 0;
+    score = 0;
+    answered = 0;
+    updateScoreDisplay();
+    loadCard();
+  }
+
+  resetBtn.addEventListener('click', startDeck);
+
+  startDeck();
+})();
+</script>
+
+</body>
+</html>

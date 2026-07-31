@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Why a Bill of Rights At All</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.2 Why a Bill of Rights At All | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,24 +144,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-12-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">Rights, Structure, and the Constitution in Practice</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 12.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 7</div><div class="subvalue">Bill of Rights & Civil Liberties</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.2</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Bill of Rights</div><div class="subvalue">Ratified 1791</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Rights, Structure, and the Constitution in Practice</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Bill of Rights & Civil Liberties</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 12.1</div><div class="title">Why a Bill of Rights At All</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 7.2</div><div class="title">Why a Bill of Rights At All</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">Anti-Federalists</span><span class="gloss-def">Opponents of ratifying the U.S. Constitution, who feared it created too powerful a national government and, at first, contained no bill of rights.</span></div><div class="gloss-entry"><span class="gloss-term">double jeopardy</span><span class="gloss-def">The Fifth Amendment's protection against being tried twice for the same crime after an acquittal or conviction.</span></div><div class="gloss-entry"><span class="gloss-term">enumerated powers</span><span class="gloss-def">The specific powers the Constitution actually lists as belonging to Congress, as opposed to powers left to the states or the people.</span></div><div class="gloss-entry"><span class="gloss-term">Federalists</span><span class="gloss-def">Supporters of ratifying the U.S. Constitution in 1787 and 1788, who favored a stronger national government than the Articles of Confederation had provided.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -170,10 +226,15 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Give a working summary of what each of the ten amendments in the Bill of Rights protects.</div></div>
     </div>
 
-    <div class="oa-card lesson-prose">
-      <p>Recall the argument from Week 7: when the Constitution went out to the states for ratification in 1787 and 1788, it did not sail through unopposed. <em class="term">Federalists</em>, who favored ratification, squared off against <em class="term">Anti-Federalists</em>, who did not, and one of the Anti-Federalists' sharpest objections had nothing to do with federalism, taxation, or the structure of Congress. It was this: the Constitution, as drafted in Philadelphia, contained no bill of rights. No clause guaranteed freedom of speech. No clause guaranteed a jury trial in every case. No clause said, in so many words, that the new federal government could not search a citizen's home without cause. To men who had just fought a revolution partly over the Crown's disregard for exactly these kinds of protections, that omission looked less like an oversight and more like a warning.</p>
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is 1788, and the Constitution has just gone out to the states for ratification. In several state conventions, delegates keep raising the same objection, and it has nothing to do with taxes or the size of Congress. The document, as written in Philadelphia, names no right to speak freely, no right to a jury, no promise that soldiers cannot be quartered in your home without your consent. Men who fought a revolution over exactly these kinds of abuses are being asked to ratify a government that says nothing about them at all. Some states will not ratify without a firm promise that a list of protections is coming. James Madison, the man who built the Constitution's whole architecture of checks and balances, does not think a bill of rights is even necessary. He is about to change his mind.</p>
+    </div>
 
-      <p>The Federalists had an answer, and it was not a bad one. Alexander Hamilton, writing in Federalist No. 84, argued that a bill of rights was not only unnecessary but potentially dangerous. The federal government created by the Constitution, he pointed out, possessed only the powers specifically granted to it; a principle called <em class="term">enumerated powers</em>. Nowhere had the states given Congress the power to regulate speech or religion in the first place, so why write a prohibition against a power that did not exist? Worse, Hamilton warned, listing specific protected rights might backfire: if the document said Congress could not abridge freedom of the press, a future government might reason that any right not on that list was fair game, when the whole point was that the federal government's authority was supposed to be limited everywhere, not just in the places explicitly fenced off.</p>
+    <div class="oa-card lesson-prose">
+      <p>Recall the argument from Module 4: when the Constitution went out to the states for ratification in 1787 and 1788, it did not sail through unopposed. <strong class="term-subject" tabindex="0">Federalists<span class="gloss-tip">Supporters of ratifying the U.S. Constitution in 1787 and 1788, who favored a stronger national government than the Articles of Confederation had provided.</span></strong>, who favored ratification, squared off against <strong class="term-subject" tabindex="0">Anti-Federalists<span class="gloss-tip">Opponents of ratifying the U.S. Constitution, who feared it created too powerful a national government and, at first, contained no bill of rights.</span></strong>, who did not, and one of the Anti-Federalists' sharpest objections had nothing to do with federalism, taxation, or the structure of Congress. It was this: the Constitution, as drafted in Philadelphia, contained no bill of rights. No clause guaranteed freedom of speech. No clause guaranteed a jury trial in every case. No clause said, in so many words, that the new federal government could not search a citizen's home without cause. To men who had just fought a revolution partly over the Crown's disregard for exactly these kinds of protections, that omission looked less like an oversight and more like a warning.</p>
+
+      <p>The Federalists had an answer, and it was not a bad one. Alexander Hamilton, writing in Federalist No. 84, argued that a bill of rights was not only unnecessary but potentially dangerous. The federal government created by the Constitution, he pointed out, possessed only the powers specifically granted to it; a principle called <strong class="term-subject" tabindex="0">enumerated powers<span class="gloss-tip">The specific powers the Constitution actually lists as belonging to Congress, as opposed to powers left to the states or the people.</span></strong>. Nowhere had the states given Congress the power to regulate speech or religion in the first place, so why write a prohibition against a power that did not exist? Worse, Hamilton warned, listing specific protected rights might backfire: if the document said Congress could not abridge freedom of the press, a future government might reason that any right not on that list was fair game, when the whole point was that the federal government's authority was supposed to be limited everywhere, not just in the places explicitly fenced off.</p>
 
       <p>The Anti-Federalists were not persuaded, and neither, in several state ratifying conventions, was the public. Massachusetts, Virginia, New York, and other states ratified the Constitution only after securing a firm understanding (sometimes an explicit condition) that the first Congress would take up amendments securing individual liberties immediately. The Constitution was ratified in 1788 on something close to a promise still owed.</p>
 
@@ -185,9 +246,9 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Madison drafted a set of proposed amendments, distilled them from dozens of suggestions submitted by the state ratifying conventions, and steered them through a Congress that had plenty of other business and not much patience for the project. He proposed twelve amendments. Congress approved and sent all twelve to the states; ten were ratified by the required three-fourths of state legislatures and took effect on December 15, 1791, becoming the Bill of Rights. (One of the two that failed at the time (governing the timing of congressional pay raises) was eventually ratified two centuries later, in 1992, as the Twenty-Seventh Amendment; the other, concerning the size of congressional districts, was never ratified.)</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What the Ten Amendments Protect</h2>
-      <p>The First Amendment protects the freedoms most associated with a free public life: religion (both the government's inability to establish an official church and every citizen's right to freely exercise their own faith), speech, the press, peaceable assembly, and the right to petition government for a redress of grievances. The Second Amendment protects the right of the people to keep and bear arms, tied explicitly in its text to the security of a "well regulated militia"; a provision this course examines closely in Lesson 12.2, since it is this week's discussion topic. The Third Amendment forbids the government from quartering soldiers in a private home without the owner's consent in peacetime, a direct response to British practice in the colonies. The Fourth Amendment protects against unreasonable searches and seizures and requires that warrants be issued only upon probable cause.</p>
+      <p>The First Amendment protects the freedoms most associated with a free public life: religion (both the government's inability to establish an official church and every citizen's right to freely exercise their own faith), speech, the press, peaceable assembly, and the right to petition government for a redress of grievances. The Second Amendment protects the right of the people to keep and bear arms, tied explicitly in its text to the security of a "well regulated militia"; a provision this course examines closely in Lesson 7.6, since it is this module's discussion topic. The Third Amendment forbids the government from quartering soldiers in a private home without the owner's consent in peacetime, a direct response to British practice in the colonies. The Fourth Amendment protects against unreasonable searches and seizures and requires that warrants be issued only upon probable cause.</p>
 
-      <p>The Fifth Amendment bundles several protections for anyone facing criminal charges: the requirement of a grand jury indictment for serious federal crimes, protection against <em class="term">double jeopardy</em> (being tried twice for the same offense), the right against self-incrimination, and the guarantee that no person be deprived of "life, liberty, or property, without due process of law"; plus the requirement that government pay just compensation when it takes private property for public use. The Sixth Amendment guarantees the accused a speedy and public trial by an impartial jury, the right to know the charges against him, to confront witnesses, to compel favorable witnesses to testify, and to have legal counsel. The Seventh Amendment preserves the right to a jury trial in most federal civil lawsuits. The Eighth Amendment forbids excessive bail, excessive fines, and cruel and unusual punishment.</p>
+      <p>The Fifth Amendment bundles several protections for anyone facing criminal charges: the requirement of a grand jury indictment for serious federal crimes, protection against <strong class="term-subject" tabindex="0">double jeopardy<span class="gloss-tip">The Fifth Amendment's protection against being tried twice for the same crime after an acquittal or conviction.</span></strong> (being tried twice for the same offense), the right against self-incrimination, and the guarantee that no person be deprived of "life, liberty, or property, without due process of law"; plus the requirement that government pay just compensation when it takes private property for public use. The Sixth Amendment guarantees the accused a speedy and public trial by an impartial jury, the right to know the charges against him, to confront witnesses, to compel favorable witnesses to testify, and to have legal counsel. The Seventh Amendment preserves the right to a jury trial in most federal civil lawsuits. The Eighth Amendment forbids excessive bail, excessive fines, and cruel and unusual punishment.</p>
 
       <p>The last two amendments work differently from the first eight: rather than naming a specific liberty, they state a principle about how to read the whole document. The Ninth Amendment says that listing certain rights in the Constitution must not be read to mean that the people have no other rights beyond those listed: Madison's own answer to his earlier worry about incompleteness. The Tenth Amendment reserves to the states, or to the people, any power the Constitution neither grants to the federal government nor forbids to the states: a direct restatement of the enumerated-powers principle the Federalists had relied on all along. Amendments One and Four through Six will each receive their own full treatment later in this module; this lesson gives you the map before we walk each region of it slowly.</p>
     </div>
@@ -195,16 +256,28 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 12.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 7.3</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 12.1 &middot; Why a Bill of Rights At All</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 7.2 &middot; Why a Bill of Rights At All</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 7.3: Why a Bill of Rights At All is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

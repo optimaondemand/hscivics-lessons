@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Five Theories of American Foreign Policy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.10 Five Theories of American Foreign Policy | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,28 +144,77 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-17-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The United States and the World</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 17.1</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.4.2, 4.3, 4.4</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">U.S. Foreign Policy Theories and Wars</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 9</div><div class="subvalue">Civic Duties, Foreign Policy & Comparative Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.10</div></div>
+    
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Civic Duties, Foreign Policy & Comparative Government</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 17.1</div><div class="title">Five Theories of American Foreign Policy</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 9.10</div><div class="title">Five Theories of American Foreign Policy</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">commutation fee</span><span class="gloss-def">During the Civil War draft, a payment a drafted man could make to the government to be excused from that particular draft call without providing a substitute.</span></div><div class="gloss-entry"><span class="gloss-term">containment</span><span class="gloss-def">The Cold War strategy of stopping the spread of Soviet Communism to new countries, without seeking to directly attack the Soviet Union itself.</span></div><div class="gloss-entry"><span class="gloss-term">Expansionism</span><span class="gloss-def">A foreign policy aimed at extending a nation's territory or influence, as in nineteenth-century America's westward growth.</span></div><div class="gloss-entry"><span class="gloss-term">Idealism</span><span class="gloss-def">A theory of foreign policy holding that moral principles, international law, and cooperation should guide relations between nations.</span></div><div class="gloss-entry"><span class="gloss-term">Isolationism</span><span class="gloss-def">A foreign policy of avoiding involvement in other nations' conflicts and alliances, historically influential in U.S. policy before both World Wars.</span></div><div class="gloss-entry"><span class="gloss-term">propaganda</span><span class="gloss-def">Information, often one-sided or misleading, spread deliberately to promote a particular cause or damage an opposing one.</span></div><div class="gloss-entry"><span class="gloss-term">Realism</span><span class="gloss-def">A theory of foreign policy holding that nations act primarily out of self-interest and the pursuit of power, not out of moral principle.</span></div><div class="gloss-entry"><span class="gloss-term">sphere of influence</span><span class="gloss-def">A region where one country claims special political or economic influence over the affairs of other states in that area.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> Before you can evaluate any specific American war, alliance, or intervention, you need a vocabulary for classifying it. This lesson gives you five analytical categories (five different answers to the question "why does a nation act abroad the way it does?"), and a founding-era or nineteenth-century example of each. You will use this vocabulary all week, and again in the two VR sessions that follow.</p>
+      <p><strong>Topic:</strong> Before you can evaluate any specific American war, alliance, or intervention, you need a vocabulary for classifying it. This lesson gives you five analytical categories (five different answers to the question "why does a nation act abroad the way it does?"), and a founding-era or nineteenth-century example of each. You will use this vocabulary throughout this module, and again in the two VR sessions that follow.</p>
     </div>
 
     <div class="oa-card">
@@ -168,47 +224,80 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Explain why real foreign policy is usually a blend of these categories rather than a pure instance of one.</div></div>
     </div>
 
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is 1796, and George Washington is finishing the last major address he will ever give as President. He is not announcing a policy so much as issuing a warning meant to outlive him: do not let the young republic bind itself to any European power's quarrels. Trade with the world, he says, but entangle yourself with none of it politically. He cannot know that this single warning will be quoted, argued over, and selectively invoked by American statesmen for the next two centuries, through wars he never imagined and alliances he never anticipated. Every American foreign policy debate since has had to answer, one way or another, the question Washington raised first: how much of the world's business is actually America's business?</p>
+    </div>
+
     <div class="oa-card lesson-prose">
       <p>Ask a diplomat why her country just signed a treaty, sent troops, or refused to intervene, and she will usually give you a reason that sounds like common sense: national interest, moral obligation, security, opportunity. But underneath almost any stated reason for a foreign-policy decision, there is a deeper question that rarely gets asked out loud: what is foreign policy <em>for</em>? Different American statesmen, across different eras, have answered that question differently, and their answers cluster into five recognizable patterns. Learn to see these patterns and you will be able to read almost any chapter of American diplomatic history (and most of the news, for that matter) with sharper eyes.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isolationism: Avoiding Entangling Alliances</h2>
-      <p><em class="term">Isolationism</em> is the posture that a nation's security and prosperity are best protected by staying out of the political quarrels, alliances, and wars of other nations; particularly wars that do not directly threaten one's own territory or vital interests. It is not the same as total withdrawal from the world; isolationist statesmen have generally still favored trade and diplomacy. What they resist is binding political and military commitment.</p>
+      <p><strong class="term-subject" tabindex="0">Isolationism<span class="gloss-tip">A foreign policy of avoiding involvement in other nations' conflicts and alliances, historically influential in U.S. policy before both World Wars.</span></strong> is the posture that a nation's security and prosperity are best protected by staying out of the political quarrels, alliances, and wars of other nations; particularly wars that do not directly threaten one's own territory or vital interests. It is not the same as total withdrawal from the world; isolationist statesmen have generally still favored trade and diplomacy. What they resist is binding political and military commitment.</p>
       <p>The classic American statement of this posture is George Washington's Farewell Address of 1796, in which he warned the young republic against "permanent alliances with any portion of the foreign world," urging instead "temporary alliances for extraordinary emergencies." Washington was not proposing that America ignore the world forever; he was arguing that a young, weak nation, still consolidating itself, had the most to lose and the least to gain from being dragged into the perennial power struggles of Europe. That warning became something close to scripture in American foreign policy for over a century, invoked again and again (sometimes faithfully, sometimes selectively) by statesmen arguing against involvement in foreign wars.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Expansionism: Growth as Policy</h2>
-      <p><em class="term">Expansionism</em> is the posture that a nation should grow (territorially, economically, or both) treating growth itself as a central aim of foreign and national policy. The classic nineteenth-century American example is <em class="term">Manifest Destiny</em>, the belief, widely held and loudly proclaimed by the 1840s, that the United States was destined to expand across the North American continent "from sea to sea." That belief helped justify the annexation of Texas, the war with Mexico, and the settlement of the Oregon boundary, and it treated continental expansion not as one option among several but as something closer to a national inevitability, even a national mission.</p>
+      <p><strong class="term-subject" tabindex="0">Expansionism<span class="gloss-tip">A foreign policy aimed at extending a nation's territory or influence, as in nineteenth-century America's westward growth.</span></strong> is the posture that a nation should grow (territorially, economically, or both) treating growth itself as a central aim of foreign and national policy. The classic nineteenth-century American example is <strong class="term-entity" tabindex="0">Manifest Destiny<span class="gloss-tip">The nineteenth-century belief that the United States was destined to expand its territory across the North American continent.</span></strong>, the belief, widely held and loudly proclaimed by the 1840s, that the United States was destined to expand across the North American continent "from sea to sea." That belief helped justify the annexation of Texas, the war with Mexico, and the settlement of the Oregon boundary, and it treated continental expansion not as one option among several but as something closer to a national inevitability, even a national mission.</p>
       <p>Expansionism and isolationism can coexist inside the same worldview more easily than you might expect: a nation can want no part of Europe's wars while still believing itself entitled, even obligated, to expand across its own continent. The two postures answer different questions; one about entanglement abroad, the other about growth at home and nearby.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Spheres of Influence: Claiming a Zone</h2>
-      <p>A <em class="term">sphere of influence</em> is a region a stronger power claims as its own particular zone of interest, within which it expects a decisive voice over the political and economic affairs of weaker neighboring states; without necessarily annexing or occupying them outright. The founding American example is the <em class="term">Monroe Doctrine</em>, announced by President James Monroe in 1823, which declared that the United States would regard any European attempt to colonize or interfere in the newly independent nations of the Western Hemisphere as an act hostile to the United States itself. Monroe was not proposing that the U.S. rule Latin America directly. He was claiming the entire hemisphere as an American sphere; a zone where European power was no longer welcome to operate, and where the United States reserved the right to act as the hemisphere's principal guardian.</p>
+      <p>A <strong class="term-subject" tabindex="0">sphere of influence<span class="gloss-tip">A region where one country claims special political or economic influence over the affairs of other states in that area.</span></strong> is a region a stronger power claims as its own particular zone of interest, within which it expects a decisive voice over the political and economic affairs of weaker neighboring states; without necessarily annexing or occupying them outright. The founding American example is the <strong class="term-entity" tabindex="0">Monroe Doctrine<span class="gloss-tip">President Monroe's 1823 policy warning European powers against further colonization or interference in the Americas.</span></strong>, announced by President James Monroe in 1823, which declared that the United States would regard any European attempt to colonize or interfere in the newly independent nations of the Western Hemisphere as an act hostile to the United States itself. Monroe was not proposing that the U.S. rule Latin America directly. He was claiming the entire hemisphere as an American sphere; a zone where European power was no longer welcome to operate, and where the United States reserved the right to act as the hemisphere's principal guardian.</p>
       <p>The sphere-of-influence idea is subtle because it sits between isolationism and outright empire. It does not require distant wars or colonial administration, but it does require the willingness to treat a whole region as a zone of primary national interest and, when necessary, to act to keep other great powers out of it.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Realism: The Calculation of Interest and Power</h2>
-      <p><em class="term">Realism</em>, as a foreign-policy posture, holds that nations act (and should act) according to a sober calculation of their own security and power relative to other states; not according to moral ideals treated as ends in themselves. A realist statesman asks: what outcome best protects and strengthens my nation, given the actual distribution of power in the world, regardless of whether the methods or the partners involved are especially admirable? Realism does not claim that morality is irrelevant to statesmen as private individuals; it claims that a state's foreign policy, to survive in a world of competing powers, has to be judged chiefly by whether it works, not chiefly by whether it is virtuous.</p>
+      <p><strong class="term-subject" tabindex="0">Realism<span class="gloss-tip">A theory of foreign policy holding that nations act primarily out of self-interest and the pursuit of power, not out of moral principle.</span></strong>, as a foreign-policy posture, holds that nations act (and should act) according to a sober calculation of their own security and power relative to other states; not according to moral ideals treated as ends in themselves. A realist statesman asks: what outcome best protects and strengthens my nation, given the actual distribution of power in the world, regardless of whether the methods or the partners involved are especially admirable? Realism does not claim that morality is irrelevant to statesmen as private individuals; it claims that a state's foreign policy, to survive in a world of competing powers, has to be judged chiefly by whether it works, not chiefly by whether it is virtuous.</p>
       <p>Realist reasoning shows up whenever the United States has allied with a government it found otherwise objectionable because that alliance served a larger strategic purpose, or refrained from intervening somewhere on strictly moral grounds because the costs to American interests were judged too high. It is a posture about the <em>basis</em> for decisions, not a fixed position on any one issue.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Idealism: Spreading and Defending Values</h2>
-      <p><em class="term">Idealism</em> holds that foreign policy should be aimed, at least in significant part, at spreading or defending democratic values, human rights, and self-government abroad; that a nation's power should serve principles beyond its own narrow security or wealth. An idealist statesman asks: does this action make the world more free, more just, more self-governing? Idealism does not mean naivet&eacute; about power; it means treating moral and political principle as a governing aim of policy, not merely as decoration for policies chosen on other grounds.</p>
-      <p>You will meet a famous instance of idealist language later this week, when Harry Truman commits the United States to support "free peoples" resisting subjugation; language that frames American policy explicitly in terms of freedom and self-determination, not merely American advantage.</p>
+      <p><strong class="term-subject" tabindex="0">Idealism<span class="gloss-tip">A theory of foreign policy holding that moral principles, international law, and cooperation should guide relations between nations.</span></strong> holds that foreign policy should be aimed, at least in significant part, at spreading or defending democratic values, human rights, and self-government abroad; that a nation's power should serve principles beyond its own narrow security or wealth. An idealist statesman asks: does this action make the world more free, more just, more self-governing? Idealism does not mean naivet&eacute; about power; it means treating moral and political principle as a governing aim of policy, not merely as decoration for policies chosen on other grounds.</p>
+      <p>You will meet a famous instance of idealist language later this session, when Harry Truman commits the United States to support "free peoples" resisting subjugation; language that frames American policy explicitly in terms of freedom and self-determination, not merely American advantage.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Framework, Not a Filing Cabinet</h2>
       <p>Here is the honest complication: almost no real episode of American foreign policy is a pure specimen of just one of these five categories. Statesmen build coalitions of support out of mixed motives, and the same policy can be defended in realist terms to one audience and idealist terms to another. The Monroe Doctrine was a sphere-of-influence claim, but it was justified partly in the idealist language of protecting hemispheric self-government from European monarchy. Manifest Destiny was expansionist in its aims, but it drew on idealist rhetoric about spreading democratic institutions westward, and realist calculation about resources and continental security.</p>
-      <p>Treat these five categories the way a doctor treats a diagnostic checklist, not the way a librarian treats a filing system. Your job, when you study a historical episode of American foreign policy, is not to file it under exactly one label and move on. Your job is to ask which of these five logics is doing the most work in a given decision, and which others are present in a supporting role. That is exactly the exercise you will do with the Truman Doctrine and the "New World Order" address later this week; both are, on close reading, blends of realism and idealism, and naming the blend precisely is more valuable than forcing either speech into a single box.</p>
+      <p>Treat these five categories the way a doctor treats a diagnostic checklist, not the way a librarian treats a filing system. Your job, when you study a historical episode of American foreign policy, is not to file it under exactly one label and move on. Your job is to ask which of these five logics is doing the most work in a given decision, and which others are present in a supporting role. That is exactly the exercise you will do with the Truman Doctrine and the "New World Order" address later this session; both are, on close reading, blends of realism and idealism, and naming the blend precisely is more valuable than forcing either speech into a single box.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">Five Theories, Five Anchor Examples</div>
+        <div class="oa-mockup">
+          <div class="mockup-row"><span class="mockup-tag">ISOLATIONISM</span><div class="mockup-text">Washington's Farewell Address (1796): avoid permanent alliances.</div></div>
+          <div class="mockup-row"><span class="mockup-tag">EXPANSIONISM</span><div class="mockup-text">Manifest Destiny (1840s): continental growth as national mission.</div></div>
+          <div class="mockup-row"><span class="mockup-tag">SPHERE OF INFLUENCE</span><div class="mockup-text">The Monroe Doctrine (1823): the Western Hemisphere as an American zone.</div></div>
+          <div class="mockup-row"><span class="mockup-tag">REALISM</span><div class="mockup-text">Judging a policy by whether it works, not by whether it is admirable.</div></div>
+          <div class="mockup-row"><span class="mockup-tag">IDEALISM</span><div class="mockup-text">Truman's "free peoples" language: policy aimed at defending self-government.</div></div>
+        </div>
+      </div>
+
+      <details class="oa-reveal">
+        <summary>Try it before you read on: the United States controls the Panama Canal Zone and treats Central America as a region where it expects the decisive voice, without formally annexing any of it. Name the best-fitting category, then click to check.</summary>
+        <div class="reveal-body">Sphere of influence. The U.S. is not claiming the territory outright, the way expansionism would; it is claiming a zone of primary interest and the right to keep other great powers out of it, the same logic behind the Monroe Doctrine.</div>
+      </details>
     </div>
 
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 17.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 9.11</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 17.1 &middot; Five Theories of American Foreign Policy</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.10 &middot; Five Theories of American Foreign Policy</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 9.11: Five Theories of American Foreign Policy is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

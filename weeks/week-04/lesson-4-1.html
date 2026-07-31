@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Montesquieu and the Separation of Powers</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.10 Montesquieu and the Separation of Powers | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,30 +144,79 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-4-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div><div class="subvalue">Foundations of American Government</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 2</div><div class="subvalue">Enlightenment & Natural Law</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 2.10</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">The Spirit of the Laws</div><div class="subvalue">Montesquieu, Book XI</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Foundations of American Government</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Enlightenment & Natural Law</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 4.1</div><div class="title">Montesquieu and the Separation of Powers</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 2.10</div><div class="title">Montesquieu and the Separation of Powers</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">administration</span><span class="gloss-def">In Locke's argument, the fair and impartial application and enforcement of the law, which government exists to supply because individuals cannot reliably provide it for themselves.</span></div><div class="gloss-entry"><span class="gloss-term">checks and balances</span><span class="gloss-def">A system in which each branch of government has some power to limit the actions of the other branches, preventing any one branch from dominating the rest.</span></div><div class="gloss-entry"><span class="gloss-term">executive power</span><span class="gloss-def">The power to carry out and enforce the laws once they are made.</span></div><div class="gloss-entry"><span class="gloss-term">judiciary power</span><span class="gloss-def">The power to interpret the laws and decide disputes that arise under them.</span></div><div class="gloss-entry"><span class="gloss-term">legislative power</span><span class="gloss-def">The power to make law: to write, debate, and pass the rules that govern a political community.</span></div><div class="gloss-entry"><span class="gloss-term">trust</span><span class="gloss-def">In Locke's argument, the relationship between a government and its people: power is given to government on the condition it govern for the people's good, and can be withdrawn if that condition is broken.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
       <p style="font-style:italic; margin-bottom:2px;">The Spirit of the Laws</p>
       <p style="color:#555; margin-bottom:8px;">Charles-Louis de Secondat, Baron de Montesquieu, 1748</p>
-      <p><strong>Reading:</strong> Locke told you governments can lose the right to rule. Montesquieu asks a different question: how should power be arranged from the start so that no ruler, however well-intentioned, ever gets the chance to become a tyrant? His answer is the direct ancestor of the document you will spend Weeks 9 through 12 studying line by line; the Constitution of the United States.</p>
+      <p><strong>Reading:</strong> Locke told you governments can lose the right to rule. Montesquieu asks a different question: how should power be arranged from the start so that no ruler, however well-intentioned, ever gets the chance to become a tyrant? His answer is the direct ancestor of the document you will spend Module 5 through Module 7 studying line by line; the Constitution of the United States.</p>
     </div>
 
     <div class="oa-card">
@@ -170,13 +226,32 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Identify why Montesquieu treats the English constitution as his working model, and connect his tripartite division directly to the three-Article structure of the U.S. Constitution.</div></div>
     </div>
 
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>Picture a single office that writes the law, enforces the law, and judges every case that arises under it, all at once, with no other body positioned to say no. The person who holds that office does not need to be cruel for this to go wrong; Montesquieu insists it does not matter whether he is a good man or a bad one. Give any officeholder that much unified power, he argues, and "constant experience" shows he will eventually use all of it, because nothing in the structure stops him. An eighteenth-century reader, watching absolute monarchs across Europe and a sultan in Istanbul who held exactly this kind of fused power, already knew where the story usually ended. The question Montesquieu is about to answer is not whether power corrupts. It is what you can build, before the fact, so that no single hand ever holds enough of it to try.</p>
+    </div>
+
     <div class="oa-card lesson-prose">
       <p>Suppose you could design a government and staff every office in it with a genuinely good person; wise, patient, uninterested in personal gain, devoted only to the public good. Would that government be safe from tyranny? Montesquieu's entire argument in Book XI of <em>The Spirit of the Laws</em> is built on his flat refusal to answer yes. "Constant experience shews us," he writes, "that every man invested with power is apt to abuse it, and to carry his authority as far as it will go." Even virtue, he adds, "has need of limits." This is not cynicism about any particular ruler. It is a claim about power itself: power tends to expand unless something built into the structure of government stops it. You cannot staff your way out of that problem. You have to build your way out of it.</p>
 
-      <p>This is the hinge between last week and this week. Locke asked what happens after a government breaks its trust; when the people may withdraw their obedience and start over. Montesquieu is asking a prior question: how do you build a government so that the moment requiring Locke's remedy never arrives, or arrives as rarely as human affairs allow? His answer is structural, not moral. "To prevent this abuse," he writes, "it is necessary, from the very nature of things, power should be a check to power." Not virtue checking power. Not law alone checking power, since laws are only words until someone enforces them. Power checking power; one part of government physically unable to complete a tyrannical act because another part of government holds the tool it would need.</p>
+      <p>This is the hinge between the previous lesson and this session. Locke asked what happens after a government breaks its trust; when the people may withdraw their obedience and start over. Montesquieu is asking a prior question: how do you build a government so that the moment requiring Locke's remedy never arrives, or arrives as rarely as human affairs allow? His answer is structural, not moral. "To prevent this abuse," he writes, "it is necessary, from the very nature of things, power should be a check to power." Not virtue checking power. Not law alone checking power, since laws are only words until someone enforces them. Power checking power; one part of government physically unable to complete a tyrannical act because another part of government holds the tool it would need.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Three Powers, and What Happens When Two of Them Marry</h2>
-      <p>Montesquieu opens Chapter VI of Book XI (his famous chapter "Of the Constitution of England") by naming three distinct powers present in every government. First, the <em class="term">legislative power</em>: the authority to "enact temporary or perpetual laws, and amend or abrogate those that have been already enacted." Second, the <em class="term">executive power</em>: the authority to "make peace or war, send or receive embassies, establish the public security, and provide against invasions," and to carry out and enforce the laws once made. Third, what he calls the <em class="term">judiciary power</em>: the authority to "punish criminals, or determine the disputes that arise between individuals"; that is, to apply the law to specific persons and specific cases.</p>
+      <p>Montesquieu opens Chapter VI of Book XI (his famous chapter "Of the Constitution of England") by naming three distinct powers present in every government. First, the <strong class="term-subject" tabindex="0">legislative power<span class="gloss-tip">The power to make law: to write, debate, and pass the rules that govern a political community.</span></strong>: the authority to "enact temporary or perpetual laws, and amend or abrogate those that have been already enacted." Second, the <strong class="term-subject" tabindex="0">executive power<span class="gloss-tip">The power to carry out and enforce the laws once they are made.</span></strong>: the authority to "make peace or war, send or receive embassies, establish the public security, and provide against invasions," and to carry out and enforce the laws once made. Third, what he calls the <strong class="term-subject" tabindex="0">judiciary power<span class="gloss-tip">The power to interpret the laws and decide disputes that arise under them.</span></strong>: the authority to "punish criminals, or determine the disputes that arise between individuals"; that is, to apply the law to specific persons and specific cases.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">Montesquieu's Three Powers</div>
+        <div class="oa-branches">
+          <div class="branch"><div class="branch-title">Legislative</div><div class="branch-desc">Writes and amends the law.</div><div class="branch-check">Checked by: cannot enforce or judge what it writes.</div></div>
+          <div class="branch"><div class="branch-title">Executive</div><div class="branch-desc">Carries out and enforces the law; makes war, peace, and treaties.</div><div class="branch-check">Checked by: cannot write the law it enforces.</div></div>
+          <div class="branch"><div class="branch-title">Judiciary</div><div class="branch-desc">Applies the law to specific persons and specific cases.</div><div class="branch-check">Checked by: cannot legislate or enforce, only judge.</div></div>
+        </div>
+      </div>
+
+      <details class="oa-reveal">
+        <summary>Try it before you read on: a legislature passes a law, then also sends its own officers to arrest and punish anyone accused of breaking it, with no judge in between. Name which of Montesquieu's warnings this scenario matches, then click to check.</summary>
+        <div class="reveal-body">This fuses the legislative and judiciary powers in the same hands. Montesquieu's own words apply directly: "the judge would be then the legislator," since the body that wrote the law is also the one deciding, case by case, how it applies. Nothing external stands ready to say the accusation was wrong.</div>
+      </details>
 
       <p>Having named the three, Montesquieu makes the argument the entire chapter exists to make, and it is worth reading in something close to his own words, because no summary improves on it:</p>
 
@@ -192,14 +267,23 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>He is not merely theorizing. He points to Turkey, where "these three powers are united in the sultan's person, the subjects groan under the most dreadful oppression," and to the aristocratic republics of Italy, where the same fusion of powers, he argues, produces a government forced to rely on secret informants and terror to maintain itself; a government no less arbitrary for lacking a single crowned tyrant at the top. Concentration of power, on his account, produces the same disease whether the concentration sits in one man or in one committee.</p>
 
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #1B7A6E; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#1B7A6E;">Interactive: Fuse the Powers</div>
+        <p>Drag the Legislative, Executive, and Judicial tokens around and watch the Liberty Meter. Move any two into the same box, then all three, and read what Montesquieu says happens each time.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/fuse-the-powers.html" title="Fuse the Powers" style="width:100%; height:600px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/fuse-the-powers.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why England, and What "Separation" Actually Requires</h2>
       <p>Montesquieu did not invent the idea that power should be divided; classical writers going back to Aristotle and Polybius had discussed mixed constitutions long before him. What Montesquieu did was look at a working eighteenth-century government (England's), and describe, admiringly and in close structural detail, how a state could actually distribute the three powers among different hands and keep it running. His England is somewhat idealized; he was reading English institutions the way a visitor reads a system he finds attractive, not writing a dry constitutional audit. But the idealization is instructive precisely because of what he emphasizes: a monarch holding the executive power, a two-chamber legislature (the body of nobles and the body representing the people) holding the legislative power in shared and separate deliberation, and juries of ordinary citizens exercising judicial power on a temporary, case-by-case basis rather than as a permanent standing body.</p>
 
-      <p>Crucially, Montesquieu's separation is not total isolation. Each power in his English model has a narrow, specific way of checking the others without swallowing them. The executive can reject legislation (a veto) without being able to write it. The nobles' chamber can block a law without being able to write it alone. The people's representatives control the power of the purse, so that an executive dependent on annual funding cannot become independent of the legislature that grants it. This is the feature later students of Montesquieu (James Madison chief among them) will call <em class="term">checks and balances</em>: not three powers operating in three sealed boxes, but three powers each holding a specific, limited tool for restraining the others, so that ambition, as Madison will later put it, is made to counteract ambition.</p>
+      <p>Crucially, Montesquieu's separation is not total isolation. Each power in his English model has a narrow, specific way of checking the others without swallowing them. The executive can reject legislation (a veto) without being able to write it. The nobles' chamber can block a law without being able to write it alone. The people's representatives control the power of the purse, so that an executive dependent on annual funding cannot become independent of the legislature that grants it. This is the feature later students of Montesquieu (James Madison chief among them) will call <strong class="term-subject" tabindex="0">checks and balances<span class="gloss-tip">A system in which each branch of government has some power to limit the actions of the other branches, preventing any one branch from dominating the rest.</span></strong>: not three powers operating in three sealed boxes, but three powers each holding a specific, limited tool for restraining the others, so that ambition, as Madison will later put it, is made to counteract ambition.</p>
 
       <div class="oa-callout-help">
         <div class="oa-kicker" style="color:#1B6A94;">&#128161; Flag This for Later</div>
-        <p>Hold onto this lesson. When you reach Week 9 and open the Constitution itself, you will find its first three Articles are titled, in order, "Legislative," "Executive," and "Judicial"; Montesquieu's tripartite division, restated as the literal architecture of the document. The framers had read Montesquieu directly; Madison cites him by name in Federalist No. 47, which you will read in Week 8, specifically to defend the Constitution's separation of powers against the charge that it violates the very principle it claims to follow.</p>
+        <p>Hold onto this lesson. When you reach Module 5 and open the Constitution itself, you will find its first three Articles are titled, in order, "Legislative," "Executive," and "Judicial"; Montesquieu's tripartite division, restated as the literal architecture of the document. The framers had read Montesquieu directly; Madison cites him by name in Federalist No. 47, which you will read in Module 4, specifically to defend the Constitution's separation of powers against the charge that it violates the very principle it claims to follow.</p>
       </div>
 
       <p>One more piece of Montesquieu's argument deserves attention before you turn to the primary source itself: his account of why the separation of powers matters is not really about efficiency or good administration. It is about fear, and the absence of it. "The political liberty of the subject," he writes, "is a tranquillity of mind arising from the opinion each person has of his safety." Liberty, on this account, is not the absence of law, and it is not the ability to do anything you please; it is the settled confidence that no single person or body can turn the machinery of government against you on a whim, because the machinery itself is built so that no one hand can operate all three levers at once. That is a strikingly modern-sounding definition of freedom from a book written more than a decade before George Washington was born, and it is the definition the American founders inherited almost intact.</p>
@@ -208,16 +292,28 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 4.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 2.11</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.1 &middot; Montesquieu and the Separation of Powers</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 2.10 &middot; Montesquieu and the Separation of Powers</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 2.11: Montesquieu and the Separation of Powers is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

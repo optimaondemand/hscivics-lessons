@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Soviet Totalitarianism in Practice, and the Holocaust</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.22 Soviet Totalitarianism in Practice, and the Holocaust | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,23 +144,72 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-18-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 18.2</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:12.5px;">SS.912.CG.3.1, 4.1; SS.912.HE.2.2, 3.4</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 9</div><div class="subvalue">Civic Duties, Foreign Policy & Comparative Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.22</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 18.2</div><div class="title">Soviet Totalitarianism in Practice, and the Holocaust</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 9.22</div><div class="title">Soviet Totalitarianism in Practice, and the Holocaust</div></div><span class="time-pill">20 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">bourgeoisie</span><span class="gloss-pron">boor-zhwah-ZEE</span> <button class="gloss-speak" onclick="speakGloss(event,'bourgeoisie, boor-zhwah-ZEE')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">In Marxist theory, the property-owning middle and upper class who own the means of production, factories, land, and capital.</span></div><div class="gloss-entry"><span class="gloss-term">class struggle</span><span class="gloss-def">In Marxist theory, the ongoing conflict of interest between economic classes, chiefly the bourgeoisie and the proletariat, that Marx held drives historical change.</span></div><div class="gloss-entry"><span class="gloss-term">classless society</span><span class="gloss-def">The stateless, propertyless end goal Marxist theory predicts once class distinctions between owners and workers disappear entirely.</span></div><div class="gloss-entry"><span class="gloss-term">command economy</span><span class="gloss-def">An economic system in which the government, not private markets, decides what is produced, in what quantity, and at what price.</span></div><div class="gloss-entry"><span class="gloss-term">Communism</span><span class="gloss-def">A political and economic system aiming at a classless society through common ownership of property, historically imposed in one-party states with command economies.</span></div><div class="gloss-entry"><span class="gloss-term">judicial independence</span><span class="gloss-def">A judiciary's freedom to decide cases according to law, without being pressured or controlled by the executive or legislative branches.</span></div><div class="gloss-entry"><span class="gloss-term">one-party state</span><span class="gloss-def">A country in which one political party legally controls the government and no competing party is permitted to organize or run candidates.</span></div><div class="gloss-entry"><span class="gloss-term">proletariat</span><span class="gloss-pron">proh-luh-TAIR-ee-ut</span> <button class="gloss-speak" onclick="speakGloss(event,'proletariat, proh-luh-TAIR-ee-ut')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">In Marxist theory, the working class, who own no productive property and earn their living by selling their labor.</span></div><div class="gloss-entry"><span class="gloss-term">separation of powers</span><span class="gloss-def">The division of government into distinct legislative, executive, and judicial branches, each with its own powers, so that no single branch controls all of them.</span></div><div class="gloss-entry"><span class="gloss-term">survivor testimony</span><span class="gloss-def">A firsthand account given by someone who lived through a historical atrocity, used by historians as primary-source evidence of what occurred.</span></div><div class="gloss-entry"><span class="gloss-term">totalitarianism</span><span class="gloss-def">A system of government that seeks to control nearly every aspect of public and private life, tolerating no organized opposition or independent institutions.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -172,25 +228,37 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Tuesday's reading showed you a Soviet state willing to deny a famine it was actively causing, and a press too compromised by its dependence on that state to report the truth reliably. This lesson extends that pattern into a system built to make the denial permanent, and then turns to a second, distinct twentieth-century catastrophe that arose from the same underlying failure: a government recognizing no constitutional limit on its power over the individual.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Gulag: Documenting What the State Tried to Hide</h2>
-      <p>The Soviet state did not rely on famine and censorship alone to enforce its authority. Beginning under Lenin and expanding enormously under Stalin, the Soviet Union built a vast network of forced-labor camps, officially administered by an agency whose Russian acronym gave the system its lasting name: the <em class="term">Gulag</em>. Millions of Soviet citizens passed through these camps over the system's decades of operation; convicted, often on fabricated or wildly disproportionate charges, by the same party-controlled courts you studied in Monday's lesson, then transported to remote regions of the Soviet Union to perform forced labor under conditions that killed a substantial fraction of those sent there, through cold, starvation, and exhaustion.</p>
+      
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Gulag</span><span class="gloss-pron">GOO-lahg</span> <button class="gloss-speak" onclick="speakGloss(event,'Gulag, GOO-lahg')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Soviet system of forced-labor camps used to imprison political prisoners and ordinary criminals alike.</span></div><div class="gloss-entry"><span class="gloss-term">Holodomor</span><span class="gloss-pron">hoh-loh-doh-MOR</span> <button class="gloss-speak" onclick="speakGloss(event,'Holodomor, hoh-loh-doh-MOR')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The man-made famine Stalin's government inflicted on Ukraine in 1932 to 1933, killing millions to break peasant resistance to collectivized farming.</span></div><div class="gloss-entry"><span class="gloss-term">Kristallnacht</span><span class="gloss-pron">kriss-TAHL-nahkt</span> <button class="gloss-speak" onclick="speakGloss(event,'Kristallnacht, kriss-TAHL-nahkt')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The "Night of Broken Glass," a Nazi-organized pogrom on November 9 and 10, 1938, that destroyed Jewish businesses, synagogues, and homes across Germany.</span></div></div>
+<p>The Soviet state did not rely on famine and censorship alone to enforce its authority. Beginning under Lenin and expanding enormously under Stalin, the Soviet Union built a vast network of forced-labor camps, officially administered by an agency whose Russian acronym gave the system its lasting name: the <em class="term" tabindex="0">Gulag<span class="gloss-tip">The Soviet system of forced-labor camps used to imprison political prisoners and ordinary criminals alike. <button class="gloss-speak" onclick="speakGloss(event,'Gulag, GOO-lahg')" aria-label="Hear pronunciation">&#128266;</button></span></em>. Millions of Soviet citizens passed through these camps over the system's decades of operation; convicted, often on fabricated or wildly disproportionate charges, by the same party-controlled courts you studied in Monday's lesson, then transported to remote regions of the Soviet Union to perform forced labor under conditions that killed a substantial fraction of those sent there, through cold, starvation, and exhaustion.</p>
 
       <p>What the world came to understand about the Gulag's true scale, it owes substantially to one man: Aleksandr Solzhenitsyn, himself a former prisoner, who spent years secretly compiling accounts from fellow survivors into a work he called <em>The Gulag Archipelago</em>; a title that pictures the scattered camps as islands forming an invisible chain across the Soviet landmass. Solzhenitsyn could not publish the work openly in the Soviet Union; it circulated first in the West, in the early 1970s, smuggled out at real risk to himself and the people who helped him. The book's significance lies less in any single literary quality than in what it accomplished as documentation: it took a system the Soviet state had spent decades denying, minimizing, or hiding entirely, and made its scale, its mechanisms, and its human cost impossible for an honest reader to dismiss. Because the work remains under copyright and this lesson does not reproduce its language at length, hold onto the fact that matters most for this course: a totalitarian state with no free press and no independent judiciary can operate a machine of this size for decades specifically because nothing internal to that state has the power to expose it. Exposure, when it finally came, came from a private citizen risking everything to smuggle the truth past the state's control; not from any check built into the Soviet system itself.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">REQUIRED: Kristallnacht and the Turn to Open Violence</h2>
       <p>The Soviet Union was not the twentieth century's only totalitarian state, and it is not the only case this lesson requires you to study closely. Nazi Germany, under Adolf Hitler's one-party rule beginning in 1933, built its own machinery of unchecked power (its own fusion of legislative, executive, and judicial authority in a single party, its own elimination of a free press and independent courts), and directed a significant share of that machinery, from its earliest months in power, against Germany's Jewish population. For nearly six years, that persecution proceeded chiefly through law and bureaucracy: the Nuremberg Laws of 1935 stripped German Jews of citizenship and legal protection, and a widening set of regulations barred Jews from professions, schools, and public life. Grave as this was, it was still persecution conducted through the forms of law, however unjust those forms had become.</p>
 
-      <p>That changed on the night of November 9&ndash;10, 1938, in an event historians call <em class="term">Kristallnacht</em>; German for "Crystal Night," a name referring to the shattered glass of thousands of broken shop windows, though English-language accounts often render it "the Night of Broken Glass." The immediate pretext was the assassination, two days earlier in Paris, of a German embassy official named Ernst vom Rath, shot by a seventeen-year-old Jewish refugee named Herschel Grynszpan, apparently in desperate protest of his family's deportation from Germany. The Nazi regime seized on vom Rath's death as the pretext it needed. Joseph Goebbels, the regime's propaganda minister, signaled to regional party leaders that "spontaneous" demonstrations against Jews would not be discouraged; language understood, correctly, as an order to organize violence while preserving official deniability.</p>
+      <p>That changed on the night of November 9&ndash;10, 1938, in an event historians call <em class="term" tabindex="0">Kristallnacht<span class="gloss-tip">The "Night of Broken Glass," a Nazi-organized pogrom on November 9 and 10, 1938, that destroyed Jewish businesses, synagogues, and homes across Germany. <button class="gloss-speak" onclick="speakGloss(event,'Kristallnacht, kriss-TAHL-nahkt')" aria-label="Hear pronunciation">&#128266;</button></span></em>; German for "Crystal Night," a name referring to the shattered glass of thousands of broken shop windows, though English-language accounts often render it "the Night of Broken Glass." The immediate pretext was the assassination, two days earlier in Paris, of a German embassy official named Ernst vom Rath, shot by a seventeen-year-old Jewish refugee named Herschel Grynszpan, apparently in desperate protest of his family's deportation from Germany. The Nazi regime seized on vom Rath's death as the pretext it needed. Joseph Goebbels, the regime's propaganda minister, signaled to regional party leaders that "spontaneous" demonstrations against Jews would not be discouraged; language understood, correctly, as an order to organize violence while preserving official deniability.</p>
 
       <p>Over the following two nights, coordinated mobs of Nazi Party members, the SA paramilitary, and Hitler Youth, joined in places by ordinary civilians, attacked Jewish communities across Germany and recently annexed Austria. They burned or vandalized over a thousand synagogues, smashed the windows and looted the contents of thousands of Jewish-owned businesses and homes, and killed at least ninety-one Jewish people outright, with many more dying later from injuries or by suicide in the aftermath. In the violence's wake, the regime arrested roughly thirty thousand Jewish men and sent them to concentration camps, and then, in a final act of calculated cruelty, imposed a collective fine on Germany's Jewish community to pay for the damage its own citizens had inflicted, while barring Jewish owners from collecting insurance payouts on their destroyed property.</p>
 
       <p>Historians treat Kristallnacht as a watershed for a specific reason worth stating precisely: it marks the moment Nazi policy visibly moved from legal and bureaucratic persecution (discriminatory laws enforced through courts and administrative decree) toward open, coordinated, public violence, carried out in the streets with the state's active direction and the state's evident protection of the perpetrators. Nothing that followed over the next several years, culminating in the deportations and mass murder of the Holocaust, would have been unthinkable to anyone who had watched what happened across Germany and Austria on those two November nights. The watershed is not that Kristallnacht was the worst single event of the Nazi era in scale (far greater atrocities followed), but that it was the moment the mask of ordinary legal process came off entirely, in full public view, with no institution left standing that was willing or able to stop it.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why This Still Matters</h2>
-      <p>It would be possible to treat the material in this lesson as simply historical; distant events, closed chapters. That is not how this course asks you to hold it. Both case studies this week, the Soviet and the Nazi, are instances of the same underlying failure this course has spent eighteen weeks defining by its opposite: a government that recognizes no constitutional limit on its power over the individual will, eventually and predictably, use that unlimited power against people it has designated as expendable, whether by class, as in the Soviet Union, or by ethnicity and religion, as in Nazi Germany. The specific victims differed; the structural cause did not. Neither state had a free press capable of exposing what it was doing while it was happening. Neither state had courts capable of ruling against it. Neither state recognized rights that bound its own conduct. That is the exact inverse of everything this course has studied since Week 1's lesson on Solon, who held emergency power over Athens and chose to leave the city rather than keep it.</p>
+      <p>It would be possible to treat the material in this lesson as simply historical; distant events, closed chapters. That is not how this course asks you to hold it. Both case studies this session, the Soviet and the Nazi, are instances of the same underlying failure this course has spent all semester defining by its opposite: a government that recognizes no constitutional limit on its power over the individual will, eventually and predictably, use that unlimited power against people it has designated as expendable, whether by class, as in the Soviet Union, or by ethnicity and religion, as in Nazi Germany. The specific victims differed; the structural cause did not. Neither state had a free press capable of exposing what it was doing while it was happening. Neither state had courts capable of ruling against it. Neither state recognized rights that bound its own conduct. That is the exact inverse of everything this course has studied since Module 1's lesson on Solon, who held emergency power over Athens and chose to leave the city rather than keep it.</p>
 
-      <p>There is also a specific, practical reason this material belongs in a civics course rather than only a history course: the danger these events illustrate has not expired with the twentieth century. Unchecked state power directed at a targeted group is not a problem that solved itself in 1945 or in 1991; it is a standing risk in any political system that lacks the structural constraints (separation of powers, an independent judiciary, a free press, enforceable civil liberties) this course has spent a semester examining. That is why <em class="term">survivor testimony</em> (the firsthand accounts of people who lived through the Holocaust and other twentieth-century atrocities, given in their own words, often at great personal cost to relive) carries a weight beyond ordinary historical evidence. Survivor testimony is one of the few things a totalitarian state's machinery of denial cannot fully erase after the fact; it is primary-source evidence in precisely the sense this course has used that term all year, and it is the evidence historical denial and distortion most consistently try to discredit or silence. Preserving it, reading it, and taking it seriously is part of what it means to guard historical truth against those who would minimize or deny what happened.</p>
+      <p>There is also a specific, practical reason this material belongs in a civics course rather than only a history course: the danger these events illustrate has not expired with the twentieth century. Unchecked state power directed at a targeted group is not a problem that solved itself in 1945 or in 1991; it is a standing risk in any political system that lacks the structural constraints (separation of powers, an independent judiciary, a free press, enforceable civil liberties) this course has spent a semester examining. That is why <strong class="term-subject" tabindex="0">survivor testimony<span class="gloss-tip">A firsthand account given by someone who lived through a historical atrocity, used by historians as primary-source evidence of what occurred.</span></strong> (the firsthand accounts of people who lived through the Holocaust and other twentieth-century atrocities, given in their own words, often at great personal cost to relive) carries a weight beyond ordinary historical evidence. Survivor testimony is one of the few things a totalitarian state's machinery of denial cannot fully erase after the fact; it is primary-source evidence in precisely the sense this course has used that term all year, and it is the evidence historical denial and distortion most consistently try to discredit or silence. Preserving it, reading it, and taking it seriously is part of what it means to guard historical truth against those who would minimize or deny what happened.</p>
 
       <p>The phrase <strong>"Never Again"</strong> (adopted widely after the Holocaust as a civic and moral commitment, not merely a historical judgment) names exactly this obligation. It is not primarily a statement about the past; it is a commitment about the future, addressed to the living: that a society that has learned what unchecked power does to a targeted people will build, defend, and refuse to let atrophy the structural safeguards (the checks this course has spent a semester naming) that make a recurrence less likely. Carrying that commitment forward is not incidental to this course's purpose. It is very close to the center of it.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>The Gulag.</strong> The Soviet system of forced-labor camps, exposed to the world chiefly through Aleksandr Solzhenitsyn's smuggled work <em>The Gulag Archipelago</em>.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>1935 &ndash; the Nuremberg Laws.</strong> Stripped German Jews of citizenship and legal protection; persecution still conducted through the forms of law.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>November 9 to 10, 1938 &ndash; Kristallnacht.</strong> The night Nazi-organized violence against Jewish communities moved from bureaucratic persecution to open, public, state-directed violence.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Survivor testimony.</strong> Firsthand accounts historians treat as primary-source evidence, among the things a totalitarian state's machinery of denial cannot fully erase.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>"Never Again."</strong> A civic and moral commitment to the future: defending the structural safeguards, separation of powers, an independent judiciary, a free press, that make a recurrence less likely.</div></div>
     </div>
 
     <div class="oa-card navy-top">
@@ -198,8 +266,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The VR Activity (Part 3 of 3, Capstone) and Primary Source 2 (Solzhenitsyn, <em>The Gulag Archipelago</em>), below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 18.2 &middot; Soviet Totalitarianism in Practice, and the Holocaust</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.22 &middot; Soviet Totalitarianism in Practice, and the Holocaust</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Two Faces of Total Power: Completing Your Government Systems Portfolio is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

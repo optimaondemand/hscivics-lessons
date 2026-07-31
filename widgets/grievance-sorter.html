@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grievance Sorter</title>
+<style>
+  :root {
+    --navy: #0E1C42;
+    --gold: #C7922C;
+    --teal: #1B7A6E;
+    --maroon: #7A2048;
+    --text: #1a2340;
+    --muted: #6b7a99;
+    --border: #D0D9E8;
+    --card: #F8F9FC;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .header {
+    background: var(--maroon);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .header .sub { font-size: 12px; font-weight: 400; color: #f0dce4; }
+
+  .wrap { padding: 12px; max-width: 820px; margin: 0 auto; }
+
+  .instructions {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--maroon);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .instructions strong { color: var(--navy); }
+
+  .tally-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tally-row .tally-num { color: var(--teal); }
+
+  .card-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    min-height: 40px;
+  }
+  .grievance-card {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 11px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    max-width: 220px;
+    flex: 1 1 200px;
+    cursor: grab;
+    user-select: none;
+    font-style: italic;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, opacity 200ms ease;
+    touch-action: none;
+  }
+  .grievance-card.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(199,146,44,0.3);
+    transform: translateY(-2px);
+  }
+  .grievance-card.dragging { opacity: 0.5; }
+  .grievance-card.placed-correct { border-color: var(--teal); }
+  .grievance-card.placed-partial { border-color: var(--gold); }
+  .grievance-card.placed-wrong { border-color: var(--maroon); }
+
+  .buckets-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .bucket {
+    flex: 1 1 30%;
+    min-width: 140px;
+    background: var(--card);
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 8px;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .bucket.dragover, .bucket.target-select {
+    border-color: var(--teal);
+    background: #eef7f5;
+  }
+  .bucket-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 6px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bucket-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 30px;
+  }
+  .bucket-cards .grievance-card {
+    max-width: 100%;
+    flex: 1 1 auto;
+    cursor: default;
+  }
+
+  .feedback-box {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 5px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+  .feedback-box.correct { border-left: 4px solid var(--teal); }
+  .feedback-box.partial { border-left: 4px solid var(--gold); }
+  .feedback-box.wrong { border-left: 4px solid var(--maroon); }
+  .feedback-box .verdict { font-weight: 700; display: block; margin-bottom: 2px; }
+  .feedback-box.correct .verdict { color: var(--teal); }
+  .feedback-box.partial .verdict { color: #8a6a1f; }
+  .feedback-box.wrong .verdict { color: var(--maroon); }
+
+  .hint {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 2px 0 10px;
+  }
+
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  button.oa-btn {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: var(--navy);
+    transition: background 150ms ease, transform 150ms ease;
+  }
+  button.oa-btn:hover { transform: translateY(-1px); }
+  button.oa-btn.reset { background: #fff; color: var(--maroon); border: 1.5px solid var(--maroon); }
+
+  .done-msg {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--teal);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-top: 10px;
+    display: none;
+  }
+  .done-msg.shown { display: block; }
+
+  @media (max-width: 460px) {
+    .buckets-row { flex-direction: column; }
+    .header { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span>Grievance Sorter</span>
+  <span class="sub">Declaration of Independence, 1776</span>
+</div>
+
+<div class="wrap">
+
+  <div class="instructions">
+    <strong>Sort each grievance</strong> from the Declaration of Independence into the Lockean trigger it best fits. Drag a card into a bucket, or tap a card, then tap a bucket. You will get feedback right after each placement.
+  </div>
+
+  <div class="tally-row">
+    <span>Progress: <span class="tally-num" id="tallyPlaced">0</span> of <span id="tallyTotal">8</span> sorted</span>
+    <span>Correct: <span class="tally-num" id="tallyCorrect">0</span></span>
+  </div>
+
+  <div class="card-pool" id="cardPool"></div>
+  <div class="hint">Cards remaining above. Tap one, then tap a bucket below.</div>
+
+  <div class="buckets-row" id="bucketsRow">
+    <div class="bucket" data-bucket="law" id="bucket-law">
+      <div class="bucket-title">Arbitrary Decrees Replacing Standing Law</div>
+      <div class="bucket-cards" id="cards-law"></div>
+    </div>
+    <div class="bucket" data-bucket="property" id="bucket-property">
+      <div class="bucket-title">Property Seized Without Consent</div>
+      <div class="bucket-cards" id="cards-property"></div>
+    </div>
+    <div class="bucket" data-bucket="foreign" id="bucket-foreign">
+      <div class="bucket-title">Subjecting the People to a Foreign or Arbitrary Power</div>
+      <div class="bucket-cards" id="cards-foreign"></div>
+    </div>
+  </div>
+
+  <div class="done-msg" id="doneMsg"></div>
+
+  <div class="btn-row">
+    <button class="oa-btn reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var cards = [
+    {
+      id: "c1",
+      text: '"He has refused his Assent to Laws, the most wholesome and necessary for the public good."',
+      primary: "law",
+      feedback: {
+        law: { verdict: "Correct.", cls: "correct", text: "Refusing assent to needed laws leaves the colonists governed by the king's will instead of settled, standing law: Locke's first trigger, arbitrary decrees replacing known law." },
+        property: { verdict: "Not quite.", cls: "wrong", text: "This grievance is about lawmaking, not property. Locke's property trigger is about goods or money seized without consent, not about which laws get approved." },
+        foreign: { verdict: "Not quite.", cls: "wrong", text: "This is not about a foreign jurisdiction. It is about the king refusing to let colonial law take effect at all: arbitrary decrees replacing standing law." }
+      }
+    },
+    {
+      id: "c2",
+      text: '"He has dissolved Representative Houses repeatedly, for opposing with manly firmness his invasions on the rights of the people."',
+      primary: "law",
+      feedback: {
+        law: { verdict: "Correct.", cls: "correct", text: "Destroying the very body that makes law is the clearest way to replace settled, standing law with the arbitrary will of one man." },
+        property: { verdict: "Not quite.", cls: "wrong", text: "No property is seized here. The harm is to the colonies' lawmaking bodies, not their goods or money." },
+        foreign: { verdict: "Not quite.", cls: "wrong", text: "This is not a foreign jurisdiction being imposed. It is the colonies' own representative assemblies being shut down, which points to arbitrary decrees replacing standing law." }
+      }
+    },
+    {
+      id: "c3",
+      text: '"For taking away our Charters, abolishing our most valuable Laws, and altering fundamentally the Forms of our Governments:"',
+      primary: "law",
+      secondary: "foreign",
+      feedback: {
+        law: { verdict: "Correct.", cls: "correct", text: "Abolishing charters and altering the very form of a colony's government replaces its settled constitution with the king's arbitrary decree." },
+        foreign: { verdict: "Also defensible.", cls: "partial", text: "Altering a colony's government from outside, without its consent, can also be read as subjecting the people to a power foreign to their own constitution. The closer fit is arbitrary decrees replacing standing law, since what is destroyed here is the colonies' own settled charters and laws." },
+        property: { verdict: "Not quite.", cls: "wrong", text: "No property or goods are named here. The grievance is about charters and forms of government, not possessions." }
+      }
+    },
+    {
+      id: "c4",
+      text: '"For imposing Taxes on us without our Consent:"',
+      primary: "property",
+      feedback: {
+        property: { verdict: "Correct.", cls: "correct", text: "Taxation without consent is Locke's clearest case: the government reaching into the people's property without their agreement." },
+        law: { verdict: "Not quite.", cls: "wrong", text: "This is not about which laws get approved. It is about money being taken from colonists without their consent, which is Locke's property trigger." },
+        foreign: { verdict: "Not quite.", cls: "wrong", text: "Parliament taxing the colonies is not the same as subjecting them to a separate foreign jurisdiction. The core harm here is property seized without consent." }
+      }
+    },
+    {
+      id: "c5",
+      text: '"For cutting off our Trade with all parts of the world:"',
+      primary: "property",
+      feedback: {
+        property: { verdict: "Correct.", cls: "correct", text: "Strangling colonial commerce deprives colonists of the use of their own property and livelihood, without their consent." },
+        law: { verdict: "Not quite.", cls: "wrong", text: "This is not about lawmaking power being replaced by decree. It is an economic strike against colonists' goods and trade." },
+        foreign: { verdict: "Not quite.", cls: "wrong", text: "This is not about an outside jurisdiction being imposed. It is colonial commerce and property being cut off." }
+      }
+    },
+    {
+      id: "c6",
+      text: '"For quartering large bodies of armed troops among us:"',
+      primary: "foreign",
+      secondary: "property",
+      feedback: {
+        foreign: { verdict: "Correct.", cls: "correct", text: "Quartering soldiers among the people, answerable only to the Crown, subjects colonists to an unchecked military power imposed from outside their own government." },
+        property: { verdict: "Also defensible.", cls: "partial", text: "Forcing colonists to house soldiers in their own homes is also an intrusion on property without consent. The closer fit is the foreign-power trigger, since the deeper issue is an unaccountable standing army, but the property reading holds too." },
+        law: { verdict: "Not quite.", cls: "wrong", text: "This is not about lawmaking being replaced by decree. It is about an armed force imposed on the colonists from outside their own government." }
+      }
+    },
+    {
+      id: "c7",
+      text: '"He has combined with others to subject us to a jurisdiction foreign to our constitution, and unacknowledged by our laws;"',
+      primary: "foreign",
+      feedback: {
+        foreign: { verdict: "Correct.", cls: "correct", text: "This clause names the trigger directly: a jurisdiction foreign to the colonies' own constitution, imposed without their consent." },
+        law: { verdict: "Not quite.", cls: "wrong", text: "The problem named here is a jurisdiction from outside the colonies' own constitution, not a decree replacing their own standing law." },
+        property: { verdict: "Not quite.", cls: "wrong", text: "No property is mentioned here. The grievance names a foreign jurisdiction imposed on the colonists." }
+      }
+    },
+    {
+      id: "c8",
+      text: '"For transporting us beyond Seas to be tried for pretended offences:"',
+      primary: "foreign",
+      feedback: {
+        foreign: { verdict: "Correct.", cls: "correct", text: "Stripping colonists of trial among their own countrymen and shipping them to a distant jurisdiction for judgment is a direct instance of subjecting the people to a foreign power." },
+        law: { verdict: "Not quite.", cls: "wrong", text: "This is not about which laws get approved at home. It is about colonists being removed to a foreign jurisdiction for trial." },
+        property: { verdict: "Not quite.", cls: "wrong", text: "No property is at stake here. The grievance concerns being tried far from home, under a foreign jurisdiction." }
+      }
+    }
+  ];
+
+  // fixed shuffled display order (does not reveal bucket grouping)
+  var order = ["c4","c7","c1","c6","c3","c8","c2","c5"];
+
+  var placement = {}; // id -> bucket key once placed
+  var selectedCard = null;
+  var correctCount = 0;
+  var placedCount = 0;
+
+  var cardPool = document.getElementById("cardPool");
+  var tallyPlaced = document.getElementById("tallyPlaced");
+  var tallyCorrect = document.getElementById("tallyCorrect");
+  var tallyTotal = document.getElementById("tallyTotal");
+  var doneMsg = document.getElementById("doneMsg");
+  tallyTotal.textContent = cards.length;
+
+  function cardById(id) {
+    return cards.filter(function(c) { return c.id === id; })[0];
+  }
+
+  function renderPool() {
+    cardPool.innerHTML = "";
+    order.forEach(function(id) {
+      if (placement[id]) return; // already sorted
+      var c = cardById(id);
+      var el = document.createElement("div");
+      el.className = "grievance-card";
+      el.id = "card-" + id;
+      el.textContent = c.text;
+      el.setAttribute("draggable", "true");
+      if (selectedCard === id) el.classList.add("selected");
+
+      el.addEventListener("dragstart", function(e) {
+        el.classList.add("dragging");
+        e.dataTransfer.setData("text/plain", id);
+      });
+      el.addEventListener("dragend", function() {
+        el.classList.remove("dragging");
+      });
+      el.addEventListener("click", function() {
+        selectedCard = (selectedCard === id) ? null : id;
+        renderPool();
+        highlightBuckets();
+      });
+
+      cardPool.appendChild(el);
+    });
+  }
+
+  function highlightBuckets() {
+    document.querySelectorAll(".bucket").forEach(function(b) {
+      b.classList.toggle("target-select", !!selectedCard);
+    });
+  }
+
+  function placeCard(id, bucketKey) {
+    if (placement[id]) return;
+    var c = cardById(id);
+    placement[id] = bucketKey;
+    selectedCard = null;
+    placedCount++;
+
+    var fb = c.feedback[bucketKey];
+    var isCorrectish = (fb.cls === "correct" || fb.cls === "partial");
+    if (isCorrectish) correctCount++;
+
+    var slot = document.getElementById("cards-" + bucketKey);
+    var wrapper = document.createElement("div");
+    var cardCls = fb.cls === "correct" ? "placed-correct" : (fb.cls === "partial" ? "placed-partial" : "placed-wrong");
+    wrapper.innerHTML = '<div class="grievance-card ' + cardCls + '">' + c.text + '</div>' +
+      '<div class="feedback-box ' + fb.cls + '"><span class="verdict">' + fb.verdict + '</span>' + fb.text + '</div>';
+    slot.appendChild(wrapper);
+
+    tallyPlaced.textContent = placedCount;
+    tallyCorrect.textContent = correctCount;
+
+    renderPool();
+    highlightBuckets();
+
+    if (placedCount === cards.length) {
+      showDoneMessage();
+    }
+  }
+
+  function showDoneMessage() {
+    doneMsg.innerHTML = "<strong>All eight sorted.</strong> Score: " + correctCount + " of " + cards.length + ". Locke did not treat any single grievance as enough on its own. What justified dissolving government, in his words, was \"a long train of abuses, prevarications, and artifices, all tending the same way,\" and Jefferson built the Declaration's long indictment to show exactly that pattern.";
+    doneMsg.classList.add("shown");
+  }
+
+  // bucket drag/drop and tap targets
+  ["law","property","foreign"].forEach(function(bucketKey) {
+    var bucketEl = document.getElementById("bucket-" + bucketKey);
+    bucketEl.addEventListener("dragover", function(e) {
+      e.preventDefault();
+      bucketEl.classList.add("dragover");
+    });
+    bucketEl.addEventListener("dragleave", function() {
+      bucketEl.classList.remove("dragover");
+    });
+    bucketEl.addEventListener("drop", function(e) {
+      e.preventDefault();
+      bucketEl.classList.remove("dragover");
+      var id = e.dataTransfer.getData("text/plain");
+      if (id && cardById(id) && !placement[id]) placeCard(id, bucketKey);
+    });
+    bucketEl.addEventListener("click", function(e) {
+      if (e.target.closest(".grievance-card") && e.target.closest(".bucket-cards")) return;
+      if (selectedCard) placeCard(selectedCard, bucketKey);
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function() {
+    placement = {};
+    selectedCard = null;
+    correctCount = 0;
+    placedCount = 0;
+    tallyPlaced.textContent = "0";
+    tallyCorrect.textContent = "0";
+    doneMsg.classList.remove("shown");
+    doneMsg.innerHTML = "";
+    ["law","property","foreign"].forEach(function(bucketKey) {
+      document.getElementById("cards-" + bucketKey).innerHTML = "";
+    });
+    renderPool();
+    highlightBuckets();
+  });
+
+  renderPool();
+  highlightBuckets();
+})();
+</script>
+
+</body>
+</html>

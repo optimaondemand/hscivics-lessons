@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Fourth and Fifth Amendments: Warrants, Confessions, and the Colonial Memory</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.18 The Fourth and Fifth Amendments: Warrants, Confessions, and the Colonial Memory | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,24 +144,73 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-14-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The Bill of Rights and Civil Liberties</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 14.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 7</div><div class="subvalue">Bill of Rights & Civil Liberties</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 7.18</div></div>
     <div class="cell"><div class="label">Anchor Text</div><div class="value" style="font-style:italic;">U.S. Constitution</div><div class="subvalue">Amendments IV &amp; V</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:12px;">SS.912.CG.3.11, 3.2</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 14.1</div><div class="title">The Fourth and Fifth Amendments: Warrants, Confessions, and the Colonial Memory</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 7.18</div><div class="title">The Fourth and Fifth Amendments: Warrants, Confessions, and the Colonial Memory</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">due process of law</span><span class="gloss-def">The constitutional guarantee that government cannot take a person's life, liberty, or property without following fair legal procedures.</span></div><div class="gloss-entry"><span class="gloss-term">general warrants</span><span class="gloss-def">Search authorizations that do not specify a particular place to be searched or person or thing to be seized; the practice the Fourth Amendment was written to forbid.</span></div><div class="gloss-entry"><span class="gloss-term">grand jury</span><span class="gloss-def">A panel of citizens that reviews evidence to decide whether there is enough cause to formally charge someone with a serious crime.</span></div><div class="gloss-entry"><span class="gloss-term">privilege against self-incrimination</span><span class="gloss-def">The Fifth Amendment right not to be forced to testify against oneself in a criminal case.</span></div><div class="gloss-entry"><span class="gloss-term">probable cause</span><span class="gloss-def">The Fourth Amendment's standard for a lawful search or arrest warrant: a reasonable basis, grounded in facts, for believing a crime has been committed.</span></div><div class="gloss-entry"><span class="gloss-term">writs of assistance</span><span class="gloss-def">Colonial-era general warrants that let British customs officers search any home or ship for smuggled goods without specific cause, a major grievance behind the Fourth Amendment.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -166,27 +222,32 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card">
       <div class="oa-kicker">&#127919; By the End of This Lesson You Will Be Able To&hellip;</div>
       <div class="oa-numbered"><div class="circ">1</div><div>State the Fourth Amendment's protection against unreasonable searches and seizures, and explain the roles of the <em>warrant requirement</em> and <em>probable cause</em> within it.</div></div>
-      <div class="oa-numbered"><div class="circ">2</div><div>Identify the four protections of the Fifth Amendment covered this week (due process of law, protection against compelled self-incrimination, protection against double jeopardy, and the grand jury requirement), and state what each guards against.</div></div>
+      <div class="oa-numbered"><div class="circ">2</div><div>Identify the four protections of the Fifth Amendment covered this session (due process of law, protection against compelled self-incrimination, protection against double jeopardy, and the grand jury requirement), and state what each guards against.</div></div>
       <div class="oa-numbered"><div class="circ">3</div><div>Explain why the Fourth and Fifth Amendments cluster together historically, tracing each back to a specific abuse of power colonial Americans had direct experience of under British rule.</div></div>
     </div>
 
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>It is 1761, in a Boston courtroom, and a lawyer named James Otis is arguing for hours against a piece of paper that lets a customs officer search any house in the colony, at any hour, for any reason, without ever naming what he expects to find. A young law student named John Adams sits in the audience taking notes he will keep for the rest of his life. Otis calls the writ "the worst instrument of arbitrary power" ever found in an English law book, and he loses the case; the writs remain legal. But something in the room changes anyway. Adams will later write that American independence was born that afternoon, in the realization that no door in the colony was truly the owner's own, so long as a government official's curiosity alone was cause enough to open it.</p>
+    </div>
+
     <div class="oa-card lesson-prose">
-      <p>Start with a locked door. Not a metaphor; an actual door, in an actual Boston household, in the years before the Revolution, that a customs officer had the legal right to kick open without telling anyone why. Britain's colonial officials carried what were called <em class="term">general warrants</em> and <em class="term">writs of assistance</em>: standing authorizations, often good for the life of the reigning monarch, that let an officer search wherever he pleased for smuggled goods, without naming a specific place, a specific person, or a specific piece of evidence he expected to find. The writ did not need to say what he was looking for or why he suspected this house rather than the one next door. It simply authorized him to look, anywhere, at any time, indefinitely.</p>
+      <p>Start with a locked door. Not a metaphor; an actual door, in an actual Boston household, in the years before the Revolution, that a customs officer had the legal right to kick open without telling anyone why. Britain's colonial officials carried what were called <strong class="term-subject" tabindex="0">general warrants<span class="gloss-tip">Search authorizations that do not specify a particular place to be searched or person or thing to be seized; the practice the Fourth Amendment was written to forbid.</span></strong> and <strong class="term-subject" tabindex="0">writs of assistance<span class="gloss-tip">Colonial-era general warrants that let British customs officers search any home or ship for smuggled goods without specific cause, a major grievance behind the Fourth Amendment.</span></strong>: standing authorizations, often good for the life of the reigning monarch, that let an officer search wherever he pleased for smuggled goods, without naming a specific place, a specific person, or a specific piece of evidence he expected to find. The writ did not need to say what he was looking for or why he suspected this house rather than the one next door. It simply authorized him to look, anywhere, at any time, indefinitely.</p>
 
       <p>The colonists' most famous response to this practice came in 1761, when the Boston lawyer James Otis argued for hours against the legality of writs of assistance in a Massachusetts courtroom, calling them "the worst instrument of arbitrary power, the most destructive of English liberty, and the fundamental principles of law, that ever was found in an English law book." John Adams, then a young law student sitting in the audience, later wrote that "American independence was then and there born," because Otis's argument crystallized something the colonists had felt for years without quite naming: a government that can search anyone, anywhere, without having to justify itself in advance to a neutral judge, has effectively abolished the line between the citizen's home and the state's reach. There is no privacy, no security in one's own house and papers, if the government's curiosity alone is sufficient cause to enter.</p>
 
-      <p>This is the direct, traceable ancestor of the <em class="term">Fourth Amendment</em>, which guarantees "the right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures," and requires that no warrant issue "but upon <em class="term">probable cause</em>, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized." Read that last clause again, because it is doing the actual constitutional work: a warrant has to <em>particularly describe</em> what is being searched and what is being seized. That single requirement is a direct, point-by-point rebuttal of the general warrant. Where the writs of assistance authorized searching anywhere for anything at any time, the Fourth Amendment demands specificity in place, specificity in target, and (because a magistrate has to be satisfied there is <em>probable cause</em>, meaning a reasonable basis grounded in facts, not mere suspicion or curiosity, to believe evidence of a crime will be found) an independent check before the search ever happens. The framers were not drafting an abstract theory of privacy. They were writing a rule that would have made James Otis's clients' houses off-limits to the very practice he stood up in a Boston courtroom to condemn.</p>
+      <p>This is the direct, traceable ancestor of the <strong class="term-entity" tabindex="0">Fourth Amendment<span class="gloss-tip">The constitutional amendment protecting against unreasonable searches and seizures and requiring warrants based on probable cause.</span></strong>, which guarantees "the right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures," and requires that no warrant issue "but upon <strong class="term-subject" tabindex="0">probable cause<span class="gloss-tip">The Fourth Amendment's standard for a lawful search or arrest warrant: a reasonable basis, grounded in facts, for believing a crime has been committed.</span></strong>, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized." Read that last clause again, because it is doing the actual constitutional work: a warrant has to <em>particularly describe</em> what is being searched and what is being seized. That single requirement is a direct, point-by-point rebuttal of the general warrant. Where the writs of assistance authorized searching anywhere for anything at any time, the Fourth Amendment demands specificity in place, specificity in target, and (because a magistrate has to be satisfied there is <em>probable cause</em>, meaning a reasonable basis grounded in facts, not mere suspicion or curiosity, to believe evidence of a crime will be found) an independent check before the search ever happens. The framers were not drafting an abstract theory of privacy. They were writing a rule that would have made James Otis's clients' houses off-limits to the very practice he stood up in a Boston courtroom to condemn.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Fifth Amendment: Four Protections, One Memory of Coercion</h2>
-      <p>The Fifth Amendment reads almost like a checklist of everything that could go wrong once a person is accused of a crime, and each item on that checklist answers a specific historical grievance. This week, focus on four of its guarantees.</p>
+      <p>The Fifth Amendment reads almost like a checklist of everything that could go wrong once a person is accused of a crime, and each item on that checklist answers a specific historical grievance. This session, focus on four of its guarantees.</p>
 
-      <p>First, no person may be deprived of "life, liberty, or property, without <em class="term">due process of law</em>"; a phrase that traces back through English legal history to Magna Carta's promise that the Crown would not act against a subject except according to the settled, known law of the land, applied through regular legal procedure. Due process is the amendment's broadest guarantee: it does not name a specific abuse so much as demand that government follow fair, established procedures whenever it takes something a person has (their liberty, their property, their life) rather than simply seizing it by decree.</p>
+      <p>First, no person may be deprived of "life, liberty, or property, without <strong class="term-subject" tabindex="0">due process of law<span class="gloss-tip">The constitutional guarantee that government cannot take a person's life, liberty, or property without following fair legal procedures.</span></strong>"; a phrase that traces back through English legal history to Magna Carta's promise that the Crown would not act against a subject except according to the settled, known law of the land, applied through regular legal procedure. Due process is the amendment's broadest guarantee: it does not name a specific abuse so much as demand that government follow fair, established procedures whenever it takes something a person has (their liberty, their property, their life) rather than simply seizing it by decree.</p>
 
-      <p>Second, no person "shall be compelled in any criminal case to be a witness against himself"; the <em class="term">privilege against self-incrimination</em>. This clause has a specific, well-documented origin in the abuses of England's ecclesiastical Court of Star Chamber and the Court of High Commission, which for generations had compelled defendants to answer an oath requiring them to respond truthfully to whatever they were asked, before they even knew the charge against them, often under threat of torture. The most famous casualty of this system was John Lilburne, an anti-Stuart pamphleteer tried in 1637, who refused to take the oath, declaring that "no man's conscience ought to be racked by oaths imposed, to answer to questions concerning himself in matters criminal." Parliament abolished the Star Chamber partly in response to cases like Lilburne's, and the principle he had insisted on (that the state cannot force a person to be the engine of his own conviction) crossed the Atlantic with the colonists and, in the words the Supreme Court would later use to describe it, became "clothed in this country with the impregnability of a constitutional enactment," a rule of evidence in England transformed into an unbreakable constitutional right in America.</p>
+      <p>Second, no person "shall be compelled in any criminal case to be a witness against himself"; the <strong class="term-subject" tabindex="0">privilege against self-incrimination<span class="gloss-tip">The Fifth Amendment right not to be forced to testify against oneself in a criminal case.</span></strong>. This clause has a specific, well-documented origin in the abuses of England's ecclesiastical Court of Star Chamber and the Court of High Commission, which for generations had compelled defendants to answer an oath requiring them to respond truthfully to whatever they were asked, before they even knew the charge against them, often under threat of torture. The most famous casualty of this system was John Lilburne, an anti-Stuart pamphleteer tried in 1637, who refused to take the oath, declaring that "no man's conscience ought to be racked by oaths imposed, to answer to questions concerning himself in matters criminal." Parliament abolished the Star Chamber partly in response to cases like Lilburne's, and the principle he had insisted on (that the state cannot force a person to be the engine of his own conviction) crossed the Atlantic with the colonists and, in the words the Supreme Court would later use to describe it, became "clothed in this country with the impregnability of a constitutional enactment," a rule of evidence in England transformed into an unbreakable constitutional right in America.</p>
 
-      <p>Third, no person may "be subject for the same offence to be twice put in jeopardy of life or limb"; the guarantee against <em class="term">double jeopardy</em>. This protects a defendant, once acquitted or convicted, from being tried again and again for the same crime until the government finally secures the verdict it wants. Without it, prosecutors with unlimited time and resources could simply wear down an innocent defendant through repeated trials, turning "not guilty" into a temporary, revocable status rather than a real vindication.</p>
+      <p>Third, no person may "be subject for the same offence to be twice put in jeopardy of life or limb"; the guarantee against double jeopardy. This protects a defendant, once acquitted or convicted, from being tried again and again for the same crime until the government finally secures the verdict it wants. Without it, prosecutors with unlimited time and resources could simply wear down an innocent defendant through repeated trials, turning "not guilty" into a temporary, revocable status rather than a real vindication.</p>
 
-      <p>Fourth, no person may be held to answer for "a capital, or otherwise infamous crime, unless on a presentment or indictment of a <em class="term">grand jury</em>," at least for serious federal offenses. A grand jury is a body of ordinary citizens who review the government's evidence <em>before</em> a formal charge can proceed to trial, asking only whether there is enough evidence to justify putting the accused through a public trial at all. It exists as a buffer between an ambitious or vindictive prosecutor and the accused; a citizen check on the government's charging power, exercised before the accusation itself becomes public and reputation-destroying.</p>
+      <p>Fourth, no person may be held to answer for "a capital, or otherwise infamous crime, unless on a presentment or indictment of a <strong class="term-subject" tabindex="0">grand jury<span class="gloss-tip">A panel of citizens that reviews evidence to decide whether there is enough cause to formally charge someone with a serious crime.</span></strong>," at least for serious federal offenses. A grand jury is a body of ordinary citizens who review the government's evidence <em>before</em> a formal charge can proceed to trial, asking only whether there is enough evidence to justify putting the accused through a public trial at all. It exists as a buffer between an ambitious or vindictive prosecutor and the accused; a citizen check on the government's charging power, exercised before the accusation itself becomes public and reputation-destroying.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why These Two Amendments Sit Side by Side</h2>
       <p>It is not an accident of drafting that the ban on unreasonable searches and the ban on compelled confessions appear back to back in the Bill of Rights. Both respond to the same underlying colonial experience: a government that did not need to justify its actions to anyone before invading a person's home or extracting a statement from his own mouth. The writs of assistance let officials search first and explain never. The Star Chamber's oath let inquisitors demand answers first and specify the charge never. In both cases, the abuse was the same in structure even though it touched different parts of a person's life (the home in one case, the conscience and the tongue in the other), and in both cases, the American solution was the same in structure too: require the government to satisfy an independent check (a magistrate issuing a specific warrant; a defendant's own unforced choice to speak) <em>before</em> it can act, rather than trusting government officials to police themselves after the fact.</p>
@@ -197,16 +258,28 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 14.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 7.19</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 14.1 &middot; The Fourth and Fifth Amendments</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 7.18 &middot; The Fourth and Fifth Amendments</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 7.19: The Fourth and Fifth Amendments is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

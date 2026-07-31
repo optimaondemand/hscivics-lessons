@@ -1,0 +1,81 @@
+/* HS Civics U.S. Govt Honors: glossary + term styling, shared across all GitHub-deployed pages. */
+
+.term {
+  font-style: italic;
+  border-bottom: 1px dotted #0E1C42;
+  cursor: help;
+  position: relative;
+}
+
+.term-entity {
+  font-weight: 600;
+  border-bottom: 1px dotted #6b7a99;
+  cursor: help;
+  position: relative;
+}
+
+.term-subject {
+  font-weight: 700;
+  font-style: normal;
+  border-bottom: 1px dotted #0E1C42;
+  cursor: help;
+  position: relative;
+}
+
+.gloss-tip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  bottom: 125%;
+  min-width: 220px;
+  max-width: 320px;
+  background: #0E1C42;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.4;
+  border-radius: 6px;
+  padding: 8px 12px;
+  z-index: 20;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.term:hover .gloss-tip,
+.term-entity:hover .gloss-tip,
+.term-subject:hover .gloss-tip,
+.term:focus .gloss-tip,
+.term-entity:focus .gloss-tip,
+.term-subject:focus .gloss-tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gloss-speak {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 13px;
+  margin-left: 2px;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.oa-glossary-box {
+  background: #F8F9FC;
+  border: 1px solid #D0D9E8;
+  border-left: 5px solid #0E1C42;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.oa-glossary-box .oa-kicker { color: #0E1C42; }
+.oa-glossary-box .gloss-entry { margin-bottom: 10px; }
+.oa-glossary-box .gloss-term { font-weight: 700; color: #0E1C42; }
+.oa-glossary-box .gloss-pron { font-style: italic; color: #6b7a99; font-size: 12.5px; margin-left: 6px; }
+.oa-glossary-box .gloss-def { display: block; font-size: 13.5px; color: #333; margin-top: 2px; }
+
+.oa-glossary-box.foreign-vocab { border-left-color: #C7922C; }
+.oa-glossary-box.foreign-vocab .oa-kicker { color: #C7922C; }

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foreign Policy Resource Map</title>
+<style>
+  :root{
+    --navy:#0E1C42;
+    --gold:#C7922C;
+    --teal:#1B7A6E;
+    --maroon:#7A2048;
+    --text:#1a2340;
+    --muted:#6b7a99;
+    --border:#D0D9E8;
+    --card:#F8F9FC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#ffffff;
+  }
+  .header{
+    background:var(--teal);
+    color:#fff;
+    padding:12px 16px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .header .sub{
+    font-size:12px;
+    font-weight:400;
+    color:#d4ece8;
+    margin-top:2px;
+  }
+  .wrap{
+    padding:14px 16px 20px;
+    max-width:920px;
+    margin:0 auto;
+  }
+  .intro{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:13.5px;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+
+  .toggle-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:12px;
+  }
+  button.layer-btn{
+    flex:1 1 220px;
+    border:2px solid var(--border);
+    background:#fff;
+    color:var(--navy);
+    font-family:inherit;
+    font-weight:700;
+    font-size:13.5px;
+    padding:10px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+  button.layer-btn.active{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:#fff;
+  }
+
+  .map-shell{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#eef2f8;
+    padding:8px;
+    margin-bottom:12px;
+  }
+  svg{ width:100%; height:auto; display:block; }
+  .landmass{ fill:#d7deec; stroke:#c3cde3; stroke-width:1; }
+  .marker{
+    cursor:pointer;
+    transition: r 200ms ease, fill 200ms ease, opacity 200ms ease;
+  }
+  .marker-ring{
+    fill:none;
+    stroke-width:2;
+    transition: r 200ms ease, stroke 200ms ease, opacity 200ms ease;
+  }
+  .marker-label{
+    font-size:12px;
+    font-weight:700;
+    fill:var(--navy);
+    pointer-events:none;
+  }
+  .marker-sub{
+    font-size:9.5px;
+    fill:var(--muted);
+    pointer-events:none;
+  }
+
+  .info-panel{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:12px 14px;
+    margin-bottom:12px;
+    min-height:96px;
+    transition: background-color 250ms ease;
+  }
+  .info-panel .region-name{
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .info-panel .layer-tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding:2px 8px;
+    border-radius:10px;
+    margin-bottom:6px;
+  }
+  .layer-tag.oil{ background:#fdf3e4; color:var(--gold); border:1px solid var(--gold); }
+  .layer-tag.involvement{ background:#eaf6f2; color:var(--teal); border:1px solid var(--teal); }
+  .info-panel p{ font-size:13.5px; line-height:1.5; margin:0; }
+
+  .region-picker{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  button.region-btn{
+    flex:1 1 150px;
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--text);
+    font-family:inherit;
+    font-size:12.5px;
+    padding:8px 6px;
+    border-radius:6px;
+    cursor:pointer;
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+  button.region-btn.active{
+    border-color:var(--teal);
+    background:#eaf6f2;
+    font-weight:700;
+  }
+
+  .quiz-card{
+    border:1px solid var(--border);
+    border-left:5px solid var(--navy);
+    border-radius:6px;
+    background:var(--card);
+    padding:12px 14px;
+    margin-bottom:12px;
+  }
+  .quiz-card .q-text{
+    font-size:14px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:8px;
+  }
+  .quiz-choices{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  button.quiz-choice{
+    flex:1 1 160px;
+    border:2px solid var(--border);
+    background:#fff;
+    color:var(--text);
+    font-family:inherit;
+    font-size:13px;
+    padding:8px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+  button.quiz-choice:hover:not(:disabled){ border-color:var(--teal); }
+  button.quiz-choice:disabled{ cursor:not-allowed; }
+  button.quiz-choice.right{ border-color:var(--teal); background:#eaf6f2; }
+  button.quiz-choice.wrong{ border-color:var(--maroon); background:#fbeef2; }
+
+  .quiz-feedback{
+    display:none;
+    margin-top:10px;
+    font-size:13.5px;
+    line-height:1.5;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:10px 12px;
+  }
+  .quiz-feedback.show{ display:block; animation: fadeIn 250ms ease; }
+  .quiz-feedback strong{ color:var(--navy); }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(-4px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .bottom-row{
+    display:flex;
+    justify-content:flex-end;
+  }
+  button.reset{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:8px 16px;
+    font-size:13px;
+    font-family:inherit;
+    cursor:pointer;
+    transition: background-color 200ms ease;
+  }
+  button.reset:hover{ background:#16295e; }
+
+  @media (max-width:480px){
+    .marker-label{ font-size:10px; }
+    .marker-sub{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  Foreign Policy Resource Map
+  <div class="sub">Oil, geography, and U.S. involvement, 1945 to present</div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    Toggle between the two layers below, then click each region to compare its oil importance with the pattern of U.S. involvement there. This is a stylized, schematic map, not a precise geographic one.
+  </div>
+
+  <div class="toggle-row">
+    <button class="layer-btn active" id="oilBtn" data-layer="oil">Oil Reserves Layer</button>
+    <button class="layer-btn" id="involveBtn" data-layer="involvement">U.S. Military &amp; Diplomatic Involvement Layer</button>
+  </div>
+
+  <div class="map-shell">
+    <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" aria-label="Stylized world region map">
+      <!-- schematic landmasses, not geographically precise -->
+      <path class="landmass" d="M40,140 Q80,90 160,100 Q220,110 240,160 Q250,210 190,240 Q120,260 70,220 Q30,190 40,140 Z"></path>
+      <path class="landmass" d="M380,40 Q440,30 470,60 Q490,90 460,120 Q420,140 390,110 Q365,80 380,40 Z"></path>
+      <path class="landmass" d="M320,150 Q400,130 460,170 Q490,210 450,260 Q380,300 330,260 Q290,210 320,150 Z"></path>
+      <path class="landmass" d="M520,120 Q590,100 650,140 Q680,180 640,220 Q580,240 540,200 Q510,160 520,120 Z"></path>
+
+      <!-- region markers: cx,cy chosen for schematic spacing, not real coordinates -->
+      <g class="region-group" data-region="gulfmexico">
+        <circle class="marker-ring" cx="150" cy="200" r="26"></circle>
+        <circle class="marker" cx="150" cy="200" r="10"></circle>
+        <text class="marker-label" x="150" y="235" text-anchor="middle">Gulf of Mexico</text>
+      </g>
+
+      <g class="region-group" data-region="northsea">
+        <circle class="marker-ring" cx="430" cy="80" r="26"></circle>
+        <circle class="marker" cx="430" cy="80" r="10"></circle>
+        <text class="marker-label" x="430" y="45" text-anchor="middle">North Sea</text>
+      </g>
+
+      <g class="region-group" data-region="westafrica">
+        <circle class="marker-ring" cx="370" cy="230" r="26"></circle>
+        <circle class="marker" cx="370" cy="230" r="10"></circle>
+        <text class="marker-label" x="370" y="270" text-anchor="middle">West Africa</text>
+      </g>
+
+      <g class="region-group" data-region="persiangulf">
+        <circle class="marker-ring" cx="600" cy="175" r="26"></circle>
+        <circle class="marker" cx="600" cy="175" r="10"></circle>
+        <text class="marker-label" x="600" y="140" text-anchor="middle">Persian Gulf</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="region-picker" id="regionPicker"></div>
+
+  <div class="info-panel" id="infoPanel"></div>
+
+  <div class="quiz-card">
+    <div class="q-text">Which region's U.S. involvement was NOT primarily driven by oil?</div>
+    <div class="quiz-choices" id="quizChoices"></div>
+    <div class="quiz-feedback" id="quizFeedback"></div>
+  </div>
+
+  <div class="bottom-row">
+    <button class="reset" id="resetBtn">Reset</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+  var regions = {
+    persiangulf: {
+      name: "Persian Gulf",
+      oil: "Holds one of the largest concentrations of the world's proven oil reserves, a fact that has shaped how heavily industrialized nations, the United States included, weigh events in this region.",
+      involvement: "One of the most direct cases of oil-linked involvement: the 1990-1991 Gulf War coalition responded to Iraq's invasion of Kuwait, and the United States has maintained long-standing regional security partnerships since.",
+      oilLevel: "high",
+      involveLevel: "high",
+      oilDriven: true
+    },
+    northsea: {
+      name: "North Sea",
+      oil: "A significant oil and gas producing region for European nations bordering it, developed heavily from the 1960s onward.",
+      involvement: "U.S. cooperation here runs mainly through NATO alliance commitments with European allies, security cooperation rooted in Cold War containment strategy, rather than direct U.S. pursuit of the oil itself.",
+      oilLevel: "high",
+      involveLevel: "moderate",
+      oilDriven: false
+    },
+    gulfmexico: {
+      name: "Gulf of Mexico",
+      oil: "A major source of U.S. domestic and near-shore oil production, developed as part of the country's own energy supply.",
+      involvement: "U.S. involvement here is primarily domestic and near-shore: energy infrastructure security and economic protection, not the kind of overseas military deployment seen elsewhere on this map.",
+      oilLevel: "high",
+      involveLevel: "moderate",
+      oilDriven: true
+    },
+    westafrica: {
+      name: "West Africa",
+      oil: "An oil-producing region of growing global importance, with substantial reserves along the coast.",
+      involvement: "More recent U.S. engagement here has centered on counterterrorism partnerships and energy-security cooperation with regional governments, a newer and smaller-scale pattern than the Persian Gulf's.",
+      oilLevel: "moderate",
+      involveLevel: "moderate",
+      oilDriven: true
+    }
+  };
+
+  var regionOrder = ["persiangulf", "northsea", "gulfmexico", "westafrica"];
+
+  var currentLayer = "oil";
+  var currentRegion = "persiangulf";
+
+  var oilBtn = document.getElementById('oilBtn');
+  var involveBtn = document.getElementById('involveBtn');
+  var infoPanel = document.getElementById('infoPanel');
+  var regionPicker = document.getElementById('regionPicker');
+  var quizChoices = document.getElementById('quizChoices');
+  var quizFeedback = document.getElementById('quizFeedback');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var markerGroups = document.querySelectorAll('.region-group');
+
+  function levelColor(level){
+    if (level === "high") return { fill: "#7A2048", ring: "#7A2048", r: 13, ringR: 22 };
+    if (level === "moderate") return { fill: "#C7922C", ring: "#C7922C", r: 10, ringR: 20 };
+    return { fill: "#6b7a99", ring: "#6b7a99", r: 8, ringR: 18 };
+  }
+
+  function renderMap(){
+    markerGroups.forEach(function(g){
+      var key = g.getAttribute('data-region');
+      var data = regions[key];
+      var level = currentLayer === 'oil' ? data.oilLevel : data.involveLevel;
+      var style = levelColor(level);
+      var marker = g.querySelector('.marker');
+      var ring = g.querySelector('.marker-ring');
+      marker.setAttribute('fill', style.fill);
+      marker.setAttribute('r', style.r);
+      ring.setAttribute('stroke', style.ring);
+      ring.setAttribute('r', style.ringR);
+      ring.style.opacity = (key === currentRegion) ? '1' : '0.35';
+      marker.style.opacity = (key === currentRegion) ? '1' : '0.85';
+    });
+  }
+
+  function renderInfo(){
+    var data = regions[currentRegion];
+    var layerTagClass = currentLayer === 'oil' ? 'oil' : 'involvement';
+    var layerTagText = currentLayer === 'oil' ? 'Oil Reserves' : 'U.S. Involvement';
+    var body = currentLayer === 'oil' ? data.oil : data.involvement;
+    infoPanel.innerHTML = '<div class="region-name">' + data.name + '</div>' +
+      '<span class="layer-tag ' + layerTagClass + '">' + layerTagText + '</span>' +
+      '<p>' + body + '</p>';
+  }
+
+  function renderPicker(){
+    regionPicker.innerHTML = '';
+    regionOrder.forEach(function(key){
+      var btn = document.createElement('button');
+      btn.className = 'region-btn' + (key === currentRegion ? ' active' : '');
+      btn.textContent = regions[key].name;
+      btn.addEventListener('click', function(){
+        currentRegion = key;
+        renderMap();
+        renderInfo();
+        renderPicker();
+      });
+      regionPicker.appendChild(btn);
+    });
+  }
+
+  function setLayer(layer){
+    currentLayer = layer;
+    oilBtn.classList.toggle('active', layer === 'oil');
+    involveBtn.classList.toggle('active', layer === 'involvement');
+    renderMap();
+    renderInfo();
+  }
+
+  oilBtn.addEventListener('click', function(){ setLayer('oil'); });
+  involveBtn.addEventListener('click', function(){ setLayer('involvement'); });
+
+  markerGroups.forEach(function(g){
+    g.addEventListener('click', function(){
+      currentRegion = g.getAttribute('data-region');
+      renderMap();
+      renderInfo();
+      renderPicker();
+    });
+  });
+
+  function renderQuiz(){
+    quizChoices.innerHTML = '';
+    quizFeedback.classList.remove('show');
+    quizFeedback.innerHTML = '';
+    regionOrder.forEach(function(key){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-choice';
+      btn.textContent = regions[key].name;
+      btn.addEventListener('click', function(){
+        if (quizChoices.dataset.answered) return;
+        quizChoices.dataset.answered = "1";
+        var isRight = !regions[key].oilDriven;
+        btn.classList.add(isRight ? 'right' : 'wrong');
+        if (!isRight){
+          var rightBtn = Array.prototype.find.call(quizChoices.children, function(b){
+            return b.textContent === regions['northsea'].name;
+          });
+          if (rightBtn) rightBtn.classList.add('right');
+        }
+        quizChoices.querySelectorAll('button').forEach(function(b){ b.disabled = true; });
+        quizFeedback.classList.add('show');
+        quizFeedback.innerHTML = '<strong>' + (isRight ? 'Correct.' : 'Not quite.') + '</strong> The North Sea is the clearest case here: it is a genuine oil producer, but U.S. cooperation there runs mainly through NATO alliance commitments with European allies, a security relationship rooted in Cold War containment strategy rather than a pursuit of the oil itself. The Persian Gulf, by contrast, shows the closest overlap between high oil importance and high U.S. involvement.';
+      });
+      quizChoices.appendChild(btn);
+    });
+  }
+
+  function reset(){
+    currentLayer = "oil";
+    currentRegion = "persiangulf";
+    delete quizChoices.dataset.answered;
+    setLayer('oil');
+    renderPicker();
+    renderQuiz();
+  }
+
+  resetBtn.addEventListener('click', reset);
+
+  reset();
+})();
+</script>
+
+</body>
+</html>

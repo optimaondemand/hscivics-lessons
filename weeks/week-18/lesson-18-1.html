@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: Communism as a Governmental and Economic System</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.18 Communism as a Governmental and Economic System | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,28 +144,79 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-18-1">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-tagline">An Education Experience Company</div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q2 &middot; Module 2</div><div class="subvalue">The Citizen and the Republic</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 18.1</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 2</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 9</div><div class="subvalue">Civic Duties, Foreign Policy & Comparative Government</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 9.18</div></div>
     <div class="cell"><div class="label">Discussion Topic</div><div class="value">Communism</div></div>
-    <div class="cell"><div class="label">Module Theme</div><div class="value">Government Systems Portfolio, Capstone Week</div></div>
+    <div class="cell"><div class="label">Module Theme</div><div class="value">Civic Duties, Foreign Policy & Comparative Government</div></div>
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 18.1</div><div class="title">Communism as a Governmental and Economic System</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 9.18</div><div class="title">Communism as a Governmental and Economic System</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Holodomor</span><span class="gloss-pron">hoh-loh-doh-MOR</span> <button class="gloss-speak" onclick="speakGloss(event,'Holodomor, hoh-loh-doh-MOR')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The man-made famine Stalin's government inflicted on Ukraine in 1932 to 1933, killing millions to break peasant resistance to collectivized farming.</span></div></div>
+
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">bourgeoisie</span><span class="gloss-pron">boor-zhwah-ZEE</span> <button class="gloss-speak" onclick="speakGloss(event,'bourgeoisie, boor-zhwah-ZEE')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">In Marxist theory, the property-owning middle and upper class who own the means of production, factories, land, and capital.</span></div><div class="gloss-entry"><span class="gloss-term">class struggle</span><span class="gloss-def">In Marxist theory, the ongoing conflict of interest between economic classes, chiefly the bourgeoisie and the proletariat, that Marx held drives historical change.</span></div><div class="gloss-entry"><span class="gloss-term">classless society</span><span class="gloss-def">The stateless, propertyless end goal Marxist theory predicts once class distinctions between owners and workers disappear entirely.</span></div><div class="gloss-entry"><span class="gloss-term">command economy</span><span class="gloss-def">An economic system in which the government, not private markets, decides what is produced, in what quantity, and at what price.</span></div><div class="gloss-entry"><span class="gloss-term">Communism</span><span class="gloss-def">A political and economic system aiming at a classless society through common ownership of property, historically imposed in one-party states with command economies.</span></div><div class="gloss-entry"><span class="gloss-term">judicial independence</span><span class="gloss-def">A judiciary's freedom to decide cases according to law, without being pressured or controlled by the executive or legislative branches.</span></div><div class="gloss-entry"><span class="gloss-term">new world order</span><span class="gloss-def">A phrase used, notably by President George H. W. Bush after the Cold War, to describe a hoped-for era of greater international cooperation under shared rules.</span></div><div class="gloss-entry"><span class="gloss-term">one-party state</span><span class="gloss-def">A country in which one political party legally controls the government and no competing party is permitted to organize or run candidates.</span></div><div class="gloss-entry"><span class="gloss-term">proletariat</span><span class="gloss-pron">proh-luh-TAIR-ee-ut</span> <button class="gloss-speak" onclick="speakGloss(event,'proletariat, proh-luh-TAIR-ee-ut')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">In Marxist theory, the working class, who own no productive property and earn their living by selling their labor.</span></div><div class="gloss-entry"><span class="gloss-term">separation of powers</span><span class="gloss-def">The division of government into distinct legislative, executive, and judicial branches, each with its own powers, so that no single branch controls all of them.</span></div><div class="gloss-entry"><span class="gloss-term">totalitarianism</span><span class="gloss-def">A system of government that seeks to control nearly every aspect of public and private life, tolerating no organized opposition or independent institutions.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
-      <p><strong>Topic:</strong> This course has spent seventeen weeks studying a single, sustained argument: that legitimate government power is power distributed, limited, and made answerable to the people it governs. This week asks what happens when a government rejects that argument outright. We begin with communism (not as a caricature, but as an actual body of political and economic theory), and then trace the specific historical distance between that theory and the one-party state the Soviet Union built in its name.</p>
+      <p><strong>Topic:</strong> This course has spent this semester studying a single, sustained argument: that legitimate government power is power distributed, limited, and made answerable to the people it governs. This session asks what happens when a government rejects that argument outright. We begin with communism (not as a caricature, but as an actual body of political and economic theory), and then trace the specific historical distance between that theory and the one-party state the Soviet Union built in its name.</p>
     </div>
 
     <div class="oa-card">
@@ -168,41 +226,58 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div>Identify, by name, which structural checks studied all semester (separation of powers, an independent judiciary, protected civil liberties) had no counterpart in the Soviet system, and explain why their absence matters.</div></div>
     </div>
 
-    <div class="oa-card lesson-prose">
-      <p>Begin with the theory, on its own terms, before any government ever claimed to build it. <em class="term">Communism</em>, as a body of political and economic thought, originates chiefly with the German philosopher and economist Karl Marx, writing together with Friedrich Engels in the mid-nineteenth century. Marx looked at industrializing Europe and saw not a story of general progress but a story of <em class="term">class struggle</em>: history, in his account, is driven by conflict between those who own the means of production (land, factories, capital), and those who do not and must sell their labor to survive. Marx called the first group the <em class="term">bourgeoisie</em> and the second the <em class="term">proletariat</em>, and he argued that this conflict was not incidental to capitalism but built into its structure: the owning class profits precisely by paying labor less than the value labor creates.</p>
+    <div class="oa-card teal-top">
+      <div class="oa-kicker">&#127917; Before We Begin</div>
+      <p>Read Marx's own promise before you read what came after it. Abolish private ownership of land and factories, he wrote, and the conflict between owner and worker dissolves with it; and once no ruling class remains to protect, the state itself, having no more use, would eventually "wither away." That is the theory: less government, not more, as history's final destination. Now hold that promise in mind as you turn to what the Bolsheviks actually built in Russia after 1917, and what Stalin hardened it into by the 1930s. See if you can locate the exact point where a theory promising the state's disappearance produced, instead, one of the most powerful and unaccountable states the world had yet seen.</p>
+    </div>
 
-      <p>Marx's proposed solution was not merely to regulate this arrangement but to abolish its foundation: the private ownership of the means of production. If land, factories, and capital were held in common rather than owned privately, he argued, the underlying conflict between owner and worker would dissolve, because the category of "owner extracting profit from worker" would no longer exist. The theoretical endpoint of this process, in Marx's own writing, was a <em class="term">classless society</em>; a world in which the state itself, having no ruling class interest left to protect, would eventually become unnecessary and "wither away." It is worth sitting with that last detail, because it will matter enormously later in this lesson: Marx's own theory promised the eventual disappearance of centralized state power, not its concentration.</p>
+    <div class="oa-card lesson-prose">
+      <p>Begin with the theory, on its own terms, before any government ever claimed to build it. <strong class="term-subject" tabindex="0">Communism<span class="gloss-tip">A political and economic system aiming at a classless society through common ownership of property, historically imposed in one-party states with command economies.</span></strong>, as a body of political and economic thought, originates chiefly with the German philosopher and economist Karl Marx, writing together with Friedrich Engels in the mid-nineteenth century. Marx looked at industrializing Europe and saw not a story of general progress but a story of <strong class="term-subject" tabindex="0">class struggle<span class="gloss-tip">In Marxist theory, the ongoing conflict of interest between economic classes, chiefly the bourgeoisie and the proletariat, that Marx held drives historical change.</span></strong>: history, in his account, is driven by conflict between those who own the means of production (land, factories, capital), and those who do not and must sell their labor to survive. Marx called the first group the <strong class="term-subject" tabindex="0">bourgeoisie<span class="gloss-tip">In Marxist theory, the property-owning middle and upper class who own the means of production, factories, land, and capital. <button class="gloss-speak" onclick="speakGloss(event,'bourgeoisie, boor-zhwah-ZEE')" aria-label="Hear pronunciation">&#128266;</button></span></strong> and the second the <strong class="term-subject" tabindex="0">proletariat<span class="gloss-tip">In Marxist theory, the working class, who own no productive property and earn their living by selling their labor. <button class="gloss-speak" onclick="speakGloss(event,'proletariat, proh-luh-TAIR-ee-ut')" aria-label="Hear pronunciation">&#128266;</button></span></strong>, and he argued that this conflict was not incidental to capitalism but built into its structure: the owning class profits precisely by paying labor less than the value labor creates.</p>
+
+      <p>Marx's proposed solution was not merely to regulate this arrangement but to abolish its foundation: the private ownership of the means of production. If land, factories, and capital were held in common rather than owned privately, he argued, the underlying conflict between owner and worker would dissolve, because the category of "owner extracting profit from worker" would no longer exist. The theoretical endpoint of this process, in Marx's own writing, was a <strong class="term-subject" tabindex="0">classless society<span class="gloss-tip">The stateless, propertyless end goal Marxist theory predicts once class distinctions between owners and workers disappear entirely.</span></strong>; a world in which the state itself, having no ruling class interest left to protect, would eventually become unnecessary and "wither away." It is worth sitting with that last detail, because it will matter enormously later in this lesson: Marx's own theory promised the eventual disappearance of centralized state power, not its concentration.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">From Theory to the Soviet State</h2>
-      <p>What actually happened in Russia after the Bolshevik Revolution of 1917, and hardened under Joseph Stalin from the late 1920s onward, was something the theory itself had not really specified and, on its own terms, had not particularly wanted: a single political party, the Communist Party of the Soviet Union, claiming exclusive and permanent authority to govern in the name of the proletariat, indefinitely, with no scheduled transfer of power and no legal path for any rival party to contest it. Political theorists have a name for a state organized this way: a <em class="term">one-party state</em>, a system in which one party controls the government by law or by force and no competing party is permitted to exist, campaign, or hold office.</p>
+      <p>What actually happened in Russia after the Bolshevik Revolution of 1917, and hardened under Joseph Stalin from the late 1920s onward, was something the theory itself had not really specified and, on its own terms, had not particularly wanted: a single political party, the Communist Party of the Soviet Union, claiming exclusive and permanent authority to govern in the name of the proletariat, indefinitely, with no scheduled transfer of power and no legal path for any rival party to contest it. Political theorists have a name for a state organized this way: a <strong class="term-subject" tabindex="0">one-party state<span class="gloss-tip">A country in which one political party legally controls the government and no competing party is permitted to organize or run candidates.</span></strong>, a system in which one party controls the government by law or by force and no competing party is permitted to exist, campaign, or hold office.</p>
 
-      <p>The Soviet economy was reorganized to match. Private ownership of major industry, agriculture, and enterprise was abolished, and in its place the state built a <em class="term">command economy</em>: a system in which centralized state planners, not prices set by independent buyers and sellers, decide what is produced, in what quantity, and at what cost. Soviet planning agencies set five-year targets for steel, grain, tractors, and housing from Moscow, for the entire union, without the price signals a market economy uses to tell producers what is actually needed or wanted. The state, in other words, did not merely govern the Soviet Union's politics; it owned and directed its economy as well.</p>
+      <p>The Soviet economy was reorganized to match. Private ownership of major industry, agriculture, and enterprise was abolished, and in its place the state built a <strong class="term-subject" tabindex="0">command economy<span class="gloss-tip">An economic system in which the government, not private markets, decides what is produced, in what quantity, and at what price.</span></strong>: a system in which centralized state planners, not prices set by independent buyers and sellers, decide what is produced, in what quantity, and at what cost. Soviet planning agencies set five-year targets for steel, grain, tractors, and housing from Moscow, for the entire union, without the price signals a market economy uses to tell producers what is actually needed or wanted. The state, in other words, did not merely govern the Soviet Union's politics; it owned and directed its economy as well.</p>
 
-      <p>Put those two facts together and you arrive at the concept this lesson exists to teach: <em class="term">totalitarianism</em>, a system of government that seeks to control not merely the political process but the whole of a society's economic, cultural, and personal life, typically through a single party, an official ideology, and the machinery of state coercion. The word matters because it names something more total than ordinary authoritarian rule. An authoritarian government might suppress political opposition while leaving economic and private life largely alone. A totalitarian government does not recognize a private sphere at all; political power and economic power are fused in the same hands, and there is, in principle, no corner of a citizen's life the state does not claim authority to reach.</p>
+      <p>Put those two facts together and you arrive at the concept this lesson exists to teach: <strong class="term-subject" tabindex="0">totalitarianism<span class="gloss-tip">A system of government that seeks to control nearly every aspect of public and private life, tolerating no organized opposition or independent institutions.</span></strong>, a system of government that seeks to control not merely the political process but the whole of a society's economic, cultural, and personal life, typically through a single party, an official ideology, and the machinery of state coercion. The word matters because it names something more total than ordinary authoritarian rule. An authoritarian government might suppress political opposition while leaving economic and private life largely alone. A totalitarian government does not recognize a private sphere at all; political power and economic power are fused in the same hands, and there is, in principle, no corner of a citizen's life the state does not claim authority to reach.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Reading the Soviet State Against the American Constitution</h2>
-      <p>You have spent this entire course building a specific vocabulary for evaluating governments, and this is the moment to use every word of it deliberately, side by side. Begin with <em class="term">separation of powers</em>; the division of governmental authority among distinct legislative, executive, and judicial branches, each checking the others, that you studied at length in Module 1's study of Article I and the Constitution's later articles. The Soviet Union had no structural counterpart to this at all. The Communist Party's Politburo and General Secretary combined what a constitutional government would separate: the power to write law, the power to enforce it, and, as the next point shows, the power to interpret and apply it as well.</p>
+      <p>You have spent this entire course building a specific vocabulary for evaluating governments, and this is the moment to use every word of it deliberately, side by side. Begin with <strong class="term-subject" tabindex="0">separation of powers<span class="gloss-tip">The division of government into distinct legislative, executive, and judicial branches, each with its own powers, so that no single branch controls all of them.</span></strong>; the division of governmental authority among distinct legislative, executive, and judicial branches, each checking the others, that you studied at length in Module 1's study of Article I and the Constitution's later articles. The Soviet Union had no structural counterpart to this at all. The Communist Party's Politburo and General Secretary combined what a constitutional government would separate: the power to write law, the power to enforce it, and, as the next point shows, the power to interpret and apply it as well.</p>
 
-      <p>Continue to <em class="term">judicial independence</em>; the principle, embedded in Article III of the Constitution and reinforced by the lifetime tenure of federal judges, that courts must be able to rule against the government itself without fear of retaliation. Soviet courts were not independent in this sense. Judges served at the Party's pleasure, and the most consequential prosecutions of the Stalin era; the show trials of the 1930s, in which defendants confessed to fantastic crimes against the state after coerced interrogation, and were convicted in proceedings staged for their political effect rather than their legal accuracy; were directed political theater, not the disinterested administration of law you studied in this course's unit on the American judiciary.</p>
+      <p>Continue to <strong class="term-subject" tabindex="0">judicial independence<span class="gloss-tip">A judiciary's freedom to decide cases according to law, without being pressured or controlled by the executive or legislative branches.</span></strong>; the principle, embedded in Article III of the Constitution and reinforced by the lifetime tenure of federal judges, that courts must be able to rule against the government itself without fear of retaliation. Soviet courts were not independent in this sense. Judges served at the Party's pleasure, and the most consequential prosecutions of the Stalin era; the show trials of the 1930s, in which defendants confessed to fantastic crimes against the state after coerced interrogation, and were convicted in proceedings staged for their political effect rather than their legal accuracy; were directed political theater, not the disinterested administration of law you studied in this course's unit on the American judiciary.</p>
 
       <p>Finally, consider the civil liberties you traced through the Bill of Rights and its landmark cases: freedom of speech and of the press, freedom of religion, protection against arbitrary search, seizure, and detention, due process before the state can take life, liberty, or property. The Soviet constitution of 1936, on paper, listed rights that sound similar to these. In practice, none of them constrained the Party, because no independent court, no free press, and no competing political power existed to enforce them against the state that had written them. A right unenforceable against the government that grants it is not a constitutional constraint in the sense this course has used that term all semester; it is a promise the state can suspend at will, precisely because nothing outside the state has the standing or the power to hold it to its word.</p>
 
-      <p>This comparison is the whole point of the lesson, so state it plainly. The American constitutional structure you have studied since Week 1 rests on a wager: that no single person or party can be trusted with unchecked power, so power itself must be divided, checked, and made answerable to courts, elections, and a written law that binds the government along with the governed. The Soviet system rejected that wager at every point where the American Constitution makes it. It fused legislative, executive, and judicial power in one party; it eliminated the independent judiciary that might have checked that party's abuses; and it left civil liberties dependent entirely on the goodwill of the same authority those liberties were supposed to restrain. What that fusion of unchecked power actually produced, in the lived experience of Soviet citizens, is where this week's study turns next.</p>
+      <p>This comparison is the whole point of the lesson, so state it plainly. The American constitutional structure you have studied since Module 1 rests on a wager: that no single person or party can be trusted with unchecked power, so power itself must be divided, checked, and made answerable to courts, elections, and a written law that binds the government along with the governed. The Soviet system rejected that wager at every point where the American Constitution makes it. It fused legislative, executive, and judicial power in one party; it eliminated the independent judiciary that might have checked that party's abuses; and it left civil liberties dependent entirely on the goodwill of the same authority those liberties were supposed to restrain. What that fusion of unchecked power actually produced, in the lived experience of Soviet citizens, is where this module's study turns next.</p>
     </div>
 
     <div class="oa-card">
       <div class="oa-kicker">&#128203; What You Need for This Lesson</div>
       <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>This lesson page (above)</div></div>
-      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>15&ndash;20 minutes of reading time</div></div>
+      <div class="oa-numbered"><div class="circ navy">&#9654;</div><div>Reading this lesson <span class="time-pill">15 min</span></div></div>
     </div>
 
     <div class="oa-card navy-top">
       <div class="oa-kicker">&#10145;&#65039; What You'll Do Next</div>
-      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 18.1</strong>: a short, inference-based check on this lesson.</div></div>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>Reading Quiz 9.19</strong>: a short, inference-based check on this lesson.</div></div>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 18.1 &middot; Communism as a Governmental and Economic System</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.18 &middot; Communism as a Governmental and Economic System</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Reading Quiz 9.19: Communism as a Governmental and Economic System is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HS Civics: The Great Compromise and the Price of Union</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.6 The Great Compromise and the Price of Union | HS Civics: U.S. Government Honors</title>
+<link rel="stylesheet" href="../../shared/gloss.css">
 <style>
-html, body { margin: 0; padding: 0; background: #f4f6fa; }
-.canvas-frame { max-width: 900px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.page { page-break-after: auto; }
 /* HS Civics U.S. Govt Honors: Master PDF stylesheet
    Derived from Optima design-system.md. Used only for this print artifact;
    Canvas-native deployment will use the skill's inline-style templates directly. */
@@ -54,10 +52,17 @@ body {
 .oa-titlestrip {
   background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px;
   padding: 14px 20px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
 }
+.oa-titlestrip .tt-left { min-width: 0; }
 .oa-titlestrip .kicker { font-size: 10px; color: #0e1c42; margin-bottom: 4px; text-transform: uppercase; }
 .oa-titlestrip .title { font-size: 20px; color: #0e1c42; }
 .oa-titlestrip .sub { font-size: 13px; color: #666; }
+
+.time-pill {
+  background: #C7922C; color: #fff; font-size: 13px; padding: 3px 12px;
+  border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+}
 
 .oa-card {
   background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px;
@@ -65,6 +70,8 @@ body {
 }
 .oa-card.gold-top { border-top: 3px solid #C7922C; }
 .oa-card.navy-top { border-top: 3px solid #0E1C42; }
+.oa-card.teal-top { border-top: 3px solid #1B7A6E; }
+.oa-card.maroon-top { border-top: 3px solid #7A2048; }
 .oa-kicker { font-size: 10px; color: #c7922c; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .03em; font-weight: 600; }
 
 .oa-lavender { background: #EEF1F8; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; }
@@ -137,22 +144,71 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
 
+/* ===== Visual archetypes (Stage 6): inline HTML/CSS diagrams built on the design
+   tokens above, dropped into a lesson's prose where the content earns one. ===== */
+.oa-visual { background: #F8F9FC; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.oa-visual-label { font-size: 11px; color: #6b7a99; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+
+/* Timeline: a horizontal row of dated events, wraps to stacked cards on narrow screens. */
+.oa-timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+.oa-timeline .tl-event { flex: 1; min-width: 150px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; border-radius: 6px; padding: 10px 14px; }
+.oa-timeline .tl-date { font-size: 13px; color: #C7922C; font-weight: 700; margin-bottom: 4px; }
+.oa-timeline .tl-label { font-size: 14px; color: #0E1C42; font-weight: 600; margin-bottom: 4px; }
+.oa-timeline .tl-desc { font-size: 13px; color: #333; line-height: 1.45; }
+
+/* Ladder: stacked rungs, bottom rung first in the HTML (reads bottom-to-top like a real climb). */
+.oa-ladder { display: flex; flex-direction: column-reverse; gap: 6px; }
+.oa-ladder .rung { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.oa-ladder .rung.top { border-left-color: #C7922C; background: #FDF3E3; }
+.oa-ladder .rung-title { font-size: 14px; color: #0E1C42; font-weight: 700; min-width: 130px; }
+.oa-ladder .rung-desc { font-size: 13px; color: #333; }
+
+/* Three-branch: a row of three labeled boxes with a shared "checks" note beneath. */
+.oa-branches { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-branches .branch { flex: 1; min-width: 160px; background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 12px 14px; }
+.oa-branches .branch-title { font-size: 15px; color: #0E1C42; font-weight: 700; margin-bottom: 6px; }
+.oa-branches .branch-desc { font-size: 13.5px; color: #333; line-height: 1.45; }
+.oa-branches .branch-check { font-size: 12px; color: #6b7a99; margin-top: 8px; border-top: 1px dashed #D0D9E8; padding-top: 6px; }
+
+/* Comparison: two (or three) columns side by side under a shared header row. */
+.oa-compare { display: flex; flex-wrap: wrap; gap: 12px; }
+.oa-compare .col { flex: 1; min-width: 180px; background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.oa-compare .col-head { background: #0E1C42; color: #fff; font-size: 13px; padding: 8px 14px; }
+.oa-compare .col.emphasis .col-head { background: #C7922C; }
+.oa-compare .col-body { padding: 10px 14px; }
+.oa-compare .col-row { font-size: 13.5px; color: #333; padding: 6px 0; border-bottom: 1px solid #EEF1F8; }
+.oa-compare .col-row:last-child { border-bottom: none; }
+
+/* Annotated mockup: a bordered frame with labeled callout rows, for a document/structure diagram. */
+.oa-mockup { background: #FFFFFF; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 18px; }
+.oa-mockup .mockup-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #D0D9E8; }
+.oa-mockup .mockup-row:last-child { border-bottom: none; }
+.oa-mockup .mockup-tag { background: #EEF1F8; color: #0E1C42; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.oa-mockup .mockup-text { font-size: 13.5px; color: #333; line-height: 1.45; }
+
+/* Commit-then-reveal: <details> styled to match the callout family. The visible <summary>
+   always carries the instruction; the hidden panel holds only the check/answer. */
+.oa-reveal { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 4px solid #C7922C; border-radius: 6px; padding: 12px 18px; margin: 14px 0; }
+.oa-reveal summary { font-size: 15px; color: #0E1C42; cursor: pointer; }
+.oa-reveal summary::marker { color: #C7922C; }
+.oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
+
 </style>
 </head>
 <body>
-<div class="canvas-frame">
-<div class="page" id="lesson-6-2">
-  <div class="oa-header">
+<div class="oa-header">
     <div class="oa-header-row"><div class="oa-wordmark">Optima Academy Online</div></div>
     <div class="oa-course-name">HS Civics: U.S. Government Honors</div>
   </div>
   <div class="oa-metastrip">
-    <div class="cell"><div class="label">Quarter / Module</div><div class="value">Q1 &middot; Module 1</div></div>
-    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 6.2</div></div>
-    <div class="cell"><div class="label">Standards</div><div class="value" style="font-size:13px;">SS.912.CG.1.4, 1.5, 3.12</div></div>
+    <div class="cell"><div class="label">Quarter</div><div class="value">Quarter 1</div></div><div class="cell"><div class="label">Module</div><div class="value">Module 4</div><div class="subvalue">Constitutional Convention & Federalist Papers</div></div>
+    <div class="cell"><div class="label">Lesson</div><div class="value">Lesson 4.6</div></div>
+    
   </div>
   <div class="oa-body">
-    <div class="oa-titlestrip"><div class="kicker">Lesson 6.2</div><div class="title">The Great Compromise and the Price of Union</div></div>
+    <div class="oa-titlestrip"><div class="tt-left"><div class="kicker">Lesson 4.6</div><div class="title">The Great Compromise and the Price of Union</div></div><span class="time-pill">15 min</span></div>
+    <div class="oa-glossary-box"><div class="oa-kicker">Glossary of Subject Vocabulary</div><p style="font-size:13px; color:#555; margin:2px 0 10px;">A few words below are worth reviewing before you read.</p><div class="gloss-entry"><span class="gloss-term">Electoral College</span><span class="gloss-def">The constitutional body of state-chosen electors whose votes, not the national popular vote directly, elect the President and Vice President.</span></div><div class="gloss-entry"><span class="gloss-term">electors</span><span class="gloss-def">The members of the Electoral College, chosen by each state, who cast the official votes that elect the President and Vice President.</span></div><div class="gloss-entry"><span class="gloss-term">Preamble</span><span class="gloss-def">The opening statement of the U.S. Constitution, beginning "We the People," that declares the document's purposes without itself granting or limiting any power.</span></div><div class="gloss-entry"><span class="gloss-term">ratifying conventions</span><span class="gloss-def">Special state conventions, separate from the state legislatures, called specifically to approve or reject the new Constitution in 1787 and 1788.</span></div></div>
+
 
     <div class="oa-card gold-top">
       <div class="oa-kicker">&#128214; What You Are Reading Today</div>
@@ -167,29 +223,61 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     </div>
 
     <div class="oa-card lesson-prose">
-      <p>Roger Sherman and Oliver Ellsworth of Connecticut proposed the way out of the deadlock left over from before the July 4th recess, and the Convention adopted it on July 16, 1787. Historians call it the <em class="term">Connecticut Compromise</em>, or the <em class="term">Great Compromise</em>: a bicameral Congress in which the two chambers would be built on two different principles at once. The House of Representatives would be apportioned by population, exactly as the Virginia Plan wanted, giving large states the influence their numbers warranted. The Senate would give each state, regardless of size, two seats and two votes, exactly as the New Jersey Plan wanted, protecting the small states from being permanently outvoted. Neither side got everything. Both sides got the one thing they most needed to accept the deal: proof that the other side's core interest would be structurally protected, not merely promised.</p>
+      <p>Roger Sherman and Oliver Ellsworth of Connecticut proposed the way out of the deadlock left over from before the July 4th recess, and the Convention adopted it on July 16, 1787. Historians call it the <strong class="term-entity" tabindex="0">Connecticut Compromise<span class="gloss-tip">Another name for the Great Compromise, which combined the Virginia and New Jersey Plans into the House and Senate as they exist today.</span></strong>, or the <strong class="term-entity" tabindex="0">Great Compromise<span class="gloss-tip">The Constitutional Convention agreement creating a House of Representatives apportioned by population and a Senate with equal representation for every state.</span></strong>: a bicameral Congress in which the two chambers would be built on two different principles at once. The House of Representatives would be apportioned by population, exactly as the Virginia Plan wanted, giving large states the influence their numbers warranted. The Senate would give each state, regardless of size, two seats and two votes, exactly as the New Jersey Plan wanted, protecting the small states from being permanently outvoted. Neither side got everything. Both sides got the one thing they most needed to accept the deal: proof that the other side's core interest would be structurally protected, not merely promised.</p>
+
+      <div class="oa-visual">
+        <div class="oa-visual-label">One Deadlock, Two Chambers</div>
+        <div class="oa-compare">
+          <div class="col">
+            <div class="col-head">House of Representatives</div>
+            <div class="col-body">
+              <div class="col-row">Seats apportioned by state population.</div>
+              <div class="col-row">Answers the Virginia Plan's demand.</div>
+              <div class="col-row">Favors the largest states.</div>
+            </div>
+          </div>
+          <div class="col emphasis">
+            <div class="col-head">Senate</div>
+            <div class="col-body">
+              <div class="col-row">Two seats for every state, regardless of population.</div>
+              <div class="col-row">Answers the New Jersey Plan's demand.</div>
+              <div class="col-row">Protects the smallest states.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <p>The Great Compromise did not end the Convention's hard bargaining; it proved that hard bargaining could produce results, which made the delegates willing to strike further deals on the questions still outstanding. Several of those deals deserve to be examined honestly, because they show the framers solving real problems with means that ranged from ingenious to genuinely troubling.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Three-Fifths Compromise</h2>
       <p>Once representation in the House was tied to population, a hard question followed immediately: would slaves count in that population, and if so, how? Southern delegates, whose states held large slave populations, wanted slaves counted fully for the purpose of allocating House seats, which would give the South considerably more representation in Congress. Northern delegates objected that slaves had no vote, no freedom, and no legal standing as persons under the laws of the states that held them in bondage, and asked why they should be counted for representation at all, since counting them only increased the political power of the very men who denied them any rights whatsoever.</p>
 
-      <p>The delegates settled on a formula, written into Article I, Section 2 of the Constitution, apportioning representation (and direct taxes) by counting the "whole Number of free Persons" plus <em class="term">"three fifths of all other Persons."</em> Read the clause carefully: it counts three-fifths <em>of</em> all other Persons, meaning three-fifths of a state's whole and complete slave population, not each individual slave as three-fifths of a person. The clause takes no position on anyone's degree of personhood; a slave counted under it is, in the Constitution's own words, a whole "Person," full stop. The question the clause actually answers is narrower and more mercenary: how much should a state's slave population count toward that state's share of political power in Congress? Count them fully, as the South wanted, and slaveholding states would gain House seats and electoral votes in direct proportion to the number of people they held in bondage and denied any voice at all. Count them not at all, as many Northern delegates wanted, and slaveholding states lost that advantage entirely. The three-fifths fraction was a bargain over that specific arithmetic of power, struck between men who agreed on very little else about slavery; it was not a compromise between two equally defensible positions in the way the Great Compromise was, but the price several Southern states demanded for joining the Union at all, and the price the rest of the Convention was willing to pay to get a Constitution. You will study the Constitution's specific provisions on slavery in much greater depth in Week 9, including the other clauses touching the slave trade and fugitive slaves.</p>
+      <p>The delegates settled on a formula, written into Article I, Section 2 of the Constitution, apportioning representation (and direct taxes) by counting the "whole Number of free Persons" plus "three fifths of all other Persons." Read the clause carefully: it counts three-fifths <em>of</em> all other Persons, meaning three-fifths of a state's whole and complete slave population, not each individual slave as three-fifths of a person. The clause takes no position on anyone's degree of personhood; a slave counted under it is, in the Constitution's own words, a whole "Person," full stop. The question the clause actually answers is narrower and more mercenary: how much should a state's slave population count toward that state's share of political power in Congress? Count them fully, as the South wanted, and slaveholding states would gain House seats and electoral votes in direct proportion to the number of people they held in bondage and denied any voice at all. Count them not at all, as many Northern delegates wanted, and slaveholding states lost that advantage entirely. The three-fifths fraction was a bargain over that specific arithmetic of power, struck between men who agreed on very little else about slavery; it was not a compromise between two equally defensible positions in the way the Great Compromise was, but the price several Southern states demanded for joining the Union at all, and the price the rest of the Convention was willing to pay to get a Constitution. You will study the Constitution's specific provisions on slavery in much greater depth in Module 5, including the other clauses touching the slave trade and fugitive slaves.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Electoral College</h2>
-      <p>A different kind of disagreement surrounded the presidency. Some delegates wanted the president chosen by direct popular vote; others, worried that voters scattered across a vast country with no national newspapers or parties would have no reliable way to judge candidates from other states, wanted the president chosen by Congress or by the state legislatures instead; a method that itself raised the danger of a president beholden to the legislature that selected him, undermining the separation of powers the delegates were building into every other part of the Constitution. The delegates compromised on a middle mechanism: each state would appoint, by whatever method its legislature chose, a number of <em class="term">electors</em> equal to its total representation in Congress (House seats plus Senate seats combined), and those electors, meeting in their own states, would cast the actual votes for president. The system, now called the <em class="term">Electoral College</em>, gave the choice of president neither to Congress nor to a direct national popular vote, but to a body assembled solely for that purpose and then dissolved, and it built in the same large-state/small-state balance already struck in the Great Compromise, since a state's total electors reflected both its House seats (population-based) and its Senate seats (equal by state).</p>
+      <p>A different kind of disagreement surrounded the presidency. Some delegates wanted the president chosen by direct popular vote; others, worried that voters scattered across a vast country with no national newspapers or parties would have no reliable way to judge candidates from other states, wanted the president chosen by Congress or by the state legislatures instead; a method that itself raised the danger of a president beholden to the legislature that selected him, undermining the separation of powers the delegates were building into every other part of the Constitution. The delegates compromised on a middle mechanism: each state would appoint, by whatever method its legislature chose, a number of <strong class="term-subject" tabindex="0">electors<span class="gloss-tip">The members of the Electoral College, chosen by each state, who cast the official votes that elect the President and Vice President.</span></strong> equal to its total representation in Congress (House seats plus Senate seats combined), and those electors, meeting in their own states, would cast the actual votes for president. The system, now called the <strong class="term-subject" tabindex="0">Electoral College<span class="gloss-tip">The constitutional body of state-chosen electors whose votes, not the national popular vote directly, elect the President and Vice President.</span></strong>, gave the choice of president neither to Congress nor to a direct national popular vote, but to a body assembled solely for that purpose and then dissolved, and it built in the same large-state/small-state balance already struck in the Great Compromise, since a state's total electors reflected both its House seats (population-based) and its Senate seats (equal by state).</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Breaking the Rule on Ratification</h2>
-      <p>One final choice deserves attention precisely because it is easy to miss: how would this new Constitution be approved? The Articles of Confederation had required the unanimous consent of every state legislature for any amendment; the same rule that had made the Articles nearly impossible to fix, and the same rule the delegates in Philadelphia had technically violated just by proposing a wholesale replacement rather than a unanimous amendment. Rather than send the finished Constitution back to the state legislatures for approval under that old unanimity rule, the delegates specified in Article VII that the Constitution would take effect once special <em class="term">ratifying conventions</em> in nine of the thirteen states approved it; conventions of specially elected delegates, distinct from the sitting state legislatures, meeting for the sole purpose of voting on the Constitution.</p>
+      <p>One final choice deserves attention precisely because it is easy to miss: how would this new Constitution be approved? The Articles of Confederation had required the unanimous consent of every state legislature for any amendment; the same rule that had made the Articles nearly impossible to fix, and the same rule the delegates in Philadelphia had technically violated just by proposing a wholesale replacement rather than a unanimous amendment. Rather than send the finished Constitution back to the state legislatures for approval under that old unanimity rule, the delegates specified in Article VII that the Constitution would take effect once special <strong class="term-subject" tabindex="0">ratifying conventions<span class="gloss-tip">Special state conventions, separate from the state legislatures, called specifically to approve or reject the new Constitution in 1787 and 1788.</span></strong> in nine of the thirteen states approved it; conventions of specially elected delegates, distinct from the sitting state legislatures, meeting for the sole purpose of voting on the Constitution.</p>
 
       <p>This was itself a significant constitutional choice, not a formality. By routing ratification through the people acting in specially elected conventions, rather than through the state legislatures whose own power the new Constitution would partly displace, the framers reinforced the Preamble's claim that the new government's authority rested on "We the People" directly, not on the permission of state governments. And by setting the bar at nine states rather than thirteen, they guaranteed that a Constitution could take effect for the states that wanted it, without being held hostage to the single holdout that had crippled reform under the Articles. The delegates who wrote Article V's demanding amendment process were the same delegates who had just broken the old amendment rule to bring the Constitution into being in the first place; a pointed reminder that even the most carefully designed rules sometimes require political courage, and a fair measure of daring, to get a country from one settlement to the next.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Machiavelli and the Uses of Conflict</h2>
-      <p>The Convention's summer was not calm. Delegates walked out, threatened to leave for good, denounced one another's motives, and very nearly failed. It can be tempting to read that turbulence as a flaw in the process; a near-catastrophe the framers were lucky to survive. The Florentine political writer <em class="term">Niccolò Machiavelli</em>, in his early sixteenth-century commentary on Roman history, the <em>Discourses on Livy</em>, argued for a strikingly different way of reading exactly this kind of turbulence.</p>
+      <p>The Convention's summer was not calm. Delegates walked out, threatened to leave for good, denounced one another's motives, and very nearly failed. It can be tempting to read that turbulence as a flaw in the process; a near-catastrophe the framers were lucky to survive. The Florentine political writer <strong class="term-entity" tabindex="0">Niccolò Machiavelli<span class="gloss-tip">A Florentine political writer of the early sixteenth century, author of The Prince and the Discourses on Livy, known for his clear-eyed analysis of how power actually operates.</span></strong>, in his early sixteenth-century commentary on Roman history, the <em>Discourses on Livy</em>, argued for a strikingly different way of reading exactly this kind of turbulence.</p>
 
-      <p>Machiavelli had studied the history of the Roman Republic, including the long internal struggle between its patrician and plebeian orders that you read about in Week 2; the <em class="term">Struggle of the Orders</em>, in which the plebeians repeatedly withdrew from the city and forced concession after concession from the patrician class, eventually winning their own magistrates, the tribunes, and a real share of power. Roman writers before Machiavelli had mostly treated this history of internal conflict as a shameful record of disorder that Rome had been fortunate to survive. Machiavelli inverted the judgment. He argued that the tumults between the plebeians and the senate, far from weakening Rome, were the very thing that had made it strong: "I say that those who condemn the tumults between the nobles and the plebs seem to me to be cavilling at the very things that were the primary cause of Rome's retaining her freedom." Conflict, properly channeled through institutions that let grievances be aired and settled rather than suppressed or left to fester, was for Machiavelli not a danger to a republic's freedom but a condition of it. A republic with no visible friction, he suggested, is not a republic at peace; it is a republic where one faction has already won and stopped listening to any other.</p>
+      <p>Machiavelli had studied the history of the Roman Republic, including the long internal struggle between its patrician and plebeian orders that you read about in Module 1; the <strong class="term-entity" tabindex="0">Struggle of the Orders<span class="gloss-tip">Rome's long political conflict between the patrician nobility and the plebeian majority, resolved gradually by concessions such as the Tribune of the Plebs and the Twelve Tables.</span></strong>, in which the plebeians repeatedly withdrew from the city and forced concession after concession from the patrician class, eventually winning their own magistrates, the tribunes, and a real share of power. Roman writers before Machiavelli had mostly treated this history of internal conflict as a shameful record of disorder that Rome had been fortunate to survive. Machiavelli inverted the judgment. He argued that the tumults between the plebeians and the senate, far from weakening Rome, were the very thing that had made it strong: "I say that those who condemn the tumults between the nobles and the plebs seem to me to be cavilling at the very things that were the primary cause of Rome's retaining her freedom." Conflict, properly channeled through institutions that let grievances be aired and settled rather than suppressed or left to fester, was for Machiavelli not a danger to a republic's freedom but a condition of it. A republic with no visible friction, he suggested, is not a republic at peace; it is a republic where one faction has already won and stopped listening to any other.</p>
 
-      <p>Read Philadelphia's summer through that lens, and the Convention's near-collapses look different. The large-state/small-state standoff that nearly wrecked the Convention in June and July was not a breakdown of the process; it was the process doing exactly what a well-institutionalized conflict should do; forcing each side to reveal what it actually needed, and making a genuine settlement (the Great Compromise) both necessary and, eventually, possible. Machiavelli would not have been surprised that a Convention capable of producing a durable Constitution was also a Convention that nearly fell apart three or four times along the way. Next week, you will meet a more direct descendant of this idea, much closer to home: James Madison's argument in Federalist No. 10 that a large, diverse republic does not need to eliminate faction; the clashing interests and factions that so worried many of his contemporaries, but can instead be built to control faction's worst effects while still drawing strength from the competition it produces. Machiavelli was arguing about Rome's tribunes and plebeian assemblies nearly three centuries before Madison ever picked up a pen; the family resemblance between the two arguments is not a coincidence.</p>
+      <p>Read Philadelphia's summer through that lens, and the Convention's near-collapses look different. The large-state/small-state standoff that nearly wrecked the Convention in June and July was not a breakdown of the process; it was the process doing exactly what a well-institutionalized conflict should do; forcing each side to reveal what it actually needed, and making a genuine settlement (the Great Compromise) both necessary and, eventually, possible. Machiavelli would not have been surprised that a Convention capable of producing a durable Constitution was also a Convention that nearly fell apart three or four times along the way. The next lesson, you will meet a more direct descendant of this idea, much closer to home: James Madison's argument in Federalist No. 10 that a large, diverse republic does not need to eliminate faction; the clashing interests and factions that so worried many of his contemporaries, but can instead be built to control faction's worst effects while still drawing strength from the competition it produces. Machiavelli was arguing about Rome's tribunes and plebeian assemblies nearly three centuries before Madison ever picked up a pen; the family resemblance between the two arguments is not a coincidence.</p>
+    </div>
+
+    <div class="oa-card maroon-top">
+      <div class="oa-kicker">&#129504; Memory Work</div>
+      <p style="font-size:13px; color:#555; margin:2px 0 10px;">Commit these to memory. Each is tied to a story you have just read.</p>
+      <div class="oa-numbered"><div class="circ navy">1</div><div><strong>July 16, 1787 &ndash; the Great Compromise.</strong> Connecticut's proposal: a House apportioned by population, a Senate with equal votes per state, breaking the Convention's deadlock.</div></div>
+      <div class="oa-numbered"><div class="circ navy">2</div><div><strong>The Three-Fifths Compromise.</strong> Article I, Section 2's formula for counting three-fifths of a state's slave population toward representation and direct taxes; a bargain over political power, not personhood.</div></div>
+      <div class="oa-numbered"><div class="circ navy">3</div><div><strong>The Electoral College.</strong> Each state's electors, equal to its total House and Senate seats combined, cast the actual vote for president, a middle path between Congress choosing and a direct national vote.</div></div>
+      <div class="oa-numbered"><div class="circ navy">4</div><div><strong>Article VII &ndash; ratification by nine states.</strong> Special state conventions, not the state legislatures, would approve the Constitution, and only nine of thirteen states were needed, breaking the Articles' old unanimity rule.</div></div>
+      <div class="oa-numbered"><div class="circ navy">5</div><div><strong>Machiavelli on tumult.</strong> The <em>Discourses on Livy</em>'s argument that Rome's own internal conflict, not despite it, kept the Republic free; the same lens that makes sense of the Convention's own near-collapses.</div></div>
     </div>
 
     <div class="oa-card navy-top">
@@ -197,8 +285,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Primary Source 2 (Machiavelli, <em>Discourses on Livy</em>) and the VR Activity, below.</p>
     </div>
   </div>
-  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 6.2 &middot; The Great Compromise and the Price of Union</div></div>
-</div>
-</div>
+  <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 1 &middot; Student Lesson Page</div><div class="l2">Lesson 4.6 &middot; The Great Compromise and the Price of Union</div></div>
+
+
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>The Convention Floor: Virginia Plan or New Jersey Plan? is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+
+<script>
+function speakGloss(e, text) {
+  if (e) e.stopPropagation();
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
 </body>
 </html>
