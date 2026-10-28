@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -237,6 +273,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The colonists' most famous response to this practice came in 1761, when the Boston lawyer James Otis argued for hours against the legality of writs of assistance in a Massachusetts courtroom, calling them "the worst instrument of arbitrary power, the most destructive of English liberty, and the fundamental principles of law, that ever was found in an English law book." John Adams, then a young law student sitting in the audience, later wrote that "American independence was then and there born," because Otis's argument crystallized something the colonists had felt for years without quite naming: a government that can search anyone, anywhere, without having to justify itself in advance to a neutral judge, has effectively abolished the line between the citizen's home and the state's reach. There is no privacy, no security in one's own house and papers, if the government's curiosity alone is sufficient cause to enter.</p>
 
       <p>This is the direct, traceable ancestor of the <strong class="term-entity" tabindex="0">Fourth Amendment<span class="gloss-tip">The constitutional amendment protecting against unreasonable searches and seizures and requiring warrants based on probable cause.</span></strong>, which guarantees "the right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures," and requires that no warrant issue "but upon <strong class="term-subject" tabindex="0">probable cause<span class="gloss-tip">The Fourth Amendment's standard for a lawful search or arrest warrant: a reasonable basis, grounded in facts, for believing a crime has been committed.</span></strong>, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized." Read that last clause again, because it is doing the actual constitutional work: a warrant has to <em>particularly describe</em> what is being searched and what is being seized. That single requirement is a direct, point-by-point rebuttal of the general warrant. Where the writs of assistance authorized searching anywhere for anything at any time, the Fourth Amendment demands specificity in place, specificity in target, and (because a magistrate has to be satisfied there is <em>probable cause</em>, meaning a reasonable basis grounded in facts, not mere suspicion or curiosity, to believe evidence of a crime will be found) an independent check before the search ever happens. The framers were not drafting an abstract theory of privacy. They were writing a rule that would have made James Otis's clients' houses off-limits to the very practice he stood up in a Boston courtroom to condemn.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Audit the Warrant</div>
+      <p>Four warrants, each with something right or wrong about it. Mark which of the Fourth Amendment's requirements each one meets.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/warrant-audit.html" title="Audit the Warrant" style="width:100%; height:780px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/warrant-audit.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Fifth Amendment: Four Protections, One Memory of Coercion</h2>
       <p>The Fifth Amendment reads almost like a checklist of everything that could go wrong once a person is accused of a crime, and each item on that checklist answers a specific historical grievance. This session, focus on four of its guarantees.</p>
@@ -248,6 +296,88 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>Third, no person may "be subject for the same offence to be twice put in jeopardy of life or limb"; the guarantee against double jeopardy. This protects a defendant, once acquitted or convicted, from being tried again and again for the same crime until the government finally secures the verdict it wants. Without it, prosecutors with unlimited time and resources could simply wear down an innocent defendant through repeated trials, turning "not guilty" into a temporary, revocable status rather than a real vindication.</p>
 
       <p>Fourth, no person may be held to answer for "a capital, or otherwise infamous crime, unless on a presentment or indictment of a <strong class="term-subject" tabindex="0">grand jury<span class="gloss-tip">A panel of citizens that reviews evidence to decide whether there is enough cause to formally charge someone with a serious crime.</span></strong>," at least for serious federal offenses. A grand jury is a body of ordinary citizens who review the government's evidence <em>before</em> a formal charge can proceed to trial, asking only whether there is enough evidence to justify putting the accused through a public trial at all. It exists as a buffer between an ambitious or vindictive prosecutor and the accused; a citizen check on the government's charging power, exercised before the accusation itself becomes public and reputation-destroying.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which Fifth Amendment protection?</div>
+        <div class="widget-question">Match each situation to the protection that answers it.</div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Double jeopardy bars a second trial for the same offense after an acquittal or conviction." data-hint="The government wants a second trial for the same crime. Which protection covers that?">
+          <div class="widget-row-prompt">1. A defendant is acquitted, and prosecutors want a second trial for the same offense.</div>
+          <div class="widget-options">
+            <button data-choice="0">Due process of law</button>
+            <button data-choice="1">Privilege against self-incrimination</button>
+            <button data-choice="2">Double jeopardy</button>
+            <button data-choice="3">Grand jury requirement</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. The privilege against self-incrimination means no one can be forced to be a witness against himself, the principle John Lilburne insisted on." data-hint="The person is being forced to answer about himself. Which protection stops that?">
+          <div class="widget-row-prompt">2. A suspect is ordered to answer every question about himself under oath before he even knows the charge.</div>
+          <div class="widget-options">
+            <button data-choice="0">Due process of law</button>
+            <button data-choice="1">Privilege against self-incrimination</button>
+            <button data-choice="2">Double jeopardy</button>
+            <button data-choice="3">Grand jury requirement</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. A grand jury of ordinary citizens reviews the evidence before a serious federal charge can go forward." data-hint="Citizens are checking the evidence before any formal charge. Which requirement is that?">
+          <div class="widget-row-prompt">3. A panel of ordinary citizens reviews the government's evidence before a serious federal charge can proceed.</div>
+          <div class="widget-options">
+            <button data-choice="0">Due process of law</button>
+            <button data-choice="1">Privilege against self-incrimination</button>
+            <button data-choice="2">Double jeopardy</button>
+            <button data-choice="3">Grand jury requirement</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Due process of law demands fair, established procedures before government takes life, liberty, or property." data-hint="Government is taking something by decree, with no fair procedure. Which guarantee is the broadest of the four?">
+          <div class="widget-row-prompt">4. Government takes a person's property by decree, with no fair legal procedure.</div>
+          <div class="widget-options">
+            <button data-choice="0">Due process of law</button>
+            <button data-choice="1">Privilege against self-incrimination</button>
+            <button data-choice="2">Double jeopardy</button>
+            <button data-choice="3">Grand jury requirement</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Tap to reveal &middot; Say it, then flip</div>
+        <div class="widget-question">Try to define each term in your own words, then tap the card to check yourself.</div>
+        <div class="ow-cards">
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Self-incrimination<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">The Fifth Amendment right not to be forced to testify against yourself in a criminal case. John Lilburne refused the Star Chamber's oath in 1637 on this principle.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Probable cause<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A reasonable basis, grounded in facts rather than suspicion or curiosity, to believe evidence of a crime will be found. A magistrate must be satisfied before a warrant issues.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Double jeopardy<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Once acquitted or convicted, you cannot be tried again for the same offense. Without it, "not guilty" would be a temporary status.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Warrant<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A written authorization to search, issued only upon probable cause, supported by oath or affirmation, and particularly describing the place to be searched and the persons or things to be seized.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+        </div>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why These Two Amendments Sit Side by Side</h2>
       <p>It is not an accident of drafting that the ban on unreasonable searches and the ban on compelled confessions appear back to back in the Bill of Rights. Both respond to the same underlying colonial experience: a government that did not need to justify its actions to anyone before invading a person's home or extracting a statement from his own mouth. The writs of assistance let officials search first and explain never. The Star Chamber's oath let inquisitors demand answers first and specify the charge never. In both cases, the abuse was the same in structure even though it touched different parts of a person's life (the home in one case, the conscience and the tongue in the other), and in both cases, the American solution was the same in structure too: require the government to satisfy an independent check (a magistrate issuing a specific warrant; a defendant's own unforced choice to speak) <em>before</em> it can act, rather than trusting government officials to police themselves after the fact.</p>
@@ -280,6 +410,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
