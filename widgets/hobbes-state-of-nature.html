@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hobbes: The State of Nature</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 12px; }
+.panel { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.ctrl { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.slide { flex: 1 1 200px; min-width: 0; }
+.slide label { display: block; font-size: 13px; color: #0E1C42; margin-bottom: 2px; }
+.slide input[type=range] { width: 100%; }
+.slide .ends { display: flex; justify-content: space-between; font-size: 11.5px; color: #6b7a99; }
+.power { flex: 1 1 200px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #0E1C42; }
+.tog { background: #fff; border: 1.5px solid #7A2048; color: #7A2048; border-radius: 8px; padding: 8px 12px; font-size: 13.5px; font-family: inherit; cursor: pointer; }
+.tog.on { background: #7A2048; color: #fff; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.homes { display: flex; align-items: flex-end; gap: 6px; height: 150px; border-bottom: 2px solid #D0D9E8; padding: 0 2px; }
+.home { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.stock { width: 100%; background: #2196D0; border-radius: 4px 4px 0 0; transition: height .25s ease, background .25s; min-height: 2px; }
+.home.poor .stock { background: #C0392B; }
+.val { font-size: 11.5px; color: #0E1C42; margin-bottom: 2px; }
+.names { display: flex; gap: 6px; padding: 3px 2px 0; }
+.names div { flex: 1 1 0; text-align: center; font-size: 12px; color: #6b7a99; }
+.stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.stat { flex: 1 1 140px; background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 6px; padding: 8px 10px; }
+.stat b { display: block; font-size: 20px; color: #0E1C42; font-weight: 600; }
+.stat span { font-size: 12px; color: #6b7a99; }
+.read { margin-top: 10px; background: #FDF8EC; border-left: 4px solid #C7922C; border-radius: 4px; padding: 9px 12px; font-size: 14px; color: #1a2340; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Eight Neighbors, No Common Power</h1>
+<p class="sub">Eight neighbors work for twelve seasons. Slide trust and scarcity, then add a common power, and watch what each household ends up holding.</p>
+
+<div class="panel">
+  <div class="ctrl">
+    <div class="slide">
+      <label for="trust">Trust in your neighbors</label>
+      <input type="range" id="trust" min="0" max="100" value="45">
+      <div class="ends"><span>Low</span><span>High</span></div>
+    </div>
+    <div class="slide">
+      <label for="scarce">How scarce is the good stuff?</label>
+      <input type="range" id="scarce" min="0" max="100" value="65">
+      <div class="ends"><span>Plenty</span><span>Scarce</span></div>
+    </div>
+    <div class="power">
+      <button class="tog" id="power" aria-pressed="false">Add a common power</button>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="label">What each household holds after twelve seasons</div>
+  <div class="homes" id="homes"></div>
+  <div class="names" id="names"></div>
+  <div class="stats">
+    <div class="stat"><b id="avg">0</b><span>average grain kept per household per season</span></div>
+    <div class="stat"><b id="guard">0%</b><span>of effort spent guarding instead of working</span></div>
+    <div class="stat"><b id="raids">0</b><span>raids in twelve seasons</span></div>
+  </div>
+  <div class="read" id="read"></div>
+</div>
+
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var N = 8, SEASONS = 12, EFFORT = 10, TAX = 1.5;
+  var NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+  var $ = function (id) { return document.getElementById(id); };
+  var powerOn = false;
+
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function simulate() {
+    var trust = +$('trust').value / 100, scarce = +$('scarce').value / 100;
+    var fear = (1 - trust) * (0.35 + 0.65 * scarce);
+    if (powerOn) fear *= 0.1;
+    var guardShare = 0.7 * fear;
+    var raidChance = 0.55 * fear;
+    var rand = rng(1651);
+    var held = [], i, s;
+    for (i = 0; i < N; i++) held.push(0);
+    var raids = 0;
+    for (s = 0; s < SEASONS; s++) {
+      for (i = 0; i < N; i++) held[i] += EFFORT * (1 - guardShare) - (powerOn ? TAX : 0);
+      for (i = 0; i < N; i++) {
+        if (rand() < raidChance) {
+          var v = Math.floor(rand() * (N - 1)); if (v >= i) v++;
+          raids++;
+          held[i] += 3; held[v] -= 4;
+        }
+      }
+    }
+    return { held: held, raids: raids, guard: guardShare, powerOn: powerOn, fear: fear };
+  }
+
+  function draw() {
+    var r = simulate();
+    var max = Math.max.apply(null, r.held.concat([EFFORT * SEASONS]));
+    var min = Math.min.apply(null, r.held);
+    var homes = $('homes'), names = $('names');
+    if (!homes.children.length) {
+      NAMES.forEach(function (n) {
+        homes.insertAdjacentHTML('beforeend', '<div class="home"><div class="val"></div><div class="stock"></div></div>');
+        names.insertAdjacentHTML('beforeend', '<div>' + n + '</div>');
+      });
+    }
+    var total = 0;
+    r.held.forEach(function (h, i) {
+      var el = homes.children[i];
+      el.querySelector('.stock').style.height = Math.max(1, Math.round(Math.max(h, 0) / max * 115)) + 'px';
+      el.querySelector('.val').textContent = Math.round(h);
+      el.classList.toggle('poor', h === min && r.raids > 0 && (Math.max.apply(null, r.held) - min) > 12);
+      total += h;
+    });
+    $('avg').textContent = (total / N / SEASONS).toFixed(1);
+    $('guard').textContent = Math.round(r.guard * 100) + '%';
+    $('raids').textContent = r.raids;
+    var msg;
+    if (r.powerOn) {
+      msg = r.fear > 0 && r.raids > 0 ? 'A common power keeps raids rare, but every household now pays for it. Compare the average with and without it.' : 'With a common power in place, nobody has a reason to strike first, and nobody spends effort guarding. The price is the share each household hands over.';
+    } else if (r.guard > 0.4) {
+      msg = 'Each neighbor fears the others, so much of the effort goes to guarding, and raids keep taking from whoever is weakest. This is the condition Hobbes calls a war of every man against every man, even though few blows are struck in any one season.';
+    } else if (r.guard > 0.15) {
+      msg = 'Some effort goes to guarding and a few raids land. Slide trust down or scarcity up and watch how quickly the guarding grows.';
+    } else {
+      msg = 'With plenty and trust, neighbors lose little. Ask whether you can count on that trust holding for every one of the eight, every season.';
+    }
+    $('read').textContent = msg;
+    $('power').textContent = powerOn ? 'Remove the common power' : 'Add a common power';
+    $('power').classList.toggle('on', powerOn);
+    $('power').setAttribute('aria-pressed', powerOn ? 'true' : 'false');
+  }
+
+  $('trust').addEventListener('input', draw);
+  $('scarce').addEventListener('input', draw);
+  $('power').addEventListener('click', function () { powerOn = !powerOn; draw(); });
+  $('reset').addEventListener('click', function () {
+    $('trust').value = 45; $('scarce').value = 65; powerOn = false; draw();
+  });
+  draw();
+})();
+</script>
+</body>
+</html>
