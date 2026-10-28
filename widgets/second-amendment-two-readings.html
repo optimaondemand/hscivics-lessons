@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Sentence, Two Readings</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.tabs button { flex: 1 1 200px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 9px 11px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; }
+.tabs button.on { background: #0E1C42; color: #fff; }
+.sentence { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-size: 16px; line-height: 2; font-family: Georgia, "Times New Roman", serif; }
+.sentence button { font: inherit; background: #fff; border: 0; border-bottom: 3px solid #D0D9E8; padding: 1px 3px; margin: 0 1px; cursor: pointer; color: #1a2340; border-radius: 3px; }
+.sentence button:hover { background: #F4F6FA; }
+.sentence button.on { background: #FDF3E3; border-bottom-color: #C7922C; }
+.hint { font-size: 12.5px; color: #6b7a99; margin-top: 4px; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.4; }
+.read { background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #2196D0; border-radius: 8px; padding: 11px 14px; margin-bottom: 10px; min-height: 120px; transition: border-color .2s; }
+.read.ind { border-left-color: #7A2048; }
+.read .lab { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: #6b7a99; font-weight: 700; margin-bottom: 4px; }
+.read p { margin: 0 0 6px; font-size: 14.5px; }
+.note { font-size: 13.5px; color: #0E1C42; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; padding: 9px 12px; margin-bottom: 10px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>One Sentence, Two Readings</h1>
+<p class="sub">Choose a reading, then tap a part of the sentence to see how that reading treats it.</p>
+
+<div class="tabs" id="tabs"></div>
+<div class="sentence" id="sentence"></div>
+<div class="read" id="read"></div>
+<div class="note">Both readings can marshal serious historical and textual evidence. In 2008, in <em>District of Columbia v. Heller</em>, the Supreme Court held 5-4 that the amendment protects an individual right, while saying that longstanding regulations remain presumptively constitutional.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var READINGS = [
+    { name: 'Collective-right reading', cls: '',
+      parts: [
+        'The opening clause defines the right. The right to keep and bear arms exists because of, and in service of, an organized militia. The founding generation feared standing federal armies and wanted states to keep their own armed citizen militias.',
+        'Read through the militia clause, "the people" is most naturally a collective right, tied to the states\' power to maintain militias, rather than something each individual holds apart from militia service.',
+        'This protects keeping and bearing arms for militia purposes, so the federal government cannot disarm the state militias. Reading it as a private right with no militia purpose ignores the sentence\'s own stated justification.'
+      ] },
+    { name: 'Individual-right reading', cls: 'ind',
+      parts: [
+        'The opening clause states a purpose but does not itself grant or restrict anything. It announces one important reason among others. Eighteenth-century militias were ordinary armed citizens, so the line between individual and militia is less sharp than it looks today.',
+        'The same phrase appears in the First Amendment (assembly and petition) and the Fourth (unreasonable searches), where it describes individual persons. Nothing in the text clearly signals that the Second uses it differently.',
+        'This protects a personal right to keep and bear arms that exists apart from militia service. An armed citizenry was widely valued at the founding for reasons beyond militia duty, including self-defense.'
+      ] }
+  ];
+  var PARTS = [
+    'A well regulated militia, being necessary to the security of a free State,',
+    'the right of the people',
+    'to keep and bear Arms, shall not be infringed.'
+  ];
+  var rd, pt;
+  function init() { rd = 0; pt = 0; draw(); }
+  function draw() {
+    var t = $('tabs'); t.innerHTML = '';
+    READINGS.forEach(function (r, i) {
+      var b = document.createElement('button'); b.textContent = r.name;
+      if (i === rd) b.className = 'on';
+      b.addEventListener('click', function () { rd = i; draw(); });
+      t.appendChild(b);
+    });
+    var s = $('sentence'); s.innerHTML = '';
+    s.appendChild(document.createTextNode('“'));
+    PARTS.forEach(function (p, i) {
+      var b = document.createElement('button'); b.textContent = p;
+      if (i === pt) b.className = 'on';
+      b.addEventListener('click', function () { pt = i; draw(); });
+      s.appendChild(b); s.appendChild(document.createTextNode(' '));
+    });
+    s.appendChild(document.createTextNode('”'));
+    var h = document.createElement('div'); h.className = 'hint';
+    h.textContent = 'The first part is the prefatory clause; the last two parts together are the operative clause.';
+    s.appendChild(h);
+    var r = $('read'); r.className = 'read ' + READINGS[rd].cls;
+    r.innerHTML = '<div class="lab"></div><p></p>';
+    r.querySelector('.lab').textContent = READINGS[rd].name + ' on this part';
+    r.querySelector('p').textContent = READINGS[rd].parts[pt];
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
