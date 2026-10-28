@@ -193,6 +193,38 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -239,10 +271,37 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Why does redrawing administrative boundaries count as a democratic reform, and not just bureaucratic housekeeping? Because political power in the old system depended on being able to mobilize a geographically concentrated network of dependents. By deliberately scrambling geography, Cleisthenes made that kind of local patronage machine impossible to operate at scale. Power could no longer run through inherited clan networks; it had to run through the assembled body of citizens as citizens, meeting and voting as individuals rather than as followers. This is the structural change that lets us call what came after a democracy in a way Solon's Athens, with its property-based offices and unbroken aristocratic dominance of the archonship, was not yet.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Redraw the Map</div>
+      <p>Start from the old map, where each tribe sits inside one region. Swap thirds between tribes and watch what happens to the power of a local patron.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/cleisthenes-redraw-the-map.html" title="Redraw the Map: Cleisthenes's Tribes" style="width:100%; height:560px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/cleisthenes-redraw-the-map.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Ostracism: A Safety Valve, or a Weapon?</h2>
       <p>Cleisthenes is also credited with introducing <strong class="term-subject" tabindex="0">ostracism<span class="gloss-tip">An Athenian practice in which citizens voted, without a trial, to exile a person from the city for ten years, usually to remove a political threat.</span></strong>, a procedure by which the Assembly could, by a certain quorum of votes scratched onto broken pottery shards (<em>ostraka</em>), banish a citizen from Athens for ten years, without trial, without formal charge, and without confiscating his property. Aristotle tells us the law was aimed specifically at the friends and relatives of the deposed tyrants, out of fear that anyone connected to Pisistratus's family might use their remaining influence to restore the tyranny.</p>
 
       <p>Ostracism is a strange institution to modern eyes, precisely because it punishes influence itself, independent of any specific wrongdoing. Its defenders would say a young democracy, still afraid of relapsing into tyranny, needed some check on any single citizen accumulating dangerous personal power (a preventive tool, not a punitive one). Its critics, ancient and modern, note that a vote with no charge and no defense is exactly the kind of instrument a democracy's own majority can misuse against an unpopular minority of one. Both readings are defensible; historians still argue about how the institution was actually used across the fifth century. Hold that tension. It is the first of many moments this semester where you will be asked to weigh a real democratic safeguard against its real democratic abuse potential, the same tension James Madison will wrestle with, in a very different form, in Federalist No. 10.</p>
+
+      <div class="optima-widget ow-reflect ow-scale">
+        <div class="widget-kicker">&#9889; Place it on the line</div>
+        <div class="widget-question">Where would you place ostracism between a safety valve for a young democracy and a weapon a majority can turn on one man? (No wrong answer. Both readings are defensible.)</div>
+        <div class="widget-options">
+          <button data-response="A defender's reading: a young democracy, afraid of tyranny returning, needs a way to remove a dangerous man without a trial or a civil war.">Safety valve</button>
+          <button data-response="You see the purpose, and you also see some risk. That is a common place for historians to land.">Leans safety valve</button>
+          <button data-response="Then you have found the point of the section: the same tool can do both jobs, and historians still argue over which one it did.">Torn between the two</button>
+          <button data-response="You are weighing the missing charge and the missing defense heavily. A vote like this can be aimed at one unpopular man.">Leans weapon</button>
+          <button data-response="A critic's reading: a vote with no charge and no defense punishes influence itself, with no wrongdoing to prove.">Weapon</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isegoria: The Right to Speak, Not Just the Right to Shout</h2>
       <p>One reform of this period deserves its own emphasis: <em class="term" tabindex="0">isegoria<span class="gloss-tip">The equal right of every Athenian citizen to speak before the Assembly. <button class="gloss-speak" onclick="speakGloss(event,'isegoria, ee-say-GOR-ee-uh')" aria-label="Hear pronunciation">&#128266;</button></span></em>, equal freedom of speech in the Assembly. Every male citizen, whatever his class, had always been entitled to attend the Assembly: this was an ancient Greek institution, found in every city-state, far older than either Solon or Cleisthenes. You can see it functioning as far back as Homer's <em>Iliad</em>, where Agamemnon calls an assembly of every fighting man in the Greek camp, common soldiers included. But attendance was never the same thing as a voice. Traditionally, only Aristocrats were permitted to address the Assembly in formal speech; commoners could show approval or disapproval only by voice, through shouting, not through argument of their own. The <em>Iliad</em> preserves a famous, almost comic illustration of how seriously this rule was enforced: when the common soldier Thersites dares to stand and criticize Agamemnon in a speech of his own, Odysseus beats him in front of the whole army for the presumption of speaking at all, and the assembled soldiers laugh in approval. What changes by Cleisthenes's Athens is that every citizen, including the Thetes, now has the recognized right to stand and address the Assembly in his own words, not merely to shout approval or disapproval at what an Aristocrat has said. That right, isegoria, is at least as important a democratic milestone as the reshuffled tribes.</p>
@@ -253,6 +312,41 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The last steps in this story belong to two statesmen a generation after Cleisthenes: Ephialtes and, following him, Pericles. Two changes in the 460s and 450s BC finished what Solon and Cleisthenes had started. First, Ephialtes and Pericles stripped the <em class="term" tabindex="0">Areopagus<span class="gloss-tip">The council of former archons that heard serious court cases and guarded the laws of Athens. <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button></span></em>, the old aristocratic council that had traditionally guarded the laws and tried the most serious cases, of nearly all its remaining power, leaving it with little beyond jurisdiction over homicide. Second, and just as important, Pericles introduced a state stipend for jury duty and, eventually, for service on the Council of Five Hundred, which finally made it financially possible for a Thete to serve without starving his family in the process. The right that had existed only on paper since Cleisthenes now became a right the poorest Athenian could actually use.</p>
 
       <p>The effect on the balance of power between Athens's institutions was decisive. Under Solon, and still under Cleisthenes, the Council had directed the business the Assembly considered: it set the agenda, and the Assembly voted on what the Council brought to it. After Ephialtes and Pericles, with the <em class="term" tabindex="0">Areopagus<span class="gloss-tip">The council of former archons that heard serious court cases and guarded the laws of Athens. <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button></span></em> neutralized and Council and jury service open in practice to every citizen, the relationship reversed. It is the Assembly, now composed of every male citizen with a practical, paid ability to participate, that holds supreme authority, with the Council increasingly its administrative instrument rather than its director. This, not Solon's reforms and not even Cleisthenes's, is the point at which Athens becomes the kind of democracy the word usually calls to mind: the direct rule of the assembled citizen body.</p>
+
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Tap to reveal &middot; Four terms</div>
+        <div class="widget-question">Say what each term means in your own words, then tap the card to check yourself.</div>
+        <div class="ow-cards">
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">deme<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A local district or township. After Cleisthenes it was the basic unit of citizenship, and Athenians began naming themselves by deme rather than by their father's name.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">isegoria<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">The equal right of every citizen to stand and speak in the Assembly in his own words, and not merely to shout approval or disapproval.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Boule<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">The Athenian Council. Solon's Four Hundred became Cleisthenes's Five Hundred: fifty from each of ten tribes, chosen by lot. It prepared business for the Assembly.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">ostracism<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A ten-year exile decided by votes scratched on pottery shards (ostraka), with no trial, no formal charge, and no loss of property.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+        </div>
+      </div>
 
       <div class="oa-visual">
         <div class="oa-visual-label">A Century of Reform, at a Glance</div>
@@ -294,6 +388,64 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
