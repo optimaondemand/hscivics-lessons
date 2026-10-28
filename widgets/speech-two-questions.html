@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Does Speech Protection Stop?</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.case { background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-size: 15.5px; }
+.q { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+.q .t { font-size: 14px; margin-bottom: 6px; }
+.q .opts { display: flex; gap: 8px; }
+.q button { flex: 1 1 0; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 6px; padding: 8px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.q button.on { background: #0E1C42; color: #fff; }
+.q.ok { border-color: #2A9D5C; }
+.q.no { border-color: #C0392B; }
+.q .fb { font-size: 13px; margin-top: 6px; color: #8A1F16; }
+.q.ok .fb { color: #1A6B3D; }
+.gauge { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid #D0D9E8; margin: 4px 0 4px; background: #fff; }
+.gauge div { display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; transition: flex .35s; overflow: hidden; white-space: nowrap; }
+.gauge .p { background: #2A9D5C; }
+.gauge .o { background: #7A2048; }
+.gauge .n { background: #D0D9E8; color: #6b7a99; }
+.verdict { display: none; margin: 8px 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.verdict.show { display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.go { background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.go[disabled] { opacity: .4; cursor: default; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+.end { display: none; margin-bottom: 10px; padding: 10px 14px; background: #D8F0DD; border-left: 4px solid #2A9D5C; border-radius: 4px; color: #1A6B3D; font-size: 14px; }
+.end.show { display: block; }
+</style>
+</head>
+<body>
+<h1>Where Does Speech Protection Stop?</h1>
+<p class="sub">Protection is very broad but not infinite. For each example, answer two questions, then check.</p>
+
+<div class="prog" id="prog"></div>
+<div class="case" id="case"></div>
+<div class="q" id="q1"><div class="t">Is it a statement genuinely meant to make a specific person fear violence?</div><div class="opts"><button data-v="1">Yes</button><button data-v="0">No</button></div><div class="fb"></div></div>
+<div class="q" id="q2"><div class="t">Is it meant, and likely, to produce unlawful action right away?</div><div class="opts"><button data-v="0">No</button><button data-v="1">Yes</button></div><div class="fb"></div></div>
+<div class="gauge" id="gauge"><div class="n" style="flex:1">Your answers set the verdict</div></div>
+<div class="verdict" id="verdict"></div>
+<div class="row"><button class="go" id="check">Check</button><button class="go" id="next" disabled>Next example</button><button class="reset" id="reset">Reset</button></div>
+<div class="end" id="end">That is all five. Offensive, wrong, or dangerous-sounding is not a category. Only a genuine threat or speech aimed at immediate lawless action falls outside protection.</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // t: threat, i: incitement. Order mixes protected and unprotected cases.
+  var CASES = [
+    { s: 'A newspaper columnist publishes an essay arguing that a popular policy is foolish, in language many readers find offensive.', t: 0, i: 0,
+      fb: 'Protected. Offensive or wrong is not an exception. The classical liberal case protects exactly this speech, because open argument, not an official, sorts truth from error.' },
+    { s: 'A speaker tells a crowd outside a building, "Storm it right now and tear it down," and the crowd surges toward the doors.', t: 0, i: 1,
+      fb: 'Outside protection. It is aimed at immediate lawless action and is likely to produce it, so it works as action rather than argument.' },
+    { s: 'At a town meeting, a speaker argues that the county budget is corrupt and that everyone in office should be voted out.', t: 0, i: 0,
+      fb: 'Protected. Judging and criticizing officeholders is the core of self-government. A people cannot judge a government it is forbidden to criticize.' },
+    { s: 'A man sends his neighbor a message saying he knows when she leaves home and that he will hurt her.', t: 1, i: 0,
+      fb: 'Outside protection. A true threat is genuinely meant to place a specific person in fear of violence. It adds no idea to be tested.' },
+    { s: 'A speaker praises a violent revolution from long ago and argues, in the abstract, that such revolutions can be justified.', t: 0, i: 0,
+      fb: 'Protected. Advocacy of an idea in the abstract differs from speech meant and likely to produce lawless conduct right away.' }
+  ];
+  var idx, a1, a2, checked, solved;
+  function init() { idx = 0; solved = 0; load(); $('end').className = 'end'; }
+  function load() {
+    a1 = a2 = null; checked = false;
+    var c = CASES[idx];
+    $('prog').textContent = 'Example ' + (idx + 1) + ' of ' + CASES.length;
+    $('case').textContent = '“' + c.s + '”';
+    ['q1', 'q2'].forEach(function (id) {
+      var q = $(id); q.className = 'q'; q.querySelector('.fb').textContent = '';
+      q.querySelectorAll('button').forEach(function (b) { b.className = ''; });
+    });
+    $('gauge').innerHTML = '<div class="n" style="flex:1">Your answers set the verdict</div>';
+    $('verdict').className = 'verdict'; $('check').disabled = false; $('next').disabled = true;
+  }
+  function pick(qid, v, btn) {
+    if (checked) return;
+    if (qid === 'q1') a1 = v; else a2 = v;
+    $(qid).querySelectorAll('button').forEach(function (b) { b.className = (b === btn ? 'on' : ''); });
+  }
+  ['q1', 'q2'].forEach(function (id) {
+    $(id).querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () { pick(id, Number(b.dataset.v), b); });
+    });
+  });
+  $('check').addEventListener('click', function () {
+    if (checked) return;
+    var c = CASES[idx], v = $('verdict');
+    if (a1 === null || a2 === null) { v.className = 'verdict show'; v.textContent = 'Answer both questions first.'; return; }
+    var ok1 = a1 === c.t, ok2 = a2 === c.i;
+    $('q1').className = 'q ' + (ok1 ? 'ok' : 'no'); $('q2').className = 'q ' + (ok2 ? 'ok' : 'no');
+    $('q1').querySelector('.fb').textContent = ok1 ? '' : 'Look again at whether the words are meant to frighten one specific person with violence.';
+    $('q2').querySelector('.fb').textContent = ok2 ? '' : 'Look again at whether the speech aims at unlawful action right now, and is likely to cause it.';
+    if (ok1 && ok2) {
+      checked = true; solved++;
+      var out = c.t || c.i;
+      $('gauge').innerHTML = out ? '<div class="p" style="flex:1">Protected</div><div class="o" style="flex:3">Outside protection</div>' : '<div class="p" style="flex:3">Protected</div><div class="o" style="flex:1">Outside protection</div>';
+      v.className = 'verdict show'; v.textContent = c.fb;
+      if (idx < CASES.length - 1) $('next').disabled = false; else $('end').className = 'end show';
+      $('check').disabled = true;
+    } else {
+      v.className = 'verdict show'; v.textContent = 'Not quite. Fix the marked question and check again.';
+    }
+  });
+  $('next').addEventListener('click', function () { idx++; load(); });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
