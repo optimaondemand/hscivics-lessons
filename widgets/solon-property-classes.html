@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solon's Ladder: Which Doors Open?</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 12px; }
+.wrap { display: flex; flex-wrap: wrap; gap: 14px; }
+.panel { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 14px 16px; }
+.left { flex: 1 1 280px; min-width: 0; }
+.right { flex: 1 1 280px; min-width: 0; }
+.steps { display: flex; gap: 6px; margin-bottom: 10px; }
+.dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #D0D9E8; font-size: 11px; display: flex; align-items: center; justify-content: center; color: #6b7a99; }
+.dot.now { border-color: #0E1C42; color: #0E1C42; font-weight: 700; }
+.dot.done { background: #2A9D5C; border-color: #2A9D5C; color: #fff; }
+.who { font-size: 12px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+.profile { font-size: 16px; color: #0E1C42; margin-bottom: 12px; }
+.ladder { display: flex; flex-direction: column; gap: 6px; }
+.rung { text-align: left; background: #fff; border: 1.5px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-family: inherit; color: #0E1C42; transition: background .15s, border-color .15s; }
+.rung:hover { background: #F4F6FA; border-color: #55C8E8; }
+.rung .rn { font-size: 14px; font-weight: 700; display: block; }
+.rung .rd { font-size: 12.5px; color: #444; }
+.rung.right { background: #D8F0DD; border-color: #2A9D5C; }
+.rung.wrong { background: #FDECEC; border-color: #C0392B; }
+.rung[disabled] { cursor: default; }
+.msg { margin-top: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.ok { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.msg.no { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.tog { display: flex; gap: 0; margin-bottom: 10px; }
+.tog button { flex: 1; padding: 7px 8px; font-size: 13px; font-family: inherit; border: 1.5px solid #0E1C42; background: #fff; color: #0E1C42; cursor: pointer; }
+.tog button:first-child { border-radius: 6px 0 0 6px; }
+.tog button:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+.tog button.on { background: #0E1C42; color: #fff; }
+.tog button[disabled] { opacity: .45; cursor: default; }
+.doors { display: flex; flex-direction: column; gap: 6px; }
+.door { display: flex; align-items: center; gap: 10px; border: 1px solid #D0D9E8; border-radius: 6px; padding: 7px 10px; font-size: 14px; transition: background .25s, border-color .25s, color .25s; }
+.door .st { min-width: 62px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 3px 6px; border-radius: 10px; text-transform: uppercase; }
+.door.open { background: #E9F7EE; border-color: #2A9D5C; color: #1A6B3D; }
+.door.open .st { background: #2A9D5C; color: #fff; }
+.door.locked { background: #F1F1F4; border-color: #B9BECC; color: #6b7280; }
+.door.locked .st { background: #B9BECC; color: #fff; }
+.door.idle { background: #fff; color: #6b7a99; }
+.door.idle .st { background: #EEF1F8; color: #6b7a99; }
+.take { margin-top: 10px; font-size: 14px; color: #0E1C42; background: #FDF3E3; border-left: 4px solid #C7922C; border-radius: 4px; padding: 8px 12px; display: none; }
+.take.show { display: block; }
+.bar { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.btn { background: #0E1C42; color: #fff; border: none; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.btn[disabled] { opacity: .4; cursor: default; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+.note { font-size: 12px; color: #6b7a99; margin-top: 10px; }
+</style>
+</head>
+<body>
+<h1>Solon's Ladder: Which Doors Open?</h1>
+<p class="sub">Athens, 594 BC. Place each citizen on Solon's ladder by his land, then see which doors of the city open to him.</p>
+
+<div class="wrap">
+  <div class="panel left">
+    <div class="steps" id="steps"></div>
+    <div class="who" id="who">Citizen</div>
+    <div class="profile" id="profile"></div>
+    <div class="ladder" id="ladder"></div>
+    <div class="msg" id="msg"></div>
+  </div>
+  <div class="panel right">
+    <div class="tog">
+      <button id="tBefore" class="on" disabled>Before Solon</button>
+      <button id="tAfter" disabled>After Solon</button>
+    </div>
+    <div class="doors" id="doors"></div>
+    <div class="take" id="take"></div>
+  </div>
+</div>
+
+<div class="bar">
+  <button class="btn" id="next" disabled>Next citizen</button>
+  <button class="reset" id="reset">Reset</button>
+</div>
+<p class="note">The four citizens are invented for practice. The classes and the doors follow Solon's reforms as described in the lesson.</p>
+
+<script>
+(function () {
+  var RUNGS = [
+    { n: 'Pentakosiomedimnoi', d: 'The top class: land yields 500 measures or more a year' },
+    { n: 'Hippeis (the horsemen)', d: 'Rich enough to keep a war-horse, but under the top line' },
+    { n: 'Zeugetai (the yoke-men)', d: 'Yeoman farmers with a modest plot worked by their own hands' },
+    { n: 'Thetes', d: 'Little or no land of their own' }
+  ];
+  // Doors: [label, before, afterByRung(0..3)]
+  var DOORS = [
+    { l: 'Law shields your body from debt-bondage', before: false, after: [true, true, true, true] },
+    { l: 'Attend the Assembly', before: true, after: [true, true, true, true] },
+    { l: 'Sit on a Heliaia jury', before: false, after: [true, true, true, true] },
+    { l: 'Sit on the Council of Four Hundred', before: false, after: [true, true, true, false] },
+    { l: 'Hold public office', before: false, after: [true, true, true, false] }
+  ];
+  // Correct rungs vary: 2, 0, 3, 1
+  var CITIZENS = [
+    { name: 'Demetrios', text: 'Demetrios owns a modest plot and works it with his own hands and a yoke of oxen. He rents from no landlord and hires no tenants. He was born a commoner.', rung: 2,
+      hint: 'He owns land, so he is not a Thete. Is his plot large enough for the two richest classes, or is it a working farmer\'s plot?',
+      ok: 'Right. A farmer who works his own plot is one of the yoke-men, the third class.',
+      take: 'Before Solon, birth kept him out of every office. Now his land, not his family, opens the Council and public office to him.' },
+    { name: 'Philon', text: 'Philon was born a commoner but made a fortune trading across the Aegean. His estates now yield 620 measures of grain, oil, and wine a year.', rung: 0,
+      hint: 'Compare his yearly yield to the 500-measure line on the top rung.',
+      ok: 'Right. 620 measures clears the 500-measure line, so he is in the top class.',
+      take: 'A commoner\'s wealth, however great, bought him no share in government before. Now his wealth counts, and the top class is open to him.' },
+    { name: 'Nikias', text: 'Nikias owns no land. He works for wages. A few years ago he rented a field and owed his landlord a sixth of the harvest, and he could have been seized if he fell short.', rung: 3,
+      hint: 'Does Nikias own land at all? Look at the rung built for men with little or none.',
+      ok: 'Right. With no land of his own, he is a Thete.',
+      take: 'He still cannot hold office or sit on the Council. But the debt law no longer reaches his body, and the Heliaia is open to him: he can judge, and he can appeal a magistrate\'s ruling to a jury of fellow citizens.' },
+    { name: 'Lykon', text: 'Lykon owns a large estate, well above a yeoman\'s plot, though not enough to reach the 500-measure line. He can afford to keep a war-horse.', rung: 1,
+      hint: 'He is richer than a yeoman farmer but short of the top line. Which rung sits between them?',
+      ok: 'Right. Wealthy enough for a war-horse, short of 500 measures: the horsemen.',
+      take: 'Like the class above and the class below, he now qualifies by property. The top three classes can all hold office and sit on the Council.' }
+  ];
+
+  var i = 0, solved = [], placed = false;
+  var el = function (id) { return document.getElementById(id); };
+  var ladder = el('ladder'), doors = el('doors');
+
+  function buildLadder() {
+    ladder.innerHTML = '';
+    RUNGS.forEach(function (r, idx) {
+      var b = document.createElement('button');
+      b.className = 'rung';
+      b.setAttribute('data-r', idx);
+      b.innerHTML = '<span class="rn">' + r.n + '</span><span class="rd">' + r.d + '</span>';
+      b.addEventListener('click', function () { pick(idx, b); });
+      ladder.appendChild(b);
+    });
+  }
+  function steps() {
+    var s = el('steps'); s.innerHTML = '';
+    CITIZENS.forEach(function (c, k) {
+      var d = document.createElement('div');
+      d.className = 'dot' + (solved[k] ? ' done' : (k === i ? ' now' : ''));
+      d.textContent = solved[k] ? '✓' : (k + 1);
+      s.appendChild(d);
+    });
+  }
+  function drawDoors(mode) {
+    doors.innerHTML = '';
+    var c = CITIZENS[i];
+    DOORS.forEach(function (d) {
+      var row = document.createElement('div');
+      var state = null;
+      if (mode === 'before') state = d.before;
+      else if (mode === 'after') state = d.after[c.rung];
+      var cls = state === null ? 'idle' : (state ? 'open' : 'locked');
+      row.className = 'door ' + cls;
+      row.innerHTML = '<span class="st">' + (state === null ? 'Place him' : (state ? 'Open' : 'Locked')) + '</span><span>' + d.l + '</span>';
+      doors.appendChild(row);
+    });
+  }
+  function setToggle(mode) {
+    el('tBefore').classList.toggle('on', mode === 'before');
+    el('tAfter').classList.toggle('on', mode === 'after');
+    drawDoors(mode);
+  }
+  function show(txt, ok) {
+    var m = el('msg'); m.textContent = txt; m.className = 'msg show ' + (ok ? 'ok' : 'no');
+  }
+  function load() {
+    var c = CITIZENS[i];
+    placed = false;
+    el('who').textContent = 'Citizen ' + (i + 1) + ' of ' + CITIZENS.length + ': ' + c.name;
+    el('profile').textContent = c.text;
+    buildLadder(); steps();
+    el('msg').className = 'msg'; el('take').className = 'take';
+    el('tBefore').disabled = true; el('tAfter').disabled = true;
+    el('next').disabled = true;
+    el('next').textContent = i === CITIZENS.length - 1 ? 'Finish' : 'Next citizen';
+    drawDoors(null);
+  }
+  function pick(idx, btn) {
+    if (placed) return;
+    var c = CITIZENS[i];
+    if (idx === c.rung) {
+      placed = true; solved[i] = true;
+      btn.classList.add('right');
+      ladder.querySelectorAll('.rung').forEach(function (r) { r.disabled = true; });
+      show(c.ok, true);
+      el('take').textContent = c.take; el('take').className = 'take show';
+      el('tBefore').disabled = false; el('tAfter').disabled = false;
+      setToggle('after');
+      el('next').disabled = false;
+      steps();
+    } else {
+      btn.classList.add('wrong');
+      setTimeout(function () { btn.classList.remove('wrong'); }, 900);
+      show(c.hint, false);
+    }
+  }
+  function finish() {
+    el('who').textContent = 'All four placed';
+    el('profile').textContent = 'The same rule sorted all four: land, not birth, decided which doors opened. Only the Thetes stayed outside the Council and public office, but every citizen gained the debt law and the jury.';
+    ladder.innerHTML = '';
+    el('msg').className = 'msg'; el('take').className = 'take';
+    el('next').disabled = true;
+  }
+
+  el('tBefore').addEventListener('click', function () { setToggle('before'); });
+  el('tAfter').addEventListener('click', function () { setToggle('after'); });
+  el('next').addEventListener('click', function () {
+    if (i === CITIZENS.length - 1) { finish(); return; }
+    i++; load();
+  });
+  el('reset').addEventListener('click', function () { i = 0; solved = []; load(); });
+  load();
+})();
+</script>
+</body>
+</html>
