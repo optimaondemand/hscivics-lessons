@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duty, Right, or Expectation</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.pick { background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; min-height: 64px; }
+.pick .lab { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: #6b7a99; }
+.pick .act { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: #0E1C42; margin-top: 2px; }
+.fb { display: none; margin: 0 0 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+.fb.show { display: block; }
+.fb.good { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.fb.bad { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.bins { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.bin { flex: 1 1 200px; background: #fff; border: 1.5px solid #0E1C42; border-radius: 8px; padding: 8px 10px; }
+.bin button { width: 100%; background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 8px 10px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.bin button[disabled] { opacity: .45; cursor: default; }
+.bin .def { font-size: 12.5px; color: #6b7a99; margin: 6px 0 4px; }
+.bin ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: #1A6B3D; }
+.bin .n { font-size: 12px; color: #6b7a99; }
+.end { display: none; margin: 0 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.end.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Duty, Right, or Expectation</h1>
+<p class="sub">Each card is one civic act. Read it, then tap the bin where it belongs.</p>
+
+<div class="pick"><div class="lab" id="prog"></div><div class="act" id="act"></div></div>
+<div class="fb" id="fb"></div>
+<div class="bins" id="bins"></div>
+<div class="end" id="end"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var BINS = [
+    { k: 'duty', name: 'Legal duty', def: 'The law compels it, and ignoring it has consequences.' },
+    { k: 'right', name: 'Right', def: 'Something you may claim, and the government must honor.' },
+    { k: 'expect', name: 'Civic expectation', def: 'Not required by law, but part of what citizenship asks.' }
+  ];
+  var A = [
+    { t: 'Voting in a presidential election', k: 'expect',
+      why: 'No federal or state law requires an American citizen to vote. It is an expectation carried by civic culture, not a legal compulsion.' },
+    { t: 'Claiming a speedy and public trial by an impartial jury when you are accused of a crime', k: 'right',
+      why: 'The Sixth Amendment guarantees it to the accused. It is a right you may claim.' },
+    { t: 'Registering with the Selective Service at eighteen (for nearly all men)', k: 'duty',
+      why: 'Federal law requires it. Registration is preparedness, not service, but it is a legal duty.' },
+    { t: 'Casting a ballot without being turned away because of your race', k: 'right',
+      why: 'The Fifteenth Amendment bars denying the vote on account of race. The Constitution removes the barrier and leaves the voting to the citizen.' },
+    { t: 'Completing voter preregistration at sixteen or seventeen', k: 'expect',
+      why: 'Florida allows it so registration activates at eighteen. A citizen serious about voting is expected to clear this step early, but the law does not compel it.' },
+    { t: 'Appearing at the courthouse when you receive a jury summons', k: 'duty',
+      why: 'Every state treats jury service as a legal duty. Ignoring a summons can bring contempt of court or a fine.' },
+    { t: 'Asking for a jury in most federal civil cases', k: 'right',
+      why: 'The Seventh Amendment extends the jury-trial right to most federal civil cases. It is yours to claim.' },
+    { t: 'Reporting for service when Congress and the President reinstate a draft in wartime', k: 'duty',
+      why: 'Conscription is the republic\'s reserve power. When it is activated, service becomes a legal duty.' }
+  ];
+  var i, counts, lists;
+  function show() {
+    if (i >= A.length) {
+      $('prog').textContent = 'All sorted'; $('act').textContent = 'Every card is placed.';
+      $('end').className = 'end show';
+      $('end').textContent = 'Look at the rights and duties side by side. The jury rights in your Right bin only work because other citizens answer summonses and sit on juries. A right that only one side has to honor is not much of a right.';
+      return;
+    }
+    $('prog').textContent = 'Card ' + (i + 1) + ' of ' + A.length;
+    $('act').textContent = A[i].t;
+  }
+  function build() {
+    var b = $('bins'); b.innerHTML = ''; lists = {}; counts = {};
+    BINS.forEach(function (x) {
+      var d = document.createElement('div'); d.className = 'bin';
+      d.innerHTML = '<button data-k="' + x.k + '"></button><div class="def"></div><ul></ul>';
+      d.querySelector('button').textContent = x.name;
+      d.querySelector('.def').textContent = x.def;
+      b.appendChild(d); lists[x.k] = d.querySelector('ul');
+      d.querySelector('button').addEventListener('click', function () { place(x.k); });
+    });
+  }
+  function place(k) {
+    if (i >= A.length) return;
+    var a = A[i], fb = $('fb');
+    if (a.k === k) {
+      var li = document.createElement('li'); li.textContent = a.t; lists[k].appendChild(li);
+      fb.className = 'fb show good'; fb.textContent = a.why; i++; show();
+    } else {
+      fb.className = 'fb show bad';
+      fb.textContent = (a.k === 'duty' ? 'Ask whether the law compels this act and punishes ignoring it.' :
+                        a.k === 'right' ? 'Ask whether this is something you may claim from the government rather than something you owe.' :
+                        'Ask whether any law forces this, or whether it is carried by civic culture.');
+    }
+  }
+  function init() { i = 0; build(); $('fb').className = 'fb'; $('fb').textContent = ''; $('end').className = 'end'; $('end').textContent = ''; show(); }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
