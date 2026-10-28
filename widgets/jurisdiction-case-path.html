@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Does the Case Start?</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.case { background: #fff; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 16px; font-size: 16px; color: #0E1C42; min-height: 78px; margin-bottom: 10px; }
+.case.empty { border-style: dashed; border-color: #B9C4DD; color: #6b7a99; font-size: 14px; }
+.pick { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.pick button { flex: 1 1 220px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 9px 10px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.pick button:hover { background: #F4F6FA; }
+.pick button:disabled { opacity: .4; cursor: not-allowed; }
+.msg { margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.ladder { display: flex; flex-direction: column-reverse; gap: 6px; margin-bottom: 10px; }
+.rung { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 8px 12px; font-size: 14px; color: #6b7a99; border-left: 6px solid #D0D9E8; transition: all .25s; }
+.rung.lit { background: #E8F6FB; border-color: #2196D0; border-left-color: #2196D0; color: #0E1C42; }
+.rung.top.lit { background: #FDF3E3; border-color: #C7922C; border-left-color: #C7922C; }
+.rung small { display: block; font-size: 12px; }
+.next { display: none; background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; margin-right: 8px; }
+.next.show { display: inline-block; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Where Does the Case Start?</h1>
+<p class="sub">Read each case. Decide how it reaches the Supreme Court, and watch the path it takes through the federal courts.</p>
+
+<div class="prog" id="prog"></div>
+<div class="case" id="case"></div>
+<div class="pick">
+  <button id="bo">The Court hears it first (original jurisdiction)</button>
+  <button id="ba">It arrives from a lower court (appellate jurisdiction)</button>
+</div>
+<div class="msg" id="msg"></div>
+<div class="ladder">
+  <div class="rung" id="r0">District court<small>A trial court created by Congress</small></div>
+  <div class="rung" id="r1">Circuit court of appeals<small>Reviews a district court's decision</small></div>
+  <div class="rung top" id="r2">The Supreme Court<small>The one court Article III itself creates</small></div>
+</div>
+<div class="done" id="done">All five cases sorted. Original jurisdiction covers a narrow set of cases, so most of the Court's business arrives from below, through appeal.</div>
+<button class="next" id="next">Next case</button><button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // a: 0 = original, 1 = appellate. Order is scrambled so the answers do not run in a pattern.
+  var CASES = [
+    { t: 'A case affecting a foreign ambassador.', a: 0,
+      ok: 'Right. Article III places cases affecting ambassadors, other public ministers and consuls in the Supreme Court\'s original jurisdiction.',
+      hint: 'Article III names a narrow set of cases the Court hears first. Think about who is involved here.' },
+    { t: 'A federal district court convicts a defendant. The circuit court of appeals affirms the conviction. The defendant asks the Supreme Court to review it.', a: 1,
+      ok: 'Right. Two lower courts have already ruled. The Court is reviewing whether the law was applied correctly, not retrying the facts.',
+      hint: 'Two lower courts have already ruled. Can the Supreme Court be hearing this case first?' },
+    { t: 'A circuit court of appeals rules on a point of law. The losing side asks the Supreme Court to look at it again.', a: 1,
+      ok: 'Right. A lower court has decided already, so the Court\'s authority here is appellate.',
+      hint: 'A lower court has already ruled. Who hears a case first?' },
+    { t: 'Two states disagree over where the boundary between them runs.', a: 0,
+      ok: 'Right. Article III places disputes between states in the Court\'s original jurisdiction, so the case can go straight to the Court as a trial.',
+      hint: 'No lower court has ruled. Article III lists some cases the Court hears first, and one of them involves the states themselves.' },
+    { t: 'A federal trial court decides a case under a federal law. The loser wants a higher court to check whether the law was applied correctly.', a: 1,
+      ok: 'Right. Asking a higher court to check a lower court\'s work is appellate review.',
+      hint: 'The loser wants a higher court to check a decision already made. Is that a first hearing?' }
+  ];
+  var idx, answered;
+
+  function lit(path) { [0, 1, 2].forEach(function (i) { $('r' + i).className = 'rung' + (i === 2 ? ' top' : '') + (path.indexOf(i) >= 0 ? ' lit' : ''); }); }
+  function init() { idx = 0; answered = false; $('msg').className = 'msg'; $('msg').textContent = ''; render(); }
+  function render() {
+    var done = idx >= CASES.length;
+    $('prog').textContent = 'Case ' + Math.min(idx + 1, CASES.length) + ' of ' + CASES.length;
+    var c = $('case');
+    c.className = 'case' + (done ? ' empty' : '');
+    c.textContent = done ? 'All five cases sorted.' : CASES[idx].t;
+    $('bo').disabled = done || answered; $('ba').disabled = done || answered;
+    $('next').className = 'next' + (answered && !done ? ' show' : '');
+    $('done').className = 'done' + (done ? ' show' : '');
+    if (!answered) lit([]);
+  }
+  function choose(k) {
+    var it = CASES[idx], m = $('msg');
+    if (k === it.a) {
+      m.className = 'msg show good'; m.textContent = it.ok;
+      lit(k === 0 ? [2] : [0, 1, 2]);
+      answered = true;
+      if (idx === CASES.length - 1) { idx++; answered = false; render(); lit(k === 0 ? [2] : [0, 1, 2]); return; }
+      render();
+    } else {
+      m.className = 'msg show bad'; m.textContent = it.hint;
+    }
+  }
+  $('bo').addEventListener('click', function () { choose(0); });
+  $('ba').addEventListener('click', function () { choose(1); });
+  $('next').addEventListener('click', function () { idx++; answered = false; $('msg').className = 'msg'; render(); });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
