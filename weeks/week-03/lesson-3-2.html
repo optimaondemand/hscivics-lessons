@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -227,6 +263,19 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>This reordering changes everything about what follows. If Hobbes's state of nature is intolerable because it is violent, Locke's is merely inconvenient; inconvenient in three specific ways that Tuesday's excerpt named directly. There is no settled, agreed-upon law to resolve disputes when people's honest judgments differ about what the law of nature requires in a particular case. There is no impartial judge, since in the state of nature every person is judge in his own cause, and people are notoriously bad at judging fairly when their own interests are at stake. And there is no reliable power to enforce a correct judgment once one is reached, even when people agree what justice requires. None of these three defects is violence itself; all three are failures of impartial <strong class="term-subject" tabindex="0">administration<span class="gloss-tip">In Locke's argument, the fair and impartial application and enforcement of the law, which government exists to supply because individuals cannot reliably provide it for themselves.</span></strong>. Government, for Locke, exists to supply exactly these three missing pieces: a known law, a known judge, and a power to enforce judgments; nothing more, and crucially, nothing less.</p>
 
+      <div class="optima-widget ow-reflect ow-scale">
+        <div class="widget-kicker">&#9889; Place yourself on the line</div>
+        <div class="widget-question">How much would it take before you would say a government has broken the people's trust? (No wrong answer. Place yourself, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="That is a short fuse. Locke expects most injuries to be borne, and reads a single wrong as something far short of a broken trust.">One serious wrong</button>
+          <button data-response="That is close to a pattern. Locke asks whether the wrongs point the same direction, which a few of them may or may not do.">A few wrongs</button>
+          <button data-response="That is nearly Locke's own test: not a single injury but a pattern long and consistent enough that no one can mistake where it leads.">A long, consistent pattern</button>
+          <button data-response="That is closer to Hobbes, who held that the contract cannot be undone. Locke disagrees, and the next section shows why.">Nothing could</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Trust, Not a Surrender</h2>
       <p>Because government exists only to better secure rights people already possessed, Locke describes the agreement that creates it not as an irrevocable surrender, the way Hobbes does, but as a <strong class="term-subject" tabindex="0">trust<span class="gloss-tip">In Locke's argument, the relationship between a government and its people: power is given to government on the condition it govern for the people's good, and can be withdrawn if that condition is broken.</span></strong>. A trust is a conditional grant of power: I give you authority to act on my behalf, for a specified purpose, and my continuing to be bound by your decisions depends on your continuing to act toward that purpose. This is the single word that separates Locke's whole political philosophy from Hobbes's. Because the legislative power is a "fiduciary power" (Locke's own term, from the Latin for trust) it "can never be supposed to extend farther than the common good." The people who create a government retain, in Locke's phrase, "a supreme power to remove or alter the legislative, when they find the legislative act contrary to the trust reposed in them."</p>
 
@@ -234,8 +283,30 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>It is worth flagging Locke's own carefulness here, because the doctrine is powerful and easy to misuse. He anticipates the objection that this theory is "a ferment for frequent rebellion" and answers it by pointing to ordinary human sluggishness: people do not rise up over "great mistakes," "wrong and inconvenient laws," or the ordinary "slips of human frailty." Locke's own words are that people will bear all of this "without mutiny or murmur." What finally moves a people to resist, he argues, is not a single injury but "a long train of abuses, prevarications, and artifices, all tending the same way," so visible and so sustained that ordinary people can no longer avoid seeing where the pattern leads. Dissolution, in other words, is Locke's answer to a genuine emergency, not a permanent standing invitation to disobey whatever law one dislikes.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Within the Trust, or a Breach of It?</div>
+      <p>Eight acts of a government. Decide which stay within the trust and which break it, then name the breach. Watch the gauge fill only for real breaches.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/locke-trust-or-surrender.html" title="Within the Trust, or a Breach of It?" style="width:100%; height:760px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/locke-trust-or-surrender.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Where This Argument Is Going</h2>
       <p>Hold onto this lesson, because you are going to meet it again, in almost identical language, in Module 3. When Thomas Jefferson sat down to write the Declaration of Independence's case against George III, he was not inventing a new theory of when a people may throw off their government. He was applying Locke's: a list of specific abuses, "a long train" of them, offered as evidence of "a design to reduce them under absolute despotism," followed by the conclusion that when that pattern is established, the people have not merely a permission but a duty to alter or abolish the government that has broken its trust. The Declaration's argument is Lockean dissolution of government, restated for an American audience and an American grievance. Keep that thread in your hand; you will pick it back up there.</p>
+
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt, then check</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, name the three conditions Locke says break the trust, and say what happens to the power once the trust is broken. Then click to check.</summary>
+          <div class="reveal-body">Governing by arbitrary decrees instead of settled, known law; taking a person's property without consent; placing the community under the arbitrary power of another, whether a foreign power or the ruler's own unchecked will. When the trust is broken, the power that was only ever lent reverts to the people, who are absolved from further obedience and may reconstitute their government, alter its form, or place their trust in new hands.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
     </div>
 
     <div class="oa-card maroon-top">
@@ -267,6 +338,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
