@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where the Mask Came Off</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.chain { position: relative; padding-left: 26px; margin-bottom: 10px; }
+.link { position: relative; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 9px 12px; margin-bottom: 8px; }
+.link::before { content: ""; position: absolute; left: -20px; top: 14px; width: 12px; height: 12px; border-radius: 50%; background: #D0D9E8; border: 2px solid #fff; box-shadow: 0 0 0 1px #D0D9E8; }
+.link::after { content: ""; position: absolute; left: -15px; top: 26px; bottom: -22px; width: 3px; background: #D0D9E8; }
+.link:last-child::after { display: none; }
+.link.law::before, .link.law::after, .link.start::before, .link.start::after { background: #0E1C42; box-shadow: 0 0 0 1px #0E1C42; }
+.link.vio::before, .link.vio::after { background: #8A1F16; box-shadow: 0 0 0 1px #8A1F16; }
+.link .when { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: #6b7a99; }
+.link .what { font-size: 14.5px; margin: 2px 0 6px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opts button { background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 6px 11px; font-size: 13.5px; font-family: inherit; color: #0E1C42; cursor: pointer; }
+.opts button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.opts button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.opts button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.fb { display: none; margin-top: 6px; font-size: 13px; }
+.fb.show { display: block; }
+.fb.good { color: #1A6B3D; } .fb.bad { color: #8A1F16; }
+.verdict { display: none; margin: 4px 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.verdict.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Where the Mask Came Off</h1>
+<p class="sub">Here is the record, link by link. For each event, decide how the state acted: through the forms of law, or through open violence that it directed or protected. Watch the chain change color.</p>
+
+<div class="chain" id="chain"></div>
+<div class="verdict" id="verdict"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var LAW = 'Through the forms of law', VIO = 'Open violence, directed or protected by the state';
+  // o: button order for this row (LAW first or VIO first); c: correct kind.
+  var E = [
+    { when: '1935', what: 'The Nuremberg Laws strip German Jews of citizenship and legal protection.', c: 'law', o: [LAW, VIO],
+      good: 'Unjust, but still done through law and administrative decree.', bad: 'Laws were passed and enforced through courts and offices. Was anyone in the street?' },
+    { when: 'The following years', what: 'A widening set of regulations bars Jews from professions, schools, and public life.', c: 'law', o: [VIO, LAW],
+      good: 'Still bureaucratic. Grave persecution, conducted through the forms of law.', bad: 'These were regulations, not mobs. Which kind of action is that?' },
+    { when: 'November 1938', what: 'Propaganda minister Joseph Goebbels signals to regional party leaders that "spontaneous" demonstrations against Jews will not be discouraged.', c: 'vio', o: [LAW, VIO],
+      good: 'This is the order to organize violence while preserving official deniability. The mask begins to slip here.', bad: 'The word "spontaneous" is carrying a lot of weight. Who was really directing it?' },
+    { when: 'November 9 to 10, 1938', what: 'Mobs of Nazi Party members, the SA, and Hitler Youth burn over a thousand synagogues and smash and loot thousands of Jewish-owned businesses and homes.', c: 'vio', o: [VIO, LAW],
+      good: 'Coordinated, public, and carried out with the state\'s evident protection of the perpetrators.', bad: 'Ask whether this happened in a courtroom or in the streets.' },
+    { when: 'In the aftermath', what: 'At least ninety-one Jewish people are killed outright, and the regime arrests roughly thirty thousand Jewish men and sends them to concentration camps.', c: 'vio', o: [VIO, LAW],
+      good: 'State-directed violence, with no institution left that was willing or able to stop it.', bad: 'Killings in the street followed by mass arrests: forms of law, or open violence?' }
+  ];
+  var solved;
+  function build() {
+    solved = 0; var ch = $('chain'); ch.innerHTML = ''; $('verdict').className = 'verdict';
+    var s = document.createElement('div'); s.className = 'link start';
+    s.innerHTML = '<div class="when">1933</div><div class="what">Hitler\'s one-party rule begins. A free press and independent courts are eliminated, and legislative, executive, and judicial power sit in one party.</div>';
+    ch.appendChild(s);
+    E.forEach(function (e) {
+      var d = document.createElement('div'); d.className = 'link';
+      d.innerHTML = '<div class="when"></div><div class="what"></div><div class="opts"></div><div class="fb"></div>';
+      d.querySelector('.when').textContent = e.when; d.querySelector('.what').textContent = e.what;
+      var o = d.querySelector('.opts'), fb = d.querySelector('.fb'), done = false;
+      e.o.forEach(function (label) {
+        var kind = (label === LAW ? 'law' : 'vio');
+        var b = document.createElement('button'); b.textContent = label;
+        b.addEventListener('click', function () {
+          if (done) return;
+          if (kind === e.c) {
+            done = true; b.className = 'correct'; d.className = 'link ' + e.c;
+            fb.className = 'fb show good'; fb.textContent = e.good;
+            solved++;
+            if (solved === E.length) {
+              $('verdict').className = 'verdict show';
+              $('verdict').textContent = 'The chain changes color at one link. Historians treat Kristallnacht as the watershed not because it was the worst event of the Nazi era in scale, since far greater atrocities followed, but because it was the moment the mask of ordinary legal process came off in full public view, with no institution left standing that would stop it.';
+            }
+          } else { b.className = 'incorrect'; fb.className = 'fb show bad'; fb.textContent = e.bad; }
+        });
+        o.appendChild(b);
+      });
+      ch.appendChild(d);
+    });
+  }
+  $('reset').addEventListener('click', build);
+  build();
+})();
+</script>
+</body>
+</html>
