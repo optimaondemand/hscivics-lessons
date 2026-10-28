@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -232,10 +268,67 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>The case that reached the Supreme Court in 1954 was in fact five consolidated cases from four states and the District of Columbia, addressing the same basic question. The named case, <em>Brown v. Board of Education of Topeka</em>, arose when Oliver Brown, a Black father in Topeka, Kansas, sued after his daughter Linda Brown was denied enrollment in the white elementary school nearest her home and required instead to travel further to a segregated Black school. The Supreme Court combined Brown's case with the others under one decision, recognizing that all of them turned on the same constitutional question: does racial segregation in public schools, even where the physical facilities are comparable, violate the Equal Protection Clause of the Fourteenth Amendment?</p>
 
+      <div class="optima-widget ow-seq" data-done="In order. The NAACP started where &quot;equal&quot; was hardest to defend, narrowed the ground case by case, then took the question head-on in public schools.">
+        <div class="widget-kicker">&#9889; Put it in order &middot; The NAACP strategy</div>
+        <div class="widget-question">Tap the steps of the campaign in the order they happened.</div>
+        <div class="widget-options ow-seq-items">
+          <button data-pos="4" data-hint="Not yet. Five cases reaching the Court is the payoff of the earlier steps.">Five consolidated cases, including the Topeka case, reach the Supreme Court.</button>
+          <button data-pos="2" data-hint="Not yet. This one builds on the first graduate-school case.">Sweatt v. Painter (1950) chips further at Plessy without confronting it.</button>
+          <button data-pos="5" data-hint="Not yet. The ruling comes after the cases arrive.">The Court rules unanimously in 1954.</button>
+          <button data-pos="1" data-hint="Not yet. The campaign began where states had the weakest defense of &quot;equal.&quot;">Graduate and professional schools are challenged first, as in Gaines (1938).</button>
+          <button data-pos="3" data-hint="Not yet. This decision comes after the graduate-school cases succeed.">The NAACP judges the ground ready to challenge segregation head-on in public schools.</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Unanimous Answer</h2>
       <p>Chief Justice <strong>Earl Warren</strong>, newly appointed and determined to bring the Court to a single, unanimous voice on a question this consequential, wrote the opinion for a Court that ruled 9&ndash;0. The holding was direct and, unlike much constitutional law, stated in language meant to be widely understood: "We conclude that in the field of public education the doctrine of 'separate but equal' has no place. Separate educational facilities are inherently unequal." This sentence explicitly rejected <em>Plessy</em>'s framework, at least as applied to public schooling; the Court did not merely find that the schools in these particular cases happened to be unequal in fact; it held that separation itself, in public education, could never satisfy the Constitution's guarantee of equal protection, regardless of how comparable the buildings, teachers, or budgets might be made.</p>
 
       <p>Warren's reasoning rested heavily on the specific harm of segregating <em>children</em>, in a setting where the state itself compels attendance and shapes a child's earliest sense of her own standing in the community. The opinion argued that separating children "from others of similar age and qualifications solely because of their race generates a feeling of inferiority as to their status in the community that may affect their hearts and minds in a way unlikely ever to be undone." In a passage that has since become one of the most discussed footnotes in constitutional law, the Court cited contemporary social science research, including psychological studies on the effects of segregation on Black children's self-perception, as evidence supporting this conclusion. The Court concluded that in public education, segregation by law is inherently a statement of inferiority imposed by the state on some of its own citizens, and for that reason alone, without any need to examine whether a particular school's facilities happened to be shabbier or better-funded, segregation in public education violates the Equal Protection Clause.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which argument won?</div>
+        <div class="widget-question">Choose the answer the 1954 Court gave, then read why.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. In public education, the Court held, separate facilities are inherently unequal, however comparable the buildings, teachers, and budgets." data-hint="The Court did not ask whether the facilities could be made equal. It asked whether separation itself could ever be equal.">
+          <div class="widget-row-prompt">1. What did the Court hold about separate educational facilities?</div>
+          <div class="widget-options">
+            <button data-choice="0">They are acceptable if buildings, teachers, and budgets are made comparable</button>
+            <button data-choice="1">They are inherently unequal</button>
+            <button data-choice="2">Each state may decide for itself</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Warren focused on a feeling of inferiority as to the child's status in the community, imposed by the state on its own citizens." data-hint="Warren focused on how a child comes to see her own standing, not on the building.">
+          <div class="widget-row-prompt">2. According to the Court, what does separating children solely because of race do?</div>
+          <div class="widget-options">
+            <button data-choice="0">It underfunds the schools they attend</button>
+            <button data-choice="1">It delays their enrollment</button>
+            <button data-choice="2">It generates a feeling of inferiority as to their status in the community</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Brown rejected the Plessy framework, at least as applied to public schooling." data-hint="Brown overturned the framework of the 1896 ruling.">
+          <div class="widget-row-prompt">3. Which doctrine did Brown explicitly reject for public schools?</div>
+          <div class="widget-options">
+            <button data-choice="0">Separate but equal, from Plessy</button>
+            <button data-choice="1">Equal protection, from the Fourteenth Amendment</button>
+            <button data-choice="2">Judicial review, from Marbury</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. &quot;With all deliberate speed&quot; left lower courts and school boards wide discretion, and much of the South used it to delay." data-hint="The Court set no firm deadline. What phrase did it use instead?">
+          <div class="widget-row-prompt">4. What did Brown II say about how fast desegregation must happen?</div>
+          <div class="widget-options">
+            <button data-choice="0">It must be complete within one year</button>
+            <button data-choice="1">It should proceed with all deliberate speed</button>
+            <button data-choice="2">Each state may set its own timeline</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What Came After, Briefly</h2>
       <p><em>Brown</em> declared segregated public schools unconstitutional; it did not, by itself, desegregate a single classroom. The Court issued a second decision the following year, sometimes called <strong class="term-entity" tabindex="0">Brown II<span class="gloss-tip">The 1955 follow-up Supreme Court ruling directing that school desegregation proceed "with all deliberate speed" after Brown v. Board of Education.</span></strong> (1955), which addressed the question of remedy; how quickly, and by what process, desegregation should actually occur. Rather than set a firm deadline, the Court ordered that desegregation proceed "with all deliberate speed," a phrase that gave lower federal courts and local school boards considerable discretion over the pace of compliance. In practice, that discretion was used, across large parts of the South, to delay rather than deliberately proceed: some school districts closed rather than integrate, some states organized "massive resistance" campaigns coordinated by segregationist officials, and the most visible confrontations (Little Rock, Arkansas, in 1957 chief among them) required federal troops to enforce a Black student's right to attend a public school a Supreme Court decision had already guaranteed her. A full account of that resistance, and of the broader civil rights movement it provoked, is a story for a later course; the relevant fact here is narrower: legal victory and social reality did not arrive together, and for many Southern school districts, meaningful desegregation took not months but years, in some places more than a decade.</p>
@@ -281,6 +374,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
