@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aristotle's Six Constitutions</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.scn { background: #fff; border: 2px solid #0E1C42; border-radius: 8px; padding: 12px 14px; font-size: 16px; color: #0E1C42; min-height: 66px; margin-bottom: 10px; }
+.scn.empty { border-style: dashed; border-color: #B9C4DD; color: #6b7a99; font-size: 14px; }
+.grid { display: grid; grid-template-columns: 90px 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+.hd { font-size: 12px; color: #1B6A94; text-align: center; padding: 6px 4px; font-weight: 600; }
+.rh { font-size: 12.5px; color: #0E1C42; font-weight: 600; display: flex; align-items: center; }
+.cell { min-height: 62px; background: #fff; border: 1.5px solid #B9C4DD; border-radius: 8px; font-family: inherit; font-size: 14px; color: #6b7a99; cursor: pointer; padding: 6px; transition: background .25s, border-color .25s; }
+.cell:hover { background: #F4F6FA; border-color: #55C8E8; }
+.cell:disabled { cursor: default; }
+.cell.filled.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; font-weight: 600; }
+.cell.filled.bent { background: #FDECEC; border-color: #C0392B; color: #8A1F16; font-weight: 600; }
+.msg { margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Name the Constitution</h1>
+<p class="sub">Two questions sort every constitution: how many rule, and whom does that rule serve? Tap the cell where each description belongs.</p>
+
+<div class="prog" id="prog"></div>
+<div class="scn" id="scn"></div>
+<div class="grid" id="grid"></div>
+<div class="msg" id="msg"></div>
+<div class="done" id="done">Look at the columns. Each good form sits directly beside its corrupt twin. What separates them is not how many rule, but whether the rulers govern for everyone or only for themselves. That is why no single form is safe by structure alone.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var ROWS = ['One rules', 'The few rule', 'The many rule'];
+  var COLS = ['Serves the common good', 'Serves the rulers\' own advantage'];
+  // Cell index = row * 2 + col. Scenario order is scrambled.
+  var CELL = [
+    { name: 'Monarchy', good: true }, { name: 'Tyranny', good: false },
+    { name: 'Aristocracy', good: true }, { name: 'Oligarchy', good: false },
+    { name: 'Polity', good: true }, { name: 'Corrupted democracy (mob rule)', good: false }
+  ];
+  var SCN = [
+    { t: 'A few wealthy citizens rule by and for themselves.', cell: 3 },
+    { t: 'A council of the best citizens governs the city, aiming at the good of everyone.', cell: 2 },
+    { t: 'A single ruler governs for the good of the whole community.', cell: 0 },
+    { t: 'The poor majority rules for its own advantage, at the expense of the whole community.', cell: 5 },
+    { t: 'A single ruler governs for his own benefit.', cell: 1 },
+    { t: 'The many govern the community with the common good in view.', cell: 4 }
+  ];
+  var idx, filled;
+
+  function init() { idx = 0; filled = {}; $('msg').className = 'msg'; $('msg').textContent = ''; render(); }
+  function render() {
+    var done = idx >= SCN.length;
+    $('prog').textContent = 'Named: ' + idx + ' of ' + SCN.length;
+    var s = $('scn');
+    s.className = 'scn' + (done ? ' empty' : '');
+    s.textContent = done ? 'All six constitutions named.' : SCN[idx].t;
+    var grid = $('grid'); grid.innerHTML = '';
+    var frag = document.createElement('div'); frag.style.display = 'contents';
+    var head = [document.createElement('div')];
+    head.forEach(function (h) { frag.appendChild(h); });
+    COLS.forEach(function (c) { var h = document.createElement('div'); h.className = 'hd'; h.textContent = c; frag.appendChild(h); });
+    ROWS.forEach(function (r, ri) {
+      var rh = document.createElement('div'); rh.className = 'rh'; rh.textContent = r; frag.appendChild(rh);
+      [0, 1].forEach(function (ci) {
+        var n = ri * 2 + ci;
+        var b = document.createElement('button');
+        var f = filled[n];
+        b.className = 'cell' + (f ? ' filled ' + (CELL[n].good ? 'good' : 'bent') : '');
+        b.textContent = f ? CELL[n].name : 'tap to place';
+        b.disabled = done || !!f;
+        b.addEventListener('click', function () { choose(n); });
+        frag.appendChild(b);
+      });
+    });
+    grid.appendChild(frag);
+    $('done').className = 'done' + (done ? ' show' : '');
+  }
+  function choose(n) {
+    var sc = SCN[idx], m = $('msg');
+    if (n === sc.cell) {
+      filled[n] = true; idx++;
+      m.className = 'msg show good';
+      m.textContent = 'Right. That is ' + CELL[n].name.toLowerCase() + '.';
+    } else {
+      var rowRight = Math.floor(n / 2) === Math.floor(sc.cell / 2);
+      var colRight = (n % 2) === (sc.cell % 2);
+      m.className = 'msg show bad';
+      m.textContent = rowRight ? 'The number of rulers is right. Now ask whom the rule serves.'
+        : (colRight ? 'Whom the rule serves is right. Now count who rules.' : 'Count who rules, then ask whom the rule serves.');
+    }
+    render();
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
