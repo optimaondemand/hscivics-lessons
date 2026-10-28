@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build the Compromise: Two Chambers</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.chambers { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.ch { flex: 1 1 240px; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; }
+.ch h2 { font-size: 15px; color: #0E1C42; margin: 0 0 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt { flex: 1 1 100px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 7px 9px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.opt:hover { background: #F4F6FA; }
+.opt.on { background: #0E1C42; color: #fff; }
+.ctl { margin-top: 8px; font-size: 13px; color: #1a2340; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin: 6px 0; }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.tile { flex: 1 1 100px; min-width: 96px; border: 2px solid #B9C4DD; border-radius: 8px; padding: 8px; font-size: 13px; text-align: center; background: #fff; transition: background .25s, border-color .25s; }
+.tile.ok { background: #D8F0DD; border-color: #2A9D5C; }
+.tile.bad { background: #FDECEC; border-color: #C0392B; }
+.tile .nm { font-weight: 600; color: #0E1C42; }
+.tile .sz { font-size: 11px; color: #6b7a99; }
+.tile .st { font-size: 12px; margin-top: 3px; }
+.legend { font-size: 12px; color: #6b7a99; margin: 4px 0 8px; }
+.verdict { margin: 10px 0; padding: 10px 12px; background: #fff; border-left: 4px solid #0E1C42; border-radius: 4px; font-size: 14px; }
+.verdict.win { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+.verdict.lose { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+.block { margin: 8px 0; font-size: 13.5px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Build the Compromise</h1>
+<p class="sub">A bill must pass both chambers. Choose how seats are counted in each one, and see which states can live with the result.</p>
+
+<div class="chambers">
+  <div class="ch"><h2>House of Representatives</h2><div class="opts" id="o-house"></div><div class="ctl" id="c-house"></div></div>
+  <div class="ch"><h2>Senate</h2><div class="opts" id="o-senate"></div><div class="ctl" id="c-senate"></div></div>
+</div>
+
+<div class="label">Can each state accept this Congress?</div>
+<div class="tiles" id="tiles"></div>
+<div class="legend">Schematic only: three large states and four small ones. Delaware and New Jersey are real; the other two small states are placeholders. A state accepts when its camp can block any bill it cannot live with.</div>
+<div class="verdict" id="verdict"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var STATES = [
+    { n: 'Virginia', w: 10, big: true },
+    { n: 'Pennsylvania', w: 8, big: true },
+    { n: 'Massachusetts', w: 7, big: true },
+    { n: 'New Jersey', w: 3, big: false },
+    { n: 'Delaware', w: 1, big: false },
+    { n: 'Small state C', w: 2, big: false },
+    { n: 'Small state D', w: 2, big: false }
+  ];
+  var RULES = { pop: 'Seats by population', eq: 'Equal seats for every state' };
+  var rule;
+
+  function controller(r) {
+    var bigS = 0, smallS = 0;
+    STATES.forEach(function (s) {
+      var v = r === 'pop' ? s.w : 1;
+      if (s.big) bigS += v; else smallS += v;
+    });
+    return { big: bigS, small: smallS, who: bigS > smallS ? 'large' : 'small' };
+  }
+  function init() { rule = { house: 'pop', senate: 'pop' }; render(); }
+  function render() {
+    ['house', 'senate'].forEach(function (k) {
+      var box = $('o-' + k); box.innerHTML = '';
+      ['pop', 'eq'].forEach(function (r) {
+        var b = document.createElement('button');
+        b.className = 'opt' + (rule[k] === r ? ' on' : '');
+        b.textContent = RULES[r];
+        b.addEventListener('click', function () { rule[k] = r; render(); });
+        box.appendChild(b);
+      });
+      var c = controller(rule[k]);
+      $('c-' + k).textContent = 'Counted seats: large states ' + c.big + ', small states ' + c.small + '. The ' + c.who + ' states control this chamber when they hold together.';
+    });
+    var largeBlock = controller(rule.house).who === 'large' || controller(rule.senate).who === 'large';
+    var smallBlock = controller(rule.house).who === 'small' || controller(rule.senate).who === 'small';
+    var tb = $('tiles'); tb.innerHTML = '';
+    STATES.forEach(function (s) {
+      var ok = s.big ? largeBlock : smallBlock;
+      var d = document.createElement('div');
+      d.className = 'tile ' + (ok ? 'ok' : 'bad');
+      d.innerHTML = '<div class="nm">' + s.n + '</div><div class="sz">' + (s.big ? 'large' : 'small') + '</div><div class="st">' + (ok ? 'accepts' : 'walks out') + '</div>';
+      tb.appendChild(d);
+    });
+    var v = $('verdict'), msg, cls = '';
+    if (largeBlock && smallBlock) {
+      cls = ' win';
+      if (rule.house === 'pop' && rule.senate === 'eq') msg = 'Both camps can accept. Each holds one chamber and can block any bill it cannot live with. This is the Connecticut Compromise, adopted on July 16, 1787: a House by population, a Senate with equal seats for every state.';
+      else msg = 'Both camps hold a chamber, so both can protect their core interest on paper. But it is not what the Convention adopted: it gave the House to population and the Senate to equal seats.';
+    } else if (largeBlock) {
+      cls = ' lose';
+      msg = 'The large states control both chambers. The small states can be outvoted everywhere, with no structural protection. They have no reason to stay in the room.';
+    } else {
+      cls = ' lose';
+      msg = 'The small states control both chambers. The large states, with most of the people, can be outvoted everywhere. They have no reason to stay in the room.';
+    }
+    v.className = 'verdict' + cls;
+    v.textContent = msg;
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
