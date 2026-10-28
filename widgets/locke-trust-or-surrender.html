@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locke: Within the Trust or Breach of It</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 12px; }
+.gauge { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; }
+.gauge-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 13px; color: #0E1C42; margin-bottom: 6px; }
+.track { display: flex; gap: 4px; }
+.notch { flex: 1 1 0; height: 12px; border-radius: 3px; background: #E3E8F2; transition: background .3s; }
+.notch.on { background: #C0392B; }
+.gtxt { font-size: 13px; color: #1a2340; margin-top: 8px; min-height: 20px; }
+.act { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 11px 14px; margin-bottom: 10px; }
+.act-text { font-size: 14.5px; color: #0E1C42; margin-bottom: 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts button { background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 7px 12px; font-size: 13.5px; font-family: inherit; color: #0E1C42; cursor: pointer; }
+.opts button:hover { border-color: #55C8E8; background: #F4F6FA; }
+.opts button.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.opts button.bad { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.opts button.locked { cursor: default; }
+.step2 { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #D0D9E8; }
+.step2.show { display: block; }
+.step2 .q { font-size: 13px; color: #6b7a99; margin-bottom: 6px; }
+.fb { margin-top: 8px; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+.fb.ok { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.fb.no { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Within the Trust, or a Breach of It?</h1>
+<p class="sub">Eight acts of a government. For each, decide whether it stays within the trust the people gave, or breaks it. If it breaks it, name which breach. Watch the gauge at the top.</p>
+
+<div class="gauge">
+  <div class="gauge-top"><span>Breaches of the trust found</span><span id="count">0 of 5</span></div>
+  <div class="track" id="track"></div>
+  <div class="gtxt" id="gtxt">Work through the acts. The gauge fills only for real breaches.</div>
+</div>
+
+<div id="acts"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var TYPES = ['Arbitrary decrees instead of settled law', 'Property taken without consent', 'Community placed under another\'s arbitrary power'];
+  // kind: 0 = within the trust, 1 = breach. Breach types in the order shown: 1,0,2,0,2
+  var ACTS = [
+    { t: 'The legislature passes a badly drafted road-funding law that wastes money. Two years later it repeals the law.', kind: 0,
+      fb: 'Within the trust. A mistake, even a costly one, is not a breach. Locke says people bear "great mistakes" and "slips of human frailty."',
+      hint: 'Is this a mistake that the ordinary workings of government can correct, or a deliberate betrayal of the people?' },
+    { t: 'The ruler orders a farmer\'s land seized to give it to a favorite. No law and no court stand behind the order, and no one consented.', kind: 1, type: 1,
+      fb: 'A breach. Locke is emphatic that the supreme power cannot take from any man any part of his property without his own consent.',
+      hint: 'Land is being taken. Which of Locke\'s three conditions concerns what a government may take from a person?' },
+    { t: 'The ruler imprisons critics under orders issued that morning. Nothing in any standing law announced beforehand allowed it.', kind: 1, type: 0,
+      fb: 'A breach. Locke names governing by "extemporary arbitrary decrees" instead of settled, known, standing law.',
+      hint: 'The problem is not what was taken but that no known law stood behind the act. Which breach is about law?' },
+    { t: 'The people\'s elected legislature, after open debate, votes a tax that many citizens dislike. It applies equally to everyone.', kind: 0,
+      fb: 'Within the trust. The people\'s own legislature enacted it in the open and under settled law, so consent is present even where the tax is unpopular.',
+      hint: 'Ask who made this law and whether it was made in the open. Unpopular is not the same as a breach.' },
+    { t: 'The ruler signs a treaty that places the whole community under the command of a foreign king.', kind: 1, type: 2,
+      fb: 'A breach. Locke names placing the community under the arbitrary power of another, "whether a foreign power or the ruler\'s own unchecked will."',
+      hint: 'A foreign ruler now commands the community. Which condition is about another\'s power over the people?' },
+    { t: 'The legislature passes a law that many find inconvenient. It was debated openly and applies the same to everyone.', kind: 0,
+      fb: 'Within the trust. Locke expects people to bear "wrong and inconvenient laws" without mutiny or murmur.',
+      hint: 'Was the law made in the open, under settled rules, for everyone alike? Inconvenient is not the same as a betrayal.' },
+    { t: 'The ruler begins deciding each case by private decree, ignoring standing law, so no citizen can know in advance what the law requires.', kind: 1, type: 0,
+      fb: 'A breach. Rule by "extemporary arbitrary decrees" leaves no settled law for anyone to rely on.',
+      hint: 'No one can know what the law is. Which of Locke\'s breaches is about settled, known law?' },
+    { t: 'The ruler disbands the legislature and governs alone by his own will, answerable to no one.', kind: 1, type: 2,
+      fb: 'A breach. The community now lies under "the ruler\'s own unchecked will," Locke\'s third condition.',
+      hint: 'The ruler is not a foreign power, but the community is under one will alone. Which condition covers that?' }
+  ];
+  var state, $ = function (id) { return document.getElementById(id); };
+
+  function init() {
+    state = ACTS.map(function () { return { stage: 0, done: false }; });
+    var track = $('track'); track.innerHTML = '';
+    for (var i = 0; i < 5; i++) track.insertAdjacentHTML('beforeend', '<div class="notch"></div>');
+    var root = $('acts'); root.innerHTML = '';
+    ACTS.forEach(function (a, i) {
+      var d = document.createElement('div'); d.className = 'act'; d.id = 'act' + i;
+      d.innerHTML = '<div class="act-text">' + (i + 1) + '. ' + a.t + '</div>' +
+        '<div class="opts first"><button data-k="0">Within the trust</button><button data-k="1">A breach of the trust</button></div>' +
+        '<div class="step2"><div class="q">Which breach?</div><div class="opts second">' +
+        TYPES.map(function (t, j) { return '<button data-t="' + j + '">' + t + '</button>'; }).join('') + '</div></div>' +
+        '<div class="fb" style="display:none"></div>';
+      root.appendChild(d);
+    });
+    refresh();
+  }
+  function fb(i, ok, text) {
+    var f = $('act' + i).querySelector('.fb');
+    f.style.display = 'block'; f.className = 'fb ' + (ok ? 'ok' : 'no'); f.textContent = text;
+  }
+  function refresh() {
+    var found = 0;
+    ACTS.forEach(function (a, i) { if (a.kind === 1 && state[i].done) found++; });
+    var notches = $('track').children;
+    for (var i = 0; i < notches.length; i++) notches[i].className = 'notch' + (i < found ? ' on' : '');
+    $('count').textContent = found + ' of 5';
+    var g = $('gtxt');
+    if (found === 5 && state.every(function (s) { return s.done; })) {
+      g.textContent = 'Locke does not call a single injury a dissolution. The three slips stayed within the trust, and the five breaches share one direction. It is a long train of abuses, all tending the same way, that moves a people.';
+    } else if (found >= 3) {
+      g.textContent = 'The pattern is building. One breach alone rarely moves a people; several, pointing the same way, do.';
+    } else {
+      g.textContent = 'Work through the acts. The gauge fills only for real breaches.';
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var act = b.closest('.act'); if (!act) return;
+    var i = +act.id.slice(3), a = ACTS[i], st = state[i];
+    if (st.done) return;
+    if (b.dataset.k !== undefined) {
+      var k = +b.dataset.k;
+      var btns = act.querySelectorAll('.first button');
+      btns.forEach(function (x) { x.classList.remove('good', 'bad'); });
+      if (k === a.kind) {
+        b.classList.add('good');
+        if (a.kind === 0) { st.done = true; btns.forEach(function (x) { x.classList.add('locked'); }); fb(i, true, a.fb); refresh(); }
+        else { st.stage = 1; act.querySelector('.step2').classList.add('show'); act.querySelector('.fb').style.display = 'none'; }
+      } else {
+        b.classList.add('bad'); fb(i, false, a.hint);
+      }
+    } else if (b.dataset.t !== undefined) {
+      var t = +b.dataset.t;
+      var sb = act.querySelectorAll('.second button');
+      sb.forEach(function (x) { x.classList.remove('good', 'bad'); });
+      if (t === a.type) {
+        b.classList.add('good'); st.done = true;
+        act.querySelectorAll('button').forEach(function (x) { x.classList.add('locked'); });
+        fb(i, true, a.fb); refresh();
+      } else {
+        b.classList.add('bad'); fb(i, false, a.hint);
+      }
+    }
+  });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
