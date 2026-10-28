@@ -193,6 +193,38 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -231,6 +263,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>It is 509 BC, and Rome has just torn down its own king. A noblewoman named Lucretia is dead by her own hand rather than live with what the king's son did to her, and her kinsman Lucius Junius Brutus stands over her body in front of a gathered crowd, holding up a bloody knife and swearing that Rome will never again answer to a king. The crowd roars its agreement. The king and his family flee the city. But swearing off kings is the easy part. Building something to replace one is not. No constitution yet exists to say who commands the army tomorrow, who judges a dispute, or who speaks for Rome in a treaty. Every option is still open: one strongman, a council of nobles, a vote of the whole people, or something no one has quite tried before.</p>
     </div>
 
+    <div class="optima-widget ow-reflect">
+      <div class="widget-kicker">&#9889; Make a prediction</div>
+      <div class="widget-question">Suppose two equally powerful rulers had to share one office. What would you expect to happen? (No wrong answer. It is only a prediction.)</div>
+      <div class="widget-options">
+        <button data-response="Trust is cheaper than rules, but it is not a safeguard by itself. Watch what else Rome builds around the office.">&#129309; They would cooperate, because each needs the other</button>
+        <button data-response="A way to settle disagreements is one answer. Rome chose a different one, and you will see what it costs and what it buys.">&#9878;&#65039; They would manage only if disputes had a way to be settled</button>
+        <button data-response="That is the worry behind any shared office. Rome had just thrown out a king and had to decide how much last-word power to leave in anyone's hands.">&#9889; They would clash, because someone has to have the last word</button>
+      </div>
+      <div class="widget-feedback"></div>
+      <button class="widget-reset">Reset</button>
+    </div>
+
     <div class="oa-card lesson-prose">
       <p>In 509 BC, the Romans threw a king out of his own city. Tradition says the last straw was personal: Sextus, son of King Lucius Tarquinius Superbus ("Tarquin the Proud"), committed a monstrous crime against a noblewoman named Lucretia, who then took her own life rather than live with the shame of it. Her kinsman Lucius Junius Brutus is said to have stood over her body and sworn that Rome would never again be ruled by a king. Whatever the precise truth buried under roughly four and a half centuries of retelling by the time Cicero wrote, the political fact is not in dispute: the Romans expelled their seventh king, and rather than replace him with an eighth, they built something that had not quite existed before; not, at least, in the form Rome gave it.</p>
 
@@ -264,6 +308,65 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Assemblies: Rome's Narrower Democratic Element</h2>
       <p>Rome also had popular assemblies in which citizens voted directly on laws, on war and peace, and eventually on the election of magistrates themselves. This is the piece of the Roman constitution that most resembles Athens, and it matters that it existed at all; the res publica genuinely depended on the consent and the votes of its citizen body, not merely on the goodwill of an elite. But the resemblance to Athens should not be overstated. The most important of these bodies, the <em class="term" tabindex="0">Comitia Centuriata<span class="gloss-tip">The Roman Assembly of Centuries, organized by property and military rank, which elected consuls and voted on war. <button class="gloss-speak" onclick="speakGloss(event,'Comitia Centuriata, coh-MIT-ee-uh sen-tur-ee-AH-tuh')" aria-label="Hear pronunciation">&#128266;</button></span></em> ("Assembly of Centuries"), organized citizens into voting blocs weighted heavily toward property and military rank, so that the wealthiest citizens, though far fewer in number, controlled enough blocs to decide most questions before the poorer and more numerous blocs even finished casting their votes. The assemblies gave the Roman citizen a real vote and a real voice, but a voice tuned, deliberately, to give property and standing more weight than headcount. Democratic legitimacy is present in the res publica; it is not, in the early Republic, the dominant note.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: The Roman Powers Board</div>
+      <p>Assign eight powers to the consuls, the Senate, and the assemblies. Then test the board with three moves and see whether any one body can act alone.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/roman-powers-board.html" title="The Roman Powers Board" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/roman-powers-board.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which body is acting?</div>
+        <div class="widget-question">Each case describes one part of Rome's mixed constitution at work. Name the part.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. A senatus consultum was technically only advice, but magistrates followed it almost as law." data-hint="Think about the body whose decrees were technically only advice.">
+          <div class="widget-row-prompt">1. A decree that is technically only advice, yet magistrates follow it almost as if it were law.</div>
+          <div class="widget-options">
+            <button data-choice="0">The consuls</button>
+            <button data-choice="1">The Senate</button>
+            <button data-choice="2">The assemblies</button>
+            <button data-choice="3">The Athenian Assembly</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The Assembly of Centuries chose the consuls, in blocs weighted toward property and rank." data-hint="Which body is made of citizens voting, with blocs weighted toward wealth and rank?">
+          <div class="widget-row-prompt">2. Citizens, grouped in blocs weighted toward property and rank, choose next year's top magistrates.</div>
+          <div class="widget-options">
+            <button data-choice="0">The consuls</button>
+            <button data-choice="1">The Senate</button>
+            <button data-choice="2">The assemblies</button>
+            <button data-choice="3">The Athenian Assembly</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Each consul held full imperium and could forbid his colleague's acts." data-hint="Veto means 'I forbid.' Which office was built with a colleague who could say it?">
+          <div class="widget-row-prompt">3. An officer holding full imperium forbids what his colleague has ordered.</div>
+          <div class="widget-options">
+            <button data-choice="0">The consuls</button>
+            <button data-choice="1">The Senate</button>
+            <button data-choice="2">The assemblies</button>
+            <button data-choice="3">The Athenian Assembly</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. The Senate's strength was memory: men who had held office, still sitting while the consuls rotated out." data-hint="Which body was made of former officeholders, seated for life, whose experience no new consul could outrank by title?">
+          <div class="widget-row-prompt">4. Men who held office in earlier years keep sitting year after year, so no new officer can outrank their experience by title alone.</div>
+          <div class="widget-options">
+            <button data-choice="0">The assemblies</button>
+            <button data-choice="1">The consuls</button>
+            <button data-choice="2">The Athenian Assembly</button>
+            <button data-choice="3">The Senate</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Different Answer to an Old Question</h2>
       <p>Put the three elements together (the dual consulship, the Senate, the assemblies), and you have the outline of what later writers would call a <strong class="term-subject" tabindex="0">mixed constitution<span class="gloss-tip">A government that blends monarchy, aristocracy, and democracy into one system, so that each branch checks the others; Rome's Republic is the classic example.</span></strong>: a government that blends monarchic, aristocratic, and democratic elements rather than choosing decisively among them. You will meet the man who gave this idea its fullest ancient statement, the Greek historian Polybius, in Wednesday's lesson; Cicero, whom you read today, absorbed Polybius's analysis and made it his own. For now, notice what this Roman answer implies about the six questions this course keeps returning to. Who rules, and what makes that rule legitimate? In Rome, no one office and no one class rules alone; legitimacy rests on the plural, checked structure itself, not on the wisdom or virtue of any single ruler. How is authority distributed among citizens and the communities they belong to? Rome distributes it across offices in tension with one another, rather than concentrating it and then trusting an electorate to remove bad occupants of a single office. Athens had asked whether the many could be trusted to rule directly. Rome asked a different question: whether any part of the state, however capable, could be trusted to rule without another part standing ready to say no. The American Constitution you will study later this semester inherits Athens's commitment to popular consent, but its actual machinery (two houses of Congress checking each other, a president checking Congress, courts checking both) is Roman to its bones.</p>
     </div>
@@ -293,6 +396,64 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
