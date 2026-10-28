@@ -193,6 +193,38 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -241,7 +273,98 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Polybius inherited from earlier Greek political thought a theory of constitutional decay he called <em class="term" tabindex="0">anacyclosis<span class="gloss-tip">Polybius's theory that governments cycle through a fixed sequence of forms, from monarchy to tyranny to aristocracy to oligarchy to democracy to mob rule and back again. <button class="gloss-speak" onclick="speakGloss(event,'anacyclosis, an-uh-sy-KLOH-sis')" aria-label="Hear pronunciation">&#128266;</button></span></em>; the cycle of constitutions. In its basic form: monarchy, rule by one good king, tends over generations to degrade into tyranny, rule by one bad king who inherited a throne rather than earning legitimacy through merit. Tyranny provokes revolt by the best and most capable citizens, who overthrow the tyrant and establish aristocracy, rule by the deserving few. Aristocracy, in turn, degrades across generations into oligarchy, rule by a narrow, self-interested few who inherited status rather than merit. Oligarchy provokes a popular revolt that establishes democracy, rule by the many. And democracy, Polybius argued, eventually degrades into mob rule (ochlocracy) as citizens grow accustomed to flattery, demagogues promise more than the state can deliver, and the ambitious few forcibly re-impose one-man rule from the resulting chaos, restarting the cycle at monarchy. Every pure constitutional form, on this account, carries the seed of its own decay built into its structure; the very quality that makes it legitimate at its founding (the king's merit, the aristocrats' virtue, the people's liberty) is exactly what corrodes across generations into its opposite.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Name the regime</div>
+        <div class="widget-question">Use Polybius's cycle. For each case, ask who rules and for whose benefit, then name the regime.</div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. The few rule for themselves on the strength of inherited status: oligarchy." data-hint="The few rule here. Look at their motive and how they got their status: do they rule as the deserving, or for themselves?">
+          <div class="widget-row-prompt">1. A narrow circle of families rules for its own benefit. Its members hold power because of the status they inherited, not because of merit.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. One ruler, ruling well: the sound form, monarchy." data-hint="One ruler, and he rules well. Is this the sound form, or its corrupt twin?">
+          <div class="widget-row-prompt">2. One king rules well, for the good of the whole community.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="5" data-fb="Right. When demagogues promise more than the state can deliver, democracy slides into mob rule (ochlocracy)." data-hint="The many rule here, but look at who is steering them and what they are being promised.">
+          <div class="widget-row-prompt">3. Citizens, grown used to flattery, follow leaders who promise more than the state can deliver.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. After the tyrant falls, the best and most capable rule as the deserving few: aristocracy." data-hint="A few rule here, and they hold power because they deserve it. Which form is that?">
+          <div class="widget-row-prompt">4. After a revolt against a tyrant, the most capable citizens take over and rule as the deserving few.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="4" data-fb="Right. A popular revolt against a narrow few puts rule in the hands of the many: democracy." data-hint="Who gains power when the people rise against a narrow, self-interested few?">
+          <div class="widget-row-prompt">5. After a popular revolt against a narrow few, power passes to the many.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. One ruler who inherited his throne rather than earning it, ruling for himself: tyranny." data-hint="One ruler again, but he got the throne by inheritance, not merit. Is that the sound form or its corrupt twin?">
+          <div class="widget-row-prompt">6. A king who inherited his throne rather than earning it rules for his own interest.</div>
+          <div class="widget-options">
+            <button data-choice="0">Monarchy</button>
+            <button data-choice="1">Tyranny</button>
+            <button data-choice="2">Aristocracy</button>
+            <button data-choice="3">Oligarchy</button>
+            <button data-choice="4">Democracy</button>
+            <button data-choice="5">Mob rule</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Polybius's central argument (the one Cicero later absorbed and that you already read in Tuesday's primary source) is that Rome escaped this otherwise near-universal cycle, or at least resisted it longer and more successfully than any state he knew of, precisely because Rome never let any pure form take hold long enough to complete the cycle. The consuls supplied the monarchic element; the Senate supplied the aristocratic element; the assemblies and the Tribune of the Plebs supplied the democratic element. Each watched the others, and each could check the others' overreach before it hardened into permanent domination. A constitution built from all three elements simultaneously, Polybius argued, could not slide cleanly from monarchy to tyranny, because the Senate and the tribunes stood in the way; could not slide from aristocracy to oligarchy, because the consuls and the plebeian assemblies stood in the way; could not slide from democracy to mob rule, because the Senate's accumulated authority and the consuls' command stood in the way. The mixture does not eliminate the tendency toward decay that each element carries individually. It arrests it, by setting each element's characteristic corruption against the others' correcting pressure.</p>
+
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Make a prediction</div>
+        <div class="widget-question">Polybius says the mixture slows decay. Suppose Rome's three elements stay in place for generations. Which one would you expect to grow strong enough to threaten the balance first? (No wrong answer. It is only a prediction.)</div>
+        <div class="widget-options">
+          <button data-response="That is the monarchic danger: one man's rule hardening into tyranny. On Polybius's account, the Senate and the tribunes stood in the way.">The consuls (rule by one)</button>
+          <button data-response="That is the aristocratic danger: a self-interested few closing ranks into oligarchy. On Polybius's account, the consuls and the plebeian assemblies stood in the way.">The Senate (rule by a few)</button>
+          <button data-response="That is the democratic danger: the many, led by flatterers, sliding into mob rule. On Polybius's account, the Senate's authority and the consuls' command stood in the way.">The assemblies (rule by the many)</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">From Polybius to Philadelphia</h2>
       <p>This is the argument you should hold onto for the rest of the semester, because it does not stay in the ancient world. Roughly nineteen centuries after Polybius, the French political philosopher Montesquieu studied the Roman constitution and Polybius's account of it closely while developing his own theory of the separation of powers, later published in <em>The Spirit of the Laws</em> (1748) (a text you will read directly in Module 2. And when James Madison sat down to defend the proposed United States Constitution in the Federalist Papers) which you will read in Module 4; he drew on Montesquieu, and through Montesquieu on Polybius and Cicero, for the same basic conviction: that liberty is protected not by finding virtuous rulers and trusting them, but by so arranging offices against one another that no single part of government can act alone for long. Madison's Federalist No. 51 will state the principle in words that could stand as a direct English translation of Polybius's Greek: ambition must be made to counteract ambition. The mixed constitution of Rome, filtered through Polybius, through Cicero, through Montesquieu, is a direct ancestor of the separation of powers you live under today. When you reach Madison in Module 4, you will be reading the last link in a chain that starts, as far as surviving evidence shows us, in this module's lesson.</p>
@@ -285,6 +408,64 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
