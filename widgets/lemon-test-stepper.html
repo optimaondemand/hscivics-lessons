@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run It Through the Lemon Test</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.tabs button { flex: 1 1 140px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; font-family: inherit; cursor: pointer; }
+.tabs button.on { background: #0E1C42; color: #fff; }
+.case { background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 11px 14px; margin-bottom: 10px; font-size: 14.5px; }
+.case .tag { font-size: 11.5px; color: #6b7a99; margin-top: 4px; }
+.track { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.step { flex: 1 1 150px; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 10px; background: #fff; font-size: 13.5px; color: #6b7a99; }
+.step b { display: block; color: #0E1C42; font-size: 13px; }
+.step.now { border-color: #C7922C; background: #FDF3E3; color: #1a2340; }
+.step.pass { border-color: #2A9D5C; background: #E7F5EB; color: #1A6B3D; }
+.step.fail { border-color: #C0392B; background: #FDECEC; color: #8A1F16; }
+.ask { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+.ask .t { font-size: 14.5px; margin-bottom: 8px; }
+.ask .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.ask button { flex: 1 1 140px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 6px; padding: 9px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.ask button:hover { background: #F4F6FA; }
+.msg { margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.final { display: none; margin-bottom: 10px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.final.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Run It Through the Lemon Test</h1>
+<p class="sub">A law challenged under the Establishment Clause must satisfy all three parts to survive. Pick an example and test it one part at a time. These examples are invented for practice.</p>
+
+<div class="tabs" id="tabs"></div>
+<div class="case" id="case"></div>
+<div class="track" id="track"></div>
+<div class="ask" id="ask"></div>
+<div class="msg" id="msg"></div>
+<div class="final" id="final"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var PRONGS = [
+    { n: 'Secular purpose', q: 'Does the action have a secular purpose, rather than existing mainly to advance religion?' },
+    { n: 'Primary effect', q: 'Does its primary effect neither advance nor inhibit religion?' },
+    { n: 'No excessive entanglement', q: 'Does it avoid excessive government entanglement with religion, such as ongoing monitoring or auditing?' }
+  ];
+  // res: does the action satisfy this prong. flip: swap button order so the right answer does not always sit first.
+  var CASES = [
+    { name: 'State pays teachers', s: 'A state pays part of the salaries of teachers of secular subjects in religious schools. To make sure the money pays only for secular teaching, officials must audit school finances and review what teachers say in class.', tag: 'Modeled on the facts of Lemon.',
+      res: [true, true, false], flip: [false, true, false],
+      why: ['Yes. The stated aim is better-educated citizens, which is secular.', 'Yes. The money funds only secular subjects, so its primary effect is not to advance religion.', 'No. Auditing finances and policing classroom speech is the kind of ongoing supervision that creates excessive entanglement.'] },
+    { name: 'Daily prayer', s: 'A state requires every public classroom to open each day with a prayer written by state officials. The law says its purpose is to encourage students to practice the faith.', tag: 'Invented example.',
+      res: [false, true, true], flip: [true, false, false],
+      why: ['No. The law itself says its purpose is to promote religious practice, so it fails the first part.', '', ''] },
+    { name: 'Sidewalk repair', s: 'A city repairs the sidewalks on every block downtown, including the block with a church, so pedestrians can walk safely.', tag: 'Invented example.',
+      res: [true, true, true], flip: [true, false, true],
+      why: ['Yes. Safe sidewalks are a secular purpose.', 'Yes. The repair helps all walkers equally, so it neither advances nor inhibits religion.', 'Yes. A one-time repair needs no ongoing monitoring of the church.'] }
+  ];
+  var ci, step, ended;
+  function init() { ci = 0; load(); }
+  function load() {
+    step = 0; ended = false;
+    $('msg').className = 'msg'; $('final').className = 'final';
+    draw();
+  }
+  function draw() {
+    var t = $('tabs'); t.innerHTML = '';
+    CASES.forEach(function (c, i) {
+      var b = document.createElement('button'); b.textContent = c.name;
+      if (i === ci) b.className = 'on';
+      b.addEventListener('click', function () { ci = i; load(); });
+      t.appendChild(b);
+    });
+    var c = CASES[ci];
+    $('case').innerHTML = '<div></div><div class="tag"></div>';
+    $('case').firstChild.textContent = c.s; $('case').lastChild.textContent = c.tag;
+    var tr = $('track'); tr.innerHTML = '';
+    PRONGS.forEach(function (p, i) {
+      var d = document.createElement('div');
+      var state = i < step ? (c.res[i] ? 'pass' : 'fail') : (i === step && !ended ? 'now' : '');
+      d.className = 'step ' + state;
+      d.innerHTML = '<b></b><span></span>';
+      d.querySelector('b').textContent = (i + 1) + '. ' + p.n;
+      d.querySelector('span').textContent = i < step ? (c.res[i] ? 'Met' : 'Failed') : (i === step && !ended ? 'Test this part' : 'Not tested');
+      tr.appendChild(d);
+    });
+    var a = $('ask'); a.innerHTML = '';
+    if (ended) { a.style.display = 'none'; return; }
+    a.style.display = 'block';
+    var q = document.createElement('div'); q.className = 't'; q.textContent = PRONGS[step].q;
+    var o = document.createElement('div'); o.className = 'opts';
+    var yes = document.createElement('button'); yes.textContent = 'Yes, it meets this part';
+    var no = document.createElement('button'); no.textContent = 'No, it fails this part';
+    yes.addEventListener('click', function () { answer(true); });
+    no.addEventListener('click', function () { answer(false); });
+    if (c.flip[step]) { o.appendChild(no); o.appendChild(yes); } else { o.appendChild(yes); o.appendChild(no); }
+    a.appendChild(q); a.appendChild(o);
+  }
+  function answer(v) {
+    var c = CASES[ci], m = $('msg');
+    if (v !== c.res[step]) {
+      m.className = 'msg show bad';
+      m.textContent = 'Not quite. Reread the example and ask this question again, thinking about what the government actually does.';
+      return;
+    }
+    m.className = 'msg show good'; m.textContent = c.why[step];
+    var failed = !c.res[step];
+    step++;
+    if (failed || step === PRONGS.length) {
+      ended = true;
+      var f = $('final'); f.className = 'final show';
+      f.textContent = failed ? ('The action is struck down. It had to satisfy all three parts, and it failed part ' + step + '.') : 'The action survives. It satisfied all three parts.';
+    }
+    draw();
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
