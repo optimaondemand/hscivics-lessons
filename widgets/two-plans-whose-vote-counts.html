@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Plans: Whose Vote Counts?</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.plans { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.plan { flex: 1 1 220px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 9px 12px; font-size: 14px; font-family: inherit; cursor: pointer; text-align: left; }
+.plan:hover { background: #F4F6FA; }
+.plan.on { background: #0E1C42; color: #fff; }
+.plan small { display: block; font-size: 12px; opacity: .85; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin: 6px 0; }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.tile { flex: 1 1 100px; min-width: 96px; background: #fff; border: 2px solid #B9C4DD; border-radius: 8px; padding: 8px 8px 6px; font-family: inherit; font-size: 13px; color: #0E1C42; cursor: pointer; text-align: center; transition: background .2s, border-color .2s; }
+.tile.yes { background: #D8F0DD; border-color: #2A9D5C; }
+.tile.no { background: #FDECEC; border-color: #C0392B; }
+.tile .nm { font-weight: 600; }
+.tile .sz { font-size: 11px; color: #6b7a99; }
+.tile .pw { margin-top: 4px; font-size: 12px; }
+.bar { display: flex; height: 30px; border-radius: 6px; overflow: hidden; border: 1px solid #D0D9E8; background: #fff; }
+.bar > div { display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff; transition: width .3s; min-width: 0; overflow: hidden; }
+.bar .y { background: #2A9D5C; }
+.bar .n { background: #C0392B; }
+.verdict { margin: 10px 0; padding: 9px 12px; background: #fff; border-left: 4px solid #0E1C42; border-radius: 4px; font-size: 14px; }
+.bloc { margin: 8px 0; padding: 9px 12px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; font-size: 14px; color: #0E1C42; }
+.stuck { margin: 8px 0 12px; padding: 9px 12px; background: #FDF3E3; border-left: 4px solid #C7922C; border-radius: 4px; font-size: 14px; }
+.legend { font-size: 12px; color: #6b7a99; margin: 4px 0 8px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Two Plans: Whose Vote Counts?</h1>
+<p class="sub">Pick a plan. Then tap any state to flip its vote on a question where large-state and small-state interests collide, and watch who carries the day.</p>
+
+<div class="plans" id="plans"></div>
+<div class="label">Seven states, one question (tap a state to flip its vote)</div>
+<div class="tiles" id="tiles"></div>
+<div class="legend">Schematic only: three large states and four small ones. Delaware and New Jersey are real; the other two small states are placeholders. The weights are illustrative, not census figures.</div>
+<div class="label" id="barlabel"></div>
+<div class="bar" id="bar"></div>
+<div class="verdict" id="verdict"></div>
+<div class="bloc" id="bloc"></div>
+<div class="stuck">Whichever plan you pick, one camp can be outvoted every time the other camp holds together. Neither side will accept that, and that is the deadlock.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var STATES = [
+    { n: 'Virginia', w: 10, big: true },
+    { n: 'Pennsylvania', w: 8, big: true },
+    { n: 'Massachusetts', w: 7, big: true },
+    { n: 'New Jersey', w: 3, big: false },
+    { n: 'Delaware', w: 1, big: false },
+    { n: 'Small state C', w: 2, big: false },
+    { n: 'Small state D', w: 2, big: false }
+  ];
+  var PLANS = {
+    vp: { name: 'The Virginia Plan', note: 'Seats follow population', label: 'Tally under the Virginia Plan: votes counted by population' },
+    nj: { name: 'The New Jersey Plan', note: 'One equal vote per state', label: 'Tally under the New Jersey Plan: one vote per state' }
+  };
+  var plan, votes;
+
+  function weight(i) { return plan === 'vp' ? STATES[i].w : 1; }
+  function init() {
+    plan = 'vp';
+    votes = STATES.map(function (s) { return s.big; });
+    render();
+  }
+  function render() {
+    var pb = $('plans'); pb.innerHTML = '';
+    ['vp', 'nj'].forEach(function (k) {
+      var b = document.createElement('button');
+      b.className = 'plan' + (plan === k ? ' on' : '');
+      b.innerHTML = PLANS[k].name + '<small>' + PLANS[k].note + '</small>';
+      b.addEventListener('click', function () { plan = k; render(); });
+      pb.appendChild(b);
+    });
+    var tb = $('tiles'); tb.innerHTML = '';
+    STATES.forEach(function (s, i) {
+      var b = document.createElement('button');
+      b.className = 'tile ' + (votes[i] ? 'yes' : 'no');
+      b.innerHTML = '<div class="nm">' + s.n + '</div><div class="sz">' + (s.big ? 'large' : 'small') + '</div><div class="pw">' +
+        (plan === 'vp' ? 'weight ' + s.w : '1 vote') + ' &middot; ' + (votes[i] ? 'Yes' : 'No') + '</div>';
+      b.addEventListener('click', function () { votes[i] = !votes[i]; render(); });
+      tb.appendChild(b);
+    });
+    var yes = 0, no = 0;
+    STATES.forEach(function (s, i) { if (votes[i]) yes += weight(i); else no += weight(i); });
+    var tot = yes + no;
+    $('barlabel').textContent = PLANS[plan].label;
+    $('bar').innerHTML = '<div class="y" style="width:' + (100 * yes / tot) + '%">' + (yes ? 'Yes ' + yes : '') + '</div><div class="n" style="width:' + (100 * no / tot) + '%">' + (no ? 'No ' + no : '') + '</div>';
+    $('verdict').textContent = yes > no ? 'Yes carries, ' + yes + ' to ' + no + '.' : (no > yes ? 'No carries, ' + no + ' to ' + yes + '.' : 'A tie.');
+    var bigW = 0, smallW = 0, bigC = 0, smallC = 0;
+    STATES.forEach(function (s, i) { if (s.big) { bigW += weight(i); bigC++; } else { smallW += weight(i); smallC++; } });
+    $('bloc').textContent = bigW > smallW
+      ? 'Bloc test: the ' + bigC + ' large states hold ' + bigW + ' of ' + (bigW + smallW) + ' counted votes. Whenever they agree, they beat all ' + smallC + ' small states.'
+      : 'Bloc test: the ' + smallC + ' small states hold ' + smallW + ' of ' + (bigW + smallW) + ' counted votes. Whenever they agree, they beat the ' + bigC + ' large states, even though the large states hold most of the people.';
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
