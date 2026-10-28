@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redraw the Map: Cleisthenes's Tribes</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+.key { display: flex; align-items: center; gap: 6px; }
+.sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.c-city { background: #0E1C42; color: #fff; }
+.c-coast { background: #2196D0; color: #fff; }
+.c-inland { background: #C7922C; color: #fff; }
+.tribes { display: flex; flex-wrap: wrap; gap: 12px; }
+.tribe { flex: 1 1 200px; min-width: 0; background: #fff; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 10px 12px; }
+.tribe h2 { font-size: 14px; margin: 0 0 8px; color: #0E1C42; }
+.slots { display: flex; gap: 6px; margin-bottom: 8px; }
+.chip { flex: 1; min-width: 0; border: 3px solid transparent; border-radius: 6px; padding: 10px 2px; text-align: center; font-size: 13px; font-family: inherit; cursor: pointer; transition: transform .15s, border-color .15s; }
+.chip.sel { border-color: #fff; outline: 3px solid #C0392B; transform: translateY(-3px); }
+.meter { height: 10px; background: #EEF1F8; border-radius: 5px; overflow: hidden; }
+.fill { height: 100%; width: 100%; background: #C0392B; transition: width .35s, background .35s; }
+.mtxt { font-size: 12.5px; color: #444; margin-top: 4px; }
+.status { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 14.5px; background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; transition: background .3s; }
+.status.good { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+.status.mid { background: #FDF3E3; border-left-color: #C7922C; color: #6b4a10; }
+.bar { margin-top: 12px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+.note { font-size: 12px; color: #6b7a99; margin-top: 10px; }
+</style>
+</head>
+<body>
+<h1>Redraw the Map</h1>
+<p class="sub">A scaled-down model of Cleisthenes's reform. Each tribe below is a bundle of three "thirds" (trittyes). Tap one third, then tap another to swap them. Your goal: make it impossible for any one region's patrons to carry a whole tribe.</p>
+
+<div class="legend">
+  <span class="key"><span class="sw c-city"></span>City thirds (C)</span>
+  <span class="key"><span class="sw c-coast"></span>Coast thirds (S)</span>
+  <span class="key"><span class="sw c-inland"></span>Inland thirds (I)</span>
+</div>
+
+<div class="tribes" id="tribes"></div>
+<div class="status" id="status"></div>
+<div class="bar"><button class="reset" id="reset">Reset</button></div>
+<p class="note">Model only: the real reform drew ten tribes from thirty thirds. In the old arrangement each tribe sat inside one region, so the local patrons who ruled that region also ruled the tribe.</p>
+
+<script>
+(function () {
+  var REGIONS = { C: { cls: 'c-city', name: 'City' }, S: { cls: 'c-coast', name: 'Coast' }, I: { cls: 'c-inland', name: 'Inland' } };
+  var OLD = [['C', 'C', 'C'], ['S', 'S', 'S'], ['I', 'I', 'I']];
+  var tribes, sel;
+
+  function copy(a) { return a.map(function (t) { return t.slice(); }); }
+  function reach(t) {
+    var n = { C: 0, S: 0, I: 0 };
+    t.forEach(function (r) { n[r]++; });
+    return Math.max(n.C, n.S, n.I);
+  }
+  function draw() {
+    var root = document.getElementById('tribes');
+    root.innerHTML = '';
+    var allMixed = true, anyChange = false;
+    tribes.forEach(function (t, ti) {
+      var box = document.createElement('div');
+      box.className = 'tribe';
+      var h = document.createElement('h2');
+      h.textContent = 'Tribe ' + ['I', 'II', 'III'][ti];
+      box.appendChild(h);
+      var slots = document.createElement('div');
+      slots.className = 'slots';
+      t.forEach(function (r, si) {
+        var b = document.createElement('button');
+        b.className = 'chip ' + REGIONS[r].cls + (sel && sel[0] === ti && sel[1] === si ? ' sel' : '');
+        b.textContent = r;
+        b.setAttribute('aria-label', REGIONS[r].name + ' third, tribe ' + (ti + 1) + ', slot ' + (si + 1));
+        b.addEventListener('click', function () { tap(ti, si); });
+        slots.appendChild(b);
+      });
+      box.appendChild(slots);
+      var m = reach(t), pct = Math.round(m / 3 * 100);
+      var meter = document.createElement('div'); meter.className = 'meter';
+      var fill = document.createElement('div'); fill.className = 'fill';
+      fill.style.width = pct + '%';
+      fill.style.background = m === 3 ? '#C0392B' : (m === 2 ? '#C7922C' : '#2A9D5C');
+      meter.appendChild(fill); box.appendChild(meter);
+      var tx = document.createElement('div'); tx.className = 'mtxt';
+      tx.textContent = 'One region\'s patrons can swing ' + pct + '% of this tribe.';
+      box.appendChild(tx);
+      root.appendChild(box);
+      if (m !== 1) allMixed = false;
+    });
+    var s = document.getElementById('status');
+    var worst = Math.max.apply(null, tribes.map(reach));
+    if (allMixed) {
+      s.className = 'status good';
+      s.textContent = 'Every tribe holds one city, one coast, and one inland third. No local patron network can carry a tribe alone, so power has to run through citizens meeting as citizens. In the real Council of Five Hundred, each of the ten tribes sent fifty members, chosen by lot.';
+    } else if (worst === 2) {
+      s.className = 'status mid';
+      s.textContent = 'Better, but at least one tribe is still two-thirds one region. A patron with two of three thirds still decides that tribe. Keep swapping.';
+    } else {
+      s.className = 'status';
+      s.textContent = 'Old map: each tribe sits inside a single region, so the patrons who run that region run the whole tribe. A poor farmer there votes the way his patron expects. Start swapping thirds between tribes.';
+    }
+  }
+  function tap(ti, si) {
+    if (!sel) { sel = [ti, si]; draw(); return; }
+    if (sel[0] === ti && sel[1] === si) { sel = null; draw(); return; }
+    var a = tribes[sel[0]][sel[1]];
+    tribes[sel[0]][sel[1]] = tribes[ti][si];
+    tribes[ti][si] = a;
+    sel = null; draw();
+  }
+  document.getElementById('reset').addEventListener('click', function () { tribes = copy(OLD); sel = null; draw(); });
+  tribes = copy(OLD); sel = null; draw();
+})();
+</script>
+</body>
+</html>
