@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Plessy Case, Station by Station</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 12px; }
+.track { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.stop { flex: 1 1 90px; text-align: center; font-size: 12px; color: #6b7a99; border-top: 5px solid #D0D9E8; padding-top: 4px; }
+.stop.here { border-top-color: #C7922C; color: #0E1C42; font-weight: 600; }
+.stop.done { border-top-color: #2A9D5C; color: #1A6B3D; }
+.card { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+.card .when { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: #1B6A94; margin-bottom: 4px; }
+.card .what { font-family: Georgia, "Times New Roman", serif; font-size: 15px; margin-bottom: 8px; }
+.card .q { font-size: 15px; color: #0E1C42; margin-bottom: 8px; }
+.opts { display: flex; flex-direction: column; gap: 6px; }
+.opts button { text-align: left; background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 12px; font-size: 14px; font-family: inherit; color: #0E1C42; cursor: pointer; }
+.opts button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.opts button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.opts button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.fb { display: none; margin-top: 8px; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+.fb.show { display: block; }
+.fb.good { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.fb.bad { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.end { display: none; margin: 8px 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.end.show { display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.go { background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.go[disabled] { opacity: .4; cursor: default; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>The Case, Station by Station</h1>
+<p class="sub">Follow <em>Plessy</em> from a Louisiana statute to the Supreme Court. At each station, answer from what you have read, then move on.</p>
+
+<div class="track" id="track"></div>
+<div class="card" id="card">
+  <div class="when" id="when"></div>
+  <div class="what" id="what"></div>
+  <div class="q" id="q"></div>
+  <div class="opts" id="opts"></div>
+  <div class="fb" id="fb"></div>
+</div>
+<div class="end" id="end"></div>
+<div class="row"><button class="go" id="next" disabled>Next station</button><button class="reset" id="reset">Reset</button></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var S = [
+    { tag: 'The law', when: '1890',
+      what: 'Louisiana passes the Separate Car Act. Railroads must provide "equal but separate accommodations" for white and Black passengers, and a passenger who sits in the wrong car commits a crime.',
+      q: 'Black and Creole New Orleans resented the law. Who else resented it, and for a practical reason?',
+      o: ['White passengers, who wanted the cars mixed', 'The railroads, who had to run a second, often nearly empty car', 'The legislature that passed it, which wanted it repealed'], c: 1,
+      good: 'Right. Running a second car just to keep the races apart was an expense the East Louisiana Railroad had no wish to bear. That is why the railroad would become a willing partner.',
+      bad: 'Think about who had to pay for an extra car that was often nearly empty.' },
+    { tag: 'The test case', when: 'Before 1892',
+      what: 'The Citizens\' Committee decides to challenge the law in court and chooses one of its own members, the shoemaker Homer Plessy, who was seven-eighths white and one-eighth Black by the classification of the time.',
+      q: 'Why choose a man who could ordinarily have passed unnoticed in a whites-only car?',
+      o: ['His appearance would not complicate the case, so the courts would have to face the law\'s logic directly', 'He was the wealthiest member of the Committee', 'He lived closest to the station'], c: 0,
+      good: 'Right. The Committee wanted a case that forced the courts to confront the law itself, not one complicated by how the defendant looked.',
+      bad: 'The Committee wanted a case that was not complicated by visible appearance. Which answer fits that goal?' },
+    { tag: 'The arrest', when: 'June 7, 1892',
+      what: 'Plessy buys a first-class ticket on the East Louisiana Railway and sits in the car reserved for white passengers. The conductor, who has been told in advance who Plessy is, orders him to the other car.',
+      q: 'Plessy declines to move. Who makes the actual arrest?',
+      o: ['The conductor who ordered him to move', 'The sheriff of Orleans Parish', 'A private detective hired for the occasion'], c: 2,
+      good: 'Right. The Committee, its chosen defendant, and the railroad staged the arrest together so the courts would get the cleanest possible version of the question.',
+      bad: 'The conductor only gave the order. Someone had been hired in advance to make the arrest.' },
+    { tag: 'The trial', when: 'Orleans Parish criminal court',
+      what: 'Plessy is tried before Judge John H. Ferguson. The case is named for him: <em>Plessy v. Ferguson</em>.',
+      q: 'What does Judge Ferguson rule?',
+      o: ['Louisiana may constitutionally regulate railway accommodations within its own borders', 'The law violates the Fourteenth Amendment', 'The charge is dropped because the railroad refuses to testify'], c: 0,
+      good: 'Right. Plessy lost at trial and appealed, and the case climbed to the United States Supreme Court.',
+      bad: 'Plessy appealed. Which ruling would have given him a reason to?' },
+    { tag: 'The Court', when: '1896',
+      what: 'The case reaches the United States Supreme Court. Justice Henry Billings Brown writes for the majority. One justice, John Marshall Harlan, writes alone in dissent.',
+      q: 'What is the Court\'s vote?',
+      o: ['9 to 0', '7 to 1', '5 to 4'], c: 1,
+      good: 'Right. Seven justices joined the majority and one dissented. "Separate but equal" would stand for fifty-eight years.',
+      bad: 'Only one justice dissented. Count the others.' }
+  ];
+  var i, answered;
+  function drawTrack() {
+    var t = $('track'); t.innerHTML = '';
+    S.forEach(function (s, k) {
+      var d = document.createElement('div');
+      d.className = 'stop' + (k < i || (k === i && answered) ? ' done' : (k === i ? ' here' : ''));
+      d.textContent = s.tag; t.appendChild(d);
+    });
+  }
+  function load() {
+    var s = S[i]; answered = false;
+    $('when').textContent = s.when; $('what').innerHTML = s.what; $('q').textContent = s.q;
+    var o = $('opts'); o.innerHTML = '';
+    s.o.forEach(function (txt, k) {
+      var b = document.createElement('button'); b.textContent = txt;
+      b.addEventListener('click', function () {
+        if (answered) return;
+        var fb = $('fb'); fb.className = 'fb show';
+        if (k === s.c) {
+          answered = true; b.className = 'correct'; fb.className = 'fb show good'; fb.textContent = s.good;
+          $('next').disabled = (i === S.length - 1); drawTrack();
+          if (i === S.length - 1) { $('end').className = 'end show'; $('end').textContent = 'Nothing here was an accident. A committee, a defendant, and a railroad built a case to put one question to the courts: can a state sort its citizens by race and still call the result equal? In 1896 the Court answered yes.'; }
+        } else { b.className = 'incorrect'; fb.className = 'fb show bad'; fb.textContent = s.bad; }
+      });
+      o.appendChild(b);
+    });
+    $('fb').className = 'fb'; $('fb').textContent = ''; $('next').disabled = true; drawTrack();
+  }
+  function init() { i = 0; $('end').className = 'end'; $('end').textContent = ''; load(); }
+  $('next').addEventListener('click', function () { if (i < S.length - 1) { i++; load(); } });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
