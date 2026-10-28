@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>If You Were the Court</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.setup { background: #fff; border: 2px solid #0E1C42; border-radius: 8px; padding: 12px 16px; font-size: 15px; color: #0E1C42; margin-bottom: 10px; }
+.prem { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.prem div { flex: 1 1 230px; background: #FBF8F0; border: 1px solid #D9CFAF; border-radius: 6px; padding: 8px 10px; font-size: 13.5px; }
+.prem div b { display: block; font-size: 11.5px; letter-spacing: .3px; color: #7a5a14; }
+.prem div.broken { background: #FDECEC; border-color: #C0392B; }
+.prem div.kept { background: #D8F0DD; border-color: #2A9D5C; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.opts button { flex: 1 1 210px; text-align: left; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 10px 12px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.opts button:hover { background: #F4F6FA; }
+.opts button.sel { background: #0E1C42; color: #fff; }
+.opts button.seen::after { content: " \2713"; }
+.chain { display: none; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; }
+.chain.show { display: block; }
+.chain ol { margin: 0 0 8px; padding-left: 20px; font-size: 14px; }
+.chain li { margin-bottom: 4px; }
+.verdict { font-size: 14px; padding: 8px 12px; border-radius: 4px; color: #0E1C42; background: #E8F6FB; border-left: 4px solid #2196D0; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #FDF3E3; border-left: 4px solid #C7922C; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>If You Were the Court</h1>
+<p class="sub">A case turns on a federal statute. The statute clearly conflicts with the Constitution. Try each option and follow what it commits you to.</p>
+
+<div class="setup">You must decide the case in front of you. What do you do?</div>
+<div class="prem">
+  <div id="p0"><b>PREMISE 1</b>The Constitution is supreme law, above any ordinary act of Congress.</div>
+  <div id="p1"><b>PREMISE 2</b>When two rules clash, a court must decide which one governs.</div>
+</div>
+<div class="opts" id="opts"></div>
+<div class="chain" id="chain"><ol id="steps"></ol><div class="verdict" id="verdict"></div></div>
+<div class="done" id="done">You have tried all three paths. Only one keeps both premises, and it is the argument Chief Justice John Marshall made in 1803.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // keeps: which premises the option keeps. The options are listed in scrambled order.
+  var OPTS = [
+    { t: 'Enforce the statute anyway and ignore the conflict.', keeps: [false, true],
+      steps: ['Enforcing the statute means an ordinary act of Congress outranks the Constitution.',
+              'But Article VI calls the Constitution "the supreme Law of the Land." Both cannot be true.',
+              'The Constitution\'s supremacy becomes empty words.'],
+      verdict: 'This gives up Premise 1. If a statute can override the Constitution, the Constitution is no longer the higher law.' },
+    { t: 'Decline to decide the question at all.', keeps: [true, false],
+      steps: ['A court\'s basic job is to decide which legal rule governs when two rules conflict.',
+              'Choosing between a statute and the Constitution is the same kind of task as choosing between two clashing statutes.',
+              'Declining abandons the duty that gives courts their work.'],
+      verdict: 'This gives up Premise 2. The conflict is still there, and the court has walked away from resolving it.' },
+    { t: 'Follow the Constitution and decline to enforce the statute.', keeps: [true, true],
+      steps: ['The Constitution is supreme, so a statute that conflicts with it cannot also be valid.',
+              'Courts must apply whichever authority actually governs.',
+              'So the court follows the Constitution and refuses to enforce the statute.'],
+      verdict: 'This keeps both premises. It is Marshall\'s reasoning in Marbury v. Madison (1803), and Hamilton had put the same logic in print in Federalist No. 78 in 1788. The power is called judicial review.' }
+  ];
+  var seen;
+
+  function init() {
+    seen = [false, false, false];
+    $('chain').className = 'chain'; $('done').className = 'done';
+    $('p0').className = ''; $('p1').className = '';
+    build(-1);
+  }
+  function build(sel) {
+    var o = $('opts'); o.innerHTML = '';
+    OPTS.forEach(function (op, i) {
+      var b = document.createElement('button');
+      b.textContent = op.t;
+      b.className = (i === sel ? 'sel ' : '') + (seen[i] ? 'seen' : '');
+      b.addEventListener('click', function () { show(i); });
+      o.appendChild(b);
+    });
+  }
+  function show(i) {
+    var op = OPTS[i]; seen[i] = true;
+    $('steps').innerHTML = op.steps.map(function (s) { return '<li>' + s + '</li>'; }).join('');
+    $('verdict').textContent = op.verdict;
+    $('chain').className = 'chain show';
+    [0, 1].forEach(function (k) { $('p' + k).className = op.keeps[k] ? 'kept' : 'broken'; });
+    build(i);
+    $('done').className = 'done' + (seen[0] && seen[1] && seen[2] ? ' show' : '');
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
