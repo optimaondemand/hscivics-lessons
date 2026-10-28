@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -236,9 +272,65 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>But the framers did not stop at splitting Congress in two for the sake of a head count. Having created two chambers, they built each one to behave differently; on purpose. Read Section 2 and Section 3 side by side and the design becomes visible. Representatives are chosen "every second Year," directly "by the People of the several States." A House member need only be twenty-five years old and a citizen for seven years. Senators, by contrast, originally served six-year terms and (this is easy to read past, but it is the single most important structural fact about the pre-1913 Senate) were "chosen by the Legislature thereof," meaning the state legislature, not the voters directly. A Senator had to be at least thirty and a citizen for nine years. The House was built to turn over quickly and answer directly to shifting public sentiment; the Senate was built to change slowly and stand one layer removed from it.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Predict</div>
+        <div class="widget-question">The framers are about to hand the nation's treaties and ambassadors to one chamber. Which would you trust with them? (No wrong answer. Make a prediction, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="That instinct values public accountability, and the framers valued it too, for lawmaking. Read on to see why they thought treaties called for something different.">The House, closest to the voters</button>
+          <button data-response="You are thinking the way the framers did. Read on to see how many of their reasons you anticipated.">The Senate, which changes slowly</button>
+          <button data-response="That is how a declaration of war works, as you will see. Treaties were handled differently.">Both chambers equally</button>
+          <button data-response="The framers had just left a king who made treaties by his sole will. Read on for how they answered that.">The President alone</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>This was not an accident of drafting, and it was not, originally, a fully democratic arrangement by modern standards. The framers wanted one chamber that would feel the pulse of public opinion within two years and respond to it, and a second chamber insulated enough from that same pulse to slow down, deliberate, and resist passing passions the House might amplify. James Madison and his fellow framers had read enough classical history (Polybius on Rome's mixed constitution of consuls, senate, and assembly) to distrust a government answerable to only one kind of pressure. A legislature with two different institutional temperaments, each checking the other's characteristic weakness, was the design answer to that distrust.</p>
 
       <p>The Senate's indirect election by state legislatures lasted well over a century. It was changed only by the <strong class="term-entity" tabindex="0">Seventeenth Amendment<span class="gloss-tip">The 1913 amendment that changed the election of U.S. Senators from selection by state legislatures to direct election by the voters.</span></strong>, ratified in 1913, which moved Senate elections to direct popular vote; the same method already used for the House. That amendment is worth flagging now, even though it belongs formally to a later unit on the amendment process: it means the "originally insulated Senate" you are reading about in Article I's text is not quite the Senate that exists today. The Senate remains more insulated than the House by design (six-year terms, only a third up for election at a time, statewide rather than district-level constituencies), but the direct link to state legislatures, the most distinctive insulating feature of 1787, is gone.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which chamber?</div>
+        <div class="widget-question">Each feature belongs to the House, the Senate, or both chambers. Pick one.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Senators must be thirty and citizens for nine years. Representatives need only be twenty-five and citizens for seven." data-hint="Compare the age requirements in Sections 2 and 3. Which chamber sets the higher bar?">
+          <div class="widget-row-prompt">1. A member must be at least thirty years old.</div>
+          <div class="widget-options">
+            <button data-choice="0">House</button>
+            <button data-choice="1">Senate</button>
+            <button data-choice="2">Both chambers</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Starting a war needs the full Congress, because the framers wanted that decision made slowly, with the people's most direct representatives fully engaged." data-hint="The lesson says a declaration of war requires the full Congress. Which option covers that?">
+          <div class="widget-row-prompt">2. A declaration of war needs this chamber's vote.</div>
+          <div class="widget-options">
+            <button data-choice="0">House</button>
+            <button data-choice="1">Senate</button>
+            <button data-choice="2">Both chambers</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The House was built to turn over quickly and answer directly to shifting public sentiment." data-hint="Which chamber was designed to feel the public pulse within two years?">
+          <div class="widget-row-prompt">3. Members face the voters again every second year.</div>
+          <div class="widget-options">
+            <button data-choice="0">House</button>
+            <button data-choice="1">Senate</button>
+            <button data-choice="2">Both chambers</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Staggered six-year terms mean the Senate never turns over all at once." data-hint="Staggered terms give a chamber institutional memory. Which chamber has them?">
+          <div class="widget-row-prompt">4. Only about a third of its seats are up for election at a time.</div>
+          <div class="widget-options">
+            <button data-choice="0">House</button>
+            <button data-choice="1">Senate</button>
+            <button data-choice="2">Both chambers</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why the Senate Gets Foreign Policy</h2>
       <p>This module's discussion topic asks you to look closely at one specific set of Senate powers, and Article I, Section 2 of the Constitution (in the portion covering the executive, which you will read fully in a later unit) assigns two of the most consequential foreign-policy tools in the entire document to the Senate alone: the power to give "Advice and Consent" on treaties the President negotiates, requiring a two-thirds vote of Senators present to ratify, and the power to give "Advice and Consent" on the President's nominations of ambassadors and other public ministers, requiring only a majority.</p>
@@ -282,6 +374,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
