@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -249,6 +285,49 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Most of the time these two commands work in harmony: government simply stays out of religious matters, and both clauses are satisfied at once. But the two clauses can pull against each other in a specific and recurring way. Suppose government accommodates a religious practice; exempts a church from a general regulation, say, or excuses a religious objector from an otherwise universal requirement. To the person who benefits, that accommodation looks like simple respect for free exercise. But to someone outside that faith, the same accommodation can look like government favoring one religion's needs over everyone else's; an establishment, or at least a step toward one. This is not a flaw in the Amendment; it is the price of protecting two related but distinct goods with two separate rules. Courts have spent decades since the founding, and especially since the mid-twentieth century, working out where the line between reasonable accommodation and impermissible establishment actually falls.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which clause?</div>
+        <div class="widget-question">Decide which clause each situation tests.</div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Setting up an official state church is what the Establishment Clause forbids." data-hint="Is the government promoting a religion, or burdening someone's practice of one?">
+          <div class="widget-row-prompt">1. A state declares an official church that every citizen must support.</div>
+          <div class="widget-options">
+            <button data-choice="0">Establishment Clause</button>
+            <button data-choice="1">Free Exercise Clause</button>
+            <button data-choice="2">Neither clause</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Denying a benefit because of a religious practice raises a Free Exercise question." data-hint="Here government is burdening a person's practice of her faith. Which clause guards against that?">
+          <div class="widget-row-prompt">2. A state denies unemployment pay to a worker who refuses Saturday shifts because of her Sabbath.</div>
+          <div class="widget-options">
+            <button data-choice="0">Establishment Clause</button>
+            <button data-choice="1">Free Exercise Clause</button>
+            <button data-choice="2">Neither clause</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Repaving a street that happens to pass a church and a library neither establishes nor burdens religion." data-hint="Does the action promote any religion or burden anyone's practice of one?">
+          <div class="widget-row-prompt">3. A city repaves a street that runs past both a church and a library.</div>
+          <div class="widget-options">
+            <button data-choice="0">Establishment Clause</button>
+            <button data-choice="1">Free Exercise Clause</button>
+            <button data-choice="2">Neither clause</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Government aid to religious schools that needs ongoing monitoring is an Establishment Clause problem, as in Lemon." data-hint="Government money is flowing toward religious schools. Which clause worries about that?">
+          <div class="widget-row-prompt">4. A state pays teachers in religious schools and audits their classrooms to be sure the money is spent right.</div>
+          <div class="widget-options">
+            <button data-choice="0">Establishment Clause</button>
+            <button data-choice="1">Free Exercise Clause</button>
+            <button data-choice="2">Neither clause</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Lemon Test</h2>
       <p>You read <em>Lemon v. Kurtzman</em> (1971) yesterday for its facts: Pennsylvania and Rhode Island used tax money to help pay the salaries of teachers of secular subjects in nonpublic schools, almost all of them Roman Catholic. The Supreme Court struck both programs down. But the more lasting achievement of Chief Justice Burger's opinion was not the specific ruling; it was the general test he distilled from decades of prior Establishment Clause cases, a test lower courts could actually apply to the next case, and the one after that, without having to reason the whole problem out from scratch every time. That test has three parts, and a law challenged under the Establishment Clause must satisfy all three to survive:</p>
 
@@ -257,11 +336,32 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <div class="oa-numbered"><div class="circ">3</div><div><strong>No excessive entanglement.</strong> It must not foster "excessive government entanglement with religion"; meaning it cannot require the kind of ongoing government monitoring, auditing, or supervision of religious institutions that itself creates an improper closeness between church and state.</div></div>
 
       <p>Notice how the third prong did the actual work in <em>Lemon</em> itself. The Pennsylvania and Rhode Island laws arguably had a secular purpose (better-educated citizens) and were framed to have a secular effect (funding only secular subjects). What sank them was entanglement: to make sure the money actually paid only for secular instruction, the state would have had to audit parochial school finances and, more troublingly, police what teachers (many of them nuns and priests, in schools whose entire purpose was religious formation) actually said in the classroom. That ongoing supervisory relationship between government and church, the Court held, was itself the constitutional problem, independent of whether any teacher had actually preached in a math class.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Run It Through the Lemon Test</div>
+      <p>Pick an example and test it against the three parts, one at a time, to see where it survives or fails.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/lemon-test-stepper.html" title="Run It Through the Lemon Test" style="width:100%; height:720px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/lemon-test-stepper.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Other Side of the Coin: Sherbert v. Verner</h2>
       <p><em>Lemon</em> is an Establishment Clause case: it asks how far government can go in aiding religion before the aid becomes an establishment. <em>Sherbert v. Verner</em> (1963), decided eight years earlier, is a Free Exercise Clause case, and it asks the opposite question: how far can government go in burdening religion before the burden becomes an unconstitutional interference with free exercise?</p>
 
       <p>Adell Sherbert was a Seventh-day Adventist working in a South Carolina textile mill. Her faith's Sabbath falls on Saturday, and when her employer began requiring Saturday shifts, she refused to work that day and was fired. South Carolina then denied her unemployment compensation, on the ground that she had turned down available work without "good cause." Sherbert argued that her cause (obedience to her Sabbath) was exactly the kind of religious practice the Free Exercise Clause exists to protect, and that conditioning a government benefit on her willingness to violate it unconstitutionally burdened her free exercise of religion.</p>
+
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt first &middot; How Sherbert flips the question</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, write the question you think the Court should ask about South Carolina's rule, and how it differs from the question Lemon asks. Then click to check.</summary>
+          <div class="reveal-body">The Court asked whether the rule placed a substantial burden on Sherbert's free exercise of religion, by forcing her to choose between her faith and a government benefit. If it did, the state needed a compelling justification, and it had none. Lemon asks how far government may go in aiding religion before it establishes it. Sherbert asks how far government may go in burdening religion before it interferes with free exercise.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <p>The Supreme Court agreed with her. It held that South Carolina's rule placed a substantial burden on Sherbert's free exercise of religion, forcing her to choose between following the tenets of her faith and receiving a government benefit to which she would otherwise be entitled. The Court further held that the state had failed to show a sufficiently compelling justification for that burden; South Carolina's asserted interest in preventing fraudulent unemployment claims did not require putting Sabbath-observers to that particular choice. Denying her benefits, in other words, worked as effectively as an outright fine or penalty on her religious practice, and the state could not impose that kind of penalty on the exercise of religion without a strong enough reason, which it did not have here.</p>
 
@@ -297,6 +397,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
