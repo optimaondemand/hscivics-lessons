@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Logic Is Doing the Work</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 6px; }
+.case { background: #FBF7EC; border: 1px solid #D9C99A; border-radius: 4px; padding: 12px 16px; margin-bottom: 10px; font-family: Georgia, "Times New Roman", serif; font-size: 15px; }
+.case .head { font-variant: small-caps; letter-spacing: .08em; color: #5a4a1f; font-size: 13px; margin-bottom: 4px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.opts button { background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 12px; font-size: 14px; font-family: inherit; color: #0E1C42; cursor: pointer; }
+.opts button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.opts button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.opts button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.fb { display: none; margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; }
+.fb.show { display: block; }
+.fb.good { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.fb.bad { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.mix { display: none; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+.mix.show { display: block; }
+.mix .t { font-size: 12.5px; color: #6b7a99; margin-bottom: 6px; }
+.bar { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 13px; }
+.bar .nm { flex: 0 0 130px; }
+.bar .tr { flex: 1 1 auto; height: 12px; background: #EEF1F7; border-radius: 6px; overflow: hidden; }
+.bar .fill { height: 100%; width: 0; background: #2196D0; transition: width .25s; }
+.bar .fill.main { background: #0E1C42; }
+.end { display: none; margin: 0 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.end.show { display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.go { background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.go[disabled] { opacity: .4; cursor: default; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Which Logic Is Doing the Work</h1>
+<p class="sub">Real policy is rarely one pure type. For each case, pick the logic doing the most work. Then see which others are in a supporting role.</p>
+
+<div class="prog" id="prog"></div>
+<div class="case" id="case"></div>
+<div class="opts" id="opts"></div>
+<div class="fb" id="fb"></div>
+<div class="mix" id="mix"><div class="t">The mix at work in this case</div><div id="bars"></div></div>
+<div class="end" id="end"></div>
+<div class="row"><button class="go" id="next" disabled>Next case</button><button class="reset" id="reset">Reset</button></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var T = ['Isolationism', 'Expansionism', 'Sphere of influence', 'Realism', 'Idealism'];
+  // m: weights 0 none, 1 supporting, 2 main. ok: accepted answers.
+  var C = [
+    { head: 'The Monroe Doctrine, 1823',
+      text: 'President Monroe declares that any European attempt to colonize or interfere in the newly independent nations of the Western Hemisphere will be treated as hostile to the United States itself.',
+      ok: [2], m: [0, 0, 2, 0, 1],
+      good: 'Sphere of influence. The United States claims a whole region as its zone without ruling it directly. Idealist language about protecting self-government from European monarchy played a supporting part.',
+      bad: 'The claim is about a region the United States wants other great powers to stay out of. Which logic is that?' },
+    { head: 'An Alliance of Convenience',
+      text: 'The United States allies with a government it finds otherwise objectionable, because the alliance serves a larger strategic purpose.',
+      ok: [3], m: [0, 0, 0, 2, 0],
+      good: 'Realism. The decision is judged by whether it works for the nation\'s security and power, not by whether the partner is admirable.',
+      bad: 'The policy is judged by whether it works, not by whether it is admirable. Which logic does that?' },
+    { head: 'The 1840s',
+      text: 'The annexation of Texas, the war with Mexico, and the Oregon boundary settlement are defended as steps toward a nation spanning the continent "from sea to sea."',
+      ok: [1], m: [0, 2, 0, 1, 1],
+      good: 'Expansionism, under the banner of Manifest Destiny. Idealist rhetoric about spreading democratic institutions and realist calculation about resources and security both supported it.',
+      bad: 'The aim is growth itself: a bigger nation. Which logic treats growth as the goal?' },
+    { head: 'The Statesman\'s Question',
+      text: 'A statesman judges each proposal by asking: does this action make the world more free, more just, more self-governing?',
+      ok: [4], m: [0, 0, 0, 0, 2],
+      good: 'Idealism. Moral and political principle is the governing aim, not decoration for a policy chosen on other grounds.',
+      bad: 'The test is whether the world becomes freer and more just. Which logic puts principle first?' },
+    { head: 'Washington\'s Farewell Address, 1796',
+      text: 'President Washington warns the young republic against "permanent alliances with any portion of the foreign world," allowing only "temporary alliances for extraordinary emergencies."',
+      ok: [0], m: [2, 0, 0, 1, 0],
+      good: 'Isolationism. Washington still wanted trade and diplomacy. What he resisted was binding commitment, because a weak young nation had the most to lose from Europe\'s quarrels. That is a realist reason for an isolationist policy.',
+      bad: 'He wants America out of binding political commitments abroad. Which logic is that?' },
+    { head: 'The Truman Doctrine, 1947',
+      text: 'Truman asks Congress for aid to Greece. A communist victory there would pressure Turkey and spread disorder through the Middle East. He also frames the request as a contest between "alternative ways of life" and a commitment to "free peoples."',
+      ok: [3, 4], m: [0, 0, 0, 2, 2],
+      good: 'Either answer holds. The realist core is strategic: Greece, Turkey, the Middle East. The idealist wrapping is moral: free peoples. The speech worked because it fused the two.',
+      bad: 'Look for both the strategic calculation and the moral framing in the passage. One of the five fits best.' }
+  ];
+  var ci, done;
+  function load() {
+    var c = C[ci]; done = false;
+    $('prog').textContent = 'Case ' + (ci + 1) + ' of ' + C.length;
+    $('case').innerHTML = '<div class="head"></div><div class="tx"></div>';
+    $('case').querySelector('.head').textContent = c.head; $('case').querySelector('.tx').textContent = c.text;
+    var o = $('opts'); o.innerHTML = '';
+    T.forEach(function (name, k) {
+      var b = document.createElement('button'); b.textContent = name;
+      b.addEventListener('click', function () {
+        if (done) return;
+        var fb = $('fb'); fb.className = 'fb show';
+        if (c.ok.indexOf(k) >= 0) {
+          done = true; b.className = 'correct'; fb.className = 'fb show good'; fb.textContent = c.good;
+          showMix(c); $('next').disabled = (ci === C.length - 1);
+          if (ci === C.length - 1) { $('end').className = 'end show'; $('end').textContent = 'Treat the five logics like a diagnostic checklist, not a filing cabinet. Ask which one is doing the most work, and which others are present in support.'; }
+        } else { b.className = 'incorrect'; fb.className = 'fb show bad'; fb.textContent = c.bad; }
+      });
+      o.appendChild(b);
+    });
+    $('fb').className = 'fb'; $('fb').textContent = ''; $('mix').className = 'mix'; $('next').disabled = true;
+  }
+  function showMix(c) {
+    var b = $('bars'); b.innerHTML = '';
+    T.forEach(function (name, k) {
+      var d = document.createElement('div'); d.className = 'bar';
+      d.innerHTML = '<div class="nm"></div><div class="tr"><div class="fill"></div></div>';
+      d.querySelector('.nm').textContent = name;
+      var f = d.querySelector('.fill'); b.appendChild(d);
+      setTimeout(function () { f.style.width = (c.m[k] * 50) + '%'; if (c.m[k] === 2) f.className = 'fill main'; }, 30);
+    });
+    $('mix').className = 'mix show';
+  }
+  function init() { ci = 0; $('end').className = 'end'; $('end').textContent = ''; load(); }
+  $('next').addEventListener('click', function () { if (ci < C.length - 1) { ci++; load(); } });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
