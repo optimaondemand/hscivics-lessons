@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -243,6 +279,34 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Put those two facts together and you arrive at the concept this lesson exists to teach: <strong class="term-subject" tabindex="0">totalitarianism<span class="gloss-tip">A system of government that seeks to control nearly every aspect of public and private life, tolerating no organized opposition or independent institutions.</span></strong>, a system of government that seeks to control not merely the political process but the whole of a society's economic, cultural, and personal life, typically through a single party, an official ideology, and the machinery of state coercion. The word matters because it names something more total than ordinary authoritarian rule. An authoritarian government might suppress political opposition while leaving economic and private life largely alone. A totalitarian government does not recognize a private sphere at all; political power and economic power are fused in the same hands, and there is, in principle, no corner of a citizen's life the state does not claim authority to reach.</p>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Tap to reveal &middot; Theory, then practice</div>
+        <div class="widget-question">Each card states what the theory promised. Say what happened, then tap to check yourself.</div>
+        <div class="ow-cards">
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:17px;color:#0E1C42;">The theory: the state will "wither away"<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A single party claimed exclusive and permanent authority to govern in the proletariat's name, with no scheduled transfer of power and no legal path for a rival party.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:17px;color:#0E1C42;">The theory: common ownership of the means of production<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">The state abolished private ownership of major industry and agriculture and built a command economy, with planners in Moscow setting targets for the whole union.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:17px;color:#0E1C42;">On paper: the 1936 constitution lists rights<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">None of them constrained the Party, because no independent court, free press, or competing political power existed to enforce them against the state.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+        </div>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Reading the Soviet State Against the American Constitution</h2>
       <p>You have spent this entire course building a specific vocabulary for evaluating governments, and this is the moment to use every word of it deliberately, side by side. Begin with <strong class="term-subject" tabindex="0">separation of powers<span class="gloss-tip">The division of government into distinct legislative, executive, and judicial branches, each with its own powers, so that no single branch controls all of them.</span></strong>; the division of governmental authority among distinct legislative, executive, and judicial branches, each checking the others, that you studied at length in Module 1's study of Article I and the Constitution's later articles. The Soviet Union had no structural counterpart to this at all. The Communist Party's Politburo and General Secretary combined what a constitutional government would separate: the power to write law, the power to enforce it, and, as the next point shows, the power to interpret and apply it as well.</p>
 
@@ -250,7 +314,62 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Finally, consider the civil liberties you traced through the Bill of Rights and its landmark cases: freedom of speech and of the press, freedom of religion, protection against arbitrary search, seizure, and detention, due process before the state can take life, liberty, or property. The Soviet constitution of 1936, on paper, listed rights that sound similar to these. In practice, none of them constrained the Party, because no independent court, no free press, and no competing political power existed to enforce them against the state that had written them. A right unenforceable against the government that grants it is not a constitutional constraint in the sense this course has used that term all semester; it is a promise the state can suspend at will, precisely because nothing outside the state has the standing or the power to hold it to its word.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Who Holds the Power</div>
+      <p>For each of five powers, predict who held it in the Soviet system. Then see the American arrangement beside it.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/who-holds-the-power-soviet-vs-american.html" title="Who Holds the Power" style="width:100%; height:820px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/who-holds-the-power-soviet-vs-american.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
       <p>This comparison is the whole point of the lesson, so state it plainly. The American constitutional structure you have studied since Module 1 rests on a wager: that no single person or party can be trusted with unchecked power, so power itself must be divided, checked, and made answerable to courts, elections, and a written law that binds the government along with the governed. The Soviet system rejected that wager at every point where the American Constitution makes it. It fused legislative, executive, and judicial power in one party; it eliminated the independent judiciary that might have checked that party's abuses; and it left civil liberties dependent entirely on the goodwill of the same authority those liberties were supposed to restrain. What that fusion of unchecked power actually produced, in the lived experience of Soviet citizens, is where this module's study turns next.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Whose feature is this?</div>
+        <div class="widget-question">Pick the system each feature belongs to.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. A single party held permanent authority, with no scheduled transfer of power." data-hint="Which system had no legal path for a rival party to compete?">
+          <div class="widget-row-prompt">1. One party legally holds permanent authority, with no legal path for a rival party.</div>
+          <div class="widget-options">
+            <button data-choice="0">The American constitutional system</button>
+            <button data-choice="1">The Soviet system</button>
+            <button data-choice="2">Marx's theory as he wrote it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Article III and lifetime tenure let federal courts rule against the government without fear of retaliation." data-hint="Which system built courts that could rule against the government itself?">
+          <div class="widget-row-prompt">2. Courts can rule against the government without fear of retaliation.</div>
+          <div class="widget-options">
+            <button data-choice="0">The American constitutional system</button>
+            <button data-choice="1">The Soviet system</button>
+            <button data-choice="2">Marx's theory as he wrote it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. In Marx's own account, once no ruling class remained to protect, the state would become unnecessary and wither away." data-hint="This was the theory's promise, not what any government built.">
+          <div class="widget-row-prompt">3. The state itself eventually becomes unnecessary and "withers away."</div>
+          <div class="widget-options">
+            <button data-choice="0">The American constitutional system</button>
+            <button data-choice="1">The Soviet system</button>
+            <button data-choice="2">Marx's theory as he wrote it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Soviet planning agencies set five-year targets for steel, grain, tractors, and housing from Moscow." data-hint="Which system built a command economy run by central planners?">
+          <div class="widget-row-prompt">4. Planners in Moscow set five-year targets for steel, grain, tractors, and housing.</div>
+          <div class="widget-options">
+            <button data-choice="0">The American constitutional system</button>
+            <button data-choice="1">The Soviet system</button>
+            <button data-choice="2">Marx's theory as he wrote it</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -278,6 +397,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
