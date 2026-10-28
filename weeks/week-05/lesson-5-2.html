@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -260,12 +296,82 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
         </div>
       </div>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which weakness is this?</div>
+        <div class="widget-question">Each event exposes one of the four weaknesses. Pick the weakness.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Each state sets its own tariffs, so goods are taxed as they cross state lines. Congress has no power to regulate interstate or foreign commerce." data-hint="This is about trade crossing state lines. Which power did Congress lack here?">
+          <div class="widget-row-prompt">1. New York taxes goods coming from New Jersey, and states undercut one another competing for foreign trade.</div>
+          <div class="widget-options">
+            <button data-choice="0">No power to tax</button>
+            <button data-choice="1">No power to regulate commerce</button>
+            <button data-choice="2">No executive or national courts</button>
+            <button data-choice="3">Unanimous consent to amend</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. A provision meant to protect every state's sovereignty meant one state could block a reform that twelve wanted." data-hint="Twelve say yes and one says no, and nothing changes. Which weakness is that?">
+          <div class="widget-row-prompt">2. Twelve states want to fix a flaw in the Articles. One small state refuses, and nothing changes.</div>
+          <div class="widget-options">
+            <button data-choice="0">No power to tax</button>
+            <button data-choice="1">No power to regulate commerce</button>
+            <button data-choice="2">No executive or national courts</button>
+            <button data-choice="3">Unanimous consent to amend</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. With no impartial national tribunal and no executive to carry out a decision, disputes between states had nowhere to go." data-hint="Who settles a quarrel between two states, and who enforces the answer? Which weakness does that point to?">
+          <div class="widget-row-prompt">3. Two states quarrel over a border. No national court exists to settle it, and no executive to enforce an answer.</div>
+          <div class="widget-options">
+            <button data-choice="0">No power to tax</button>
+            <button data-choice="1">No power to regulate commerce</button>
+            <button data-choice="2">No executive or national courts</button>
+            <button data-choice="3">Unanimous consent to amend</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Congress could only request funds, and states routinely paid late, paid partially, or did not pay at all." data-hint="Money is owed and not arriving. What power would Congress need in order to collect it?">
+          <div class="widget-row-prompt">4. The army goes unpaid because states pay late, pay part, or pay nothing, and Congress cannot compel them.</div>
+          <div class="widget-options">
+            <button data-choice="0">No power to tax</button>
+            <button data-choice="1">No power to regulate commerce</button>
+            <button data-choice="2">No executive or national courts</button>
+            <button data-choice="3">Unanimous consent to amend</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Shays' Rebellion: The Weaknesses Made Visible</h2>
       <p>For several years these were mostly abstract problems, complained about but not yet catastrophic. That changed in western Massachusetts in 1786 and 1787. The state's farmers, many of them Revolutionary War veterans, were being crushed by debt and by a state tax policy demanding payment in hard currency they simply did not have; courts were seizing farms and, in some cases, jailing debtors outright. Under the leadership of a former Continental Army captain named <strong>Daniel Shays</strong>, armed farmers began forcibly shutting down county courts to stop foreclosure proceedings, and by early 1787 an armed force of over a thousand men marched on the federal arsenal at Springfield.</p>
 
       <p>What made <strong class="term-entity" tabindex="0">Shays' Rebellion<span class="gloss-tip">An armed uprising of indebted Massachusetts farmers in 1786 and 1787 that exposed the weakness of the national government under the Articles of Confederation.</span></strong> so alarming was not the uprising alone (localized unrest was nothing new in the 1780s), but what it revealed about the national government's capacity to respond. The Confederation Congress had, on paper, an army, but no power to tax meant no reliable way to pay or supply it; when the crisis came, Congress could not raise the funds to mobilize a federal response at all. Massachusetts had to suppress the rebellion using a privately funded state militia, with essentially no help from the national government. George Washington, watching from retirement at Mount Vernon, wrote to a former aide that the events in Massachusetts filled him "with great concern" and asked pointedly: "Are your people getting mad? What is the cause of all this?" The lesson many political leaders drew was blunt: a national government that could not defend against an internal armed uprising, because it lacked the basic power to tax and to act, was not simply imperfect. It was dangerously close to no government at all.</p>
 
       <p>Shays' Rebellion did not, by itself, cause the Constitutional Convention that met in Philadelphia later that same year, 1787; planning for a convention to revise the Articles was already underway before the rebellion broke out. But it gave that planning an urgency it had lacked, and it became, in the minds of delegates like Washington and Madison, the clearest possible proof that the states' fear of concentrated national power, reasonable as its origins had been, had produced a government too weak to survive its own internal crises. The framers who gathered in Philadelphia would spend that summer building something quite different from the Articles; a subject this course takes up the next lesson.</p>
+
+      <div class="optima-widget ow-seq" data-done="In order. The weaknesses came first, the rebellion made them visible, and the Convention was the response.">
+        <div class="widget-kicker">&#9889; Put it in order &middot; From the Articles to the Convention</div>
+        <div class="widget-question">Tap these events in the order they happened.</div>
+        <div class="widget-options ow-seq-items">
+          <button data-pos="4" data-hint="Think about what Congress could not do once the crisis reached the arsenal. That comes after the march.">Congress cannot raise funds to respond, and Massachusetts uses a privately funded state militia.</button>
+          <button data-pos="2" data-hint="First the problem on the ground. What are the farmers reacting to?">Indebted Massachusetts farmers begin forcibly shutting down county courts to stop foreclosures.</button>
+          <button data-pos="5" data-hint="This is the response, not the cause. It comes last.">The delegates gather at the Constitutional Convention in Philadelphia.</button>
+          <button data-pos="1" data-hint="Start with the document itself. What had to be in force before anything else could happen?">The Articles of Confederation are ratified in 1781.</button>
+          <button data-pos="3" data-hint="The farmers' action escalates. What do they march on?">An armed force of over a thousand men marches on the federal arsenal at Springfield.</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: You Are the Confederation Congress</div>
+      <p>Try to pay the army, set trade policy, settle a dispute, amend the Articles, and raise a force. Meet the wall in each case.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/articles-weakness-bench.html" title="You Are the Confederation Congress" style="width:100%; height:720px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/articles-weakness-bench.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     </div>
 
     <div class="oa-card maroon-top">
@@ -297,6 +403,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
