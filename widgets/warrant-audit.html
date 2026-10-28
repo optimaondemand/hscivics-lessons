@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit the Warrant</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.doc { background: #FBF7EC; border: 1px solid #D9C99A; border-radius: 4px; padding: 12px 16px; margin-bottom: 10px; font-family: Georgia, "Times New Roman", serif; font-size: 15px; }
+.doc .head { font-variant: small-caps; letter-spacing: .08em; color: #5a4a1f; font-size: 13px; margin-bottom: 6px; }
+.doc p { margin: 0 0 6px; }
+.req { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; }
+.req .name { flex: 1 1 230px; font-size: 14px; }
+.req .opts { display: flex; gap: 6px; }
+.req button { background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 6px; padding: 6px 12px; font-size: 13.5px; font-family: inherit; cursor: pointer; }
+.req button.on { background: #0E1C42; color: #fff; }
+.req.ok { border-color: #2A9D5C; background: #F1FAF4; }
+.req.no { border-color: #C0392B; background: #FDF1F1; }
+.req .fb { flex: 1 1 100%; font-size: 13px; color: #1A6B3D; }
+.req.no .fb { color: #8A1F16; }
+.verdict { display: none; margin: 8px 0 10px; padding: 10px 14px; border-radius: 4px; font-size: 14px; background: #E8F6FB; border-left: 4px solid #2196D0; color: #0E1C42; }
+.verdict.show { display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.go { background: #0E1C42; color: #fff; border: 0; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.go[disabled] { opacity: .4; cursor: default; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Audit the Warrant</h1>
+<p class="sub">The Fourth Amendment says no warrant may issue "but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized." Mark each requirement Met or Missing, then check.</p>
+
+<div class="prog" id="prog"></div>
+<div class="doc" id="doc"></div>
+<div id="reqs"></div>
+<div class="verdict" id="verdict"></div>
+<div class="row"><button class="go" id="check">Check</button><button class="go" id="next" disabled>Next warrant</button><button class="reset" id="reset">Reset</button></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var REQS = [
+    'Probable cause: facts, not a hunch, support the search',
+    'Oath or affirmation: the facts are sworn to',
+    'The place to be searched is particularly described',
+    'The persons or things to be seized are particularly described'
+  ];
+  // m: requirement met? why: explanation shown after checking.
+  var W = [
+    { title: 'Writ of assistance (colonial style)',
+      lines: ['To any officer of the Crown: you may enter and search any house, shop, or ship in the town, at any hour, for smuggled goods. This authority lasts for the life of the King.'],
+      m: [false, false, false, false],
+      why: ['No facts are given at all.', 'No one has sworn to anything.', 'It covers every building in town.', '"Smuggled goods" is a whole category, not particular items.'],
+      end: 'This is a general warrant. The particularity requirement was written as a direct answer to it.' },
+    { title: 'Warrant, 14 Elm Street',
+      lines: ['Search the shop at 14 Elm Street for six silver candlesticks stolen on May 3.', 'Basis: Mrs. Hale swears before the magistrate that she saw the candlesticks inside the shop on May 5.'],
+      m: [true, true, true, true],
+      why: ['A witness reports what she actually saw.', 'She swore to it before a magistrate.', 'One address is named.', 'Six particular items are named.'],
+      end: 'All four requirements are met. A neutral magistrate checked the facts before the search.' },
+    { title: 'Warrant, 9 Mill Lane',
+      lines: ['Search the house at 9 Mill Lane for stolen grain sacks.', 'Basis: Officer Brown says he has a feeling the owner is up to something. Not sworn.'],
+      m: [false, false, true, true],
+      why: ['A feeling is not a set of facts.', 'Nothing is sworn or affirmed.', 'One address is named.', 'Particular items are named.'],
+      end: 'Being specific about place and things is not enough. A warrant also needs sworn, factual probable cause.' },
+    { title: 'Warrant, 22 Quay Street',
+      lines: ['Search the house at 22 Quay Street.', 'Basis: Mr. Cole swears that he saw a watch stolen on May 5 and saw the thief enter this house.'],
+      m: [true, true, true, false],
+      why: ['A witness reports specific facts.', 'Mr. Cole swore to them.', 'One address is named.', 'The warrant never says what the officers may seize.'],
+      end: 'The facts and oath are sound, but an officer with this warrant could carry away anything. The things to be seized must be described too.' }
+  ];
+  var wi, ans, checked;
+  function init() { wi = 0; load(); }
+  function load() {
+    ans = [null, null, null, null]; checked = false;
+    var w = W[wi];
+    $('prog').textContent = 'Warrant ' + (wi + 1) + ' of ' + W.length;
+    var d = $('doc'); d.innerHTML = '<div class="head"></div>';
+    d.firstChild.textContent = w.title;
+    w.lines.forEach(function (l) { var p = document.createElement('p'); p.textContent = l; d.appendChild(p); });
+    var r = $('reqs'); r.innerHTML = '';
+    REQS.forEach(function (name, i) {
+      var div = document.createElement('div'); div.className = 'req'; div.id = 'r' + i;
+      div.innerHTML = '<div class="name"></div><div class="opts"><button data-v="1">Met</button><button data-v="0">Missing</button></div><div class="fb"></div>';
+      div.querySelector('.name').textContent = name;
+      div.querySelectorAll('button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (checked) return;
+          ans[i] = Number(b.dataset.v);
+          div.querySelectorAll('button').forEach(function (x) { x.className = (x === b ? 'on' : ''); });
+        });
+      });
+      r.appendChild(div);
+    });
+    $('verdict').className = 'verdict'; $('check').disabled = false; $('next').disabled = true;
+  }
+  $('check').addEventListener('click', function () {
+    if (checked) return;
+    var w = W[wi], v = $('verdict');
+    if (ans.indexOf(null) >= 0) { v.className = 'verdict show'; v.textContent = 'Mark all four requirements first.'; return; }
+    var bad = 0;
+    REQS.forEach(function (n, i) {
+      var div = $('r' + i), ok = (ans[i] === 1) === w.m[i];
+      if (!ok) bad++;
+      div.className = 'req ' + (ok ? 'ok' : 'no');
+      div.querySelector('.fb').textContent = ok ? w.why[i] : 'Look again at the warrant text for this requirement.';
+    });
+    if (bad === 0) {
+      checked = true; v.className = 'verdict show'; v.textContent = w.end;
+      $('check').disabled = true; $('next').disabled = (wi === W.length - 1);
+    } else {
+      v.className = 'verdict show'; v.textContent = 'Not quite. Fix the marked rows and check again.';
+    }
+  });
+  $('next').addEventListener('click', function () { wi++; load(); });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
