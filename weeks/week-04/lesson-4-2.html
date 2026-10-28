@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -227,13 +263,81 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Jean-Jacques Rousseau, writing his <em>Discourse on the Origin of Inequality</em> in 1755 and <em>On the Social Contract</em> in 1762, takes the state-of-nature starting point from Hobbes and Locke and pushes it somewhere neither of them goes. His famous opening line to the <em>Social Contract</em> sets the whole problem in a single sentence: <strong>"Man is born free, and everywhere he is in chains."</strong> People are naturally free, Rousseau agrees, but the societies they have actually built have mostly enslaved them, often while pretending to protect their liberty. The question that drives the entire book, in his own words, is to "find a form of association" that protects each person and their property "while still enabling each of them to obey no one but himself, and to remain as free as before." That last clause is the puzzle: how can you be bound by laws and commands, and still be, in some meaningful sense, obeying no one but yourself?</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Make a prediction</div>
+        <div class="widget-question">Rousseau asks how you can be bound by laws and still obey no one but yourself. Is being made to follow a law a loss of freedom? (No wrong answer. It is only a prediction.)</div>
+        <div class="widget-options">
+          <button data-response="That is close to Locke's instinct: freedom is what you keep against the community. Rousseau will say the answer changes when you help make the law.">Yes, a law that binds me limits my freedom</button>
+          <button data-response="That is nearly Rousseau's answer, with one condition: the law must really aim at the common good, not at favoring one faction.">Not if I helped make the law</button>
+          <button data-response="That is a good question to hold. Rousseau's answer turns on who makes the law, and on what it is aimed at.">It depends on who wrote the law and for whom</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The General Will: Freedom as Self-Legislation</h2>
       <p>Rousseau's answer is the <strong class="term-subject" tabindex="0">general will<span class="gloss-tip">Rousseau's term for what a political community wills in common for its shared good, as distinct from the sum of everyone's private, individual wishes.</span></strong>; a term that has confused and fascinated readers for more than 250 years, so it is worth being precise about what it does and does not mean. The general will is not simply what most people happen to want at a given moment; Rousseau is careful to distinguish it from the mere sum of private wishes, which he calls the "will of all." The general will is instead what the political community, considered as a whole, wills for its own common good, when each citizen sets aside narrow private interest and asks what serves everyone together. When a citizen participates in making the law as part of the sovereign people, and that law is genuinely aimed at the common good rather than at favoring one faction, Rousseau holds that obeying the resulting law is not obedience to someone else's will at all; it is obedience to a law the citizen himself had a hand in making, as a member of the body that made it. This is what he means by his claim that true freedom is <em>obedience to a law we have prescribed to ourselves</em>: not the absence of laws, but participation, as co-author, in the laws that bind you.</p>
 
       <p>This is a genuinely different theory of legitimacy from Locke's, and the difference is not a minor variation on a shared theme. For Locke, individual rights exist prior to and independent of the political community; government is legitimate to the degree that it protects those pre-existing rights, and a person retains rights against the community even when the community disagrees. For Rousseau, the political community itself, acting through the general will, is close to the ultimate source of what counts as rightful and free action for its members; there is much less room in his theory for an individual to stand on a private right against what the general will has determined, because true freedom, on his account, is found precisely in alignment with that will, not in independence from it. Locke asks: what pre-existing rights must government respect? Rousseau asks: what would the community, willing rightly, choose for itself? Those are different questions, and they can produce different answers to the same practical dispute.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #1B7A6E; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#1B7A6E;">Interactive: Counting Wishes, or Asking What Serves Everyone</div>
+      <p>A village of nine households must spend one fund. Tap a citizen to change the question that citizen asks before voting, and compare what the sum of private wishes produces with what the common good produces.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/rousseau-general-will-vs-will-of-all.html" title="Counting Wishes, or Asking What Serves Everyone" style="width:100%; height:780px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/rousseau-general-will-vs-will-of-all.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Third Position, Next to Locke and Montesquieu</h2>
       <p>Set the three theories side by side, because the comparison is the point of this session. Locke locates legitimacy in the protection of rights that exist before and outside of government; a limited trust that can be broken and reclaimed, as you studied the previous lesson. Montesquieu mostly brackets the question of ultimate legitimacy and asks instead how power must be structurally divided so that whatever government exists cannot become arbitrary; a question about architecture, not origins. Rousseau locates legitimacy in the collective self-legislation of the political community itself, where genuine freedom is not a private possession protected from the group, but a good realized only through the group, when the group wills rightly.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Locke, Montesquieu, or Rousseau?</div>
+        <div class="widget-question">Each claim belongs to one of the three. Pick the thinker.</div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Locke locates legitimacy in protecting rights that exist before and outside government." data-hint="Think about whose rights exist before any government does. Which thinker begins there?">
+          <div class="widget-row-prompt">1. A government is legitimate to the degree that it protects rights people already held before government existed.</div>
+          <div class="widget-options">
+            <button data-choice="0">Locke</button>
+            <button data-choice="1">Montesquieu</button>
+            <button data-choice="2">Rousseau</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Freedom, for Rousseau, is obedience to a law we have prescribed to ourselves." data-hint="Which thinker says freedom is realized through the community, by making its laws together?">
+          <div class="widget-row-prompt">2. True freedom is found in joining your will to the community's, as co-author of its laws.</div>
+          <div class="widget-options">
+            <button data-choice="0">Locke</button>
+            <button data-choice="1">Montesquieu</button>
+            <button data-choice="2">Rousseau</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Montesquieu is concerned with structure: power must be arranged so it checks power, whatever the character of the rulers." data-hint="This is about how offices are arranged, not where legitimacy comes from. Who wrote about architecture?">
+          <div class="widget-row-prompt">3. Liberty is secured by arranging government so that power checks power, however good the rulers are.</div>
+          <div class="widget-options">
+            <button data-choice="0">Locke</button>
+            <button data-choice="1">Montesquieu</button>
+            <button data-choice="2">Rousseau</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. For Locke an individual keeps rights against the community, even when the community disagrees." data-hint="Which thinker leaves the individual room to stand on a private right against the group?">
+          <div class="widget-row-prompt">4. A person keeps rights against the community, even when the community disagrees.</div>
+          <div class="widget-options">
+            <button data-choice="0">Locke</button>
+            <button data-choice="1">Montesquieu</button>
+            <button data-choice="2">Rousseau</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <p>Here the lesson owes you an honest accounting, because this is a point where the historical record is unambiguous: <strong>the American founders drew far more from Locke and Montesquieu than from Rousseau.</strong> The Declaration of Independence's language of unalienable rights that exist prior to government is recognizably Lockean, not Rousseauian. The Constitution's structure of divided and checked powers is recognizably Montesquieuan. Rousseau's direct textual fingerprint on the American founding is comparatively faint.</p>
 
@@ -276,6 +380,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
