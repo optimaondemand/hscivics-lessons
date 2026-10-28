@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -241,12 +277,89 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Madison's next move is the one that separates him from most people who complain about faction, then and now. Having named the disease, he refuses the two easiest cures. The first is to "remove the causes" of faction by destroying the liberty that lets people organize around their own opinions and interests in the first place. Madison rejects this instantly and completely: "It could never be more truly said, than of the first remedy, that it is worse than the disease. Liberty is to faction, what air is to fire, an aliment, without which it instantly expires." You cannot eliminate faction without eliminating the freedom that makes faction possible, and a cure that kills the patient to kill the disease is no cure at all. The second easy fix, giving every citizen "the same opinions, the same passions, and the same interests," Madison dismisses as simply impossible: as long as human reason is fallible and free, people will form different opinions, accumulate different amounts of property, and divide into different interests. He traces this directly to something built into free society itself; what he calls "the various and unequal distribution of property," from which landed, mercantile, manufacturing, and other competing interests "grow up of necessity in civilized nations." Faction, for Madison, is not a defect that seeped into republican government by accident. It is a permanent, structural feature of any society where people are free to think, own property, and pursue their own good.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Faction, or not?</div>
+        <div class="widget-question">Use Madison's definition. Decide whether each group is a faction, and if so, what kind.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Madison says a faction may be a minority or a majority. The test is a shared passion pursued against the rights of other citizens, not the group's size." data-hint="Size is not the test in Madison's definition. Ask whether the shared passion runs against the rights of others.">
+          <div class="widget-row-prompt">1. A minority of citizens, united by a shared passion, who want the law used to strip another group of its property.</div>
+          <div class="widget-options">
+            <button data-choice="0">Not a faction</button>
+            <button data-choice="1">A minority faction</button>
+            <button data-choice="2">A majority faction</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Disagreement alone is not faction. A faction is united by a common passion or interest adverse to the rights of other citizens or the good of the whole community." data-hint="Check Madison's definition. Is there a shared passion or interest that is adverse to anyone's rights or to the community's good?">
+          <div class="widget-row-prompt">2. Citizens who disagree sharply about a tax policy but all accept that everyone's rights must be respected.</div>
+          <div class="widget-options">
+            <button data-choice="0">Not a faction</button>
+            <button data-choice="1">A minority faction</button>
+            <button data-choice="2">A majority faction</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. A majority united this way is a faction too, and in Madison's view it is the more dangerous kind, because the majority rules." data-hint="More than half the citizens, united against the community's permanent interests. Which kind of faction is that?">
+          <div class="widget-row-prompt">3. A majority of citizens united by an interest that works against the permanent good of the whole community.</div>
+          <div class="widget-options">
+            <button data-choice="0">Not a faction</button>
+            <button data-choice="1">A minority faction</button>
+            <button data-choice="2">A majority faction</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. It is smaller than the whole, and united by a passion against the community's permanent interests, so it is a minority faction." data-hint="The group is a small circle, and its shared aim runs against the community's permanent interests. What does the definition make of that?">
+          <div class="widget-row-prompt">4. A small circle of citizens united by a shared passion to use the law against the community's permanent interests.</div>
+          <div class="widget-options">
+            <button data-choice="0">Not a faction</button>
+            <button data-choice="1">A minority faction</button>
+            <button data-choice="2">A majority faction</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Direct Answer to Rousseau</h2>
       <p>Recall Module 2's lesson on Jean-Jacques Rousseau and the <em>general will</em>; Rousseau's claim that a healthy political community could discover and act on a single, unified will aimed at the common good, provided the community stayed small, direct, and free of factions distorting its members' judgment. Madison had read this tradition of thought, and <em>Federalist</em> No. 10 is, among other things, a quiet rejection of it. Rousseau's solution to faction was to prevent it from forming: keep the community small and unified enough that no faction gains a foothold, and trust the assembled people to will the common good directly. Madison's essay argues that this is not a solution at all; it is a description of the exact conditions under which faction becomes most dangerous, not least. If you cannot eliminate the causes of faction, keeping government small and direct does not protect the community from a factious majority; it hands that majority the whole machinery of the state with nothing standing between its passions and its power.</p>
 
       <p>This is why Madison, having ruled out removing the causes of faction, turns to controlling its <em>effects</em> instead, and here his analysis of scale becomes the heart of the essay. A faction that is a minority of the whole is not the deepest danger; "the republican principle," Madison notes, lets the majority out-vote it through ordinary elections. The real danger is a faction that <em>is</em> the majority, because in a government where the majority rules directly, nothing stops that majority from using the law itself to "sacrifice to its ruling passion or interest, both the public good and the rights of other citizens." A <strong class="term-subject" tabindex="0">pure democracy<span class="gloss-tip">A government in which citizens make and administer the laws directly themselves, without elected representatives.</span></strong> (Madison's term for "a society consisting of a small number of citizens, who assemble and administer the government in person," exactly the Rousseauian model) offers no defense against this at all. In a small, direct democracy, Madison writes, "there is nothing to check the inducements to sacrifice the weaker party, or an obnoxious individual," which is why such governments "have ever been spectacles of turbulence and contention" and "as short in their lives, as they have been violent in their deaths."</p>
 
       <p>Madison's alternative is a <strong class="term-subject" tabindex="0">republic<span class="gloss-tip">A government in which citizens rule through elected representatives rather than directly, and in which political power belongs to the public, not to a monarch.</span></strong> (which he defines precisely as "a government in which the scheme of representation takes place") extended over a large and diverse territory. Two features of this <strong class="term-subject" tabindex="0">extended republic<span class="gloss-tip">Madison's argument that spreading a republic over a large territory and population, rather than confining it to a small city, actually makes it harder for any one faction to dominate.</span></strong> do the work. First, representation itself filters public opinion "through the medium of a chosen body of citizens," whose judgment may (though Madison concedes it may not always) refine and elevate the raw passions of the moment. Second, and more importantly for his argument, sheer size and diversity of interests make it structurally difficult for any single faction to become a stable, coordinated majority at all. "Extend the sphere," Madison writes, "and you take in a greater variety of parties and interests; you make it less probable that a majority of the whole will have a common motive to invade the rights of other citizens; or if such a common motive exists, it will be more difficult for all who feel it to discover their own strength, and to act in unison with each other." A large, commercially and religiously diverse republic does not eliminate faction (nothing can, on Madison's own argument), but it multiplies factions against each other so thoroughly that no single one can easily seize and hold a permanent, oppressive majority. Scale, for Madison, is not a problem the Constitution has to overcome. It is the solution.</p>
+
+      <div class="optima-widget ow-scale">
+        <div class="widget-kicker">&#9889; Place it on the scale &middot; How dangerous is this faction?</div>
+        <div class="widget-question">By Madison's reasoning, how much danger does each situation pose to the rights of the weaker party?</div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The republican principle lets the majority outvote a minority faction through ordinary elections." data-hint="Ask what the rest of the voters can do about a group that is smaller than they are.">
+          <div class="widget-row-prompt">1. A minority faction inside a republic.</div>
+          <div class="widget-options">
+            <button data-choice="0">Least danger</button>
+            <button data-choice="1">Some danger</button>
+            <button data-choice="2">Greatest danger</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. In a small direct democracy nothing checks the temptation to sacrifice the weaker party, and the majority holds the whole machinery of the state." data-hint="Who stands between this majority and the law? Recall how a pure democracy is built.">
+          <div class="widget-row-prompt">2. A majority faction in a small, direct democracy.</div>
+          <div class="widget-options">
+            <button data-choice="0">Least danger</button>
+            <button data-choice="1">Some danger</button>
+            <button data-choice="2">Greatest danger</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Madison does not claim faction disappears. Size and variety make a common motive less probable, and harder for those who share it to act in unison." data-hint="Madison says extending the sphere makes this less probable, not impossible. Where does that land between the other two?">
+          <div class="widget-row-prompt">3. A would-be majority faction in a large, diverse republic.</div>
+          <div class="widget-options">
+            <button data-choice="0">Least danger</button>
+            <button data-choice="1">Some danger</button>
+            <button data-choice="2">Greatest danger</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <p>You'll read Madison's own words on all of this directly tomorrow, in <em>Federalist</em> No. 10 itself. Read for the definition of faction, the two rejected cures, and the argument for extending the republic's sphere rather than shrinking it, and keep Rousseau in the back of your mind the whole time.</p>
     </div>
@@ -285,6 +398,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
