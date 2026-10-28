@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -232,6 +268,19 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>The previous lesson you read about a Massachusetts farmer named Daniel Shays, who in the winter of 1786 led an armed uprising of debt-ridden veterans against courts that were seizing their farms. Shays' Rebellion was put down without much bloodshed, but it did something no pamphlet or committee report had managed: it convinced a critical mass of American statesmen, including men who had spent the Revolution distrusting centralized power, that the government created by the Articles of Confederation could not keep the peace, let alone govern a nation. A confederation that could not raise an army to answer a rebellion, and could not compel the states to pay for one, was a confederation in name only.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Quick check-in</div>
+        <div class="widget-question">Imagine you are one of the fifty-five delegates. What would you most want a new constitution to do? (No wrong answer. Pick what pulls at you, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="Madison's notebook reached the same worry: a confederacy that can only ask its members for cooperation has no real government at all. Hold that thought as you read about his preparation.">Give the national government real power to act</button>
+          <button data-response="That is the small-state instinct, and it drives the New Jersey Plan. Equal standing as states was the one thing those delegates had to protect.">Keep every state's voice equal</button>
+          <button data-response="That worry runs through this whole module. Watch how each plan answers it, and what each one leaves exposed.">Stop any one group from taking over</button>
+          <button data-response="A fair place to start. The delegates were not sure either, and they argued for weeks. Read on and see which plan pulls at you.">Honestly, I am not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>The rebellion did not come out of nowhere in the world of high politics, either. A year earlier, in September 1786, delegates from five states had gathered at Annapolis, Maryland, hoping to fix the young republic's tangled mess of state tariffs and currencies, each state having gone its own way on trade since independence. So few states sent delegates that the men at Annapolis gave up on their narrow assignment and did something bolder: they wrote to Congress and to every state legislature, calling for a broader convention the following May in Philadelphia, with a mandate to consider whatever changes to the federal system the states thought necessary. The Annapolis Convention had failed at its stated task and succeeded, almost by accident, at a much larger one; it opened the door Shays' Rebellion would later kick through.</p>
 
       <p>When the Constitutional Convention opened in Philadelphia in May 1787, the twelve states that eventually sent delegates (Rhode Island alone stayed home, wary of any stronger central government) had given those delegates one official job: to revise the Articles of Confederation so that the existing government of the United States could function. Nothing in their instructions authorized the delegates to scrap the Articles and start over. That the Convention did exactly that, and that the country, in the end, accepted the result; is one of the more audacious moments in the Western constitutional tradition. It is worth sitting with the audacity before moving to the mechanics: a group of appointed representatives, without any legal authority to do so, decided the existing constitution was unfit to survive and replaced it, then persuaded the country to ratify what they had done. Understanding why they got away with it will occupy you for the rest of this module.</p>
@@ -246,7 +295,59 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Small-state delegates saw the same proposal and did the arithmetic differently. Under a legislature apportioned strictly by population, Delaware or New Jersey would be permanently outvoted by Virginia and Pennsylvania on every question where big-state and small-state interests diverged. On June 15, William Paterson of New Jersey presented a counter-proposal, the <strong class="term-entity" tabindex="0">New Jersey Plan<span class="gloss-tip">The Constitutional Convention proposal to keep equal representation for every state in Congress, regardless of population, favoring smaller states.</span></strong>, which kept the Articles' basic structure; a single-chamber Congress with each state casting one equal vote, regardless of population, while adding some new federal powers, including the power to tax and to regulate commerce, that the Articles Congress had always lacked. The New Jersey Plan solved the government's practical weaknesses without touching the one thing the small states cared most about protecting: their equal standing as states, independent of population.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which plan is this?</div>
+        <div class="widget-question">Match each feature to the plan that proposed it, or to the Articles as they stood.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. The New Jersey Plan kept the single chamber and equal votes but added the powers the Articles Congress had always lacked." data-hint="Equal votes, but something new has been added. Which proposal kept the structure and added powers?">
+          <div class="widget-row-prompt">1. A single-chamber Congress, one equal vote per state, with new powers to tax and to regulate commerce.</div>
+          <div class="widget-options">
+            <button data-choice="0">Virginia Plan</button>
+            <button data-choice="1">New Jersey Plan</button>
+            <button data-choice="2">The Articles as they stood</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Two houses, with seats in both apportioned by population or wealth, built to give large states influence in proportion to their size." data-hint="Two houses and population-based seats favor the most populous states. Whose plan was that?">
+          <div class="widget-row-prompt">2. A legislature of two houses, with seats in both apportioned by population or wealth.</div>
+          <div class="widget-options">
+            <button data-choice="0">Virginia Plan</button>
+            <button data-choice="1">New Jersey Plan</button>
+            <button data-choice="2">The Articles as they stood</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. That is the starting point, the structure the New Jersey Plan kept and strengthened. It is not a proposal." data-hint="Nothing is added here, and nothing is changed. Is this a proposal, or the arrangement the delegates came to fix?">
+          <div class="widget-row-prompt">3. A single-chamber Congress, one equal vote per state, and no power to tax or to regulate commerce.</div>
+          <div class="widget-options">
+            <button data-choice="0">Virginia Plan</button>
+            <button data-choice="1">New Jersey Plan</button>
+            <button data-choice="2">The Articles as they stood</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The Virginia Plan proposed three branches, legislative, executive and judicial, answerable to the people rather than to the states as states." data-hint="A new national government with three branches, answerable to the people directly. Which plan proposed it?">
+          <div class="widget-row-prompt">4. A national government of three branches, answerable to the people rather than to the states as states.</div>
+          <div class="widget-options">
+            <button data-choice="0">Virginia Plan</button>
+            <button data-choice="1">New Jersey Plan</button>
+            <button data-choice="2">The Articles as they stood</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>By late June, the Convention was stuck. Large states wanted representation by population; small states wanted equal representation by state; and the two positions were, on their face, irreconcilable; you cannot count votes by population and count votes by state at the same time in the same chamber. Delegates began openly worrying that the Convention would collapse without producing anything, that the states might go their separate ways, and that a divided confederation of small, quarreling nations, of the kind Madison had studied and dreaded in his notebook on ancient and modern confederacies, might be exactly the future waiting for America. The delegates adjourned for the July 4th holiday not celebrating, particularly, but bracing for what might be the Convention's final, failed weeks. What happened instead is the subject of Wednesday's lesson.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Two Plans, Whose Vote Counts?</div>
+      <p>Pick a plan, then tap states to flip their votes on a question where big-state and small-state interests collide. See who carries the day under each plan.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/two-plans-whose-vote-counts.html" title="Two Plans: Whose Vote Counts?" style="width:100%; height:760px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/two-plans-whose-vote-counts.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     </div>
 
     <div class="oa-card">
@@ -274,6 +375,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
