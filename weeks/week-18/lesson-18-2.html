@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,15 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>What the world came to understand about the Gulag's true scale, it owes substantially to one man: Aleksandr Solzhenitsyn, himself a former prisoner, who spent years secretly compiling accounts from fellow survivors into a work he called <em>The Gulag Archipelago</em>; a title that pictures the scattered camps as islands forming an invisible chain across the Soviet landmass. Solzhenitsyn could not publish the work openly in the Soviet Union; it circulated first in the West, in the early 1970s, smuggled out at real risk to himself and the people who helped him. The book's significance lies less in any single literary quality than in what it accomplished as documentation: it took a system the Soviet state had spent decades denying, minimizing, or hiding entirely, and made its scale, its mechanisms, and its human cost impossible for an honest reader to dismiss. Because the work remains under copyright and this lesson does not reproduce its language at length, hold onto the fact that matters most for this course: a totalitarian state with no free press and no independent judiciary can operate a machine of this size for decades specifically because nothing internal to that state has the power to expose it. Exposure, when it finally came, came from a private citizen risking everything to smuggle the truth past the state's control; not from any check built into the Soviet system itself.</p>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt first &middot; What the state tried to hide</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, write what the Soviet state tried to hide about the camps, and what finally exposed it. Then click to check.</summary>
+          <div class="reveal-body">The state tried to hide the system's scale, its mechanisms, and its human cost. It was exposed not by any check inside the Soviet system but by a private citizen, Aleksandr Solzhenitsyn, who compiled survivors' accounts and smuggled The Gulag Archipelago out at real risk to himself and the people who helped him.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">REQUIRED: Kristallnacht and the Turn to Open Violence</h2>
       <p>The Soviet Union was not the twentieth century's only totalitarian state, and it is not the only case this lesson requires you to study closely. Nazi Germany, under Adolf Hitler's one-party rule beginning in 1933, built its own machinery of unchecked power (its own fusion of legislative, executive, and judicial authority in a single party, its own elimination of a free press and independent courts), and directed a significant share of that machinery, from its earliest months in power, against Germany's Jewish population. For nearly six years, that persecution proceeded chiefly through law and bureaucracy: the Nuremberg Laws of 1935 stripped German Jews of citizenship and legal protection, and a widening set of regulations barred Jews from professions, schools, and public life. Grave as this was, it was still persecution conducted through the forms of law, however unjust those forms had become.</p>
 
@@ -243,12 +288,37 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Historians treat Kristallnacht as a watershed for a specific reason worth stating precisely: it marks the moment Nazi policy visibly moved from legal and bureaucratic persecution (discriminatory laws enforced through courts and administrative decree) toward open, coordinated, public violence, carried out in the streets with the state's active direction and the state's evident protection of the perpetrators. Nothing that followed over the next several years, culminating in the deportations and mass murder of the Holocaust, would have been unthinkable to anyone who had watched what happened across Germany and Austria on those two November nights. The watershed is not that Kristallnacht was the worst single event of the Nazi era in scale (far greater atrocities followed), but that it was the moment the mask of ordinary legal process came off entirely, in full public view, with no institution left standing that was willing or able to stop it.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Where the Mask Came Off</div>
+      <p>Here is the record, link by link. For each event, decide how the state acted. Watch where the chain changes.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/kristallnacht-mask-comes-off.html" title="Where the Mask Came Off" style="width:100%; height:860px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/kristallnacht-mask-comes-off.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why This Still Matters</h2>
       <p>It would be possible to treat the material in this lesson as simply historical; distant events, closed chapters. That is not how this course asks you to hold it. Both case studies this session, the Soviet and the Nazi, are instances of the same underlying failure this course has spent all semester defining by its opposite: a government that recognizes no constitutional limit on its power over the individual will, eventually and predictably, use that unlimited power against people it has designated as expendable, whether by class, as in the Soviet Union, or by ethnicity and religion, as in Nazi Germany. The specific victims differed; the structural cause did not. Neither state had a free press capable of exposing what it was doing while it was happening. Neither state had courts capable of ruling against it. Neither state recognized rights that bound its own conduct. That is the exact inverse of everything this course has studied since Module 1's lesson on Solon, who held emergency power over Athens and chose to leave the city rather than keep it.</p>
 
       <p>There is also a specific, practical reason this material belongs in a civics course rather than only a history course: the danger these events illustrate has not expired with the twentieth century. Unchecked state power directed at a targeted group is not a problem that solved itself in 1945 or in 1991; it is a standing risk in any political system that lacks the structural constraints (separation of powers, an independent judiciary, a free press, enforceable civil liberties) this course has spent a semester examining. That is why <strong class="term-subject" tabindex="0">survivor testimony<span class="gloss-tip">A firsthand account given by someone who lived through a historical atrocity, used by historians as primary-source evidence of what occurred.</span></strong> (the firsthand accounts of people who lived through the Holocaust and other twentieth-century atrocities, given in their own words, often at great personal cost to relive) carries a weight beyond ordinary historical evidence. Survivor testimony is one of the few things a totalitarian state's machinery of denial cannot fully erase after the fact; it is primary-source evidence in precisely the sense this course has used that term all year, and it is the evidence historical denial and distortion most consistently try to discredit or silence. Preserving it, reading it, and taking it seriously is part of what it means to guard historical truth against those who would minimize or deny what happened.</p>
 
       <p>The phrase <strong>"Never Again"</strong> (adopted widely after the Holocaust as a civic and moral commitment, not merely a historical judgment) names exactly this obligation. It is not primarily a statement about the past; it is a commitment about the future, addressed to the living: that a society that has learned what unchecked power does to a targeted people will build, defend, and refuse to let atrophy the structural safeguards (the checks this course has spent a semester naming) that make a recurrence less likely. Carrying that commitment forward is not incidental to this course's purpose. It is very close to the center of it.</p>
+
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Quick check-in</div>
+        <div class="widget-question">Which of these safeguards do you think is hardest for a society to keep in place? (No wrong answer. Pick one, then read what the lesson says about it.)</div>
+        <div class="widget-options">
+          <button data-response="Both states fused legislative, executive, and judicial authority in a single party, with nothing dividing it.">Separation of powers</button>
+          <button data-response="Neither state had courts capable of ruling against it.">An independent judiciary</button>
+          <button data-response="Neither state had a free press capable of exposing what it was doing while it was happening.">A free press</button>
+          <button data-response="Neither state recognized rights that bound its own conduct.">Enforceable civil liberties</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
     </div>
 
     <div class="oa-card maroon-top">
@@ -280,6 +350,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
