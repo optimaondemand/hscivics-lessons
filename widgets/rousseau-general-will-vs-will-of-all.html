@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rousseau: The Will of All and the General Will</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.case { background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 14px; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.bulk { background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 7px 12px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.bulk:hover { background: #F4F6FA; }
+.cits { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.cit { flex: 1 1 150px; min-width: 130px; background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 10px; cursor: pointer; text-align: left; font-family: inherit; color: #0E1C42; }
+.cit:hover { border-color: #55C8E8; }
+.cit .who { font-size: 13px; font-weight: 600; }
+.cit .ask { font-size: 12px; color: #6b7a99; margin-top: 2px; }
+.cit .vote { font-size: 13px; margin-top: 4px; }
+.cit.priv { border-left: 5px solid #7A2048; }
+.cit.com { border-left: 5px solid #1B7A6E; }
+.tally { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; }
+.bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 13px; }
+.bar .nm { flex: 0 0 150px; color: #0E1C42; }
+.bar .track { flex: 1 1 0; background: #E3E8F2; border-radius: 4px; height: 16px; overflow: hidden; }
+.bar .fill { height: 100%; background: #2196D0; width: 0; transition: width .25s ease; }
+.bar .fill.win { background: #0E1C42; }
+.bar .n { flex: 0 0 90px; font-size: 12px; color: #6b7a99; text-align: right; }
+.read { background: #FDF8EC; border-left: 4px solid #C7922C; border-radius: 4px; padding: 9px 12px; font-size: 14px; margin-bottom: 10px; }
+.note { background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; padding: 9px 12px; font-size: 13.5px; margin-bottom: 12px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Counting Wishes, or Asking What Serves Everyone</h1>
+<p class="sub">Tap a citizen to change the question that citizen asks before voting. Watch how the same village reaches different results.</p>
+
+<div class="case">
+  <div class="label">The village</div>
+  A river village of nine households has a spare fund and must spend it on one project. Four households fish, three farm, two keep market stalls. A hard famine year comes every so often, and the village has no shared storehouse.
+</div>
+
+<div class="row">
+  <button class="bulk" id="allp">Everyone asks: what do I want?</button>
+  <button class="bulk" id="allc">Everyone asks: what serves all of us?</button>
+</div>
+
+<div class="cits" id="cits"></div>
+<div class="tally" id="tally"></div>
+<div class="read" id="read"></div>
+<div class="note">Notice what the screen cannot show: what a citizen is really asking inside. Someone has to decide which ballots count as asking about the common good. That is the difficulty the founders saw in the theory.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var OPTS = [
+    { n: 'Repair the fishing dock', gain: 4 },
+    { n: 'Widen the farm road', gain: 3 },
+    { n: 'Build market stalls', gain: 2 },
+    { n: 'Build a shared granary', gain: 9 }
+  ];
+  // group: which option each household prefers for itself
+  var CITS = [
+    { who: 'Fisher 1', own: 0 }, { who: 'Fisher 2', own: 0 }, { who: 'Fisher 3', own: 0 }, { who: 'Fisher 4', own: 0 },
+    { who: 'Farmer 1', own: 1 }, { who: 'Farmer 2', own: 1 }, { who: 'Farmer 3', own: 1 },
+    { who: 'Merchant 1', own: 2 }, { who: 'Merchant 2', own: 2 }
+  ];
+  var mode;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function voteOf(i) { return mode[i] === 'c' ? 3 : CITS[i].own; }
+  function draw() {
+    var cits = $('cits'); cits.innerHTML = '';
+    var counts = [0, 0, 0, 0];
+    CITS.forEach(function (c, i) {
+      var v = voteOf(i); counts[v]++;
+      var b = document.createElement('button');
+      b.className = 'cit ' + (mode[i] === 'c' ? 'com' : 'priv');
+      b.innerHTML = '<div class="who">' + c.who + '</div><div class="ask">' + (mode[i] === 'c' ? 'asks: what serves all of us?' : 'asks: what do I want?') + '</div><div class="vote">votes: ' + OPTS[v].n + '</div>';
+      b.addEventListener('click', function () { mode[i] = mode[i] === 'c' ? 'p' : 'c'; draw(); });
+      cits.appendChild(b);
+    });
+    var top = Math.max.apply(null, counts), tally = $('tally');
+    tally.innerHTML = '';
+    OPTS.forEach(function (o, k) {
+      var win = counts[k] === top && top > 0;
+      tally.insertAdjacentHTML('beforeend', '<div class="bar"><div class="nm">' + o.n + '</div><div class="track"><div class="fill' + (win ? ' win' : '') + '" style="width:' + Math.round(counts[k] / 9 * 100) + '%"></div></div><div class="n">' + counts[k] + ' votes</div></div>');
+    });
+    var winIdx = counts.indexOf(top);
+    var allPriv = mode.every(function (m) { return m === 'p'; });
+    var allCom = mode.every(function (m) { return m === 'c'; });
+    var txt;
+    if (allPriv) txt = 'This is what Rousseau calls the will of all: the sum of private wishes. "' + OPTS[winIdx].n + '" wins with ' + top + ' of 9 votes, and it helps ' + OPTS[winIdx].gain + ' of 9 households. Five households voted for something else.';
+    else if (allCom) txt = 'Every citizen asked what serves the whole village, and the vote is unanimous: "' + OPTS[3].n + '" helps all 9 households. This is closer to what Rousseau means by the general will.';
+    else txt = '"' + OPTS[winIdx].n + '" leads with ' + top + ' of 9 votes and helps ' + OPTS[winIdx].gain + ' of 9 households. Mixed ballots can land anywhere: the result depends on how many citizens are asking the common-good question.';
+    $('read').textContent = txt;
+  }
+  function init() { mode = CITS.map(function () { return 'p'; }); draw(); }
+  $('allp').addEventListener('click', function () { mode = CITS.map(function () { return 'p'; }); draw(); });
+  $('allc').addEventListener('click', function () { mode = CITS.map(function () { return 'c'; }); draw(); });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
