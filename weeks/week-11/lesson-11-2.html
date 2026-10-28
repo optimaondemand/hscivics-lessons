@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -229,6 +265,19 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>Marbury v. Madison</em> and the Argument From Supreme Law</h2>
       <p>That case was <em>Marbury v. Madison</em>, decided in 1803. Without walking through its tangled political backstory in full, the essential legal question the case posed was this: when a federal statute conflicts with the Constitution, which one governs? Chief Justice John Marshall's opinion answered by reasoning from a clause you already read in Module 5: Article VI's <strong class="term-entity" tabindex="0">Supremacy Clause<span class="gloss-tip">The clause in Article VI declaring the Constitution, federal laws, and treaties the "supreme Law of the Land," binding on state courts even against contrary state law.</span></strong>, which declares the Constitution "the supreme Law of the Land." If the Constitution is genuinely supreme (superior to any ordinary act of Congress) then a statute that conflicts with it cannot simultaneously be valid law. Something has to give, and it cannot be the higher law. Marshall then reasoned from the judiciary's most basic and uncontested duty: courts exist to decide cases by determining which legal rule governs when two rules conflict. Deciding between a statute and the Constitution, Marshall argued, is no different in kind from deciding between two ordinary statutes that clash with each other; it is simply what courts do. It followed, in his reasoning, that when a court finds an act of Congress in irreconcilable conflict with the Constitution, the court's basic judicial duty requires it to follow the Constitution and refuse to enforce the statute.</p>
 
+      <div class="optima-widget ow-seq" data-done="In order. The Constitution is supreme, so a conflicting statute cannot be valid; courts must decide which rule governs, and so they follow the Constitution and decline to enforce the statute.">
+        <div class="widget-kicker">&#9889; Put it in order &middot; The logic of the opinion</div>
+        <div class="widget-question">Tap the steps of Marshall's reasoning in the order the argument runs.</div>
+        <div class="widget-options ow-seq-items">
+          <button data-pos="3" data-hint="Not yet. Something has to be established about the Constitution and the statute before courts can choose between them.">Courts must decide which legal rule governs when two rules clash.</button>
+          <button data-pos="1" data-hint="Not yet. The argument starts from a clause you read in Module 5.">The Constitution is declared the supreme law of the land.</button>
+          <button data-pos="4" data-hint="Not yet. This is the conclusion, so it comes after the premises.">The court follows the Constitution and declines to enforce the statute.</button>
+          <button data-pos="2" data-hint="Not yet. First comes the claim about the Constitution, then what follows for a conflicting statute.">A statute that conflicts with the Constitution cannot also be valid.</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Strip away the legal vocabulary and the logic is not complicated. If a law conflicts with the Constitution, and the Constitution is superior law, then courts applying the law must follow the Constitution over the conflicting statute. But a court cannot follow the Constitution over a statute in a real case without, in effect, declining to enforce that statute; without, that is, exercising exactly the power Marshall's opinion claimed. The argument does not require inventing a new power out of nothing; it requires only accepting two premises most of the founding generation already accepted: that the Constitution genuinely outranks ordinary legislation, and that courts must resolve legal conflicts by applying whichever authority actually governs.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Fifteen Years Earlier, Already in Print</h2>
@@ -238,6 +287,58 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Where This Power Goes Next</h2>
       <p>Judicial review, once established in 1803, became the mechanism behind some of the most consequential decisions in American constitutional history; cases this course will study in detail later this semester. <em>Brown v. Board of Education</em> (1954) used judicial review to strike down state laws mandating racially segregated public schools as inconsistent with the Constitution's guarantee of equal protection. <em>Miranda v. Arizona</em> (1966) used it to establish that certain police interrogation practices, absent specific warnings to a suspect, violated constitutional protections against self-incrimination. Neither case invented a new judicial power; both simply exercised the same authority Marshall's Court claimed in 1803, and Hamilton had already defended in 1788; the authority to measure a government action against the Constitution and follow the Constitution when the two conflict. You will read both cases closely in a later unit. For now, hold onto the mechanism: a power never written into Article III's text, reasoned out from the Constitution's own claim to supremacy, that has shaped the boundaries of American law for well over two centuries.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which act is this?</div>
+        <div class="widget-question">Each line describes something a branch of government does. Pick the kind of act it is.</div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. That is execution, the job the Take Care Clause assigns to the President." data-hint="Who is carrying out an existing law here, rather than writing one or checking one?">
+          <div class="widget-row-prompt">1. The President directs federal agencies to carry out a law Congress passed.</div>
+          <div class="widget-options">
+            <button data-choice="0">Judicial review</button>
+            <button data-choice="1">Lawmaking</button>
+            <button data-choice="2">Executing the law</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. A court measuring a statute against the Constitution and following the Constitution is the power Marshall's Court claimed in 1803." data-hint="The court is measuring a statute against the Constitution. What is that called?">
+          <div class="widget-row-prompt">2. A court refuses to enforce an act of Congress because it conflicts with the Constitution.</div>
+          <div class="widget-options">
+            <button data-choice="0">Judicial review</button>
+            <button data-choice="1">Lawmaking</button>
+            <button data-choice="2">Executing the law</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Writing and enacting laws is lawmaking, chiefly Congress's work." data-hint="A new law is being written. Which branch's job is that?">
+          <div class="widget-row-prompt">3. Congress debates and passes a new bill.</div>
+          <div class="widget-options">
+            <button data-choice="0">Judicial review</button>
+            <button data-choice="1">Lawmaking</button>
+            <button data-choice="2">Executing the law</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Brown v. Board of Education (1954) used the same power to strike down state laws requiring segregated public schools." data-hint="A court is measuring laws against the Constitution again. Which power is at work?">
+          <div class="widget-row-prompt">4. A court strikes down state laws requiring segregated public schools as inconsistent with equal protection.</div>
+          <div class="widget-options">
+            <button data-choice="0">Judicial review</button>
+            <button data-choice="1">Lawmaking</button>
+            <button data-choice="2">Executing the law</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: If You Were the Court</div>
+      <p>A federal statute clearly conflicts with the Constitution, and you must decide the case. Try each option and see what it commits you to.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/court-options-judicial-review.html" title="If You Were the Court" style="width:100%; height:720px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/court-options-judicial-review.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     </div>
 
     <div class="oa-card maroon-top">
@@ -269,6 +370,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
