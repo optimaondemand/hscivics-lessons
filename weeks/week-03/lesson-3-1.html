@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -240,6 +276,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>This is worth pausing on, because it is easy to read past it as a mere device and miss that it was itself the intellectual revolution. To reason about political authority from an imagined pre-political condition, rather than from what God supposedly told a king's ancestor, or from "we have always had a monarchy," is to treat legitimacy as something that has to be earned by argument, available in principle to anyone willing to think it through; not something handed down and simply to be accepted. Notice that this is exactly the move Locke's opponent, Sir Robert Filmer, refused to make: Filmer tried to ground all royal authority in Adam's fatherhood, inherited in an unbroken line from scripture. The state-of-nature thinkers, whatever else they disagreed about, agreed that this kind of appeal to inherited authority does not settle anything, because it cannot show why the inheritance itself is legitimate. You will meet this method again and again this semester; it is the ancestor of nearly every argument in the founding generation about what government is for.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Quick check-in</div>
+        <div class="widget-question">Suppose the only way to be safe from your neighbors were to hand nearly all your power to one ruler. Where do you start? (No wrong answer. Just check in with yourself.)</div>
+        <div class="widget-options">
+          <button data-response="Many people start here. Hold that instinct up against Hobbes, who argues that without a common power, nobody's liberty is safe for long.">I would keep my liberty and take the risk</button>
+          <button data-response="That is the bargain Hobbes is about to describe. Watch for what you would be giving up, and whether the ruler could ever lose your obedience.">I would trade it for safety</button>
+          <button data-response="That is a fair place to stand. Locke, next lesson, builds his whole argument in the space between these two answers.">It depends on how much I would give up</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Thomas Hobbes and a World Without a Common Power</h2>
       <p>The first thinker to take this method to its most severe conclusion was the English philosopher Thomas Hobbes, writing his masterwork <em>Leviathan</em> in 1651, in the wreckage of the English Civil War; a decade of the very real, very bloody breakdown of political order that Hobbes had watched destroy his country. That experience is not incidental to his philosophy; it is arguably the reason his state of nature turns out to be so dark.</p>
 
@@ -247,7 +295,67 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Without a <strong class="term-subject" tabindex="0">common power<span class="gloss-tip">A single authority that all members of a society recognize and obey, able to enforce agreements and settle disputes that individuals cannot settle themselves.</span></strong> (some authority above every individual, able to enforce agreements and punish aggressors) nothing restrains this dynamic. There is no one to appeal to, no umpire, no police, no court. Hobbes's own summary of the resulting condition is among the most quoted sentences in the history of political philosophy: without a common power to keep them in awe, men are in that condition "which is called war; and such a war as is of every man against every man." Notice precisely what he is claiming and what he is not. He does not claim that in the state of nature, everyone is actually fighting all the time. He claims something narrower and, in a way, more chilling: it is a state of war because the <strong class="term-subject" tabindex="0">disposition<span class="gloss-tip">A settled tendency or inclination, in this context the tendency of people in the state of nature toward conflict absent a common power to keep them in check.</span></strong> to fight is ever-present and unrestrained, whether or not actual blows are being exchanged; in the way that bad weather can be said to threaten "not in a shower or two of rain, but in an inclination thereto of many days together." The danger is constant even in the quiet moments.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which idea is at work?</div>
+        <div class="widget-question">Each case illustrates one step in Hobbes's argument. Pick the idea at work.</div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. A single authority that all recognize and obey, able to enforce agreements and punish aggressors, is what Hobbes calls a common power." data-hint="This describes an authority above every individual. What does Hobbes call that?">
+          <div class="widget-row-prompt">1. An authority above every individual that all obey, able to enforce agreements and punish aggressors.</div>
+          <div class="widget-options">
+            <button data-choice="0">Rough equality of power</button>
+            <button data-choice="1">Scarcity and competition</button>
+            <button data-choice="2">Diffidence</button>
+            <button data-choice="3">A common power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Even the weakest can kill the strongest while he sleeps, or by joining others, so no one is safe from every combination of neighbors." data-hint="The point is that nobody is strong enough to be safe from everyone else. Which idea is that?">
+          <div class="widget-row-prompt">2. A frail man could still kill a strong one while he sleeps, or join with others to do it.</div>
+          <div class="widget-options">
+            <button data-choice="0">Rough equality of power</button>
+            <button data-choice="1">Scarcity and competition</button>
+            <button data-choice="2">Diffidence</button>
+            <button data-choice="3">A common power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. You mean no harm, but cannot know your neighbor is equally modest, so striking first becomes the safest guess for everyone at once." data-hint="Neither neighbor wants war for its own sake. What is the mutual distrust called that pushes them toward it anyway?">
+          <div class="widget-row-prompt">3. You want only to live quietly, but you cannot be sure your neighbor feels the same, so you prepare to strike first.</div>
+          <div class="widget-options">
+            <button data-choice="0">Rough equality of power</button>
+            <button data-choice="1">Scarcity and competition</button>
+            <button data-choice="2">Diffidence</button>
+            <button data-choice="3">A common power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. When two people want the same thing and cannot both have it, they become enemies." data-hint="Both want the same thing and only one can have it. Which idea is that?">
+          <div class="widget-row-prompt">4. Two neighbors want the same field, and only one can have it.</div>
+          <div class="widget-options">
+            <button data-choice="0">Rough equality of power</button>
+            <button data-choice="1">Scarcity and competition</button>
+            <button data-choice="2">Diffidence</button>
+            <button data-choice="3">A common power</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>In this condition, Hobbes argues, nothing valuable can be built. There is no secure property, because anyone strong enough can simply take what you have. There is no agriculture worth the labor, no long-distance trade, no art, no leisure to develop knowledge, because all of it requires a stability that the state of nature by definition cannot provide. In his most famous single line, Hobbes describes the life of man in this condition as "solitary, poor, nasty, brutish, and short." Every adjective in that list is doing work: solitary, because trust and cooperation collapse; poor, because nothing is safe long enough to accumulate; nasty and brutish, because force and fraud become the only currency; short, because violent death is always close at hand.</p>
+
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Eight Neighbors, No Common Power</div>
+      <p>Slide trust and scarcity, then add a common power, and watch what eight households hold after twelve seasons. Notice what guarding costs, and what the common power costs.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/hobbes-state-of-nature.html" title="Eight Neighbors, No Common Power" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/hobbes-state-of-nature.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Social Contract: Trading Liberty for Peace</h2>
       <p>If the state of nature is this bad, reason itself (Hobbes calls it "the laws of nature," discoverable by anyone who thinks carefully, not commanded by God through revelation) points toward an escape. People in the state of nature possess a natural right to everything, including the right to judge for themselves what their own safety requires and to use whatever force they think necessary to secure it. That unlimited right is precisely the problem: everyone judging their own case, everyone enforcing their own claims, is what produces the war in the first place. So reason recommends that people lay down this right, on the condition that everyone else does too, and transfer it to a single person or body; the <strong class="term-subject" tabindex="0">sovereign<span class="gloss-tip">The person or body holding supreme, final authority within a political community.</span></strong>, which Hobbes names, after the fearsome sea-monster of the Book of Job, the <strong>Leviathan</strong>. This mutual laying-down of rights, exchanged and combined into an authority above every individual, is the <strong class="term-subject" tabindex="0">social contract<span class="gloss-tip">An agreement, implicit or explicit, by which individuals consent to leave the state of nature and submit to a common government in exchange for security and order.</span></strong>: not a single historical event with a signed document, but a rational reconstruction of what any group of frightened, self-interested people would agree to if they could actually manage to agree.</p>
@@ -282,6 +390,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
