@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federalism as Double Security</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin: 8px 0 6px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.btn { flex: 1 1 200px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; font-family: inherit; cursor: pointer; text-align: left; }
+.btn:hover { background: #F4F6FA; }
+.btn.on { background: #0E1C42; color: #fff; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.diagram { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 12px; margin: 10px 0; }
+.nation { border: 2px solid #2196D0; background: #E8F6FB; border-radius: 8px; padding: 10px; text-align: center; font-weight: 600; color: #0E1C42; transition: background .3s, border-color .3s; }
+.nation small { display: block; font-weight: 400; font-size: 12px; color: #1B6A94; }
+.states { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.state { flex: 1 1 120px; border: 2px solid #2196D0; background: #E8F6FB; border-radius: 8px; padding: 8px; text-align: center; font-size: 13px; color: #0E1C42; transition: background .3s, border-color .3s; }
+.state small { display: block; font-size: 11.5px; color: #1B6A94; }
+.nation.cap, .state.cap { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.nation.cap small, .state.cap small { color: #8A1F16; }
+.state.flat { background: #EEF1F8; border: 2px dashed #B9C4DD; color: #6b7a99; }
+.state.flat small { color: #6b7a99; }
+.count { font-size: 14px; color: #0E1C42; margin: 8px 0; }
+.count b { font-size: 18px; }
+.verdict { margin: 8px 0; padding: 10px 12px; background: #fff; border-left: 4px solid #0E1C42; border-radius: 4px; font-size: 14px; }
+.verdict.ok { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+.verdict.bad { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+.quote { margin: 8px 0 12px; font-size: 13.5px; color: #1a2340; padding: 8px 12px; background: #FDF3E3; border-left: 4px solid #C7922C; border-radius: 4px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Two Layers of Defense</h1>
+<p class="sub">Choose how power is arranged, then let a faction capture one government. Red marks what the faction holds; blue marks what still stands in its way.</p>
+
+<div class="label">How is power arranged?</div>
+<div class="row" id="struct"></div>
+<div class="label">The faction captures&hellip;</div>
+<div class="row" id="cap"></div>
+
+<div class="diagram" id="diagram"></div>
+<div class="count" id="count"></div>
+<div class="verdict" id="verdict"></div>
+<div class="quote" id="quote"></div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var struct, cap;
+
+  function init() { struct = 'fed'; cap = 'state'; render(); }
+  function btn(box, key, val, text, disabled, setter) {
+    var b = document.createElement('button');
+    b.className = 'btn' + (key === val ? ' on' : '');
+    b.textContent = text;
+    b.disabled = !!disabled;
+    b.addEventListener('click', setter);
+    box.appendChild(b);
+  }
+  function render() {
+    var sb = $('struct'); sb.innerHTML = '';
+    btn(sb, struct, 'fed', 'Federalism: power divided between nation and states', false, function () { struct = 'fed'; render(); });
+    btn(sb, struct, 'one', 'One layer: all power in the national government', false, function () { struct = 'one'; cap = 'nation'; render(); });
+    var cb = $('cap'); cb.innerHTML = '';
+    btn(cb, cap, 'state', 'One state government', struct === 'one', function () { cap = 'state'; render(); });
+    btn(cb, cap, 'nation', 'The national government', false, function () { cap = 'nation'; render(); });
+
+    var d = '<div class="nation' + (cap === 'nation' ? ' cap' : '') + '">National government<small>' + (cap === 'nation' ? 'captured' : 'its own sphere of authority') + '</small></div><div class="states">';
+    var names = ['State A', 'State B', 'State C'];
+    for (var i = 0; i < 3; i++) {
+      var hit = struct === 'fed' && cap === 'state' && i === 0;
+      var cls = 'state' + (struct === 'one' ? ' flat' : (hit ? ' cap' : ''));
+      var sm = struct === 'one' ? 'no independent authority' : (hit ? 'captured' : 'its own sphere of authority');
+      d += '<div class="' + cls + '">' + names[i] + '<small>' + sm + '</small></div>';
+    }
+    d += '</div>';
+    $('diagram').innerHTML = d;
+
+    var total = struct === 'fed' ? 4 : 1, left = struct === 'fed' ? 3 : 0;
+    $('count').innerHTML = 'Independent centers of authority still standing: <b>' + left + '</b> of ' + total;
+    var v = $('verdict');
+    if (struct === 'one') {
+      v.className = 'verdict bad';
+      v.textContent = 'With all power in one government, capturing that government captures everything. Madison did not conclude that all power should be centralized.';
+    } else if (cap === 'state') {
+      v.className = 'verdict ok';
+      v.textContent = 'The faction holds one state, and still runs into the limits of that state\'s power. The national government and the other states keep their own authority.';
+    } else {
+      v.className = 'verdict ok';
+      v.textContent = 'The faction holds the national government, and still finds the states retaining independent authority of their own.';
+    }
+    $('quote').textContent = 'Madison called this a double security for the rights of the people: "the different governments will control each other, at the same time that each will be controlled by itself."';
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
