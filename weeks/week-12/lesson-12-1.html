@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,19 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>Recall the argument from Module 4: when the Constitution went out to the states for ratification in 1787 and 1788, it did not sail through unopposed. <strong class="term-subject" tabindex="0">Federalists<span class="gloss-tip">Supporters of ratifying the U.S. Constitution in 1787 and 1788, who favored a stronger national government than the Articles of Confederation had provided.</span></strong>, who favored ratification, squared off against <strong class="term-subject" tabindex="0">Anti-Federalists<span class="gloss-tip">Opponents of ratifying the U.S. Constitution, who feared it created too powerful a national government and, at first, contained no bill of rights.</span></strong>, who did not, and one of the Anti-Federalists' sharpest objections had nothing to do with federalism, taxation, or the structure of Congress. It was this: the Constitution, as drafted in Philadelphia, contained no bill of rights. No clause guaranteed freedom of speech. No clause guaranteed a jury trial in every case. No clause said, in so many words, that the new federal government could not search a citizen's home without cause. To men who had just fought a revolution partly over the Crown's disregard for exactly these kinds of protections, that omission looked less like an oversight and more like a warning.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Check in</div>
+        <div class="widget-question">Before you read on: which protection do you expect to rely on most in your own life? (No wrong answer.)</div>
+        <div class="widget-options">
+          <button data-response="That is the First Amendment's territory, and it was the objection the Anti-Federalists raised first. Read on to see how the omission was repaired.">Speaking, worshiping, or gathering freely</button>
+          <button data-response="That is the Fourth Amendment's territory, and it answers a colonial grievance. Read on to see where it sits among the ten.">Privacy in my home and belongings</button>
+          <button data-response="That is the territory of the Fifth and Sixth Amendments, which govern what happens between suspicion and trial. Read on for the map.">A fair process if I am ever accused of something</button>
+          <button data-response="Fair enough. By the end of this lesson you will have a map of all ten to choose from.">I am not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>The Federalists had an answer, and it was not a bad one. Alexander Hamilton, writing in Federalist No. 84, argued that a bill of rights was not only unnecessary but potentially dangerous. The federal government created by the Constitution, he pointed out, possessed only the powers specifically granted to it; a principle called <strong class="term-subject" tabindex="0">enumerated powers<span class="gloss-tip">The specific powers the Constitution actually lists as belonging to Congress, as opposed to powers left to the states or the people.</span></strong>. Nowhere had the states given Congress the power to regulate speech or religion in the first place, so why write a prohibition against a power that did not exist? Worse, Hamilton warned, listing specific protected rights might backfire: if the document said Congress could not abridge freedom of the press, a future government might reason that any right not on that list was fair game, when the whole point was that the federal government's authority was supposed to be limited everywhere, not just in the places explicitly fenced off.</p>
 
       <p>The Anti-Federalists were not persuaded, and neither, in several state ratifying conventions, was the public. Massachusetts, Virginia, New York, and other states ratified the Constitution only after securing a firm understanding (sometimes an explicit condition) that the first Congress would take up amendments securing individual liberties immediately. The Constitution was ratified in 1788 on something close to a promise still owed.</p>
@@ -250,7 +299,63 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>The Fifth Amendment bundles several protections for anyone facing criminal charges: the requirement of a grand jury indictment for serious federal crimes, protection against <strong class="term-subject" tabindex="0">double jeopardy<span class="gloss-tip">The Fifth Amendment's protection against being tried twice for the same crime after an acquittal or conviction.</span></strong> (being tried twice for the same offense), the right against self-incrimination, and the guarantee that no person be deprived of "life, liberty, or property, without due process of law"; plus the requirement that government pay just compensation when it takes private property for public use. The Sixth Amendment guarantees the accused a speedy and public trial by an impartial jury, the right to know the charges against him, to confront witnesses, to compel favorable witnesses to testify, and to have legal counsel. The Seventh Amendment preserves the right to a jury trial in most federal civil lawsuits. The Eighth Amendment forbids excessive bail, excessive fines, and cruel and unusual punishment.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which amendment?</div>
+        <div class="widget-question">Match each situation to the amendment that protects against it.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. The Third Amendment bars quartering soldiers in a private home in peacetime without the owner's consent." data-hint="This is a response to British practice in the colonies. Which amendment deals with soldiers in homes?">
+          <div class="widget-row-prompt">1. A soldier demands to live in your house in peacetime, and you have not agreed.</div>
+          <div class="widget-options">
+            <button data-choice="0">First Amendment</button>
+            <button data-choice="1">Third Amendment</button>
+            <button data-choice="2">Fourth Amendment</button>
+            <button data-choice="3">Fifth Amendment</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. Double jeopardy, part of the Fifth Amendment, bars a second trial for the same offense." data-hint="One of the Fifth Amendment's protections covers being tried twice. Which amendment bundles the protections for the accused?">
+          <div class="widget-row-prompt">2. A person is found not guilty, and the government wants to try him again for the same crime.</div>
+          <div class="widget-options">
+            <button data-choice="0">First Amendment</button>
+            <button data-choice="1">Third Amendment</button>
+            <button data-choice="2">Fourth Amendment</button>
+            <button data-choice="3">Fifth Amendment</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The Fourth Amendment protects against unreasonable searches and seizures and requires probable cause for warrants." data-hint="The issue is a search with no cause. Which amendment guards persons, houses, papers, and effects?">
+          <div class="widget-row-prompt">3. An official wants to search your papers, with no facts and no warrant.</div>
+          <div class="widget-options">
+            <button data-choice="0">First Amendment</button>
+            <button data-choice="1">Third Amendment</button>
+            <button data-choice="2">Fourth Amendment</button>
+            <button data-choice="3">Fifth Amendment</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The First Amendment protects the right to petition the government for a redress of grievances." data-hint="Petitioning the government is one of the freedoms of a free public life. Which amendment lists it?">
+          <div class="widget-row-prompt">4. Citizens sign a petition asking the government to fix a grievance.</div>
+          <div class="widget-options">
+            <button data-choice="0">First Amendment</button>
+            <button data-choice="1">Third Amendment</button>
+            <button data-choice="2">Fourth Amendment</button>
+            <button data-choice="3">Fifth Amendment</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>The last two amendments work differently from the first eight: rather than naming a specific liberty, they state a principle about how to read the whole document. The Ninth Amendment says that listing certain rights in the Constitution must not be read to mean that the people have no other rights beyond those listed: Madison's own answer to his earlier worry about incompleteness. The Tenth Amendment reserves to the states, or to the people, any power the Constitution neither grants to the federal government nor forbids to the states: a direct restatement of the enumerated-powers principle the Federalists had relied on all along. Amendments One and Four through Six will each receive their own full treatment later in this module; this lesson gives you the map before we walk each region of it slowly.</p>
+
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Which Worry Did Each Amendment Answer?</div>
+      <p>Tap each of the ten amendments to see what it protects and the worry behind it.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/amendment-worry-lookup.html" title="Which Worry Did Each Amendment Answer?" style="width:100%; height:560px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/amendment-worry-lookup.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -278,6 +383,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
