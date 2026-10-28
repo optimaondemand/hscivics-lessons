@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading the Slave-Trade Clause</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.q { background: #fff; border: 2px solid #0E1C42; border-radius: 8px; padding: 12px 16px; font-size: 16px; color: #0E1C42; margin-bottom: 10px; min-height: 58px; }
+.q.empty { border-style: dashed; border-color: #B9C4DD; color: #6b7a99; font-size: 14px; }
+.src { font-size: 12px; color: #6b7a99; margin: 0 0 6px; font-style: italic; }
+.clause { background: #FBF8F0; border: 1px solid #D9CFAF; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 16px; font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 2; margin-bottom: 10px; }
+.clause .seg { cursor: pointer; border-radius: 4px; padding: 2px 1px; border-bottom: 2px dotted #B9A878; }
+.clause .seg:hover { background: #F1E6C4; }
+.clause .seg.found { background: #D8F0DD; border-bottom: 2px solid #2A9D5C; cursor: default; }
+.clause .seg.miss { background: #FDECEC; border-bottom: 2px solid #C0392B; }
+.clause .tag { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.5px; letter-spacing: .3px; background: #0E1C42; color: #fff; border-radius: 3px; padding: 1px 5px; margin-left: 3px; vertical-align: middle; }
+.msg { min-height: 40px; margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Reading the Clause Closely</h1>
+<p class="sub">Here is the clause as the Constitution words it. For each question, tap the words in the clause that answer it.</p>
+
+<div class="prog" id="prog"></div>
+<div class="q" id="q"></div>
+<p class="src">Constitution of the United States, Article I, Section 9, Clause 1</p>
+<div class="clause" id="clause">
+  <span class="seg" data-s="0">The Migration or Importation of such Persons</span>
+  <span class="seg" data-s="1">as any of the States now existing shall think proper to admit,</span>
+  <span class="seg" data-s="2">shall not be prohibited by the Congress</span>
+  <span class="seg" data-s="3">prior to the Year one thousand eight hundred and eight,</span>
+  <span class="seg" data-s="4">but a tax or duty may be imposed on such Importation, not exceeding ten dollars for each Person.</span>
+</div>
+<div class="msg" id="msg"></div>
+<div class="done" id="done">All five found. Notice how the clause names its subject: only as "Migration or Importation of such Persons." It limited what Congress could do before 1808; the lesson tells you what Congress did when that date arrived.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var segs = Array.prototype.slice.call(document.querySelectorAll('.seg'));
+  // s = the segment that answers; the order is scrambled so the answers do not run in a pattern.
+  var QS = [
+    { t: 'Which words set the date before which Congress could not act?', s: 3, tag: 'THE DATE',
+      ok: 'Right. "Prior to the Year one thousand eight hundred and eight" fixed the twenty-year wait.' },
+    { t: 'Which words leave the decision about admitting these persons to the states themselves?', s: 1, tag: 'THE STATES',
+      ok: 'Right. The clause speaks of states "now existing" that "shall think proper to admit." The decision sits with them.' },
+    { t: 'Which words show what Congress was still allowed to do in the meantime?', s: 4, tag: 'WHAT CONGRESS COULD DO',
+      ok: 'Right. Congress could tax the importation, up to ten dollars for each person.' },
+    { t: 'Which words describe the practice the clause is about?', s: 0, tag: 'THE PRACTICE',
+      ok: 'Right. This is how the clause refers to the international slave trade, in a phrase that never names it.' },
+    { t: 'Which words say who is barred from acting?', s: 2, tag: 'WHO IS LIMITED',
+      ok: 'Right. The limit falls on "the Congress," not on the states.' }
+  ];
+  var LABEL = ['the practice being described', 'the states that may admit such persons', 'the body that is limited', 'the date', 'the tax Congress could still impose'];
+  var idx;
+
+  function init() {
+    idx = 0;
+    segs.forEach(function (e) { e.className = 'seg'; var t = e.querySelector('.tag'); if (t) e.removeChild(t); });
+    $('msg').className = 'msg'; $('msg').textContent = '';
+    render();
+  }
+  function render() {
+    var done = idx >= QS.length;
+    $('prog').textContent = 'Found: ' + idx + ' of ' + QS.length;
+    var q = $('q');
+    q.className = 'q' + (done ? ' empty' : '');
+    q.textContent = done ? 'All five questions answered.' : QS[idx].t;
+    $('done').className = 'done' + (done ? ' show' : '');
+  }
+  segs.forEach(function (e) {
+    e.addEventListener('click', function () {
+      if (idx >= QS.length || e.classList.contains('found')) return;
+      var n = Number(e.getAttribute('data-s')), m = $('msg');
+      segs.forEach(function (x) { x.classList.remove('miss'); });
+      if (n === QS[idx].s) {
+        e.classList.add('found');
+        var tg = document.createElement('span'); tg.className = 'tag'; tg.textContent = QS[idx].tag; e.appendChild(tg);
+        m.className = 'msg show good'; m.textContent = QS[idx].ok;
+        idx++;
+        render();
+      } else {
+        e.classList.add('miss');
+        m.className = 'msg show bad';
+        m.textContent = 'Those words give ' + LABEL[n] + '. Read the question again and try another part of the clause.';
+      }
+    });
+  });
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
