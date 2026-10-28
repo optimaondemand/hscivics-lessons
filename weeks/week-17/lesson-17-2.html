@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,49 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Read Bush's vision alongside Truman's, and the family resemblance is unmistakable. Both blend realist and idealist reasoning. The realist core of Bush's position was straightforward: Iraq's conquest of Kuwait put Saddam Hussein in a position to dominate a large share of the world's oil reserves and to threaten Saudi Arabia, a far larger prize and a far more consequential American strategic partner. But Bush, like Truman, did not rest his public case on oil and strategic access alone. He framed the response in the language of collective security and the rule of law among nations; aggression must not be allowed to pay, sovereignty must be respected, coalitions of free nations must act together against outlaw states. Realist interest and idealist principle, once again, pointing in the same direction and reinforcing each other in the public argument for action.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Containment or new world order?</div>
+        <div class="widget-question">Match each statement to the idea it describes. One of them belongs to neither.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Bush's vision was of nations acting together through collective security, so that aggression against a small state is answered by a coalition." data-hint="Look for the idea about nations acting together after the Cold War.">
+          <div class="widget-row-prompt">1. Nations act together through collective security, so aggression against a small state is answered by a coalition.</div>
+          <div class="widget-options">
+            <button data-choice="0">Containment</button>
+            <button data-choice="1">The new world order</button>
+            <button data-choice="2">Neither: a different logic</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Containment meant stopping the further spread of Soviet-aligned communist power without necessarily rolling it back where it already existed." data-hint="This idea belongs to the Cold War's opening, not its close.">
+          <div class="widget-row-prompt">2. Stop the further spread of Soviet-aligned communist power, without necessarily rolling it back where it already exists.</div>
+          <div class="widget-options">
+            <button data-choice="0">Containment</button>
+            <button data-choice="1">The new world order</button>
+            <button data-choice="2">Neither: a different logic</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. That is the Monroe Doctrine's sphere-of-influence logic from the previous lesson, a separate idea from both." data-hint="Claiming a region as one power's zone is one of the five postures from the previous lesson.">
+          <div class="widget-row-prompt">3. Treat the entire Western Hemisphere as a zone where European powers are unwelcome.</div>
+          <div class="widget-options">
+            <button data-choice="0">Containment</button>
+            <button data-choice="1">The new world order</button>
+            <button data-choice="2">Neither: a different logic</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Iraq's invasion of Kuwait in August 1990 was the early test of whether the post-Cold War world could act on those terms." data-hint="Which idea was tested by the Gulf crisis?">
+          <div class="widget-row-prompt">4. A first test comes when Iraq invades and annexes Kuwait in August 1990.</div>
+          <div class="widget-options">
+            <button data-choice="0">Containment</button>
+            <button data-choice="1">The new world order</button>
+            <button data-choice="2">Neither: a different logic</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <div class="oa-callout-gold">
         <div class="oa-kicker" style="color:#8A6D3B;">Case Study</div>
         <h2 class="sub-head" style="font-size:16px; margin-top:4px;">Case Study: Strategic Resources and the Shape of American Foreign Policy</h2>
@@ -249,6 +328,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
           <iframe src="../../widgets/foreign-policy-resource-map.html" title="Foreign Policy Resource Map" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
         </div>
         <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/foreign-policy-resource-map.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
+
+      <div class="optima-widget ow-reflect ow-scale">
+        <div class="widget-kicker">&#9889; Place it on the line</div>
+        <div class="widget-question">How much of American foreign policy do you think comes down to where resources sit on the map? (No wrong answer. Place yourself, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="The case study argues otherwise for the Gulf: the crisis drew a coalition so quickly because of what Kuwait and Saudi Arabia sit on. Test that against the map.">Almost none</button>
+          <button data-response="A modest role fits one reading: resources matter, but doctrines and principles drive the decisions. The lesson's closing line says doctrines explain what leaders said.">A little</button>
+          <button data-response="Roughly even is a defensible place to land. Doctrine and geography each explain something different.">About half</button>
+          <button data-response="You see geography as the main driver. The lesson says it explains where and when leaders actually acted, while doctrines explain why they said they were acting.">Most</button>
+          <button data-response="That is a strong claim. The lesson gives oil, water, and strategic minerals as recurring cases, but it also treats doctrines as part of the picture.">Almost all</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
       </div>
 
       <p>Hold all three pieces of this lesson together: containment as the Cold War's opening doctrine, the "new world order" as its closing vision, and strategic resources as the quiet, recurring, unglamorous factor that shaped how both were actually applied on the ground. Grand doctrines explain why American leaders said they were acting. Geography, more often than we like to admit, explains where and when they actually did.</p>
@@ -283,6 +376,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
