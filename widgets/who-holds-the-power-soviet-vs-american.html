@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Holds the Power</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.pw { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+.pw .name { font-size: 15px; color: #0E1C42; margin-bottom: 6px; }
+.pw .name b { font-weight: 600; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opts button { background: #fff; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 7px 11px; font-size: 13.5px; font-family: inherit; color: #0E1C42; cursor: pointer; text-align: left; }
+.opts button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.opts button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.opts button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.hint { display: none; margin-top: 6px; font-size: 13px; color: #8A1F16; }
+.hint.show { display: block; }
+.cmp { display: none; margin-top: 8px; gap: 8px; flex-wrap: wrap; }
+.cmp.show { display: flex; }
+.cmp div { flex: 1 1 220px; border-radius: 6px; padding: 8px 10px; font-size: 13.5px; }
+.cmp .us { background: #E8F6FB; border-left: 4px solid #2196D0; }
+.cmp .ussr { background: #FDECEC; border-left: 4px solid #C0392B; }
+.cmp .lab { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #6b7a99; display: block; }
+.diag { display: none; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin: 10px 0; }
+.diag.show { display: block; }
+.diag .t { font-size: 12.5px; color: #6b7a99; margin-bottom: 6px; }
+.dg { display: flex; flex-wrap: wrap; gap: 14px; }
+.dg .col { flex: 1 1 220px; }
+.dg .cap { font-size: 13px; color: #0E1C42; margin-bottom: 4px; }
+.boxes { display: flex; gap: 6px; }
+.boxes span { flex: 1; text-align: center; border-radius: 6px; padding: 10px 4px; font-size: 13px; color: #fff; }
+.boxes .us1 { background: #2196D0; } .boxes .us2 { background: #1B6A94; } .boxes .us3 { background: #0E1C42; }
+.boxes .one { background: #8A1F16; flex: 1; padding: 18px 4px; }
+.end { margin-top: 8px; font-size: 14px; color: #0E1C42; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; margin-top: 4px; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Who Holds the Power</h1>
+<p class="sub">In the American Constitution, these powers are divided and checked. For each power, predict who held it in the Soviet system. Then see the two systems side by side.</p>
+
+<div id="list"></div>
+<div class="diag" id="diag">
+  <div class="t">Where the power sat</div>
+  <div class="dg">
+    <div class="col"><div class="cap">American Constitution</div><div class="boxes"><span class="us1">Congress</span><span class="us2">President</span><span class="us3">Courts</span></div></div>
+    <div class="col"><div class="cap">Soviet system</div><div class="boxes"><span class="one">The Communist Party</span></div></div>
+  </div>
+  <div class="end">The American arrangement rests on a wager that no person or party can be trusted with unchecked power. The Soviet system rejected that wager at every point where the Constitution makes it.</div>
+</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var P = [
+    { name: 'Write the law', o: ['Independent courts', 'A separate legislature', 'The Communist Party, through its Politburo and General Secretary', 'No one'], c: 2,
+      hint: 'The Soviet system had no counterpart to a separate branch. Who combined the powers a constitution would separate?',
+      us: 'Congress, under Article I.', su: 'The Party leadership wrote law.' },
+    { name: 'Enforce the law', o: ['The Party leadership', 'A separate executive branch', 'Independent courts', 'No one'], c: 0,
+      hint: 'Think about who also wrote the law.',
+      us: 'The President, under Article II.', su: 'The same Party leadership enforced it.' },
+    { name: 'Interpret the law and decide cases', o: ['An independent judiciary', 'A separate legislature', 'No one', 'Judges who served at the Party\'s pleasure'], c: 3,
+      hint: 'Soviet courts were not independent. Whom did the judges answer to?',
+      us: 'Federal courts, under Article III, with judges who hold lifetime tenure.', su: 'Judges served at the Party\'s pleasure, and the show trials of the 1930s were directed political theater.' },
+    { name: 'Rule against the government itself', o: ['Judges protected by lifetime tenure', 'No one, because no independent court existed that could', 'The legislature', 'The press'], c: 1,
+      hint: 'A court can only rule against the government if it is free of the government. Did Soviet courts have that freedom?',
+      us: 'Courts, which must be able to rule against the government without fear of retaliation.', su: 'No body outside the Party could do this.' },
+    { name: 'Hold the government to the rights written on paper', o: ['A free press and independent courts', 'The 1936 constitution enforces itself', 'No outside body had the standing or the power', 'The voters'], c: 2,
+      hint: 'The 1936 constitution listed rights on paper. What was missing that could enforce them against the Party?',
+      us: 'Courts, elections, and a written law that binds the government along with the governed.', su: 'No independent court, no free press, and no competing political power existed, so the rights constrained nothing.' }
+  ];
+  var solved;
+  function build() {
+    solved = 0; var l = $('list'); l.innerHTML = ''; $('diag').className = 'diag';
+    P.forEach(function (p, i) {
+      var d = document.createElement('div'); d.className = 'pw';
+      d.innerHTML = '<div class="name"><b></b> in the Soviet system: who held it?</div><div class="opts"></div><div class="hint"></div><div class="cmp"><div class="us"><span class="lab">American Constitution</span></div><div class="ussr"><span class="lab">Soviet system</span></div></div>';
+      d.querySelector('b').textContent = p.name;
+      d.querySelector('.us').appendChild(document.createTextNode(p.us));
+      d.querySelector('.ussr').appendChild(document.createTextNode(p.su));
+      var o = d.querySelector('.opts'), h = d.querySelector('.hint'), done = false;
+      p.o.forEach(function (txt, k) {
+        var b = document.createElement('button'); b.textContent = txt;
+        b.addEventListener('click', function () {
+          if (done) return;
+          if (k === p.c) {
+            done = true; b.className = 'correct'; h.className = 'hint'; d.querySelector('.cmp').className = 'cmp show';
+            solved++; if (solved === P.length) $('diag').className = 'diag show';
+          } else { b.className = 'incorrect'; h.className = 'hint show'; h.textContent = p.hint; }
+        });
+        o.appendChild(b);
+      });
+      l.appendChild(d);
+    });
+  }
+  $('reset').addEventListener('click', build);
+  build();
+})();
+</script>
+</body>
+</html>
