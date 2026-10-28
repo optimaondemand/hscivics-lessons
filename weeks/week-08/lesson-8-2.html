@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,49 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Life Tenure and Secure Pay, as a Safeguard</h2>
       <p>Because the judiciary is naturally the weakest branch, Hamilton argues, it needs the strongest possible institutional protection to keep it independent of the other two. This is his case for <strong class="term-subject" tabindex="0">life tenure<span class="gloss-tip">The arrangement by which federal judges hold their offices for as long as they exhibit good behavior, rather than for a fixed term, to protect their independence.</span></strong>; judges serving "during good behaviour," removable only for genuine misconduct, not at the pleasure of whoever appointed them or whoever currently controls Congress. If judges held office only for a fixed term, or served at the will of the president or Congress, Hamilton warns, they would face constant pressure to rule in ways that pleased whichever branch controlled their reappointment or their livelihood; exactly the kind of dependency that would destroy the judiciary's usefulness as a check on the other branches. He extends this logic to judicial salaries as well: a legislature that could reduce a judge's pay at will would hold real leverage over that judge's decisions, so the Constitution guards judicial compensation from being diminished during a judge's time in office. Life tenure and secure pay are not perks, in Hamilton's argument; they are the specific mechanisms that let a structurally weak branch resist pressure from the two genuinely powerful ones.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which safeguard is this?</div>
+        <div class="widget-question">Two protections keep the judiciary independent. For each case, name the protection, or say that it is something else.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Judges serving during good behavior can be removed only for genuine misconduct, not at the pleasure of whoever appointed them." data-hint="The judge holds the post as long as conduct is good. Which protection is about keeping the office?">
+          <div class="widget-row-prompt">1. Judges serve during good behavior and cannot be removed at the pleasure of whoever appointed them.</div>
+          <div class="widget-options">
+            <button data-choice="0">Secure pay</button>
+            <button data-choice="1">Life tenure</button>
+            <button data-choice="2">Neither: a different power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. A legislature that could cut a judge's pay at will would hold leverage over the judge's decisions, so compensation is guarded." data-hint="This one is about money, not the office. Which protection guards the judge's livelihood?">
+          <div class="widget-row-prompt">2. A legislature may not reduce a judge's compensation while the judge is in office.</div>
+          <div class="widget-options">
+            <button data-choice="0">Secure pay</button>
+            <button data-choice="1">Life tenure</button>
+            <button data-choice="2">Neither: a different power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. That is judicial review, an exercise of the judiciary's power. It is not a protection for the judges' independence." data-hint="Ask whether this shields the judge from pressure, or whether it is something the judge does. Is it a protection at all?">
+          <div class="widget-row-prompt">3. A judge refuses to apply a statute that conflicts with the Constitution.</div>
+          <div class="widget-options">
+            <button data-choice="0">Secure pay</button>
+            <button data-choice="1">Life tenure</button>
+            <button data-choice="2">Neither: a different power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. A judge who cannot lose the office for ruling against the executive can rule on the law without fear of removal." data-hint="The fear here is losing the job itself. Which protection removes that fear?">
+          <div class="widget-row-prompt">4. A judge who rules against the president does not have to fear losing the office for it.</div>
+          <div class="widget-options">
+            <button data-choice="0">Secure pay</button>
+            <button data-choice="1">Life tenure</button>
+            <button data-choice="2">Neither: a different power</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Hamilton then makes the argument for judicial review itself, years before any court used it. If the Constitution is the fundamental law, superior to any ordinary statute Congress might pass, then a law that conflicts with the Constitution cannot be valid law at all, and someone must have the authority to say so in a specific case. Hamilton argues this authority naturally belongs to the courts, whose whole function is interpreting law and applying it to specific cases. This does not mean, he is careful to add, that the judiciary is somehow superior to the legislature; it means that the Constitution (the people's fundamental law) is superior to both, and where an ordinary statute conflicts with it, judges are bound to follow the higher law. This is precisely the reasoning John Marshall would echo, nearly word for word in spirit, when the Supreme Court actually struck down a federal statute for the first time in 1803.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Aristotle's Map of Constitutions</h2>
@@ -241,7 +320,48 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Rule by one, aiming at the common good, Aristotle calls <strong class="term-subject" tabindex="0">monarchy<span class="gloss-tip">Rule by a single hereditary ruler, such as a king or queen.</span></strong>; rule by one aiming only at the ruler's private advantage he calls <strong class="term-subject" tabindex="0">tyranny<span class="gloss-tip">In the classical sense, the corrupt form of one-person rule: a ruler who governs for his own benefit rather than the community's good.</span></strong>; monarchy's corrupt twin. Rule by a few, aiming at the common good, he calls <strong class="term-subject" tabindex="0">aristocracy<span class="gloss-tip">In the classical sense, rule by the best or most virtuous few, governing for the community's good; its corrupt form is oligarchy.</span></strong> (literally, from the Greek, "rule of the best"); rule by a few aiming only at their own advantage he calls oligarchy, rule by and for the wealthy few. Rule by the many, aiming at the common good, Aristotle calls <strong class="term-subject" tabindex="0">polity<span class="gloss-tip">In Aristotle's technical sense, the good form of rule by the many, governing for the common good; its corrupt form is pure democracy understood as mob rule. <button class="gloss-speak" onclick="speakGloss(event,'polity, PAH-lih-tee')" aria-label="Hear pronunciation">&#128266;</button></span></strong>; a term distinct from simple "democracy" in his usage; rule by the many aiming only at the advantage of the poor majority, at the expense of the whole community's good, he calls, in his own more critical usage, a corrupted democracy, closer to what we might call mob rule. Six constitutions in all, arranged in three matched pairs, each pair distinguished not by who rules but by whether that rule serves everyone or only the rulers themselves.</p>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Tap to reveal &middot; Good form, corrupt twin</div>
+        <div class="widget-question">For each number of rulers, name the good form and its corrupt twin, then tap the card to check yourself.</div>
+        <div class="ow-cards">
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Rule by one<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Aimed at the common good: monarchy. Aimed only at the ruler's own advantage: tyranny.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Rule by the few<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Aimed at the common good: aristocracy, "rule of the best." Aimed only at the rulers' own advantage: oligarchy, rule by and for the wealthy few.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Rule by the many<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Aimed at the common good: polity. Aimed only at the advantage of the poor majority: a corrupted democracy, closer to mob rule.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+        </div>
+      </div>
+
       <p>This typology is not just a classification exercise. It carries a warning built into its structure: every one of the three "good" forms sits directly beside a corrupted version of itself, separated only by whether power is used for the common good or turned toward private or factional advantage. Aristotle's point is that no single form of government is safe simply by virtue of its structure; a monarchy can decay into tyranny, an aristocracy into oligarchy, a polity into mob rule, if the persons or groups holding power stop governing for the whole community and start governing for themselves.</p>
+
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Name the Constitution</div>
+      <p>Six descriptions, six cells. Count who rules, ask whom the rule serves, and tap where each belongs.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/aristotle-six-constitutions.html" title="Name the Constitution" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/aristotle-six-constitutions.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why Constitutions Actually Fall Apart</h2>
       <p>In Book V, Aristotle turns from classifying constitutions to explaining what causes them to change or collapse, and his answer centers on a single recurring cause: a perceived mismatch between political power and honor on one side, and merit or contribution on the other. Revolutions and constitutional collapse, Aristotle argues, generally arise "from a desire of equality," when people who consider themselves equal to others find themselves receiving less than an equal share of office, honor, or advantage, or, just as dangerously, from a desire for superiority, when people who consider themselves superior in merit or contribution find themselves treated as merely equal, or worse, subordinate. Both oligarchies and democracies, in Aristotle's analysis, are vulnerable to this same underlying dynamic: whichever group holds power tends, over time, to press its advantage further than justice warrants, provoking the resentment of those left out, until the excluded group's sense of injustice becomes strong enough to overturn the existing order, often replacing one imbalance with its opposite rather than achieving genuine balance.</p>
@@ -278,6 +398,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
