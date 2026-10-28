@@ -82,15 +82,15 @@ h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
   <button class="btn" id="next" disabled>Next citizen</button>
   <button class="reset" id="reset">Reset</button>
 </div>
-<p class="note">The four citizens are invented for practice. The classes and the doors follow Solon's reforms as described in the lesson.</p>
+<p class="note">The four citizens are made up for practice. The classes and the yield lines are the historical ones: the 500-measure line is in the lesson, and the 300 and 200 lines come from Aristotle's Constitution of Athens.</p>
 
 <script>
 (function () {
   var RUNGS = [
-    { n: 'Pentakosiomedimnoi', d: 'The top class: land yields 500 measures or more a year' },
-    { n: 'Hippeis (the horsemen)', d: 'Rich enough to keep a war-horse, but under the top line' },
-    { n: 'Zeugetai (the yoke-men)', d: 'Yeoman farmers with a modest plot worked by their own hands' },
-    { n: 'Thetes', d: 'Little or no land of their own' }
+    { n: 'Pentakosiomedimnoi', d: 'The top class: 500 measures or more a year' },
+    { n: 'Hippeis (the horsemen)', d: '300 to 499 measures a year' },
+    { n: 'Zeugetai (the yoke-men)', d: '200 to 299 measures a year' },
+    { n: 'Thetes', d: 'Under 200 measures a year, or no land at all' }
   ];
   // Doors: [label, before, afterByRung(0..3)]
   var DOORS = [
@@ -102,21 +102,21 @@ h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
   ];
   // Correct rungs vary: 2, 0, 3, 1
   var CITIZENS = [
-    { name: 'Demetrios', text: 'Demetrios owns a modest plot and works it with his own hands and a yoke of oxen. He rents from no landlord and hires no tenants. He was born a commoner.', rung: 2,
-      hint: 'He owns land, so he is not a Thete. Is his plot large enough for the two richest classes, or is it a working farmer\'s plot?',
-      ok: 'Right. A farmer who works his own plot is one of the yoke-men, the third class.',
+    { name: 'Demetrios', text: 'Demetrios owns a modest plot and works it with his own hands and a yoke of oxen. He rents from no landlord and hires no tenants. He was born a commoner. His land yields 240 measures a year.', rung: 2,
+      hint: 'Compare 240 to the yield lines on the ladder. Which two lines does it fall between?',
+      ok: 'Right. 240 measures is at least 200 but under 300, so he is one of the yoke-men, the third class.',
       take: 'Before Solon, birth kept him out of every office. Now his land, not his family, opens the Council and public office to him.' },
     { name: 'Philon', text: 'Philon was born a commoner but made a fortune trading across the Aegean. His estates now yield 620 measures of grain, oil, and wine a year.', rung: 0,
-      hint: 'Compare his yearly yield to the 500-measure line on the top rung.',
+      hint: 'Compare 620 to the highest line on the ladder. Does he reach it?',
       ok: 'Right. 620 measures clears the 500-measure line, so he is in the top class.',
       take: 'A commoner\'s wealth, however great, bought him no share in government before. Now his wealth counts, and the top class is open to him.' },
-    { name: 'Nikias', text: 'Nikias owns no land. He works for wages. A few years ago he rented a field and owed his landlord a sixth of the harvest, and he could have been seized if he fell short.', rung: 3,
-      hint: 'Does Nikias own land at all? Look at the rung built for men with little or none.',
-      ok: 'Right. With no land of his own, he is a Thete.',
+    { name: 'Nikias', text: 'Nikias works for wages and farms a tiny patch of his own that yields 90 measures a year. A few years ago he rented a field and owed his landlord a sixth of the harvest, and he could have been seized if he fell short.', rung: 3,
+      hint: 'Compare 90 to the lowest line on the ladder. Does he reach it?',
+      ok: 'Right. 90 measures is under 200, so he is a Thete.',
       take: 'He still cannot hold office or sit on the Council. But the debt law no longer reaches his body, and the Heliaia is open to him: he can judge, and he can appeal a magistrate\'s ruling to a jury of fellow citizens.' },
-    { name: 'Lykon', text: 'Lykon owns a large estate, well above a yeoman\'s plot, though not enough to reach the 500-measure line. He can afford to keep a war-horse.', rung: 1,
-      hint: 'He is richer than a yeoman farmer but short of the top line. Which rung sits between them?',
-      ok: 'Right. Wealthy enough for a war-horse, short of 500 measures: the horsemen.',
+    { name: 'Lykon', text: 'Lykon owns a large estate and keeps a war-horse. His land yields 340 measures a year.', rung: 1,
+      hint: 'He clears the lower lines but not the top one. Which band holds 340?',
+      ok: 'Right. 340 measures is at least 300 but short of 500: the horsemen.',
       take: 'Like the class above and the class below, he now qualifies by property. The top three classes can all hold office and sit on the Council.' }
   ];
 
