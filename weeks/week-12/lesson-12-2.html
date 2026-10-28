@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -225,14 +261,81 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>Here is the full text of the Second Amendment, exactly as ratified in 1791: "A well regulated militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed." Read it once quickly, and it seems plain enough. Read it twice, slowly, with an eye trained on grammar rather than assumption, and a genuine interpretive puzzle appears.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Predict</div>
+        <div class="widget-question">Look at the opening words: "A well regulated militia, being necessary to the security of a free State." What do you predict that clause is doing in the sentence? (No wrong answer. Make a prediction, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="That is the logic of one careful reading, which treats the opening clause as defining the right. Read on to see its evidence and its rival.">It limits the right to people connected to a militia</button>
+          <button data-response="That is the logic of the other careful reading, which treats the opening clause as one reason among others. Read on to see its evidence and its rival.">It gives one reason among others for the right</button>
+          <button data-response="Fair enough. The grammar alone does not settle it, which is why the question has lasted so long.">I am not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>The sentence has two parts. The first ("a well regulated militia, being necessary to the security of a free State") is called the <strong class="term-subject" tabindex="0">prefatory clause<span class="gloss-tip">An introductory clause that states a purpose or reason, such as the "well regulated Militia" language that opens the Second Amendment.</span></strong>: a clause that states a purpose or justification but does not, by itself, grant or restrict anything. The second ("the right of the people to keep and bear Arms, shall not be infringed") is the <strong class="term-subject" tabindex="0">operative clause<span class="gloss-tip">The part of a legal text that actually does the work of granting or protecting a right, as distinct from a prefatory clause explaining why.</span></strong>: the part that actually does the legal work of protecting a right. Nearly everyone who studies the amendment agrees on this much grammar. The disagreement begins at the next step: what is the logical relationship between the two clauses? Does the prefatory clause define and limit the operative clause, so that the right to keep and bear arms exists specifically <em>because of</em>, and <em>in service of</em>, an organized militia, meaning the right is most naturally read as a collective one, belonging to the states' power to maintain militias, rather than to individuals as such? Or does the prefatory clause merely announce one important reason among others for protecting an individual right that exists independently of militia service; meaning "the people" here means the same thing it means everywhere else in the Bill of Rights: individual persons, each holding the right personally?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Two Ways of Reading "the People"</h2>
       <p>This is not a dispute invented by contemporary politics; it traces back through American legal and historical scholarship for generations, and it turns on genuinely difficult questions of eighteenth-century usage and intent. Those who favor the <strong class="term-subject" tabindex="0">collective-right<span class="gloss-tip">A reading of the Second Amendment holding that it protects a right connected to organized militia service, not an individual right to own weapons for private purposes.</span></strong> reading point to the prefatory clause's explicit invocation of the militia, note that the founding generation was deeply concerned with the danger of standing federal armies and wanted to preserve the states' power to maintain their own armed citizen militias against federal disarmament, and argue that reading the amendment as protecting a private, individual right to weapons untethered from any militia purpose ignores the sentence's own stated justification.</p>
 
       <p>Those who favor the <strong class="term-subject" tabindex="0">individual-right<span class="gloss-tip">A reading of the Second Amendment holding that it protects a personal right to keep and bear arms, independent of militia service.</span></strong> reading point out that "the right of the people," the actual phrase in the operative clause, is used elsewhere in the Bill of Rights (in the First Amendment's assembly and petition clauses, and in the Fourth Amendment's protection against unreasonable searches) to describe rights held by individual persons, not by states or organized bodies, and argue there is no clear textual signal that the Second Amendment uses "the people" differently from its neighbors. They also point to historical evidence that an armed citizenry was widely understood, at the founding, as valuable for reasons beyond formal militia service, including individual self-defense, and that eighteenth-century militias were composed of ordinary armed citizens rather than a separate class of government-issued soldiers; making the line between "individual" and "militia-related" less sharp in 1791 than it can look today.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: One Sentence, Two Readings</div>
+      <p>Switch between the two readings and tap each part of the sentence to see how the same words behave under each one.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/second-amendment-two-readings.html" title="One Sentence, Two Readings" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/second-amendment-two-readings.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <p>Both readings can marshal serious historical and textual evidence, and both have had serious adherents among judges, historians, and constitutional scholars. This is exactly the kind of contested question this course asks you to sit with honestly rather than resolve by assertion: the text is genuinely open to more than one careful reading, and which reading you find more persuasive depends on judgments about grammar, history, and founding-era usage that thoughtful people continue to weigh differently.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which reading?</div>
+        <div class="widget-question">Each line is part of an argument about the Second Amendment. Decide which reading it supports.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. This is the individual-right argument: the same phrase names individual persons in the First and Fourth Amendments." data-hint="The argument compares the phrase with its neighbors in the Bill of Rights. Which reading leans on that comparison?">
+          <div class="widget-row-prompt">1. "The right of the people" appears in the First and Fourth Amendments to describe individual persons, so it means the same here.</div>
+          <div class="widget-options">
+            <button data-choice="0">Collective-right reading</button>
+            <button data-choice="1">Individual-right reading</button>
+            <button data-choice="2">Both sides accept this</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. This is the collective-right argument: the militia language reflects the states' interest in keeping armed citizen militias." data-hint="The argument stresses the militia and the fear of federal disarmament. Which reading does that favor?">
+          <div class="widget-row-prompt">2. The opening clause names the militia because the founders wanted states to keep armed citizen militias against federal disarmament.</div>
+          <div class="widget-options">
+            <button data-choice="0">Collective-right reading</button>
+            <button data-choice="1">Individual-right reading</button>
+            <button data-choice="2">Both sides accept this</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Nearly everyone who studies the amendment agrees on this much grammar. The disagreement starts at how the clauses relate." data-hint="This line only describes the structure of the sentence. Do both readings accept it?">
+          <div class="widget-row-prompt">3. The sentence has a prefatory clause that states a purpose and an operative clause that protects the right.</div>
+          <div class="widget-options">
+            <button data-choice="0">Collective-right reading</button>
+            <button data-choice="1">Individual-right reading</button>
+            <button data-choice="2">Both sides accept this</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. If militias were ordinary armed citizens, the line between individual and militia is less sharp, which supports the individual-right reading." data-hint="The argument says armed citizens had value beyond formal militia service. Which reading does that help?">
+          <div class="widget-row-prompt">4. Eighteenth-century militias were made up of ordinary armed citizens, so an armed citizenry was valued for reasons beyond militia service.</div>
+          <div class="widget-options">
+            <button data-choice="0">Collective-right reading</button>
+            <button data-choice="1">Individual-right reading</button>
+            <button data-choice="2">Both sides accept this</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>District of Columbia v. Heller</em> (2008)</h2>
       <p>The debate did not stay purely academic. In 2008, the Supreme Court directly addressed this interpretive question in <strong class="term-entity" tabindex="0">District of Columbia v. Heller<span class="gloss-tip">The 2008 Supreme Court case holding that the Second Amendment protects an individual right to keep a handgun at home for self-defense.</span></strong>, a case challenging a Washington, D.C. law that effectively barred handgun possession in private homes. The Court held, by a 5&ndash;4 majority, that the Second Amendment protects an individual right to keep and bear arms for lawful purposes such as self-defense, unconnected to service in a militia; the first time the Court had ruled squarely on that question. At the same time, the Heller majority was explicit that this individual right is not unlimited: the opinion stated that longstanding regulations, such as prohibitions on possession by felons or the mentally ill, restrictions on carrying weapons in sensitive places like schools and government buildings, and conditions on the commercial sale of arms, remain presumptively constitutional. The full reach of Heller, and the cases that have applied and extended it since, is a subject for later study; what matters for this lesson is simply that the Court answered the individual-versus-collective question in favor of an individual right, while simultaneously affirming that reasonable regulation and constitutional protection are not, in the Court's own view, mutually exclusive.</p>
@@ -269,6 +372,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
