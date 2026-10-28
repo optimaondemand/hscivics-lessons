@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -232,6 +268,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>Ask a diplomat why her country just signed a treaty, sent troops, or refused to intervene, and she will usually give you a reason that sounds like common sense: national interest, moral obligation, security, opportunity. But underneath almost any stated reason for a foreign-policy decision, there is a deeper question that rarely gets asked out loud: what is foreign policy <em>for</em>? Different American statesmen, across different eras, have answered that question differently, and their answers cluster into five recognizable patterns. Learn to see these patterns and you will be able to read almost any chapter of American diplomatic history (and most of the news, for that matter) with sharper eyes.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Make a prediction</div>
+        <div class="widget-question">Before you meet the five patterns, which one do you expect to explain the most American foreign policy decisions? (No wrong answer. This is a prediction, and you can revisit it at the end.)</div>
+        <div class="widget-options">
+          <button data-response="Washington's warning shaped American policy for over a century. Watch how it sits beside the other four.">Isolationism</button>
+          <button data-response="Manifest Destiny made growth feel like a national mission in the 1840s. See whether the logic reaches beyond that century.">Expansionism</button>
+          <button data-response="The Monroe Doctrine claimed a whole hemisphere without ruling it. The lesson asks how far that logic travels.">Spheres of influence</button>
+          <button data-response="Realism judges a policy by whether it works. The last section of the lesson suggests why one logic rarely works alone.">Realism</button>
+          <button data-response="Idealism treats principle as a governing aim. Truman's language later in this module shows it paired with calculation.">Idealism</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Isolationism: Avoiding Entangling Alliances</h2>
       <p><strong class="term-subject" tabindex="0">Isolationism<span class="gloss-tip">A foreign policy of avoiding involvement in other nations' conflicts and alliances, historically influential in U.S. policy before both World Wars.</span></strong> is the posture that a nation's security and prosperity are best protected by staying out of the political quarrels, alliances, and wars of other nations; particularly wars that do not directly threaten one's own territory or vital interests. It is not the same as total withdrawal from the world; isolationist statesmen have generally still favored trade and diplomacy. What they resist is binding political and military commitment.</p>
       <p>The classic American statement of this posture is George Washington's Farewell Address of 1796, in which he warned the young republic against "permanent alliances with any portion of the foreign world," urging instead "temporary alliances for extraordinary emergencies." Washington was not proposing that America ignore the world forever; he was arguing that a young, weak nation, still consolidating itself, had the most to lose and the least to gain from being dragged into the perennial power struggles of Europe. That warning became something close to scripture in American foreign policy for over a century, invoked again and again (sometimes faithfully, sometimes selectively) by statesmen arguing against involvement in foreign wars.</p>
@@ -252,6 +302,48 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p><strong class="term-subject" tabindex="0">Idealism<span class="gloss-tip">A theory of foreign policy holding that moral principles, international law, and cooperation should guide relations between nations.</span></strong> holds that foreign policy should be aimed, at least in significant part, at spreading or defending democratic values, human rights, and self-government abroad; that a nation's power should serve principles beyond its own narrow security or wealth. An idealist statesman asks: does this action make the world more free, more just, more self-governing? Idealism does not mean naivet&eacute; about power; it means treating moral and political principle as a governing aim of policy, not merely as decoration for policies chosen on other grounds.</p>
       <p>You will meet a famous instance of idealist language later this session, when Harry Truman commits the United States to support "free peoples" resisting subjugation; language that frames American policy explicitly in terms of freedom and self-determination, not merely American advantage.</p>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Tap to reveal &middot; Say it, then flip</div>
+        <div class="widget-question">Try to state each posture and its anchor example in your own words, then tap the card to check yourself.</div>
+        <div class="ow-cards">
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Isolationism<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Staying out of other nations' political quarrels, alliances, and wars. Anchor: Washington's Farewell Address (1796), warning against "permanent alliances."</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Expansionism<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Treating growth in territory or influence as a central aim. Anchor: Manifest Destiny in the 1840s, expansion "from sea to sea."</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Sphere of influence<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">A region a stronger power claims as its zone of primary interest, without necessarily annexing it. Anchor: the Monroe Doctrine (1823).</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Realism<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Acting on a sober calculation of security and power, judged by whether a policy works rather than whether it is admirable.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+          <div class="ow-card-wrap">
+            <div class="ow-flip" tabindex="0">
+              <div class="ow-flip-front" style="font-size:18px;color:#0E1C42;">Idealism<div class="ow-flip-hint">Tap to reveal</div></div>
+              <div class="ow-flip-back" style="font-size:14.5px;line-height:1.5;">Treating the spread and defense of democratic values, human rights, and self-government as a governing aim of policy. Anchor: Truman's "free peoples" language.</div>
+            </div>
+            <button class="widget-reset">Reset</button>
+          </div>
+        </div>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Framework, Not a Filing Cabinet</h2>
       <p>Here is the honest complication: almost no real episode of American foreign policy is a pure specimen of just one of these five categories. Statesmen build coalitions of support out of mixed motives, and the same policy can be defended in realist terms to one audience and idealist terms to another. The Monroe Doctrine was a sphere-of-influence claim, but it was justified partly in the idealist language of protecting hemispheric self-government from European monarchy. Manifest Destiny was expansionist in its aims, but it drew on idealist rhetoric about spreading democratic institutions westward, and realist calculation about resources and continental security.</p>
       <p>Treat these five categories the way a doctor treats a diagnostic checklist, not the way a librarian treats a filing system. Your job, when you study a historical episode of American foreign policy, is not to file it under exactly one label and move on. Your job is to ask which of these five logics is doing the most work in a given decision, and which others are present in a supporting role. That is exactly the exercise you will do with the Truman Doctrine and the "New World Order" address later this session; both are, on close reading, blends of realism and idealism, and naming the blend precisely is more valuable than forcing either speech into a single box.</p>
@@ -271,6 +363,15 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
         <summary>Try it before you read on: the United States controls the Panama Canal Zone and treats Central America as a region where it expects the decisive voice, without formally annexing any of it. Name the best-fitting category, then click to check.</summary>
         <div class="reveal-body">Sphere of influence. The U.S. is not claiming the territory outright, the way expansionism would; it is claiming a zone of primary interest and the right to keep other great powers out of it, the same logic behind the Monroe Doctrine.</div>
       </details>
+
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#0E1C42;">Interactive: Which Logic Is Doing the Work</div>
+        <p>Six cases. For each, pick the logic doing the most work, then see which others are in a supporting role.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/foreign-policy-theory-matcher.html" title="Which Logic Is Doing the Work" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/foreign-policy-theory-matcher.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -298,6 +399,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
