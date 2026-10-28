@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -247,6 +283,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
         </div>
       </div>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Build the Compromise</div>
+      <p>Choose how seats are counted in the House and in the Senate. Watch which states can accept the result, and which would walk out.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/compromise-builder-two-chambers.html" title="Build the Compromise" style="width:100%; height:740px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/compromise-builder-two-chambers.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
       <p>The Great Compromise did not end the Convention's hard bargaining; it proved that hard bargaining could produce results, which made the delegates willing to strike further deals on the questions still outstanding. Several of those deals deserve to be examined honestly, because they show the framers solving real problems with means that ranged from ingenious to genuinely troubling.</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Three-Fifths Compromise</h2>
@@ -257,10 +305,66 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Electoral College</h2>
       <p>A different kind of disagreement surrounded the presidency. Some delegates wanted the president chosen by direct popular vote; others, worried that voters scattered across a vast country with no national newspapers or parties would have no reliable way to judge candidates from other states, wanted the president chosen by Congress or by the state legislatures instead; a method that itself raised the danger of a president beholden to the legislature that selected him, undermining the separation of powers the delegates were building into every other part of the Constitution. The delegates compromised on a middle mechanism: each state would appoint, by whatever method its legislature chose, a number of <strong class="term-subject" tabindex="0">electors<span class="gloss-tip">The members of the Electoral College, chosen by each state, who cast the official votes that elect the President and Vice President.</span></strong> equal to its total representation in Congress (House seats plus Senate seats combined), and those electors, meeting in their own states, would cast the actual votes for president. The system, now called the <strong class="term-subject" tabindex="0">Electoral College<span class="gloss-tip">The constitutional body of state-chosen electors whose votes, not the national popular vote directly, elect the President and Vice President.</span></strong>, gave the choice of president neither to Congress nor to a direct national popular vote, but to a body assembled solely for that purpose and then dissolved, and it built in the same large-state/small-state balance already struck in the Great Compromise, since a state's total electors reflected both its House seats (population-based) and its Senate seats (equal by state).</p>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt, then check</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, explain why the delegates rejected both a direct popular vote and selection by Congress, and how each state's number of electors echoes the Great Compromise. Then click to check.</summary>
+          <div class="reveal-body">A direct vote left voters with no reliable way to judge candidates from other states, and selection by Congress risked a president beholden to the legislature that chose him, undermining the separation of powers. The Electoral College gave the choice to a body assembled only for that purpose and then dissolved. Each state's electors equal its House seats plus its Senate seats, so the large-state and small-state balance struck in the Great Compromise carries into the choice of president.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Breaking the Rule on Ratification</h2>
       <p>One final choice deserves attention precisely because it is easy to miss: how would this new Constitution be approved? The Articles of Confederation had required the unanimous consent of every state legislature for any amendment; the same rule that had made the Articles nearly impossible to fix, and the same rule the delegates in Philadelphia had technically violated just by proposing a wholesale replacement rather than a unanimous amendment. Rather than send the finished Constitution back to the state legislatures for approval under that old unanimity rule, the delegates specified in Article VII that the Constitution would take effect once special <strong class="term-subject" tabindex="0">ratifying conventions<span class="gloss-tip">Special state conventions, separate from the state legislatures, called specifically to approve or reject the new Constitution in 1787 and 1788.</span></strong> in nine of the thirteen states approved it; conventions of specially elected delegates, distinct from the sitting state legislatures, meeting for the sole purpose of voting on the Constitution.</p>
 
       <p>This was itself a significant constitutional choice, not a formality. By routing ratification through the people acting in specially elected conventions, rather than through the state legislatures whose own power the new Constitution would partly displace, the framers reinforced the Preamble's claim that the new government's authority rested on "We the People" directly, not on the permission of state governments. And by setting the bar at nine states rather than thirteen, they guaranteed that a Constitution could take effect for the states that wanted it, without being held hostage to the single holdout that had crippled reform under the Articles. The delegates who wrote Article V's demanding amendment process were the same delegates who had just broken the old amendment rule to bring the Constitution into being in the first place; a pointed reminder that even the most carefully designed rules sometimes require political courage, and a fair measure of daring, to get a country from one settlement to the next.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which compromise settled this?</div>
+        <div class="widget-question">Each dispute was settled by one of four deals. Pick the deal.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Article I, Section 2 counts three-fifths of all other Persons toward representation and direct taxes. It was a bargain over political power, not over personhood." data-hint="The dispute is over counting a state's slave population toward its share of power in Congress. Which deal set that formula?">
+          <div class="widget-row-prompt">1. Southern delegates wanted slaves counted fully when House seats were assigned. Northern delegates asked why people with no vote should add to the power of the men who held them in bondage.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Great Compromise</button>
+            <button data-choice="1">The Three-Fifths Compromise</button>
+            <button data-choice="2">The Electoral College</button>
+            <button data-choice="3">Ratification by state convention</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Neither a direct national vote nor selection by Congress would do, so the delegates built a body of electors assembled only for that purpose." data-hint="This is about choosing the president, not about seats in Congress. Which deal created a middle mechanism for that?">
+          <div class="widget-row-prompt">2. Some delegates wanted the president chosen by direct popular vote, others by Congress, and each method had a serious flaw.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Great Compromise</button>
+            <button data-choice="1">The Three-Fifths Compromise</button>
+            <button data-choice="2">The Electoral College</button>
+            <button data-choice="3">Ratification by state convention</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. A House apportioned by population and a Senate with equal seats for every state broke the deadlock between large and small states." data-hint="Large states wanted seats by population and small states wanted equal votes. Which deal gave each side one chamber?">
+          <div class="widget-row-prompt">3. Large states and small states could not agree on how votes in Congress should be counted.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Great Compromise</button>
+            <button data-choice="1">The Three-Fifths Compromise</button>
+            <button data-choice="2">The Electoral College</button>
+            <button data-choice="3">Ratification by state convention</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. Article VII let special conventions in nine of the thirteen states approve the Constitution, breaking the unanimity rule that had crippled reform under the Articles." data-hint="Under the Articles, every state had to agree to any change. Which deal got around that rule?">
+          <div class="widget-row-prompt">4. The Articles required every state legislature to agree before anything could change, and one holdout could block a wholesale replacement.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Great Compromise</button>
+            <button data-choice="1">The Three-Fifths Compromise</button>
+            <button data-choice="2">The Electoral College</button>
+            <button data-choice="3">Ratification by state convention</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Machiavelli and the Uses of Conflict</h2>
       <p>The Convention's summer was not calm. Delegates walked out, threatened to leave for good, denounced one another's motives, and very nearly failed. It can be tempting to read that turbulence as a flaw in the process; a near-catastrophe the framers were lucky to survive. The Florentine political writer <strong class="term-entity" tabindex="0">Niccolò Machiavelli<span class="gloss-tip">A Florentine political writer of the early sixteenth century, author of The Prince and the Discourses on Livy, known for his clear-eyed analysis of how power actually operates.</span></strong>, in his early sixteenth-century commentary on Roman history, the <em>Discourses on Livy</em>, argued for a strikingly different way of reading exactly this kind of turbulence.</p>
@@ -299,6 +403,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
