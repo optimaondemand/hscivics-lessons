@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Roman Powers Board</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.hand { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+.hand-label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.cards { display: flex; flex-wrap: wrap; gap: 8px; min-height: 34px; }
+.card { background: #EEF1F8; border: 1.5px solid #B9C4DD; border-radius: 6px; padding: 7px 10px; font-size: 13.5px; color: #0E1C42; cursor: pointer; font-family: inherit; text-align: left; }
+.card:hover { border-color: #55C8E8; }
+.card.sel { background: #0E1C42; color: #fff; border-color: #0E1C42; }
+.card.shake { animation: sh .35s; border-color: #C0392B; }
+@keyframes sh { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.cols { display: flex; flex-wrap: wrap; gap: 10px; }
+.col { flex: 1 1 200px; min-width: 0; background: #fff; border: 1px solid #D0D9E8; border-top: 4px solid #0E1C42; border-radius: 8px; padding: 10px 12px; cursor: pointer; min-height: 120px; }
+.col:hover { background: #F8FBFD; }
+.col.s { border-top-color: #7A2048; }
+.col.a { border-top-color: #1B7A6E; }
+.col h2 { font-size: 15px; margin: 0; color: #0E1C42; }
+.col .tag { font-size: 12px; color: #6b7a99; margin-bottom: 8px; }
+.placed { display: block; background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; font-size: 13px; padding: 5px 8px; border-radius: 4px; margin-bottom: 5px; }
+.msg { margin-top: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.no { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.msg.ok { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.test { margin-top: 14px; background: #fff; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 12px 14px; display: none; }
+.test.show { display: block; }
+.test h3 { font-size: 15px; margin: 0 0 8px; color: #0E1C42; }
+.moves { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.mv { background: #fff; border: 1.5px solid #C7922C; color: #6b4a10; border-radius: 8px; padding: 7px 12px; font-size: 13.5px; font-family: inherit; cursor: pointer; }
+.mv.on { background: #C7922C; color: #fff; }
+.involved { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.body { flex: 1 1 140px; border: 1.5px solid #D0D9E8; border-radius: 6px; padding: 7px 10px; font-size: 13px; color: #9aa3b8; background: #F4F6FA; transition: all .25s; }
+.body.lit { background: #E8F6FB; border-color: #2196D0; color: #0E1C42; }
+.result { font-size: 14px; color: #0E1C42; }
+.bar { margin-top: 12px; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>The Roman Powers Board</h1>
+<p class="sub">Tap a power card, then tap the body of the Republic that holds it. Wrong guesses bounce back with a hint.</p>
+
+<div class="hand">
+  <div class="hand-label" id="count">Powers to place</div>
+  <div class="cards" id="cards"></div>
+</div>
+
+<div class="cols" id="cols"></div>
+<div class="msg" id="msg"></div>
+
+<div class="test" id="test">
+  <h3>Now test the board: can any one body do it alone?</h3>
+  <div class="moves" id="moves"></div>
+  <div class="involved" id="involved"></div>
+  <div class="result" id="result">Pick a move.</div>
+</div>
+
+<div class="bar"><button class="reset" id="reset">Reset</button></div>
+
+<script>
+(function () {
+  var BODIES = [
+    { k: 0, n: 'The Consuls', t: 'Two men, one year, full imperium', cls: '' },
+    { k: 1, n: 'The Senate', t: 'Former magistrates, seated for life', cls: 's' },
+    { k: 2, n: 'The Assemblies', t: 'Citizens voting in blocs', cls: 'a' }
+  ];
+  // Correct bodies, in the order shown: 0,2,1,2,0,1,0,2
+  var POWERS = [
+    { t: 'Command the army in the field', b: 0, hint: 'Imperium was the full executive and military command of the old kings. Who inherited it?' },
+    { t: 'Elect the consuls each year', b: 2, hint: 'Look for the body made of citizens voting, not the one made of former officeholders.' },
+    { t: 'Advise a magistrate by decree (senatus consultum)', b: 1, hint: 'Technically only advice, yet followed almost like law. Which body issues a "decree"?' },
+    { t: 'Vote on whether Rome goes to war', b: 2, hint: 'The Assembly of Centuries voted on war. This is a vote of citizens, not an order.' },
+    { t: 'Forbid an act of the other officeholder (veto)', b: 0, hint: 'Veto means "I forbid." Which office was built with a colleague who could say it?' },
+    { t: 'Stay in place year after year while officers rotate out', b: 1, hint: 'Which body was appointed for life and kept the memory of old wars and treaties?' },
+    { t: 'Convene the Senate and the assemblies', b: 0, hint: 'Part of the king\'s old executive authority. Which office calls the others to meet?' },
+    { t: 'Vote directly on laws', b: 2, hint: 'The Senate\'s decrees were only advice. Where did citizens themselves vote on laws?' }
+  ];
+  var MOVES = [
+    { m: 'March out and fight a war', need: [0, 1, 2], r: 'Three bodies had to act. The assemblies voted on war, a consul held the command, and the Senate\'s advice carried enormous practical weight. No one body could do it alone.' },
+    { m: 'Pass a new law', need: [0, 1, 2], r: 'The assemblies voted on laws, but a consul had to convene them, and the Senate\'s advice carried enormous practical weight. Again, three bodies.' },
+    { m: 'One consul acts on his own', need: [0], r: 'Only one body is involved, and that is the problem for him: his colleague holds the same imperium and can forbid the act. His term ends after one year as well.' }
+  ];
+  var placedMap = {}, sel = null, mvSel = null;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function msg(txt, ok) { var m = $('msg'); m.textContent = txt; m.className = 'msg show ' + (ok ? 'ok' : 'no'); }
+  function drawCards() {
+    var c = $('cards'); c.innerHTML = '';
+    var left = 0;
+    POWERS.forEach(function (p, i) {
+      if (placedMap[i] !== undefined) return;
+      left++;
+      var b = document.createElement('button');
+      b.className = 'card' + (sel === i ? ' sel' : '');
+      b.id = 'card' + i;
+      b.textContent = p.t;
+      b.addEventListener('click', function () { sel = (sel === i) ? null : i; drawCards(); });
+      c.appendChild(b);
+    });
+    $('count').textContent = left ? ('Powers to place: ' + left + ' left') : 'All powers placed';
+    if (!left) $('test').className = 'test show';
+  }
+  function drawCols() {
+    var root = $('cols'); root.innerHTML = '';
+    BODIES.forEach(function (b) {
+      var d = document.createElement('div');
+      d.className = 'col ' + b.cls;
+      d.setAttribute('role', 'button'); d.tabIndex = 0;
+      d.innerHTML = '<h2>' + b.n + '</h2><div class="tag">' + b.t + '</div>';
+      POWERS.forEach(function (p, i) {
+        if (placedMap[i] === b.k) {
+          var s = document.createElement('span'); s.className = 'placed'; s.textContent = p.t; d.appendChild(s);
+        }
+      });
+      var drop = function () { place(b.k); };
+      d.addEventListener('click', drop);
+      d.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); drop(); } });
+      root.appendChild(d);
+    });
+  }
+  function place(k) {
+    if (sel === null) { msg('Pick a power card first.', false); return; }
+    var p = POWERS[sel];
+    if (p.b === k) {
+      placedMap[sel] = k; sel = null;
+      msg('Right.', true);
+      drawCards(); drawCols();
+    } else {
+      var cd = $('card' + sel); if (cd) { cd.classList.add('shake'); setTimeout(function () { cd.classList.remove('shake'); }, 400); }
+      msg(p.hint, false);
+    }
+  }
+  function drawMoves() {
+    var m = $('moves'); m.innerHTML = '';
+    MOVES.forEach(function (mv, i) {
+      var b = document.createElement('button');
+      b.className = 'mv' + (mvSel === i ? ' on' : '');
+      b.textContent = mv.m;
+      b.addEventListener('click', function () { mvSel = i; drawMoves(); showMove(); });
+      m.appendChild(b);
+    });
+  }
+  function showMove() {
+    var inv = $('involved'); inv.innerHTML = '';
+    BODIES.forEach(function (b) {
+      var d = document.createElement('div');
+      var lit = mvSel !== null && MOVES[mvSel].need.indexOf(b.k) !== -1;
+      d.className = 'body' + (lit ? ' lit' : '');
+      d.textContent = b.n;
+      inv.appendChild(d);
+    });
+    $('result').textContent = mvSel === null ? 'Pick a move.' : MOVES[mvSel].r;
+  }
+  function init() {
+    placedMap = {}; sel = null; mvSel = null;
+    $('msg').className = 'msg'; $('test').className = 'test';
+    drawCards(); drawCols(); drawMoves(); showMove();
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
