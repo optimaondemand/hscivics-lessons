@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -227,6 +263,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>This module's discussion topic asks you to think about Madison on <em>separation of powers</em>; the horizontal division of the national government into legislative, executive, and judicial branches, each checking the others. <em>Federalist</em> No. 10 gives you the logic behind a second, equally important division: not horizontal, but vertical. <strong class="term-subject" tabindex="0">Federalism<span class="gloss-tip">A system of government in which power is divided and shared between a national government and state governments, each with its own sphere of authority.</span></strong> is the arrangement by which political power is divided between a national government and the state governments beneath it, each sovereign in its own sphere and each a check on the ambitions of the other.</p>
 
       <p>Madison develops this argument at length elsewhere in the Federalist Papers (most explicitly in No. 51, which you will encounter later this semester), but the logic is already implicit in No. 10's case for an extended republic. If a large, diverse republic controls the effects of faction better than a small one, that logic applies at two levels simultaneously. The national government, spanning the whole diverse union, is structurally resistant to any single faction seizing permanent control, for exactly the reasons No. 10 lays out. But Madison does not therefore conclude that all power should simply be centralized in that national government. Instead the Constitution splits authority between the nation and the states, so that a faction that manages to capture a state government still runs into the limits of that state's power, and a faction that somehow captured the national government would still find the states retaining independent authority of their own. Madison later called this arrangement a "double security" for the rights of the people: "the different governments will control each other, at the same time that each will be controlled by itself." Federalism, in other words, is separation of powers applied to the nation/state axis rather than the executive/legislative/judicial axis; another structural answer to the same underlying problem of unchecked power, whether that power belongs to a king, a faction, or an unrestrained majority.</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Two Layers of Defense</div>
+      <p>Choose how power is arranged, then let a faction capture one government. See what still stands in its way.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/double-security-layers.html" title="Two Layers of Defense" style="width:100%; height:700px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/double-security-layers.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Vote That Could Not Be Unmade</h2>
       <p>Everything Madison feared about a direct democracy acting on the passion of the moment had already happened, in vivid and well-documented form, nearly twenty-two centuries before he wrote. The Athenian historian Thucydides, who lived through the Peloponnesian War (431&ndash;404 BC) and wrote its history as both participant and analyst, left behind an account of one of the most consequential single votes in Greek history: the Athenian Assembly's decision, in 415 BC, to launch a massive invasion of Sicily.</p>
@@ -239,10 +287,66 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>The Assembly voted to send the expedition; ultimately more than a hundred ships and tens of thousands of men, one of the largest forces Athens ever committed to a single campaign. Thucydides is direct about the effect of the debate itself: after hearing Alcibiades and the Egestaean envoys, "the Athenians became more eager for the expedition than before," a citizen body whose passions, if anything, grew with each round of argument rather than cooling under scrutiny.</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Predict</div>
+        <div class="widget-question">The Assembly has voted for the invasion. What could have stopped a vote like this? (No wrong answer. Make a prediction, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="A second chamber is one structural brake. As the next section points out, the Athenian Assembly had no upper house.">A second chamber that also had to agree</button>
+          <button data-response="An independent check like that is another brake. The Assembly had no separate executive able to stop it.">An executive with an independent veto</button>
+          <button data-response="A higher threshold forces reconsideration. Read on to see which of these brakes Athens lacked.">A rule requiring more than a simple majority</button>
+          <button data-response="That is close to what happened in 415 BC: one body, one afternoon, no way back. Read on for the cost.">Nothing: one body decided, once</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What the Vote Cost</h2>
       <p>The expedition was, in the end, a total catastrophe. The siege of Syracuse dragged on for two years, hampered by divided and cautious command after Alcibiades himself was recalled to Athens on a corruption charge and defected to Sparta rather than face trial. Athenian reinforcements arrived too late and in circumstances too degraded to save the campaign. By 413 BC, the Athenian fleet had been destroyed in the harbor of Syracuse, and the retreating army was surrounded, and its survivors killed or sold into slavery. Thucydides's account of the final defeat is unflinching about the scale of the loss: as he puts it, of the many thousands who went, "few out of many returned home." The disaster gutted Athens's navy, drained its treasury, and emboldened Sparta and its allies at the worst possible moment; historians generally treat the Sicilian Expedition as the single most consequential turning point of the entire war, tipping a long, grinding conflict decisively in Sparta's favor.</p>
 
       <p>Notice what actually happened, structurally, in the Assembly that day. There was no upper house to slow the vote down, no separate executive with an independent check, no requirement of supermajority consent, no division between a national and a more local authority that might have limited the scale of the commitment. A single body of citizens, meeting once, swept up in the rhetoric of an ambitious and self-interested speaker, voted the entire community into an irreversible commitment that its own most experienced general had warned against in detail. This is not a metaphorical illustration of Madison's argument in <em>Federalist</em> No. 10. It is close to a textbook case of it: a direct democracy, small enough and unified enough that a passionate temporary majority could seize the whole apparatus of the state in a single session, with nothing built into the structure of Athenian government to slow the decision down, divide the decision-making power, or force reconsideration once the passion of the moment had passed. Madison never cites this specific episode (he did not need to; the pattern was familiar to any educated reader of Thucydides in his era), but the logic is exactly his: extend the sphere, divide the power, multiply the interests that must agree before the whole community can be committed to any single course, precisely because you cannot count on the wisdom or restraint of any single assembly, however confident, to check its own worst impulses in the moment that matters most.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which security is at work?</div>
+        <div class="widget-question">For each case, say which kind of check is operating, or whether nothing is.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Dividing power between nation and states is the vertical check: a faction that captures one state still meets that state's limits." data-hint="This one runs between levels of government, nation and state, not between branches. Which check is that?">
+          <div class="widget-row-prompt">1. A faction captures one state government and still runs into the limits of that state's power.</div>
+          <div class="widget-options">
+            <button data-choice="0">Separation of powers (horizontal)</button>
+            <button data-choice="1">Federalism (vertical)</button>
+            <button data-choice="2">Neither: nothing checks it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Legislative, executive and judicial branches each checking the others is the horizontal division of the national government." data-hint="The check here is among branches within one government. Which kind of division is that?">
+          <div class="widget-row-prompt">2. The legislative, executive and judicial branches each limit the others inside the national government.</div>
+          <div class="widget-options">
+            <button data-choice="0">Separation of powers (horizontal)</button>
+            <button data-choice="1">Federalism (vertical)</button>
+            <button data-choice="2">Neither: nothing checks it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. One assembly committed the whole city in a single session, with no upper house, no separate executive, no supermajority and no divided authority." data-hint="Look for a second chamber, a separate branch, or a second level of government in this case. Is any of them there?">
+          <div class="widget-row-prompt">3. One assembly of citizens commits the whole city to war in a single session, with no upper house and no divided authority.</div>
+          <div class="widget-options">
+            <button data-choice="0">Separation of powers (horizontal)</button>
+            <button data-choice="1">Federalism (vertical)</button>
+            <button data-choice="2">Neither: nothing checks it</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Even a faction that somehow captured the national government would find the states retaining independent authority of their own." data-hint="The faction holds the national level, and something at another level still stands against it. Which check is that?">
+          <div class="widget-row-prompt">4. A faction somehow captures the national government and finds the states still hold independent authority.</div>
+          <div class="widget-options">
+            <button data-choice="0">Separation of powers (horizontal)</button>
+            <button data-choice="1">Federalism (vertical)</button>
+            <button data-choice="2">Neither: nothing checks it</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
     </div>
 
     <div class="oa-card maroon-top">
@@ -274,6 +378,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
