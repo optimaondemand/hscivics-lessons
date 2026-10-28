@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -226,7 +262,67 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>The Constitution does not give the President a vote in Congress, and it does not let the President introduce a bill. Lawmaking, as Lesson 6.2 established, belongs to Congress. But Article I, Section 7 gives the President one carefully limited tool for reaching into that process anyway: the <strong class="term-subject" tabindex="0">veto<span class="gloss-tip">The President's power to reject a bill passed by Congress, which Congress can override only with a two-thirds vote in both chambers.</span></strong>, from the Latin for "I forbid." Once both chambers of Congress pass a bill in identical form, it goes to the President, who has three options. He may sign it into law. He may return it to Congress unsigned, along with his objections; the <strong class="term-subject" tabindex="0">regular veto<span class="gloss-tip">The President's ordinary veto: returning a bill to Congress unsigned, with objections, within ten days of receiving it.</span></strong>; in which case the bill dies unless two-thirds of both the House and the Senate vote to override the President's objection and enact it anyway. Or, if Congress adjourns within ten days of sending him the bill and he takes no action, the bill dies automatically without his signature and without a formal veto message; this quieter method is the <strong class="term-subject" tabindex="0">pocket veto<span class="gloss-tip">An indirect veto that occurs when the President neither signs nor returns a bill within ten days and Congress has adjourned, so the bill dies without a signature.</span></strong>, so called because the President, in effect, simply lets the bill sit unsigned "in his pocket" until Congress is no longer in session to override anything.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Sign, veto, or pocket veto?</div>
+        <div class="widget-question">Each line describes what happens to a bill. Pick the outcome it names.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. A regular veto returns the bill unsigned, with objections. It dies unless two-thirds of both chambers override." data-hint="The bill goes back to Congress with objections. Is it signed? What is this called?">
+          <div class="widget-row-prompt">1. The President returns a bill to Congress unsigned, with objections, within ten days.</div>
+          <div class="widget-options">
+            <button data-choice="0">Signs it into law</button>
+            <button data-choice="1">Regular veto</button>
+            <button data-choice="2">Pocket veto</button>
+            <button data-choice="3">Override</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. An override enacts the bill over the President's objection, and it takes two-thirds of both chambers." data-hint="Congress is acting against the President's objection here. Which outcome names that?">
+          <div class="widget-row-prompt">2. Two-thirds of the House and two-thirds of the Senate vote to enact a bill the President returned.</div>
+          <div class="widget-options">
+            <button data-choice="0">Signs it into law</button>
+            <button data-choice="1">Regular veto</button>
+            <button data-choice="2">Pocket veto</button>
+            <button data-choice="3">Override</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Signing is the first of the President's three options, and the bill becomes law." data-hint="No objection is made here. Which outcome is the ordinary one?">
+          <div class="widget-row-prompt">3. The President approves a bill and it becomes law.</div>
+          <div class="widget-options">
+            <button data-choice="0">Signs it into law</button>
+            <button data-choice="1">Regular veto</button>
+            <button data-choice="2">Pocket veto</button>
+            <button data-choice="3">Override</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The bill dies without a signature and without a formal veto message, and Congress is no longer in session to override it." data-hint="The President does nothing and Congress has gone home. What is this quieter method called?">
+          <div class="widget-row-prompt">4. Congress adjourns within ten days, and the President takes no action on a bill.</div>
+          <div class="widget-options">
+            <button data-choice="0">Signs it into law</button>
+            <button data-choice="1">Regular veto</button>
+            <button data-choice="2">Pocket veto</button>
+            <button data-choice="3">Override</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Notice what the veto is not. It is not a lawmaking power; the President cannot write a bill's language, and a vetoed bill that Congress declines to override simply fails to become law rather than being replaced with the President's preferred version. It is a check; a defensive power that lets the executive object to a specific product of the legislative process without ever letting him originate law himself. The two-thirds override threshold matters for the same reason the Senate's two-thirds treaty threshold mattered in Module 5: it sets the bar higher than an ordinary majority precisely because overriding the executive's objection is meant to require something closer to broad, cross-partisan consensus in Congress, not a bare majority scraping by.</p>
+
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Predict</div>
+        <div class="widget-question">Rome split its top office between two equals. If you were designing the American presidency, how many people would you put in it? (No wrong answer. Make a prediction, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="That is the conclusion Hamilton reached in Federalist No. 70. Read on to see his reasoning, including what he saw in Rome's own history.">One person, who alone is accountable</button>
+          <button data-response="That is exactly what Rome did, with two consuls. Read on to see why the American framers looked at that model and rejected it.">Two equals, each checking the other</button>
+          <button data-response="Hamilton had an answer for plural executives of any size, and it starts with a ten-man commission in Rome. Read on.">A committee of several</button>
+          <button data-response="Fair enough. The framers had history to guide them, and you are about to read how they used it.">I am not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Question the Framers Had Already Settled</h2>
       <p>Behind the veto sits a larger design question, and the framers did not arrive at Philadelphia undecided about it. Recall Module 1's study of the Roman Republic: Rome, having expelled its kings, deliberately split its highest executive office between two consuls, each holding an equal check on the other, precisely so that no single Roman could accumulate the unchecked power a king once held. It was a considered answer to a real problem, and it is exactly the model the American framers looked at, and rejected, for their own presidency.</p>
@@ -280,6 +376,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
