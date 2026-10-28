@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Notice what the clause does not say. It does not say Congress may restrict speech it considers false, dangerous, or in bad taste, while protecting speech it approves of. It simply forbids Congress from abridging (that is, cutting down or curtailing) the freedom of speech, full stop. That is a strange thing for a government to write into its own founding law. Every government, including a democratic one, is tempted to silence its critics. The Sedition Act of 1798, passed by the very generation that ratified the First Amendment, shows how quickly that temptation returns even among the founders themselves. The First Amendment exists because enough of the founding generation thought that temptation needed to be foreclosed in advance, by a rule that binds the government even when a current majority would rather not be bound.</p>
 
+      <div class="optima-widget ow-reflect ow-scale">
+        <div class="widget-kicker">&#9889; Place it on the line</div>
+        <div class="widget-question">How much power should government have to decide which ideas may be spoken? (No wrong answer. Place yourself, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="Close to what the First Amendment writes: a rule that binds government even when a current majority would rather not be bound.">Almost none</button>
+          <button data-response="You leave little room. The narrow exceptions you will meet later in the lesson are small, and they cover threats and incitement.">Very little</button>
+          <button data-response="A common place to land. The lesson ends on exactly this shape: very broad protection, and still not infinite.">Some, in narrow cases</button>
+          <button data-response="You see more room than the First Amendment's text allows. The classical liberal worry is that an official trusted to decide today may decide against your own ideas later.">A fair amount</button>
+          <button data-response="The Amendment's text points the other way: Congress shall make no law abridging the freedom of speech, and the exceptions are few.">A great deal</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Why Protect Speech You Think Is Wrong?</h2>
       <p>The philosophical case for this rule is one this course has already met in outline, in the Enlightenment thinkers studied earlier this semester. It runs in two parts.</p>
 
@@ -241,10 +291,62 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>The second part of the argument is about self-government specifically. A republic asks its citizens to judge their rulers; to decide, at the ballot box and in public debate, whether the government is governing well. A citizen who can be punished for criticizing an officeholder is not really a citizen in the full sense; he is a subject who happens to have a vote. Free speech, on this reasoning, is not an optional luxury attached to democracy after the fact. It is a structural requirement of self-government, because a people cannot judge a government it is forbidden to criticize. This is the same thread this course has followed since Solon and the Athenian jury right, and since Locke's argument that legitimate government rests on the continuing judgment of the governed: a citizen without the freedom to speak against his government has lost one of the levers that makes him a citizen rather than a subject.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which part of the argument?</div>
+        <div class="widget-question">Each line is a piece of the case for protecting speech. Decide which piece it belongs to.</div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Silencing a speaker takes away everyone's chance to test the idea, which is the argument about how a society finds truth." data-hint="The line is about testing ideas against each other. Which piece of the argument is that?">
+          <div class="widget-row-prompt">1. Silencing a speaker deprives everyone else of the chance to test the idea and refute it, or to find out it was right.</div>
+          <div class="widget-options">
+            <button data-choice="0">Truth emerges from open contest</button>
+            <button data-choice="1">Self-government requires free criticism</button>
+            <button data-choice="2">Why the exceptions fit the theory</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. A true threat adds no idea to be tested, so excluding it is consistent with the theory." data-hint="The line explains why a narrow category falls outside protection. Which piece covers exceptions?">
+          <div class="widget-row-prompt">2. A true threat does not contribute an idea to the contest of ideas.</div>
+          <div class="widget-options">
+            <button data-choice="0">Truth emerges from open contest</button>
+            <button data-choice="1">Self-government requires free criticism</button>
+            <button data-choice="2">Why the exceptions fit the theory</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. A people cannot judge a government it is forbidden to criticize, so free speech is a structural requirement of self-government." data-hint="The line is about citizens judging their rulers. Which piece of the argument is that?">
+          <div class="widget-row-prompt">3. A people cannot judge a government it is forbidden to criticize.</div>
+          <div class="widget-options">
+            <button data-choice="0">Truth emerges from open contest</button>
+            <button data-choice="1">Self-government requires free criticism</button>
+            <button data-choice="2">Why the exceptions fit the theory</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Censorship is a bet that the censor is smarter than the process of argument itself." data-hint="The line compares a censor with the process of argument. Which piece of the argument does that belong to?">
+          <div class="widget-row-prompt">4. Censorship is a bet that the censor is wiser than the process of argument itself.</div>
+          <div class="widget-options">
+            <button data-choice="0">Truth emerges from open contest</button>
+            <button data-choice="1">Self-government requires free criticism</button>
+            <button data-choice="2">Why the exceptions fit the theory</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Not Quite Absolute</h2>
       <p>None of this means speech protection has no edges. American law has long recognized a small number of narrow categories that fall outside full First Amendment protection; among them <strong class="term-subject" tabindex="0">true threats<span class="gloss-tip">Statements that a reasonable person would understand as a genuine, serious expression of intent to commit violence against someone; a category the First Amendment does not protect.</span></strong> (statements genuinely meant to place a specific person in fear of violence) and <strong class="term-subject" tabindex="0">incitement to imminent lawless action<span class="gloss-tip">Speech that is directed at producing immediate illegal action and is likely to actually produce it; one of the narrow categories the First Amendment does not protect.</span></strong> (speech deliberately intended, and likely, to produce lawless conduct right away, as opposed to advocacy of an idea in the abstract). The reasoning behind these narrow exceptions is consistent with, rather than opposed to, the theory above: a true threat does not contribute an idea to the marketplace for testing, and speech engineered to trigger immediate violence functions as action rather than argument. The exact boundaries of these categories, and the specific Supreme Court cases that drew them, belong to a later, more advanced study of constitutional law. For now, hold the shape of the rule: speech protection in America is very broad, covers a great deal of speech most people find wrong, ugly, or dangerous, and still is not infinite.</p>
 
       <p>Keep that "very broad but not infinite" shape in mind as you turn to the second half of this session. The Amendment's other clauses (the two concerning religion) will show you the same pattern: a strong constitutional commitment, worked out in practice through cases where reasonable people, and reasonable justices, have disagreed about exactly where the line falls.</p>
+
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#0E1C42;">Interactive: Where Does Speech Protection Stop?</div>
+        <p>Five examples of speech. For each, answer two questions and see whether it falls inside or outside full protection.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/speech-two-questions.html" title="Where Does Speech Protection Stop?" style="width:100%; height:760px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/speech-two-questions.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -272,6 +374,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
