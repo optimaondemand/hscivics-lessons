@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +270,19 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Three duties deserve special attention this session, because each one reveals something different about how a republic asks things of its citizens, and because all three converge, in different ways, on the same question you will spend the rest of this module's discussion wrestling with: when is a civic duty experienced as legitimate, and when does it start to feel like an imposition?</p>
 
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Quick check-in</div>
+        <div class="widget-question">When you picture yourself at eighteen, which of the three duties do you expect to take most seriously? (No wrong answer. Just check in with yourself.)</div>
+        <div class="widget-options">
+          <button data-response="Voting is the duty the law leaves most voluntary, so it rests on civic culture rather than a summons. Watch how the lesson treats that.">&#128499;&#65039; Voting</button>
+          <button data-response="Jury service is the duty most directly tied to a right: the one behind the Sixth and Seventh Amendments. The lesson shows why it is enforced.">&#9878;&#65039; Jury service</button>
+          <button data-response="Registration is preparedness, not service. The lesson explains what it prepares for.">&#127894;&#65039; Military registration</button>
+          <button data-response="A fine starting point. By the end you will be able to say what each duty asks and how it is enforced.">&#129300; Not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Voting: Expected, Not Compelled</h2>
       <p>Start with the duty every American has heard about since elementary school, and the one that turns out to be the least legally binding of the three. No federal law and no state law requires an American citizen to vote. Compare that to Australia, Belgium, or Brazil, where failing to vote can bring a fine. The United States chose a different model: voting is a civic <em>expectation</em>, woven into the culture and rhetoric of American citizenship, but not a legal compulsion backed by penalty. The Constitution instead focuses on removing barriers to the ballot (the 15th Amendment barring denial of the vote on account of race, the 19th on account of sex, the 24th abolishing poll taxes, the 26th lowering the voting age to eighteen) rather than on forcing turnout once the barriers are gone.</p>
 
@@ -248,6 +297,62 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>The third duty carries the highest possible stakes, because it can ask a citizen to risk his life for the commonwealth. In ordinary peacetime, the United States maintains an all-volunteer military; no one is compelled to serve. But federal law still requires nearly all male U.S. citizens and male immigrants, at age eighteen, to register with the <strong class="term-entity" tabindex="0">Selective Service System<span class="gloss-tip">The federal agency that maintains the registry of men eligible for military conscription if a draft is ever reinstated.</span></strong>; a standing administrative registry that exists so that, if Congress and the President ever needed to reinstate a draft, the government would already have a list of who could be called. Registration itself is not service; it is preparedness, the legal residue of a duty the republic reserves the right to activate.</p>
 
       <p>Historically, that reserve power has been activated more than once, and always in wartime, through <strong class="term-subject" tabindex="0">conscription<span class="gloss-tip">The compulsory enrollment of citizens into military service, commonly called the draft.</span></strong>; the compulsory enrollment of citizens into military service, commonly called "the draft." The United States has conscripted citizens during the Civil War, both World Wars, the Korean War, and the Vietnam War. Each time, the government asked something of its citizens that voting and jury duty never do: not an afternoon, not a few days, but years, and possibly a life. That is precisely why military conscription is the duty most likely to expose whether a republic's citizens experience an obligation as legitimate or as an imposition; which is where Wednesday's lesson picks up.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Required or voluntary?</div>
+        <div class="widget-question">Pick the status each act has under American law and custom.</div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Every state treats jury service as a legal duty. Ignoring a summons can bring contempt of court or a fine." data-hint="The law can punish a citizen who simply ignores the summons. Which status fits?">
+          <div class="widget-row-prompt">1. Answering a jury summons.</div>
+          <div class="widget-options">
+            <button data-choice="0">Legally required, with penalties for ignoring it</button>
+            <button data-choice="1">Expected by civic culture, but not required</button>
+            <button data-choice="2">Required only to register</button>
+            <button data-choice="3">Entirely a volunteer's choice</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Registration is a standing list kept in case a draft is ever reinstated. Registering is not serving." data-hint="Registration is only a list. What does the law require of men at eighteen?">
+          <div class="widget-row-prompt">2. Registering with the Selective Service at eighteen (nearly all men).</div>
+          <div class="widget-options">
+            <button data-choice="0">Legally required, with penalties for ignoring it</button>
+            <button data-choice="1">Expected by civic culture, but not required</button>
+            <button data-choice="2">Required only to register</button>
+            <button data-choice="3">Entirely a volunteer's choice</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. No federal or state law requires a citizen to vote. The expectation lives in civic culture." data-hint="Compare Australia and Belgium, which fine nonvoters. What does the United States do?">
+          <div class="widget-row-prompt">3. Voting in an election.</div>
+          <div class="widget-options">
+            <button data-choice="0">Legally required, with penalties for ignoring it</button>
+            <button data-choice="1">Expected by civic culture, but not required</button>
+            <button data-choice="2">Required only to register</button>
+            <button data-choice="3">Entirely a volunteer's choice</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. In ordinary peacetime the military is all-volunteer, and no one is compelled to serve." data-hint="Think about ordinary peacetime, when no draft is running.">
+          <div class="widget-row-prompt">4. Joining the military in ordinary peacetime.</div>
+          <div class="widget-options">
+            <button data-choice="0">Legally required, with penalties for ignoring it</button>
+            <button data-choice="1">Expected by civic culture, but not required</button>
+            <button data-choice="2">Required only to register</button>
+            <button data-choice="3">Entirely a volunteer's choice</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
+      <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+        <div class="oa-kicker" style="color:#0E1C42;">Interactive: Duty, Right, or Expectation</div>
+        <p>Eight civic acts, three bins. Sort each act, then read why it belongs there.</p>
+        <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+          <iframe src="../../widgets/duty-right-expectation-sorter.html" title="Duty, Right, or Expectation" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+        </div>
+        <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/duty-right-expectation-sorter.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -275,6 +380,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
