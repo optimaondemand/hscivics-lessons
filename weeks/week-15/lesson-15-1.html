@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -246,6 +282,20 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>That purpose is the backdrop you need to make sense of what happened next, because the case this lesson centers on is not a case about an ambiguous constitutional question. It is a case about whether the Fourteenth Amendment's Equal Protection Clause actually meant what it said, tested against a law built for the specific purpose of separating citizens by race.</p>
 
+      <div class="optima-widget ow-reflect ow-scale">
+        <div class="widget-kicker">&#9889; Place it on the line</div>
+        <div class="widget-question">A state requires separate facilities for citizens of different races and declares them equal. How confident are you that separation can ever be equal? (No wrong answer. Place yourself, then read on.)</div>
+        <div class="widget-options">
+          <button data-response="That is the premise the majority will accept in 1896: separation is fine so long as the facilities are substantially equal. Watch what the lesson says happened in practice.">Very confident it can</button>
+          <button data-response="You are close to the majority's premise, with some room for doubt. The question is whether &quot;equal&quot; survived contact with how the system actually worked.">Somewhat confident</button>
+          <button data-response="A fair place to start. The evidence in this lesson is about what &quot;separate&quot; looked like in practice across the South.">Not sure</button>
+          <button data-response="You lean toward Justice Harlan's side. Read how he argued that the law's real purpose was not neutral separation.">Somewhat doubtful</button>
+          <button data-response="That is close to Harlan's lone dissent, which saw the law as an assertion of racial dominance, not neutral separation. Notice what the majority said in reply.">Very doubtful</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Train Car in Louisiana</h2>
       
     <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">Comité des Citoyens</span><span class="gloss-pron">koh-mee-TAY day see-twa-YEN</span> <button class="gloss-speak" onclick="speakGloss(event,'Comité des Citoyens, koh-mee-TAY day see-twa-YEN')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Citizens' Committee, a group of Black and Creole professionals in New Orleans who organized the test case that became Plessy v. Ferguson.</span></div></div>
@@ -260,8 +310,63 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>State this plainly, because softening it would be dishonest: in practice, "separate" facilities across the American South were almost never actually equal. Black train cars, schools, courthouses, and public accommodations were, with very rare exception, underfunded, inferior, and deliberately built to communicate and enforce a racial hierarchy, not merely to keep the races physically apart. <em>Plessy</em> did not create Southern segregation, which was already spreading rapidly through state law by the 1890s, but it gave that segregation the Supreme Court's constitutional blessing. For the next fifty-eight years, <em>Plessy</em> stood as the governing precedent that let states construct and defend an entire legal architecture of racial separation (the system historians call <strong class="term-entity" tabindex="0">Jim Crow<span class="gloss-tip">The system of state and local laws enforcing racial segregation and disenfranchisement across the American South from the late 1800s into the 1960s.</span></strong>) in schools, transportation, housing, voting, and public life generally, all while claiming compliance with the very Equal Protection Clause written to prevent exactly this outcome.</p>
 
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: The Case, Station by Station</div>
+      <p>Follow the case from the Louisiana statute to the Supreme Court. At each station, answer from what you have read, then move on.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/plessy-case-path.html" title="The Case, Station by Station" style="width:100%; height:600px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/plessy-case-path.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Harlan's Dissent</h2>
       <p>One justice disagreed, and disagreed in terms that read, from this distance, as remarkably clear-sighted. <strong>Justice John Marshall Harlan</strong>, a former slaveholder from Kentucky who had come to oppose segregation as a matter of constitutional principle, wrote alone in dissent. Harlan argued that the Louisiana law's actual purpose and effect was not neutral separation but the assertion of racial dominance: "Every one knows that the statute in question had its origin in the purpose... to exclude colored people from coaches occupied by or assigned to white persons," he wrote, and no one would mistake its purpose if the races were reversed. He rejected the majority's premise that a law could treat citizens differently by race and still satisfy equal protection merely because the facilities were labeled equal. Most famously, Harlan wrote that "our Constitution is color-blind, and neither knows nor tolerates classes among citizens," and warned that the majority's decision would prove "quite as pernicious as the decision made by this tribunal in the Dred Scott case"; a direct, pointed comparison to the Court's other great constitutional failure. Harlan's dissent commanded no majority in 1896. It would take fifty-eight years, and a different Court, for his reasoning to become the law of the land.</p>
+
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Whose words are these?</div>
+        <div class="widget-question">Each line comes from one of three places. Pick the source.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. This is Harlan's most famous line, from his lone dissent." data-hint="This line belongs to the one justice who disagreed with the Court.">
+          <div class="widget-row-prompt">1. "Our Constitution is color-blind, and neither knows nor tolerates classes among citizens."</div>
+          <div class="widget-options">
+            <button data-choice="0">The majority opinion (Justice Brown)</button>
+            <button data-choice="1">The dissent (Justice Harlan)</button>
+            <button data-choice="2">The Fourteenth Amendment itself</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. That is the text of the Fourteenth Amendment, the clause both sides were arguing over." data-hint="This is not an opinion at all. It is the sentence the justices were interpreting.">
+          <div class="widget-row-prompt">2. No state may "deny to any person within its jurisdiction the equal protection of the laws."</div>
+          <div class="widget-options">
+            <button data-choice="0">The majority opinion (Justice Brown)</button>
+            <button data-choice="1">The dissent (Justice Harlan)</button>
+            <button data-choice="2">The Fourteenth Amendment itself</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Justice Brown located the injury in the feelings of the people the law targeted, not in the law itself." data-hint="Which side wanted to say the law itself did no harm?">
+          <div class="widget-row-prompt">3. Any "badge of inferiority" exists "solely because the colored race chooses to put that construction upon it."</div>
+          <div class="widget-options">
+            <button data-choice="0">The majority opinion (Justice Brown)</button>
+            <button data-choice="1">The dissent (Justice Harlan)</button>
+            <button data-choice="2">The Fourteenth Amendment itself</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Harlan compared the majority's decision to the Court's other great constitutional failure." data-hint="Only one justice would compare the decision to Dred Scott.">
+          <div class="widget-row-prompt">4. This decision will prove "quite as pernicious as the decision made by this tribunal in the Dred Scott case."</div>
+          <div class="widget-options">
+            <button data-choice="0">The majority opinion (Justice Brown)</button>
+            <button data-choice="1">The dissent (Justice Harlan)</button>
+            <button data-choice="2">The Fourteenth Amendment itself</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
     </div>
 
     <div class="oa-card">
@@ -289,6 +394,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
