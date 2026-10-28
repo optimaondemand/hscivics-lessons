@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Executive Powers Board</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.pool { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; min-height: 48px; }
+.pool button { flex: 1 1 210px; text-align: left; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 9px 11px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.pool button:hover { background: #F4F6FA; }
+.pool button.sel { background: #0E1C42; color: #fff; }
+.hint { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.msg { margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.bins { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.bin { flex: 1 1 200px; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 0 0 8px; min-height: 120px; }
+.bin button.head { display: block; width: 100%; text-align: left; border: 0; border-radius: 8px 8px 0 0; padding: 9px 12px; font-family: inherit; font-size: 13.5px; font-weight: 600; color: #0E1C42; cursor: pointer; }
+.bin button.head:hover { filter: brightness(.96); }
+.bin.b0 button.head { background: #E8F6FB; border-top: 4px solid #2196D0; }
+.bin.b1 button.head { background: #FDF3E3; border-top: 4px solid #C7922C; }
+.bin.b2 button.head { background: #F1E8F5; border-top: 4px solid #7A2048; }
+.bin ul { margin: 6px 0 0; padding: 0 12px 0 28px; font-size: 13.5px; }
+.bin li { margin-bottom: 4px; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>The Executive Powers Board</h1>
+<p class="sub">Tap a power or change, then tap the column where it belongs.</p>
+
+<div class="prog" id="prog"></div>
+<div class="pool" id="pool"></div>
+<div class="msg" id="msg"></div>
+<div class="bins" id="bins"></div>
+<div class="done" id="done">Look at the middle column. Treaties and appointments both need the Senate, and the President's other named powers do not extend to declaring war. The right-hand column shows that the office kept changing after 1788.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var BINS = [
+    'Article II gives it to the President directly',
+    'Article II requires the Senate\'s consent',
+    'Added or changed by a later amendment'
+  ];
+  // bin: index into BINS. Cards are listed in scrambled order so correct bins do not run in a pattern.
+  var CARDS = [
+    { t: 'Limit a President to two elected terms', bin: 2,
+      ok: 'Right. The Twenty-Second Amendment (1951) wrote down a two-term habit that Presidents had followed voluntarily until Franklin Roosevelt broke it.',
+      hint: 'Article II as ratified does not set a term limit. Something added later did.' },
+    { t: 'Receive ambassadors from foreign governments', bin: 0,
+      ok: 'Right. This duty is the President\'s alone, which makes the presidency the nation\'s single point of contact for formal diplomacy.',
+      hint: 'Does receiving an ambassador need anyone else\'s vote? Think about whose job the lesson says this is.' },
+    { t: 'Appoint ambassadors and federal judges', bin: 1,
+      ok: 'Right. The President nominates, but only "by and with the Advice and Consent of the Senate," which in practice means a confirmation vote.',
+      hint: 'Look for the phrase "Advice and Consent." Does the President act alone here?' },
+    { t: 'Make treaties with other nations', bin: 1,
+      ok: 'Right. The President negotiates and signs, but two-thirds of the Senators present must concur.',
+      hint: 'Recall the two-thirds vote from the Senate\'s treaty role. Who has to agree?' },
+    { t: 'Move Inauguration Day from March 4 to January 20', bin: 2,
+      ok: 'Right. The Twentieth Amendment (1933) shortened the "lame duck" stretch between a November election and a new administration.',
+      hint: 'The date was not set in Article II as ratified. A later change moved it.' },
+    { t: 'Serve as commander-in-chief of the Army and Navy', bin: 0,
+      ok: 'Right. Command belongs to the President. Only Congress, though, may formally declare the war the forces might fight.',
+      hint: 'This title is written into Article II for the President. Does the lesson attach a Senate vote to it?' },
+    { t: 'Report to Congress on the state of the union', bin: 0,
+      ok: 'Right. This duty is the origin of the modern State of the Union address, and it needs no one\'s consent.',
+      hint: 'Reporting is something the President does directly. Does it call for a vote from anyone?' },
+    { t: 'Have electors cast separate ballots for President and Vice President', bin: 2,
+      ok: 'Right. The Twelfth Amendment (1804) rewrote the procedure after the election of 1800 produced a tie-breaking crisis.',
+      hint: 'Think of the election of 1800. Something changed after it, and not in the original Article II text.' }
+  ];
+  var sel, placed;
+
+  function init() {
+    sel = -1; placed = [[], [], []];
+    CARDS.forEach(function (c) { c.done = false; });
+    $('msg').className = 'msg'; $('msg').textContent = '';
+    build();
+  }
+  function build() {
+    var count = CARDS.filter(function (c) { return c.done; }).length;
+    $('prog').textContent = 'Placed: ' + count + ' of ' + CARDS.length;
+    var pool = $('pool'); pool.innerHTML = '';
+    CARDS.forEach(function (c, i) {
+      if (c.done) return;
+      var b = document.createElement('button');
+      b.textContent = c.t;
+      if (i === sel) b.className = 'sel';
+      b.addEventListener('click', function () { sel = (sel === i ? -1 : i); build(); });
+      pool.appendChild(b);
+    });
+    if (!pool.children.length) pool.innerHTML = '<div class="hint">Every card is placed.</div>';
+    var bins = $('bins'); bins.innerHTML = '';
+    BINS.forEach(function (label, k) {
+      var d = document.createElement('div'); d.className = 'bin b' + k;
+      var h = document.createElement('button'); h.className = 'head'; h.textContent = label;
+      h.addEventListener('click', function () { choose(k); });
+      d.appendChild(h);
+      var ul = document.createElement('ul');
+      placed[k].forEach(function (s) { var li = document.createElement('li'); li.textContent = s; ul.appendChild(li); });
+      d.appendChild(ul); bins.appendChild(d);
+    });
+    $('done').className = 'done' + (count === CARDS.length ? ' show' : '');
+  }
+  function choose(k) {
+    var m = $('msg');
+    if (sel < 0) { m.className = 'msg show bad'; m.textContent = 'Tap a card first, then tap a column.'; return; }
+    var c = CARDS[sel];
+    if (c.bin === k) {
+      c.done = true; placed[k].push(c.t); sel = -1;
+      m.className = 'msg show good'; m.textContent = c.ok;
+    } else {
+      m.className = 'msg show bad'; m.textContent = c.hint;
+    }
+    build();
+  }
+  $('reset').addEventListener('click', init);
+  init();
+})();
+</script>
+</body>
+</html>
