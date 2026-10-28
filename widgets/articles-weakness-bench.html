@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Articles of Confederation: Run the Nation</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.moves { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.mv { flex: 1 1 170px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; font-family: inherit; cursor: pointer; text-align: left; }
+.mv:hover { background: #F4F6FA; }
+.mv.on { background: #0E1C42; color: #fff; }
+.mv.met::after { content: " \2713"; }
+.stage { background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; min-height: 190px; }
+.label { font-size: 11px; color: #C7922C; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.states { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.st { width: 44px; height: 44px; border-radius: 6px; background: #EEF1F8; border: 1.5px solid #B9C4DD; font-size: 11px; color: #0E1C42; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: background .25s, border-color .25s; }
+.st.full { background: #D8F0DD; border-color: #2A9D5C; }
+.st.part { background: #FDF3E3; border-color: #C7922C; }
+.st.none { background: #FDECEC; border-color: #C0392B; }
+.st.yes { background: #D8F0DD; border-color: #2A9D5C; }
+.st.no { background: #FDECEC; border-color: #C0392B; font-weight: 600; }
+.st.rate { background: #E8F6FB; border-color: #2196D0; }
+.st.sel { background: #0E1C42; border-color: #0E1C42; color: #fff; }
+.wall { margin-top: 8px; padding: 9px 12px; background: #FDECEC; border-left: 4px solid #C0392B; border-radius: 4px; color: #8A1F16; font-size: 14px; }
+.why { margin-top: 8px; font-size: 14px; color: #1a2340; }
+.fix { margin-top: 8px; padding: 8px 12px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; font-size: 13.5px; color: #0E1C42; }
+.legend { font-size: 12px; color: #6b7a99; margin-top: 4px; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #D8F0DD; border-left: 4px solid #2A9D5C; border-radius: 4px; color: #1A6B3D; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>You Are the Confederation Congress</h1>
+<p class="sub">You hold only the powers the Articles gave you. Pick a task, try it, and see what happens. Each square is one of thirteen states.</p>
+
+<div class="prog" id="prog"></div>
+<div class="moves" id="moves"></div>
+<div class="stage" id="stage"></div>
+<div class="done" id="done">You have met every wall. Each one was a deliberate choice, made out of fear of a strong national government, and together they left Congress unable to pay, trade, enforce, change, or defend.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // Schematic patterns only. The lesson says states "routinely paid late, paid partially, or did not pay at all."
+  var PAY = ['full','none','part','none','full','part','none','none','part','full','none','part','none'];
+  var TASKS = [
+    { m: 'Pay the army and the war debt', kind: 'tax',
+      try: 'You calculate what each state owes and send the bill.',
+      wall: 'Wall: Congress can only request funds. It has no power to levy taxes.',
+      why: 'Each state answers for itself. Some pay in full, some pay part, some pay nothing, and Congress has no legal tool to force the issue.',
+      fix: 'Later, under the Constitution: Congress gains a direct power to tax.' },
+    { m: 'Set one trade policy for the union', kind: 'trade',
+      try: 'You try to set a single tariff for goods crossing state lines and entering from abroad.',
+      wall: 'Wall: Congress has no power to regulate interstate or foreign commerce.',
+      why: 'Each state sets its own tariffs. Thirteen separate, sometimes contradictory trade policies run inside what is supposed to be one country. New York taxes goods from New Jersey.',
+      fix: 'Later, under the Constitution: Congress gains power to regulate commerce among the states.' },
+    { m: 'Settle a quarrel between two states', kind: 'court',
+      try: 'Two states dispute a border. You look for someone to enforce a decision and a court to hear the case.',
+      wall: 'Wall: no independent executive and no national judiciary.',
+      why: 'There is no president to carry out Congress\'s decisions and no federal court to resolve disputes between states. Congress has to run its policies through temporary committees.',
+      fix: 'Later, under the Constitution: a President and a system of federal courts are created.' },
+    { m: 'Amend the Articles to fix all this', kind: 'amend',
+      try: 'You propose an amendment. Twelve states want it.',
+      wall: 'Wall: amending the Articles requires the unanimous consent of all thirteen state legislatures.',
+      why: 'One state, for reasons entirely its own, votes no, and the reform dies. The provision meant to protect every state\'s sovereignty made the Articles nearly impossible to fix.',
+      fix: 'Later, under the Constitution: amendment needs three-fourths of the states, not all of them.' },
+    { m: 'Raise an army to meet an uprising', kind: 'army',
+      try: 'Armed farmers shut down courts and march on the Springfield arsenal (Shays\' Rebellion, 1786 and 1787). You try to raise a force.',
+      wall: 'Wall: no power to tax means no reliable way to pay or supply an army.',
+      why: 'Congress could not raise the funds to respond at all. Massachusetts put the rebellion down with a privately funded state militia.',
+      fix: 'This was the crisis that gave the coming Convention its urgency.' }
+  ];
+  var met, cur;
+
+  function squares(kind) {
+    var h = '<div class="states">';
+    for (var i = 0; i < 13; i++) {
+      var c = 'st', t = String(i + 1);
+      if (kind === 'tax') { c += ' ' + PAY[i]; t += '<span>' + (PAY[i] === 'full' ? 'full' : PAY[i] === 'part' ? 'part' : 'none') + '</span>'; }
+      else if (kind === 'trade') { c += ' rate'; t += '<span>own rate</span>'; }
+      else if (kind === 'court') { c += (i === 2 || i === 7) ? ' sel' : ''; t += (i === 2 || i === 7) ? '<span>dispute</span>' : ''; }
+      else if (kind === 'amend') { c += i === 5 ? ' no' : ' yes'; t += '<span>' + (i === 5 ? 'no' : 'yes') + '</span>'; }
+      else if (kind === 'army') { c += i === 0 ? ' sel' : ' none'; t += '<span>' + (i === 0 ? 'acts' : 'no funds') + '</span>'; }
+      h += '<div class="' + c + '">' + t + '</div>';
+    }
+    return h + '</div>';
+  }
+  function show(i) {
+    cur = i;
+    var t = TASKS[i];
+    if (met.indexOf(i) === -1) met.push(i);
+    $('stage').innerHTML = '<div class="label">Your attempt</div><div>' + t.try + '</div>' + squares(t.kind) +
+      (t.kind === 'tax' ? '<div class="legend">Schematic only: green pays in full, amber pays part, red pays nothing.</div>' : '') +
+      '<div class="wall">' + t.wall + '</div><div class="why">' + t.why + '</div><div class="fix">' + t.fix + '</div>';
+    draw();
+  }
+  function draw() {
+    var m = $('moves'); m.innerHTML = '';
+    TASKS.forEach(function (t, i) {
+      var b = document.createElement('button');
+      b.className = 'mv' + (cur === i ? ' on' : '') + (met.indexOf(i) !== -1 ? ' met' : '');
+      b.textContent = t.m;
+      b.addEventListener('click', function () { show(i); });
+      m.appendChild(b);
+    });
+    $('prog').textContent = 'Walls met: ' + met.length + ' of ' + TASKS.length;
+    $('done').className = 'done' + (met.length === TASKS.length ? ' show' : '');
+    if (cur === null) $('stage').innerHTML = '<div class="label">Your attempt</div><div>Pick a task above and see what a Congress holding only the Articles\' powers can do about it.</div>';
+  }
+  function init() { met = []; cur = null; draw(); }
+  $('reset').addEventListener('click', function () { init(); show(0); });
+  init();
+  // Meaningful default: begin on the first task.
+  show(0);
+})();
+</script>
+</body>
+</html>
