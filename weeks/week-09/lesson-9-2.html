@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -236,12 +272,75 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
         </div>
       </div>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Power, limit, or means?</div>
+        <div class="widget-question">Each line comes from Article I. Decide what kind of provision it is.</div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Section 9 is a restriction: it tells Congress what it may not yet do." data-hint="Does this line give Congress something to do, or hold it back?">
+          <div class="widget-row-prompt">1. "The Migration or Importation of such Persons&hellip; shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eight."</div>
+          <div class="widget-options">
+            <button data-choice="0">An enumerated power</button>
+            <button data-choice="1">A limit on Congress</button>
+            <button data-choice="2">A means of carrying out a power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Coining money is one of the powers Section 8 names." data-hint="Is Congress being told it may do something specific here?">
+          <div class="widget-row-prompt">2. "To coin Money, regulate the Value thereof."</div>
+          <div class="widget-options">
+            <button data-choice="0">An enumerated power</button>
+            <button data-choice="1">A limit on Congress</button>
+            <button data-choice="2">A means of carrying out a power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The clause grants no new subject of power. It lets Congress choose the means of carrying out the powers already listed." data-hint="Look at the closing words, 'the foregoing Powers.' Does the clause add a new subject, or help carry out old ones?">
+          <div class="widget-row-prompt">3. "To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers."</div>
+          <div class="widget-options">
+            <button data-choice="0">An enumerated power</button>
+            <button data-choice="1">A limit on Congress</button>
+            <button data-choice="2">A means of carrying out a power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Raising and supporting armies is one of the defense powers Section 8 lists." data-hint="Is Congress being told it may do something specific here?">
+          <div class="widget-row-prompt">4. "To raise and support Armies."</div>
+          <div class="widget-options">
+            <button data-choice="0">An enumerated power</button>
+            <button data-choice="1">A limit on Congress</button>
+            <button data-choice="2">A means of carrying out a power</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">What the Text Actually Says About Slavery</h2>
       <p>This course's stated commitment is to teach the Constitution's genuine achievements and its serious failures honestly, side by side, without minimizing either. Article I is where that commitment is tested directly, because Article I contains two specific clauses negotiated at the Convention to accommodate slavery, and the honest thing to do with a primary source is read what it actually says.</p>
 
       <p>The first is in Article I, Section 2, Clause 3, the apportionment clause: representation and direct taxes are apportioned "by adding to the whole Number of free Persons&hellip; and excluding Indians not taxed, three fifths of all other Persons." "All other Persons" meant slaves. This is the <strong class="term-entity" tabindex="0">Three-Fifths Compromise<span class="gloss-tip">The Constitutional Convention agreement to count slaves as three-fifths of a person for purposes of representation and taxation, later repealed by the Fourteenth Amendment.</span></strong>: for the purpose of counting a state's population toward its number of seats in the House (and toward its share of any direct federal tax), three-fifths of a state's total slave population was added to its free population. Notice precisely what this clause did. It was not a statement about anyone's inherent human worth being three-fifths of another's: the clause counts "all other Persons," whole persons, at three-fifths weight, and takes no position on anyone's degree of personhood. It existed for a narrower, colder purpose: to settle how much political power slaveholding states would gain in the House from people they held in bondage and denied any vote or voice whatsoever. Southern delegates at the Convention wanted slaves counted fully for representation, which would have significantly increased their states' power in the House, while gaining no equivalent voice for the slaves themselves; many Northern delegates wanted slaves not counted at all for representation, since they had no political rights. Three-fifths was the number the Convention settled on as a compromise between those two positions, the same convention-hall bargaining that produced the Great Compromise on House and Senate representation you studied earlier this module, applied here to a far graver subject.</p>
 
       <p>The second is in Article I, Section 9, Clause 1: "The Migration or Importation of such Persons as any of the States now existing shall think proper to admit, shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eight, but a tax or duty may be imposed on such Importation, not exceeding ten dollars for each Person." Stripped of its euphemism, this clause barred the new federal Congress from outlawing the international slave trade (the importation of slaves from abroad) for twenty years, until 1808 at the earliest, regardless of what Congress might otherwise wish to do. It was, again, a negotiated number: delegates from Georgia and South Carolina, whose economies depended heavily on continued slave importation, would not have signed a Constitution that let Congress end the trade immediately; delegates who wanted the trade ended sooner accepted a fixed date rather than lose the Union entirely. Both clauses were the price of getting Southern and Northern delegates to agree to a single Constitution at all. That is not an excuse. It is the historical mechanism, and it is worth naming plainly: the Convention's delegates, several of whom personally held slaves, chose national union over immediately confronting slavery, and wrote that choice into the nation's founding law using language that never once says the word "slave."</p>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #7A2048; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#7A2048;">Interactive: Reading the Clause Closely</div>
+      <p>The slave-trade clause is a single sentence. Read it as the Constitution words it, and find the parts that do each job.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/slave-trade-clause-reader.html" title="Reading the Clause Closely" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/slave-trade-clause-reader.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt first &middot; What the text says</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, write what Article I, Section 9 forbids Congress to do before 1808, what it still allows, and what it does not say. Then click to check.</summary>
+          <div class="reveal-body">It forbids Congress to prohibit the importation of such persons before 1808. It still allows a tax or duty of up to ten dollars for each person. It never uses the word "slave," and it does not address whether slavery itself should continue. It limits Congress, not the states, and only until a fixed date. When that date came, Congress banned importation on the first day it could, January 1, 1808.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <p>This did not happen in a vacuum, and it did not begin at Philadelphia in 1787. The Continental Congress under the Articles of Confederation had already wrestled, unevenly, with the international slave trade for years beforehand. In 1774, the Continental Association; the colonies' first coordinated boycott agreement; included a pledge to halt the slave trade as part of a broader non-importation policy aimed at Britain, though enforcement varied sharply by colony and the pledge did not survive independence intact. Individual states moved at very different speeds afterward: several Northern states restricted or banned slave importation on their own in the 1770s and 1780s, while the deep South continued and even expanded it. By the time delegates convened in Philadelphia, the Continental Congress itself had no uniform national policy on the slave trade to draw on; only a patchwork of state action, partial wartime gestures, and unresolved argument. Article I, Section 9's 1808 date is best understood against that backdrop: not as the founding generation's first encounter with the question, but as a hard deadline finally fixed in a nation that had spent over a decade failing to agree on one.</p>
 
@@ -277,6 +376,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
