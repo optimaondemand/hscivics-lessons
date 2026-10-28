@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Electors: Design and Practice</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 14px; font-family: "Segoe UI", Arial, sans-serif; color: #1a2340; background: #F4F6FA; font-size: 15px; line-height: 1.5; }
+h1 { font-size: 19px; color: #0E1C42; margin: 0 0 4px; }
+.sub { font-size: 13px; color: #6b7a99; margin: 0 0 10px; }
+.prog { font-size: 12.5px; color: #6b7a99; margin-bottom: 8px; }
+.card { background: #fff; border: 2px solid #0E1C42; border-radius: 8px; padding: 14px 16px; font-size: 16px; color: #0E1C42; min-height: 78px; margin-bottom: 10px; }
+.card.empty { border-style: dashed; border-color: #B9C4DD; color: #6b7a99; font-size: 14px; }
+.sort { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.sort button { flex: 1 1 200px; background: #fff; border: 1.5px solid #0E1C42; color: #0E1C42; border-radius: 8px; padding: 9px 10px; font-size: 14px; font-family: inherit; cursor: pointer; }
+.sort button:hover { background: #F4F6FA; }
+.sort button:disabled { opacity: .4; cursor: not-allowed; }
+.msg { min-height: 40px; margin-bottom: 10px; padding: 8px 12px; border-radius: 4px; font-size: 14px; display: none; }
+.msg.show { display: block; }
+.msg.bad { background: #FDECEC; border-left: 4px solid #C0392B; color: #8A1F16; }
+.msg.good { background: #D8F0DD; border-left: 4px solid #2A9D5C; color: #1A6B3D; }
+.cols { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.col { flex: 1 1 240px; background: #fff; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 12px; min-height: 90px; }
+.col h2 { font-size: 13.5px; color: #0E1C42; margin: 0 0 6px; }
+.col.d { border-top: 4px solid #2196D0; }
+.col.p { border-top: 4px solid #C7922C; }
+.col ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.col li { margin-bottom: 4px; }
+.done { display: none; margin-bottom: 12px; padding: 10px 14px; background: #E8F6FB; border-left: 4px solid #2196D0; border-radius: 4px; color: #0E1C42; font-size: 14px; }
+.done.show { display: block; }
+.reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: inherit; cursor: pointer; }
+.reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<h1>Hamilton's Electors: Plan and Practice</h1>
+<p class="sub">Each card describes the electors in one of two periods. Place it in the period it belongs to.</p>
+
+<div class="prog" id="prog"></div>
+<div class="card" id="card"></div>
+<div class="sort">
+  <button id="bd">The design Hamilton described (1788)</button>
+  <button id="bp">Practice since the early nineteenth century</button>
+</div>
+<div class="msg" id="msg"></div>
+<div class="cols">
+  <div class="col d"><h2>Hamilton's design, 1788</h2><ul id="ld"></ul></div>
+  <div class="col p"><h2>Practice since the early nineteenth century</h2><ul id="lp"></ul></div>
+</div>
+<div class="done" id="done">What changed was how electors behave. Hamilton pictured independent deliberators; organized parties turned them into pledged party loyalists. This describes how the institution developed, which is a separate question from whether it should be kept, reformed, or replaced.</div>
+<button class="reset" id="reset">Reset</button>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // col: 0 = design, 1 = practice. Order is scrambled so the answers do not run in a pattern.
+  var ITEMS = [
+    { t: 'States select electors who are pledged in advance to vote for a particular party\'s ticket.', col: 1,
+      ok: 'Right. By the early nineteenth century, states had moved toward electors pledged in advance to a party ticket.',
+      hint: 'Pledging in advance to a party ticket depends on organized parties. Hamilton wrote before they took hold.' },
+    { t: 'Electors meet, discuss, and use their own judgment about who is best qualified.', col: 0,
+      ok: 'Right. Hamilton imagined electors as independent deliberators, largely free of any obligation to vote a particular way.',
+      hint: 'Independent, case-by-case judgment is the picture Hamilton drew. Which period does that belong to?' },
+    { t: 'The body is built to resist cabal, intrigue, and corruption, including a foreign power trying to install its own candidate.', col: 0,
+      ok: 'Right. Dispersed across the states, meeting briefly, and then dissolving, the electors were meant to offer no standing target for corruption.',
+      hint: 'This is one of the goals Hamilton listed in Federalist No. 68, when he defended the plan.' },
+    { t: 'Organized political parties shape how electors are chosen and how they behave once chosen.', col: 1,
+      ok: 'Right. The rise of organized parties changed the practical operation of the institution within a few decades of the founding.',
+      hint: 'Hamilton\'s essay predates organized parties. Which period do they belong to?' },
+    { t: 'Hamilton predicts the system will tend to fill the office with people preeminent for ability and virtue.', col: 0,
+      ok: 'Right. That is Hamilton\'s own prediction, a "constant probability" rather than a guarantee, about how the system as designed would work.',
+      hint: 'This is a forecast made when the system was being defended, before anyone had seen it operate.' },
+    { t: 'In nearly every case, electors are party loyalists, not independent deliberators.', col: 1,
+      ok: 'Right. Today\'s electors are selected precisely because they are expected to vote for their party\'s candidate.',
+      hint: 'Independent deliberators were Hamilton\'s picture. This describes how things actually worked later.' }
+  ];
+  var idx, placed;
+
+  function init() { idx = 0; placed = [[], []]; render(); }
+  function render() {
+    $('prog').textContent = 'Placed: ' + idx + ' of ' + ITEMS.length;
+    var done = idx >= ITEMS.length;
+    var c = $('card');
+    c.className = 'card' + (done ? ' empty' : '');
+    c.textContent = done ? 'All six cards placed.' : ITEMS[idx].t;
+    $('bd').disabled = done; $('bp').disabled = done;
+    [0, 1].forEach(function (k) {
+      $(k === 0 ? 'ld' : 'lp').innerHTML = placed[k].map(function (s) { return '<li>' + s + '</li>'; }).join('');
+    });
+    $('done').className = 'done' + (done ? ' show' : '');
+  }
+  function choose(k) {
+    var it = ITEMS[idx], m = $('msg');
+    if (k === it.col) {
+      placed[k].push(it.t);
+      m.className = 'msg show good'; m.textContent = it.ok;
+      idx++;
+    } else {
+      m.className = 'msg show bad'; m.textContent = it.hint;
+    }
+    render();
+  }
+  $('bd').addEventListener('click', function () { choose(0); });
+  $('bp').addEventListener('click', function () { choose(1); });
+  $('reset').addEventListener('click', function () { $('msg').className = 'msg'; $('msg').textContent = ''; init(); });
+  init();
+})();
+</script>
+</body>
+</html>
