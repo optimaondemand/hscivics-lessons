@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -226,12 +262,76 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
     <div class="oa-card lesson-prose">
       <p>The Sixth Amendment governs what happens to a person once formal criminal proceedings have begun against him, and it reads almost like a bill of particulars for a fair trial. It guarantees the accused a <strong class="term-subject" tabindex="0">speedy and public trial<span class="gloss-tip">The Sixth Amendment guarantee that a criminal trial happen without unreasonable delay and be open to public observation.</span></strong>, so that a person cannot be left to languish in jail indefinitely awaiting a hearing, nor tried in secret where abuses go unwitnessed. It guarantees trial "by an <strong class="term-subject" tabindex="0">impartial jury<span class="gloss-tip">The Sixth Amendment guarantee of a jury with no bias for or against the defendant, drawn from the community where the crime occurred.</span></strong>," drawn from the community rather than selected or dismissed at the government's convenience. It guarantees that the accused be informed "of the nature and cause of the accusation" against him; he cannot be made to guess at the charge he must answer. It guarantees the right "to be confronted with the witnesses against him," meaning the accused can see and cross-examine the people whose testimony is used to convict him, rather than being convicted on the strength of accusations he never gets to challenge face to face. And it guarantees "the Assistance of Counsel for his defence"; the right to a lawyer.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which Sixth Amendment guarantee?</div>
+        <div class="widget-question">Match each protection to the guarantee it describes.</div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. Confrontation means the accused can see and cross-examine the witnesses against him." data-hint="The accused is challenging the people who testify against him. Which guarantee covers that?">
+          <div class="widget-row-prompt">1. The accused may cross-examine the people whose testimony is used against him.</div>
+          <div class="widget-options">
+            <button data-choice="0">Speedy and public trial</button>
+            <button data-choice="1">Impartial jury</button>
+            <button data-choice="2">Notice of the accusation</button>
+            <button data-choice="3">Confronting witnesses</button>
+            <button data-choice="4">Assistance of counsel</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. A speedy and public trial keeps a person from languishing in jail or being tried in secret." data-hint="The problem is delay and secrecy. Which guarantee answers both?">
+          <div class="widget-row-prompt">2. A person cannot be left in jail indefinitely awaiting a hearing, or tried in secret.</div>
+          <div class="widget-options">
+            <button data-choice="0">Speedy and public trial</button>
+            <button data-choice="1">Impartial jury</button>
+            <button data-choice="2">Notice of the accusation</button>
+            <button data-choice="3">Confronting witnesses</button>
+            <button data-choice="4">Assistance of counsel</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="4" data-fb="Right. Counsel's presence can advise the suspect not to answer, intervene if questioning turns coercive, and later serve as a witness." data-hint="Someone is in the room to advise the suspect. Which guarantee provides that?">
+          <div class="widget-row-prompt">3. A frightened suspect has someone beside him who can advise him not to answer.</div>
+          <div class="widget-options">
+            <button data-choice="0">Speedy and public trial</button>
+            <button data-choice="1">Impartial jury</button>
+            <button data-choice="2">Notice of the accusation</button>
+            <button data-choice="3">Confronting witnesses</button>
+            <button data-choice="4">Assistance of counsel</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The accused must be told the nature and cause of the accusation so he does not have to guess at the charge." data-hint="The accused has to know what he is charged with. Which guarantee says that?">
+          <div class="widget-row-prompt">4. The accused must be told what he is charged with, so he does not have to guess.</div>
+          <div class="widget-options">
+            <button data-choice="0">Speedy and public trial</button>
+            <button data-choice="1">Impartial jury</button>
+            <button data-choice="2">Notice of the accusation</button>
+            <button data-choice="3">Confronting witnesses</button>
+            <button data-choice="4">Assistance of counsel</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Of these five, the right to counsel is the one that reaches backward, out of the courtroom, and into the police station; which is precisely why it matters so much to this module's discussion topic. The Sixth Amendment's text, read narrowly, promises counsel only "in all criminal prosecutions," language that could be understood to mean the right begins at trial, once the prosecution has formally started. But the Supreme Court, in the two years leading up to <em>Miranda</em>, had already begun to ask a harder question: if a suspect's fate can be effectively sealed by what happens to him <em>before</em> trial (specifically, by a confession extracted during police interrogation) does the right to counsel mean anything at all if it only switches on once the most damaging evidence has already been collected?</p>
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;"><em>Miranda</em> Revisited: Why Counsel Is the Safeguard That Does the Real Work</h2>
       <p>Return to Monday's reading. The Court's core diagnosis was that custodial interrogation is inherently coercive; not necessarily through violence, but through isolation, psychological pressure, and what the opinion calls the "compulsion inherent in custodial surroundings." Once the Court had reached that diagnosis, it needed a remedy strong enough to actually neutralize the pressure it had just described, and its reasoning is worth walking through carefully, because it explains why the four warnings work together rather than as a checklist of separate, interchangeable rights.</p>
 
       <p>Simply telling a suspect he has a right to remain silent, the Court reasoned, is not enough on its own. A frightened, isolated person, cut off from family and unfamiliar with legal procedure, can be talked out of that right within minutes by a skilled interrogator; the Court's opinion goes into considerable and unsettling detail about the psychological techniques contemporary police manuals recommended for exactly this purpose, from projecting absolute confidence in the suspect's guilt to alternating a hostile interrogator with a sympathetic one. A warning alone does not change the room the suspect is sitting in, or the fact that he is alone in it, facing trained professionals whose job is to get him to talk. What changes the room is a lawyer physically present in it. Counsel can advise the suspect not to answer; counsel can intervene if questioning turns coercive; counsel's very presence is a witness who can later testify in court if something did go wrong. This is why the Court held that a suspect must be told not only that he has a right to remain silent, but that he has "a right to the presence of an attorney" during the interrogation itself, and that if he cannot afford one, the state will provide one before questioning proceeds. The right to counsel, in other words, is the mechanism the Fifth Amendment's privilege against self-incrimination needs in order to actually function inside a police station rather than existing only on paper.</p>
+
+      <div class="optima-widget ow-reflect">
+        <div class="widget-kicker">&#9889; Check in</div>
+        <div class="widget-question">Imagine you are frightened and alone, questioned by trained professionals. What would you most want from a lawyer in the room? (No wrong answer.)</div>
+        <div class="widget-options">
+          <button data-response="That is the first thing the Court says counsel can do: advise a suspect not to answer.">Advice on whether to answer</button>
+          <button data-response="The Court notes this too. Counsel's presence is a witness who can later testify if something went wrong.">A witness to how I am treated</button>
+          <button data-response="Counsel can intervene if questioning turns coercive. That is part of why the Court treated counsel as the safeguard that does the real work.">Someone to speak up if the questioning turns coercive</button>
+          <button data-response="Fair enough. The Court's answer is that the warnings only work because counsel changes the room itself.">I am not sure yet</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
 
       <p>And because <em>Miranda</em> treats the coercive pressure of custodial interrogation itself (apart from any physical mistreatment) as the harm the Constitution addresses, the remedy had to apply automatically, before any specific abuse could be proven, rather than being litigated case by case after the fact. That is the reasoning behind the rule you read on Tuesday: warn first, or the statement cannot be used.</p>
 
@@ -284,6 +384,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
