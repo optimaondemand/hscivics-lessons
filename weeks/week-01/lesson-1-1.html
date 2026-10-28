@@ -193,6 +193,38 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -231,6 +263,18 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <p>It is 594 BC, and Athens stands at the edge of civil war. You are a free citizen, but not a wealthy one: your farm barely feeds your family, and last year's harvest fell short. Your neighbor holds the note on your debt, and if you cannot pay, the law allows him to seize you, your wife, and your children and force you to work his land until the debt is settled, or sell you outright. Thousands of farmers across the city face the same choice you do. The Aristocrats who hold every office of government want nothing to change. The poorest commoners want the land divided among them by force. Both sides have just agreed to hand the entire problem to one man, an archon named Solon, and given him the power to rewrite the city's constitution. No one yet knows what he will do with it.</p>
     </div>
 
+    <div class="optima-widget ow-reflect">
+      <div class="widget-kicker">&#9889; Quick check-in</div>
+      <div class="widget-question">Suppose both sides hand you the power to rewrite Athens's laws, and nothing can stop you from keeping that power as long as you like. What is your first instinct? (No wrong answer. Just check in with yourself.)</div>
+      <div class="widget-options">
+        <button data-response="The debts are where the pain is sharpest, so that is a natural place to start. Keep that instinct in mind when you reach the Seisachtheia.">&#128220; Fix the debts first</button>
+        <button data-response="Laws often fail in their first years, so the temptation to stay is real. Notice what this archon actually does when his work is finished.">&#128274; Stay in charge until the new laws take hold</button>
+        <button data-response="That is a hard thing to do once power is in your hands. You are about to meet an archon who faced exactly this choice.">&#128682; Write the rules, then step aside</button>
+      </div>
+      <div class="widget-feedback"></div>
+      <button class="widget-reset">Reset</button>
+    </div>
+
     <div class="oa-card lesson-prose">
       
     <div class="oa-glossary-box foreign-vocab"><div class="oa-kicker">Foreign Language Vocabulary</div><div class="gloss-entry"><span class="gloss-term">archon</span><span class="gloss-pron">AR-kon</span> <button class="gloss-speak" onclick="speakGloss(event,'archon, AR-kon')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">One of the chief magistrates who governed Athens; before Solon, the office was open only to the hereditary nobility.</span></div><div class="gloss-entry"><span class="gloss-term">Areopagus</span><span class="gloss-pron">air-ee-OP-uh-guss</span> <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The council of former archons that heard serious court cases and guarded the laws of Athens.</span></div><div class="gloss-entry"><span class="gloss-term">Boule</span><span class="gloss-pron">boo-LAY</span> <button class="gloss-speak" onclick="speakGloss(event,'Boule, boo-LAY')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Athenian Council (Four Hundred under Solon, later Five Hundred), which prepared business for the full Assembly to vote on.</span></div><div class="gloss-entry"><span class="gloss-term">Eupatridae</span><span class="gloss-pron">yoo-PA-trih-day</span> <button class="gloss-speak" onclick="speakGloss(event,'Eupatridae, yoo-PA-trih-day')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The hereditary noble families of early Athens, literally "the well-born," who alone could hold office before Solon's reforms.</span></div><div class="gloss-entry"><span class="gloss-term">hektemoroi</span><span class="gloss-pron">hek-teh-MOR-oy</span> <button class="gloss-speak" onclick="speakGloss(event,'hektemoroi, hek-teh-MOR-oy')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">A poor Athenian tenant farmer who owed a landlord a sixth of his harvest as rent, and could be seized as a bond servant if he fell short.</span></div><div class="gloss-entry"><span class="gloss-term">Heliaia</span><span class="gloss-pron">hell-ee-EYE-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'Heliaia, hell-ee-EYE-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The Athenian people's court Solon created, where any citizen, including the poorest Thetes, could sit on a jury and appeal a magistrate's ruling.</span></div><div class="gloss-entry"><span class="gloss-term">Pentakosiomedimnoi</span><span class="gloss-pron">pen-tah-koh-see-oh-meh-DIM-noy</span> <button class="gloss-speak" onclick="speakGloss(event,'Pentakosiomedimnoi, pen-tah-koh-see-oh-meh-DIM-noy')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The wealthiest of Solon's four Athenian property classes: those whose land produced at least 500 measures of grain, oil, or wine a year.</span></div><div class="gloss-entry"><span class="gloss-term">Seisachtheia</span><span class="gloss-pron">say-sock-THAY-uh</span> <button class="gloss-speak" onclick="speakGloss(event,'Seisachtheia, say-sock-THAY-uh')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Solon's "shaking off of burdens": the cancellation of Athenian debts and the ban on using a person's own body as loan collateral.</span></div><div class="gloss-entry"><span class="gloss-term">Thetes</span><span class="gloss-pron">THAY-teez</span> <button class="gloss-speak" onclick="speakGloss(event,'Thetes, THAY-teez')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">The poorest of Solon's four Athenian property classes, owning little or no land; barred from office but given a seat on the Heliaia.</span></div><div class="gloss-entry"><span class="gloss-term">zeugetai</span><span class="gloss-pron">zoy-GET-eye</span> <button class="gloss-speak" onclick="speakGloss(event,'zeugetai, zoy-GET-eye')" aria-label="Hear pronunciation">&#128266;</button><span class="gloss-def">Athenian yeoman farmers, "the yoke-men," who owned and worked a modest plot with their own hands; the third of Solon's four property classes.</span></div></div>
@@ -245,9 +289,69 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Solon did not give the poorest commoners what they wanted most (a redistribution of the land) nor the Aristocracy what it wanted most (no change at all). Instead he cancelled the existing debts outright (a measure the Athenians called the <em class="term" tabindex="0">Seisachtheia<span class="gloss-tip">Solon's "shaking off of burdens": the cancellation of Athenian debts and the ban on using a person's own body as loan collateral. <button class="gloss-speak" onclick="speakGloss(event,'Seisachtheia, say-sock-THAY-uh')" aria-label="Hear pronunciation">&#128266;</button></span></em>, the "shaking-off of burdens") and permanently outlawed the practice of using a person's own body as collateral for a loan. No Athenian could again be enslaved for debt. He went further still: where Athenians had already been sold into slavery abroad before his reforms took effect, the state tracked down a number of them, purchased their freedom at public expense, and brought them home. He then reorganized eligibility for office around a new principle: not birth, but a graduated scale of wealth. Athenians were divided into four property classes, from the <em class="term" tabindex="0">Pentakosiomedimnoi<span class="gloss-tip">The wealthiest of Solon's four Athenian property classes: those whose land produced at least 500 measures of grain, oil, or wine a year. <button class="gloss-speak" onclick="speakGloss(event,'Pentakosiomedimnoi, pen-tah-koh-see-oh-meh-DIM-noy')" aria-label="Hear pronunciation">&#128266;</button></span></em> (those whose land produced at least 500 measures of grain, oil, or wine a year) down to the <em class="term" tabindex="0">Thetes<span class="gloss-tip">The poorest of Solon's four Athenian property classes, owning little or no land; barred from office but given a seat on the Heliaia. <button class="gloss-speak" onclick="speakGloss(event,'Thetes, THAY-teez')" aria-label="Hear pronunciation">&#128266;</button></span></em>, the poorest, who owned little or no land at all. Between the two sat the <em class="term" tabindex="0">zeugetai<span class="gloss-tip">Athenian yeoman farmers, "the yoke-men," who owned and worked a modest plot with their own hands; the third of Solon's four property classes. <button class="gloss-speak" onclick="speakGloss(event,'zeugetai, zoy-GET-eye')" aria-label="Hear pronunciation">&#128266;</button></span></em>, the "yoke-men," Athens's middle class of yeoman farmers. The top three classes, no longer only the Eupatridae, could now hold office and sit in a new Council of Four Hundred (the <em class="term" tabindex="0">Boule<span class="gloss-tip">The Athenian Council (Four Hundred under Solon, later Five Hundred), which prepared business for the full Assembly to vote on. <button class="gloss-speak" onclick="speakGloss(event,'Boule, boo-LAY')" aria-label="Hear pronunciation">&#128266;</button></span></em>), which meant wealthy and middling commoners alike sat in a governing body for the first time in Athenian history. The Thetes still could not hold office. But Solon gave every citizen, including the Thetes, a seat on the new courts of the <em class="term" tabindex="0">Heliaia<span class="gloss-tip">The Athenian people's court Solon created, where any citizen, including the poorest Thetes, could sit on a jury and appeal a magistrate's ruling. <button class="gloss-speak" onclick="speakGloss(event,'Heliaia, hell-ee-EYE-uh')" aria-label="Hear pronunciation">&#128266;</button></span></em>, so that any citizen, however poor, could appeal a magistrate's ruling to a jury of his fellow citizens.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Whose burden?</div>
+        <div class="widget-question">Solon's reforms lifted different burdens from different people. Match each person to the reform that answers his problem.</div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The Seisachtheia, the shaking-off of burdens, ended debt-bondage for good." data-hint="His danger is being seized for what he owes. Which reform deals with the debt itself?">
+          <div class="widget-row-prompt">1. A tenant farmer has fallen behind on the sixth of his harvest that he owes, and fears the landlord will seize him and his family.</div>
+          <div class="widget-options">
+            <button data-choice="0">Offices opened by wealth, not birth</button>
+            <button data-choice="1">A seat on the Heliaia jury</button>
+            <button data-choice="2">Debts cancelled and the body banned as loan collateral</button>
+            <button data-choice="3">The Council of Four Hundred</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. Property classes replaced birth as the test for office, so his wealth finally counted." data-hint="He is neither poor nor in debt. His problem is that birth, not wealth, decides who may hold office.">
+          <div class="widget-row-prompt">2. A merchant of common birth has grown wealthy and wants a say in governing the city.</div>
+          <div class="widget-options">
+            <button data-choice="0">Offices opened by property class, not birth</button>
+            <button data-choice="1">Debts cancelled</button>
+            <button data-choice="2">Public purchase of freedom for Athenians sold abroad</button>
+            <button data-choice="3">The right to appeal to a jury</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. Even the poorest Thete could sit on the Heliaia and appeal a magistrate's ruling to a jury. Aristotle thought this the most consequential reform of all." data-hint="A Thete still could not hold office or sit on the Council. Which new body let him judge and appeal?">
+          <div class="widget-row-prompt">3. A landless laborer is treated unjustly by a magistrate and wants someone to hear his appeal.</div>
+          <div class="widget-options">
+            <button data-choice="0">Offices opened by property class</button>
+            <button data-choice="1">Debts cancelled</button>
+            <button data-choice="2">A seat on the Council of Four Hundred</button>
+            <button data-choice="3">The people's court, open to every citizen</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. Where Athenians had already been sold abroad, the state bought freedom for a number of them at public expense and brought them home." data-hint="He is already far from Athens. Which reform reached across the sea to get him back?">
+          <div class="widget-row-prompt">4. An Athenian was sold abroad as a slave for debt before the reforms took effect.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Council of Four Hundred</button>
+            <button data-choice="1">The state buying the freedom of some such Athenians and bringing them home</button>
+            <button data-choice="2">Offices opened by property class</button>
+            <button data-choice="3">A seat on the Heliaia jury</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Notice what Solon did not do. He did not make Athens a democracy in the sense we would use the word. Office-holding still depended on property, and the Eupatridae still dominated the archonship and the <em class="term" tabindex="0">Areopagus<span class="gloss-tip">The council of former archons that heard serious court cases and guarded the laws of Athens. <button class="gloss-speak" onclick="speakGloss(event,'Areopagus, air-ee-OP-uh-guss')" aria-label="Hear pronunciation">&#128266;</button></span></em> in practice, since only the wealthy could afford the unpaid burden of office. Every male citizen, whatever his class, had always been entitled to attend the Assembly; that ancient institution was never in dispute, before Solon or after him. What Solon actually gave the Thetes, for the first time, was a vote on the jury that judged their neighbors and their magistrates. Aristotle, writing a century and a half later, singled out that right of appeal to a jury of one's peers as the single most consequential of Solon's reforms, more consequential, he thought, even than cancelling the debts, because it planted the seed from which everything recognizably democratic in Athens later grew.</p>
 
       <p>When his work was done, Solon did something almost no one in his position ever does: he left. Athenian law let him rule as he liked for as long as he liked, and both the Aristocracy and the poorest commoners by turns tried to talk him into becoming their champion against the other. He refused both offers, left the city for ten years so that no one could pressure him to revise his own laws, and let Athens live under what he had written, unrevised by its author. He later wrote that he had "stood with my shield thrown round both sides alike, and let neither triumph unjustly over the other," a self-description modern historians have generally found more accurate than self-serving.</p>
+
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: Solon's Ladder</div>
+      <p>Four citizens, four property classes. Place each one on Solon's ladder, then flip between the city before Solon and the city after him to see which doors opened.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/solon-property-classes.html" title="Solon's Ladder: Which Doors Open?" style="width:100%; height:640px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/solon-property-classes.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+    </div>
+
+    <div class="oa-card lesson-prose">
 
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">A Question Older Than Athens, and Newer Than Yesterday</h2>
       <p>Every constitutional order has to answer a small set of recurring questions: Who rules, and what makes that rule legitimate? How is authority distributed among citizens and the communities they belong to? What makes people willingly obey the law and bring their disputes to the courts rather than settling them by force? This course will return to these questions in one form or another throughout the semester, through Rome, through Locke and Montesquieu, through Philadelphia in 1787, through the Federalist Papers, and eventually through the Bill of Rights and a string of Supreme Court cases that are still being argued about today.</p>
@@ -280,6 +384,64 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
