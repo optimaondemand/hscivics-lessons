@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -246,8 +282,77 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 
       <p>Notice the pattern running through nearly every one of these powers: the President acts, but rarely alone. Treaties require the Senate's two-thirds consent; appointments require the Senate's confirmation; command of the military does not include the power to declare the war it might be called to fight. This is not incidental. It is the same logic of divided, checked authority that shaped Article I, applied now to the executive.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which clause?</div>
+        <div class="widget-question">Each description fits one Article II power or duty. Pick the one it describes.</div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The President negotiates and signs, but two-thirds of the Senators present must concur." data-hint="One part of the description sets a vote threshold. Which power does the Senate check with a two-thirds vote?">
+          <div class="widget-row-prompt">1. The President negotiates with other nations, but a two-thirds vote of Senators present is needed.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Take Care Clause</button>
+            <button data-choice="1">Commander-in-chief</button>
+            <button data-choice="2">The treaty power</button>
+            <button data-choice="3">The appointment power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The President's task is to see that the law, once written, is carried out faithfully, not rewritten to suit the President." data-hint="Which clause states the difference between writing the law and carrying it out?">
+          <div class="widget-row-prompt">2. Congress writes the law; the President must see that it is faithfully executed.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Take Care Clause</button>
+            <button data-choice="1">Commander-in-chief</button>
+            <button data-choice="2">The treaty power</button>
+            <button data-choice="3">The appointment power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="3" data-fb="Right. Ambassadors and federal judges are named by the President, with Senate confirmation, usually by simple majority." data-hint="This power fills offices. It also needs the Senate's advice and consent, though by a lower threshold than treaties.">
+          <div class="widget-row-prompt">3. The President names federal judges and ambassadors, and the Senate confirms them.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Take Care Clause</button>
+            <button data-choice="1">Commander-in-chief</button>
+            <button data-choice="2">The treaty power</button>
+            <button data-choice="3">The appointment power</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. The President heads the armed forces, though only Congress may formally declare war." data-hint="Which title names the President's role at the head of the Army and Navy?">
+          <div class="widget-row-prompt">4. The President leads the armed forces, but cannot declare the war they might fight.</div>
+          <div class="widget-options">
+            <button data-choice="0">The Take Care Clause</button>
+            <button data-choice="1">Commander-in-chief</button>
+            <button data-choice="2">The treaty power</button>
+            <button data-choice="3">The appointment power</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">Four Amendments That Later Reshaped the Office</h2>
       <p>Article II as ratified in 1788 has since been modified by four amendments, each worth knowing by name and function, even though this lesson will not examine any of them in depth. The <strong class="term-entity" tabindex="0">Twelfth Amendment<span class="gloss-tip">The 1804 amendment that rewrote Electoral College procedure so electors cast separate ballots for President and Vice President, after the tied election of 1800.</span></strong> (1804) rewrote the Electoral College's voting procedure after the election of 1800 produced a tie-breaking crisis, requiring electors to cast separate ballots for President and Vice President rather than one ballot for each. The <strong class="term-entity" tabindex="0">Twentieth Amendment<span class="gloss-tip">The 1933 amendment that moved the presidential inauguration date from March 4 to January 20.</span></strong> (1933) moved the presidential inauguration date from March 4 to January 20, shortening the "lame duck" period between a November election and the new administration taking office. The <strong class="term-entity" tabindex="0">Twenty-Second Amendment<span class="gloss-tip">The 1951 amendment formally limiting a President to two elected terms, after Franklin Roosevelt broke the two-term tradition every prior President had followed voluntarily.</span></strong> (1951) formally limited a President to two elected terms, codifying a two-term norm that every President from Washington through Franklin Roosevelt had followed voluntarily, until Roosevelt broke it by winning a third and fourth term. The <strong class="term-entity" tabindex="0">Twenty-Fifth Amendment<span class="gloss-tip">The 1967 amendment clarifying presidential succession and the procedures for handling presidential disability.</span></strong> (1967) clarified presidential succession and disability, establishing clear procedures for what happens if a President dies, resigns, or becomes unable to discharge the office's duties. Each amendment answers a specific historical problem Article II's original text had left unresolved; you are not responsible for their details yet, only for recognizing that the executive branch's constitutional structure did not freeze in 1788.</p>
+
+      <div class="optima-widget ow-seq" data-done="In order. The Twelfth (1804) fixed the ballots, the Twentieth (1933) moved Inauguration Day, the Twenty-Second (1951) set the two-term limit, and the Twenty-Fifth (1967) covered succession and disability.">
+        <div class="widget-kicker">&#9889; Put it in order &middot; Four amendments</div>
+        <div class="widget-question">Tap these changes in the order they were adopted, earliest first.</div>
+        <div class="widget-options ow-seq-items">
+          <button data-pos="3" data-hint="Not yet. Check the dates in the lesson: an earlier change comes before this one.">A President is limited to two elected terms.</button>
+          <button data-pos="1" data-hint="Not yet. Check the dates in the lesson.">Electors cast separate ballots for President and Vice President.</button>
+          <button data-pos="4" data-hint="Not yet. Check the dates in the lesson: this is the most recent of the four.">Clear procedures are set for succession and disability.</button>
+          <button data-pos="2" data-hint="Not yet. Check the dates in the lesson: one change comes before this one.">Inauguration Day moves from March 4 to January 20.</button>
+        </div>
+        <div class="widget-feedback"></div>
+        <button class="widget-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="oa-callout-widget" style="background:#fff; border:1px solid #D0D9E8; border-left:5px solid #0E1C42; border-radius:6px; padding:14px 16px; font-style:normal;">
+      <div class="oa-kicker" style="color:#0E1C42;">Interactive: The Executive Powers Board</div>
+      <p>Eight powers and changes are waiting to be sorted. Place each one by who holds it under Article II, or by the amendment that changed the office.</p>
+      <div style="position:relative; width:100%; max-width:900px; margin:10px auto 4px;">
+        <iframe src="../../widgets/executive-powers-board.html" title="The Executive Powers Board" style="width:100%; height:760px; border:1px solid #D0D9E8; border-radius:8px;" loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px; color:#6b7a99; margin-top:6px;">If the activity above does not load, <a href="../../widgets/executive-powers-board.html" target="_blank" rel="noopener">open it in a new tab</a>.</p>
     </div>
 
     <div class="oa-card">
@@ -275,6 +380,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
