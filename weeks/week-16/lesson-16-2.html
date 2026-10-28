@@ -193,6 +193,42 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
 .oa-reveal summary::marker { color: #C7922C; }
 .oa-reveal .reveal-body { font-size: 14px; color: #1a2340; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F8; }
 
+/* In-page widget palette (optima-lesson-format references/widgets.md). Emitted once per lesson
+   page that contains .optima-widget. Do not hand-edit generated pages; edit this file. */
+.optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-style: normal; }
+.widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+.widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+.widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+.widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+.widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+.widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+.widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+.widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+.widget-feedback.show { display: block; }
+.row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+.row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+.row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+.widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+.widget-reset:hover { background: #FDF3E3; }
+.ow-scale .widget-options { justify-content: space-between; }
+.ow-scale .widget-options button { flex: 1; text-align: center; }
+.ow-seq-items { flex-direction: column; }
+.ow-seq-items button { text-align: left; width: 100%; line-height: 1.45; }
+.seq-badge { display: inline-block; background: #0E1C42; color: #FFFFFF; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-size: 12px; margin-right: 8px; }
+.widget-feedback.bad { border-left-color: #C0392B; }
+.ow-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.ow-card-wrap { flex: 1 1 200px; min-width: 180px; }
+.ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; cursor: pointer; text-align: center; min-height: 84px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.ow-flip:hover, .ow-flip:focus { border-color: #55C8E8; outline: none; }
+.ow-flip .ow-flip-back { display: none; color: #1a2340; }
+.ow-flip.flipped .ow-flip-front { display: none; }
+.ow-flip.flipped .ow-flip-back { display: block; }
+.ow-flip-hint { font-size: 11px; color: #6b7a99; margin-top: 6px; }
+.ow-flip.flipped .ow-flip-hint { display: none; }
+
 </style>
 </head>
 <body>
@@ -240,6 +276,49 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
       <h2 class="sub-head" style="font-size:17px; margin-top:20px;">The Throughline</h2>
       <p>Lay the three drafts side by side and ask what actually determined whether citizens experienced conscription as a legitimate duty or an imposed burden. It was not simply whether people wanted to fight. It was, in every case, some combination of two factors: how <em>equally</em> the burden was distributed across rich and poor, and how clearly and urgently citizens perceived the threat the draft was meant to answer. The 1863 draft failed on the first factor. The Vietnam draft struggled on both. The WWII draft, powerfully aided by an attack the whole nation had just witnessed, largely succeeded on both. Keep that framework in mind; equality of burden, clarity of threat; whenever you are asked, in this course or outside it, to judge whether a government is asking something reasonable of its citizens or something else.</p>
 
+      <div class="optima-widget ow-select">
+        <div class="widget-kicker">&#9889; Try it &middot; Which draft?</div>
+        <div class="widget-question">Match each feature to the draft it belongs to.</div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. The 1969 lottery assigned induction order by randomly drawn birth dates, to correct the perception that deferments favored the well-connected." data-hint="Think of the draft that tried to fix the inequity of deferments with a random drawing.">
+          <div class="widget-row-prompt">1. Induction order is set by randomly drawn birth dates.</div>
+          <div class="widget-options">
+            <button data-choice="0">The 1863 draft</button>
+            <button data-choice="1">The World War II draft</button>
+            <button data-choice="2">The Vietnam draft</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="1" data-fb="Right. The Selective Training and Service Act of 1940 was the first peacetime draft in U.S. history, passed over a year before Pearl Harbor." data-hint="Look for the draft that began before the United States entered the war.">
+          <div class="widget-row-prompt">2. Congress passes it in September 1940, over a year before Pearl Harbor.</div>
+          <div class="widget-options">
+            <button data-choice="0">The 1863 draft</button>
+            <button data-choice="1">The World War II draft</button>
+            <button data-choice="2">The Vietnam draft</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="0" data-fb="Right. The $300 commutation fee let men of means escape the draft, so the burden fell on the poor." data-hint="Which draft let a man pay his way out?">
+          <div class="widget-row-prompt">3. A drafted man can pay $300 to be excused from that call.</div>
+          <div class="widget-options">
+            <button data-choice="0">The 1863 draft</button>
+            <button data-choice="1">The World War II draft</button>
+            <button data-choice="2">The Vietnam draft</button>
+          </div>
+        </div>
+
+        <div class="widget-row" data-correct="2" data-fb="Right. Draft cards were burned and campuses erupted as the draft fed a war whose purpose many citizens doubted." data-hint="Which war had no single galvanizing event like Pearl Harbor behind it?">
+          <div class="widget-row-prompt">4. Young men publicly burn draft cards while campuses erupt in protest.</div>
+          <div class="widget-options">
+            <button data-choice="0">The 1863 draft</button>
+            <button data-choice="1">The World War II draft</button>
+            <button data-choice="2">The Vietnam draft</button>
+          </div>
+        </div>
+
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <div class="oa-callout-help">
         <div class="oa-kicker" style="color:#1B6A94;">&#128161; REQUIRED: How Politics and Media Shaped the Draft</div>
         <p>Conscription was never argued about in a vacuum. In every era, political parties, interest groups, and the media actively shaped whether citizens experienced the draft as legitimate.</p>
@@ -267,6 +346,15 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
         <tr><td>65 and older</td><td>~70%</td></tr>
       </table>
 
+      <div class="optima-widget">
+        <div class="widget-kicker">&#9889; Attempt first &middot; Reading the numbers</div>
+        <details class="oa-reveal">
+          <summary>In your notebook, write one reason turnout might rise with age, and what it would mean for a republic if one age group came to dominate elections. Then click to check.</summary>
+          <div class="reveal-body">Several explanations compete. Older citizens have had more time to establish residency, build the habit of voting across repeated elections, and develop a stake in policies that visibly affect them, such as Social Security, property taxes, and local school boards. Younger citizens move more often, which complicates registration, and may not yet see as direct a stake in the outcome. If one age group dominated elections while others stayed home, the choices the republic made would reflect that group's interests, and the groups left out would have little say.</div>
+        </details>
+        <button class="widget-reset">Reset</button>
+      </div>
+
       <p>Students will interpret this table and discuss what it suggests about civic participation. Notice the direction of the trend: turnout tends to rise with age. Political scientists offer several explanations worth weighing against each other; older citizens have generally had more time to establish residency, build the habit of voting across repeated elections, and develop a stake in policies (Social Security, property taxes, local school boards) that visibly affect them, while younger citizens move more often, which complicates registration, and may not yet perceive as direct a stake in the outcome. Whatever the explanation, an age gap this size in a duty this basic to citizencraft is worth taking seriously, in the same way this lesson has asked you to take seriously why some civic duties are experienced as legitimate and others are not.</p>
     </div>
 
@@ -288,7 +376,7 @@ h2.sub-head { color: #0E1C42; margin-top: 26px; }
   <div class="oa-footer"><div class="l1">Optima Academy Online &middot; HS CIVICS: U.S. GOVERNMENT HONORS &middot; Quarter 2 &middot; Student Lesson Page</div><div class="l2">Lesson 9.6 &middot; The Three Drafts: Civil War, WWII, and Vietnam</div></div>
 
 
-  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>VR Activity 16: Civic Duty in Wartime: Beginning Your Government Systems Portfolio is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
+  <div class="oa-card navy-top"><div class="oa-kicker">&#10145;&#65039; Next: This Lesson's Assessment</div><p>Civic Duty in Wartime: Beginning Your Government Systems Portfolio is assigned in this module in Canvas. If it is not yet visible to you, your teacher has not published it yet; check back or ask your teacher.</p></div>
 
 <script>
 function speakGloss(e, text) {
@@ -299,6 +387,89 @@ function speakGloss(e, text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+</script>
+<script>
+(function () {
+  // One delegated listener drives every in-page widget engine on the page.
+  function clearScope(w) {
+    w.querySelectorAll('.widget-options button').forEach(function (b) {
+      b.classList.remove('selected', 'correct', 'incorrect');
+    });
+    w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+    w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+    w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+    w.querySelectorAll('details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    w.querySelectorAll('.seq-badge').forEach(function (s) { s.remove(); });
+    w.querySelectorAll('.widget-options button.seq-done').forEach(function (b) { b.classList.remove('seq-done'); });
+    w.querySelectorAll('.widget-feedback.bad').forEach(function (f) { f.classList.remove('bad'); });
+  }
+  document.addEventListener('click', function (e) {
+    // Reset: a flip card wrapper resets only itself; otherwise the whole widget.
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      clearScope(reset.closest('.ow-card-wrap') || reset.closest('.optima-widget'));
+      return;
+    }
+    // Reflective check-in: no right answer, show this option's response.
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    // Single-select rows and scale: data-choice against the row's data-correct.
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right
+        ? (sBtn.dataset.fb || row.dataset.fb || 'Right.')
+        : (sBtn.dataset.fb || row.dataset.hint || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    // Sequence: click the items in order; data-pos is each item's true place (1 to n).
+    var qBtn = e.target.closest('.ow-seq .ow-seq-items button');
+    if (qBtn) {
+      if (qBtn.classList.contains('seq-done')) return;
+      var qw = qBtn.closest('.optima-widget');
+      var items = qw.querySelectorAll('.ow-seq-items button');
+      var next = qw.querySelectorAll('.ow-seq-items button.seq-done').length + 1;
+      var qf = qw.querySelector('.widget-feedback');
+      if (Number(qBtn.dataset.pos) === next) {
+        qBtn.classList.add('seq-done', 'correct');
+        qBtn.insertAdjacentHTML('afterbegin', '<span class="seq-badge">' + next + '</span>');
+        qf.classList.remove('bad');
+        qf.textContent = next === items.length ? (qw.dataset.done || 'All in order.') : (qBtn.dataset.fb || 'Right. What comes next?');
+      } else {
+        qBtn.classList.add('incorrect');
+        setTimeout(function () { qBtn.classList.remove('incorrect'); }, 700);
+        qf.classList.add('bad');
+        qf.textContent = qBtn.dataset.hint || 'Not quite. Try again.';
+      }
+      qf.classList.add('show');
+      return;
+    }
+    // Flip card.
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('ow-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('flipped');
+    }
+  });
+})();
 </script>
 </body>
 </html>
