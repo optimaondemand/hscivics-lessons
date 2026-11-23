@@ -1210,8 +1210,9 @@ window.widgets = () => {
     $('#tryit').innerHTML = X.tryit.map((r, i) => {
       const a = st[i], ok = a != null && String(a) === r.correct;
       return `<div class="srow" data-r="${i}"><p>${r.prompt}</p><div class="opts">${r.options.map((o, k) => `<button class="opt ${a === k ? (ok ? 'right' : 'wrong') : ''}" data-k="${k}">${o}</button>`).join('')}</div><div class="fbline ${a == null ? '' : ok ? 'ok' : 'no'}">${a == null ? '' : ok ? r.fb : 'Not quite. ' + r.hint}</div></div>`;
-    }).join('');
+    }).join('') + '<div class="wrow"><button class="btn ghost small" id="tryReset">Reset</button></div>';
     $$('#tryit .srow').forEach(el => $$('.opt', el).forEach(b => b.onclick = () => { st[+el.dataset.r] = +b.dataset.k; store.set('tryit', st); drawTry(); }));
+    $('#tryReset').onclick = () => { Object.keys(st).forEach(k => delete st[k]); store.set('tryit', st); drawTry(); };
   }
   drawTry();
 };
